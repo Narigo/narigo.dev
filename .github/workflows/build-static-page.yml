@@ -1,0 +1,29 @@
+name: Deploy a new version
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3.0.2
+      - name: Install dependencies 📦
+        run: |
+          corepack enable
+          pnpm install
+      - name: Build 🛠
+        run: |
+          pnpm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: build/
