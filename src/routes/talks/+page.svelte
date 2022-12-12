@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import PageLayout from '$lib/common/PageLayout.svelte';
+	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PageLayout from '$lib/common/PageLayout.svelte';
+	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
