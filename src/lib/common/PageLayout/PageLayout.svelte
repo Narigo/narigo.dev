@@ -1,14 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import Navigation from '../Navigation.svelte';
 </script>
 
 <div class="page">
 	<header>
-		<nav>
-			<li><a href="{base}/">Home</a></li>
-			<li><a href="{base}/talks">Talks</a></li>
-			<li><a href="{base}/contact">Contact</a></li>
-		</nav>
+		<div class="nav">
+			<Navigation />
+		</div>
 	</header>
 	<main>
 		<slot />
@@ -28,5 +27,11 @@
 		flex-direction: column;
 		min-height: 100%;
 		min-width: 100%;
+	}
+
+	.nav {
+		margin: 0 auto;
+		max-width: 70em;
+		padding: 1em;
 	}
 </style>
