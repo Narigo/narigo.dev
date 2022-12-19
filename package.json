@@ -16,6 +16,9 @@
 		"reveal.js": "^4.4.0"
 	},
 	"devDependencies": {
+		"@fontsource/annie-use-your-telescope": "^4.5.9",
+		"@fontsource/gochi-hand": "^4.5.10",
+		"@fontsource/permanent-marker": "^4.5.7",
 		"@sveltejs/adapter-static": "^1.0.0",
 		"@sveltejs/kit": "^1.0.1",
 		"@types/reveal.js": "^4.3.0",
