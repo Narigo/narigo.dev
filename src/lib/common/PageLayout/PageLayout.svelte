@@ -16,14 +16,16 @@
 	</main>
 	<footer>
 		<div class="content">
-			<a href="{base}/imprint">ℹ️ Impressum</a>
+			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
+			<div>&copy; Jörn Bernhardt</div>
+			<div>Statically hosted on GitHub Pages.</div>
 		</div>
 	</footer>
 </div>
 
 <style>
 	.page {
-		--max-page-width: 54em;
+		--max-page-width: 38rem;
 
 		display: flex;
 		background: url('./bg.svg') no-repeat;
@@ -54,8 +56,14 @@
 		position: absolute;
 		content: '';
 		box-shadow: 0 0 200px #0002;
+		z-index: -1;
 	}
-
+	footer .content {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 2em;
+		justify-content: space-between;
+	}
 	footer a {
 		text-decoration: none;
 	}

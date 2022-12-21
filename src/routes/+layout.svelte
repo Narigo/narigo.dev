@@ -18,7 +18,7 @@
 
 	:global(h1, h2, h3, h4, h5, h6) {
 		background: rgba(0, 128, 0, 0.8);
-		box-shadow: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.7);
+		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
 		clear: both;
 		color: #fff;
 		display: flex;
@@ -28,55 +28,15 @@
 		margin: 0 0.5em 0.5em 0;
 		max-width: max-content;
 	}
-
-	:global(p) {
+	:global(a[rel~='external']::after) {
 		position: relative;
-		background: linear-gradient(to bottom, #fff, #eeeeee);
-		border-radius: 0.5rem;
-		border: 2px solid #000;
-		padding: 0.5em;
-		font-size: 1em;
-		line-height: 2em;
-	}
-	:global(p):nth-child(odd) {
-		margin-left: 2em;
-	}
-	:global(p):nth-child(even) {
-		margin-right: 2em;
-	}
-	:global(p)::before {
-		position: absolute;
-		box-sizing: border-box;
-		width: 0.8em;
-		height: 0.8em;
 		content: '';
-		border: 2px solid #000;
-		background: #fff;
-		border-color: #000 #000 transparent transparent;
-		overflow: hidden;
-		z-index: 0;
+		display: inline-flex;
+		background: url('data:image/svg+xml,<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><text x="0" y="0" alignment-baseline="hanging" font-size="128">🛫</text></svg>')
+			no-repeat;
+		margin-left: 0.1em;
+		vertical-align: middle;
+		height: 1em;
+		width: 1em;
 	}
-	:global(p):nth-child(odd)::before {
-		transform: rotate(225deg);
-		bottom: 1em;
-		left: -0.4em;
-	}
-	:global(p):nth-child(even)::before {
-		transform: rotate(45deg);
-		bottom: 1em;
-		right: -0.4em;
-	}
-	:global(p)::after {
-		position: absolute;
-		content: '🗣️';
-		bottom: 0.2em;
-	}
-	:global(p):nth-child(odd)::after {
-		left: -2em;
-	}
-	:global(p):nth-child(even)::after {
-		right: -2em;
-		transform: scaleX(-1);
-	}
-
 </style>

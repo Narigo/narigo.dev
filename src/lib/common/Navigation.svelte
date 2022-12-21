@@ -14,6 +14,7 @@
 		display: flex;
 		flex-flow: row wrap;
 		font-family: var(--font-family-headline);
+		gap: 0 0.5em;
 		justify-content: space-between;
 		max-width: var(--max-page-width);
 	}
@@ -22,7 +23,7 @@
 	}
 	a {
 		background: rgba(0, 128, 0, 0.8);
-		box-shadow: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.7);
+		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
 		color: #fff;
 		display: inline-flex;
 		padding: 0.5em 1em;
