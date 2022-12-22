@@ -1,19 +1,48 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	export let side: 'left' | 'right' = 'left';
+
+	let randomAngle = Math.random() * 1.5 - 1.5 / 2;
+	let randomTranslate = Math.random() * 5 - 5 / 2;
+
+	let open = true;
+
+	const toggleTalking = () => {
+		open = !open;
+		if (open) {
+			randomAngle = Math.random() * 1.5 - 1.5 / 2;
+			randomTranslate = Math.random() * 5 - 5 / 2;
+		}
+	};
 </script>
 
 <div
+	class="wrap"
+	class:shutup={!open}
 	class:left={side === 'left'}
 	class:right={side === 'right'}
-	in:fade={{ duration: 2000 }}
+	style="--angle: {randomAngle}deg; --x: {randomTranslate}px;"
 >
-	<slot />
+	{#if open}
+		<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
+			<div class="content">
+				<slot />
+			</div>
+		</div>
+	{/if}
+	<div class="avatar" on:click={toggleTalking} on:keypress={toggleTalking}>
+		{#if open}🗣️{:else}🤐{/if}
+	</div>
 </div>
 
 <style>
-	div {
+	.wrap {
+		position: relative;
+		min-height: 3em;
+		transform: rotate(var(--angle));
+	}
+	.bubble {
 		position: relative;
 		background: #fff;
 		border-radius: 0.5rem;
@@ -21,26 +50,30 @@
 		font-size: 1em;
 		line-height: 2em;
 		margin: 0.5em auto;
-		padding: 0.5em;
 		max-width: max-content;
+		padding: 0.5em;
+		transform: translateX(var(--x));
 	}
-	div :global(:first-child) {
+	.content {
+		/* transform: translateX(calc(var(--x) * -1)) rotate(calc(var(--angle) * -1)); */
+	}
+	.content :global(:first-child) {
 		margin-top: 0;
 	}
-	div :global(:last-child) {
+	.content :global(:last-child) {
 		margin-bottom: 0;
 	}
-	div.left {
+	.left .bubble {
 		margin-left: 2em;
 	}
-	div.right {
+	.right .bubble {
 		margin-right: 2em;
 	}
-	div::before {
+	.bubble::before {
 		position: absolute;
 		box-sizing: border-box;
-		width: calc(1em - 1px);
-		height: calc(1em - 1px);
+		width: 1em;
+		height: 1em;
 		content: '';
 		border-top: 2px solid #000;
 		border-right: 2px solid #000;
@@ -50,26 +83,25 @@
 		overflow: hidden;
 		z-index: 0;
 	}
-	div.left::before {
+	.left .bubble::before {
 		transform: rotate(225deg);
 		bottom: 0.8em;
 		left: -0.5em;
 	}
-	div.right::before {
+	.right .bubble::before {
 		transform: scaleX(-1) rotate(225deg);
 		bottom: 0.8em;
 		right: -0.5em;
 	}
-	div::after {
+	.avatar {
 		position: absolute;
-		content: '🗣️';
-		bottom: 0.2em;
+		bottom: 0.8em;
 	}
-	div.left::after {
-		left: -2em;
+	.left .avatar {
+		left: 0;
 	}
-	div.right::after {
-		right: -2em;
+	.right .avatar {
+		right: 0;
 		transform: scaleX(-1);
 	}
 </style>
