@@ -3,28 +3,30 @@
 
 	export let side: 'left' | 'right' = 'left';
 
-	let randomAngle = Math.random() * 1.5 - 1.5 / 2;
-	let randomTranslate = Math.random() * 5 - 5 / 2;
+	let angle = Math.random() * 1.5 - 1.5 / 2;
+	let translateX = Math.random() * 5 - 5 / 2;
 
-	let open = true;
+	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
+	let mode = 0;
 
 	const toggleTalking = () => {
-		open = !open;
-		if (open) {
-			randomAngle = Math.random() * 1.5 - 1.5 / 2;
-			randomTranslate = Math.random() * 5 - 5 / 2;
+		mode = (mode + 1) % modes.length;
+		if (modes[mode] === 'talk') {
+			angle = Math.random() * 1.5 - 1.5 / 2;
+			translateX = Math.random() * 5 - 5 / 2;
 		}
 	};
 </script>
 
 <div
 	class="wrap"
-	class:shutup={!open}
+	class:shutup={modes[mode] === 'shutup'}
+	class:shakeit={modes[mode] === 'shout'}
 	class:left={side === 'left'}
 	class:right={side === 'right'}
-	style="--angle: {randomAngle}deg; --x: {randomTranslate}px;"
+	style="--angle: {angle}deg; --x: {translateX}px;"
 >
-	{#if open}
+	{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
 		<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
 			<div class="content">
 				<slot />
@@ -32,7 +34,7 @@
 		</div>
 	{/if}
 	<div class="avatar" on:click={toggleTalking} on:keypress={toggleTalking}>
-		{#if open}🗣️{:else}🤐{/if}
+		{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 	</div>
 </div>
 
@@ -103,5 +105,33 @@
 	.right .avatar {
 		right: 0;
 		transform: scaleX(-1);
+	}
+	.shakeit {
+		animation-name: shake;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-duration: 100ms;
+		text-transform: uppercase;
+	}
+
+	@keyframes shake {
+		0% {
+			transform: translate(-2px, -1px);
+		}
+		20% {
+			transform: translate(1px, 2px);
+		}
+		40% {
+			transform: translate(2px, 1px);
+		}
+		60% {
+			transform: translate(-1px, -1px);
+		}
+		80% {
+			transform: translate(1px, 2px);
+		}
+		100% {
+			transform: translate(-2px, -1px);
+		}
 	}
 </style>
