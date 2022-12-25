@@ -56,9 +56,6 @@
 		padding: 0.5em;
 		transform: translateX(var(--x));
 	}
-	.content {
-		/* transform: translateX(calc(var(--x) * -1)) rotate(calc(var(--angle) * -1)); */
-	}
 	.content :global(:first-child) {
 		margin-top: 0;
 	}
@@ -79,7 +76,6 @@
 		content: '';
 		border-top: 2px solid #000;
 		border-right: 2px solid #000;
-		/* background: linear-gradient(0.125turn, transparent 0 calc(50% - 2px), #fff calc(50% - 2px) 100%); */
 		clip-path: polygon(0 0, 100% 0, 100% calc(100% + 1px), -1px 0);
 		background: #fff;
 		overflow: hidden;
