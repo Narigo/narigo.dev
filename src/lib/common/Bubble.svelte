@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import Shaker from './Shaker.svelte';
 
 	export let side: 'left' | 'right' = 'left';
 
@@ -18,25 +19,26 @@
 	};
 </script>
 
-<div
-	class="wrap"
-	class:shutup={modes[mode] === 'shutup'}
-	class:shakeit={modes[mode] === 'shout'}
-	class:left={side === 'left'}
-	class:right={side === 'right'}
-	style="--angle: {angle}deg; --x: {translateX}px;"
->
-	{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
-		<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
-			<div class="content">
-				<slot />
+<Shaker shake={modes[mode] === 'shout'}>
+	<div
+		class="wrap"
+		class:shutup={modes[mode] === 'shutup'}
+		class:left={side === 'left'}
+		class:right={side === 'right'}
+		style="--angle: {angle}deg; --x: {translateX}px;"
+	>
+		{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
+			<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
+				<div class="content">
+					<slot />
+				</div>
 			</div>
+		{/if}
+		<div class="avatar" on:click={toggleTalking} on:keypress={toggleTalking}>
+			{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 		</div>
-	{/if}
-	<div class="avatar" on:click={toggleTalking} on:keypress={toggleTalking}>
-		{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 	</div>
-</div>
+</Shaker>
 
 <style>
 	.wrap {
@@ -101,33 +103,5 @@
 	.right .avatar {
 		right: 0;
 		transform: scaleX(-1);
-	}
-	.shakeit {
-		animation-name: shake;
-		animation-iteration-count: infinite;
-		animation-direction: alternate;
-		animation-duration: 100ms;
-		text-transform: uppercase;
-	}
-
-	@keyframes shake {
-		0% {
-			transform: translate(-2px, -1px);
-		}
-		20% {
-			transform: translate(1px, 2px);
-		}
-		40% {
-			transform: translate(2px, 1px);
-		}
-		60% {
-			transform: translate(-1px, -1px);
-		}
-		80% {
-			transform: translate(1px, 2px);
-		}
-		100% {
-			transform: translate(-2px, -1px);
-		}
 	}
 </style>
