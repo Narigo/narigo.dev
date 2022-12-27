@@ -34,9 +34,9 @@
 				</div>
 			</div>
 		{/if}
-		<div class="avatar" on:click={toggleTalking} on:keypress={toggleTalking}>
+		<button class="avatar" on:click|preventDefault={toggleTalking}>
 			{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
-		</div>
+		</button>
 	</div>
 </Shaker>
 
@@ -95,7 +95,11 @@
 	}
 	.avatar {
 		position: absolute;
+		background: transparent;
+		border: none;
 		bottom: 0.8em;
+		cursor: pointer;
+		font-size: 1em;
 	}
 	.left .avatar {
 		left: 0;
