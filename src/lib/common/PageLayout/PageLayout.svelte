@@ -34,7 +34,7 @@
 		flex: 1;
 		flex-direction: column;
 		font-family: var(--font-family-primary);
-		letter-spacing: 0.25px;
+		letter-spacing: 0.5px;
 		min-height: 100%;
 		min-width: 100%;
 	}
