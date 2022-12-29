@@ -39,5 +39,9 @@
 		<Bubble>
 			<p>I needed a space where I can put slides for talks online.</p>
 		</Bubble>
+		<h3>Where is the easter egg I've been promised? 🤔</h3>
+		<Bubble>
+			<p>Try the <code>Tab</code> key or clicking the buttons.</p>
+		</Bubble>
 	</section>
 </PageLayout>
