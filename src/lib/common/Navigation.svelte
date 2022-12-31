@@ -5,6 +5,7 @@
 <nav>
 	<li><a href="{base}/">🏠 Home</a></li>
 	<li><a href="{base}/talks">🗣️ Talks</a></li>
+	<li><a href="{base}/specials">🤪 Specials</a></li>
 	<li><a href="{base}/contact">🧑‍💼 Contact</a></li>
 </nav>
 

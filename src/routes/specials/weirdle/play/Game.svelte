@@ -1,0 +1,96 @@
+<script lang="ts">
+	import { writable } from 'svelte/store';
+	import type { FiveLetterWord, GameState, Letter, LetterInfo } from './gameTypes';
+
+	export let word: `${Letter}${Letter}${Letter}${Letter}${Letter}`;
+
+	let solution: FiveLetterWord = word.split('');
+	let gameState = writable<GameState>('playing');
+	let guesses = writable<LetterInfo[][]>([]);
+	let nextGuess = writable('');
+
+	function guess() {
+		const currentGuess = ($nextGuess.split('') as FiveLetterWord).reduce<LetterInfo[]>(
+			(acc, letter, index) => {
+				const isLetterAtPosition = solution[index] === letter;
+				const amountOfThisLetter = acc.filter((info) => info.letter === letter).length + 1;
+				const hasThisAmountOfLetters =
+					amountOfThisLetter <= solution.filter((l) => l === letter).length;
+				const letterInfo: LetterInfo = {
+					letter,
+					correctnessInGuess: isLetterAtPosition
+						? 'green'
+						: hasThisAmountOfLetters
+						? 'yellow'
+						: 'black'
+				};
+				return [...acc, letterInfo];
+			},
+			[]
+		);
+		$guesses = [...$guesses, currentGuess];
+		$nextGuess = '';
+		if (currentGuess.every(({ correctnessInGuess }) => correctnessInGuess === 'green')) {
+			$gameState = 'won';
+		} else if ($guesses.length === 6) {
+			$gameState = 'lost';
+		}
+	}
+</script>
+
+<div class="board">
+	{#each $guesses as guess}
+		<div class="guess">
+			{#each guess as data}
+				<span class="letter {data.correctnessInGuess}">{data.letter}</span>
+			{/each}
+		</div>
+	{/each}
+</div>
+{#if $guesses.length < 6 && $gameState === 'playing'}
+	<p>Guess more:</p>
+	<input bind:value={$nextGuess} minlength="5" maxlength="5" />
+	<button on:click|preventDefault={guess}>Guess</button>
+{:else if $gameState === 'lost'}
+	<p>Better luck next time, the word to be found was: {word}</p>
+{:else if $gameState === 'won'}
+	<p>You found it! It was {word}!</p>
+{/if}
+
+<style>
+	.board {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+	.guess {
+		font-family: sans-serif;
+		display: flex;
+		gap: 0.25em;
+	}
+	.letter {
+		align-items: center;
+		border-radius: 5px;
+		color: #fff;
+		display: inline-flex;
+		height: 2em;
+		justify-content: center;
+		position: relative;
+		width: 2em;
+	}
+	.letter::before {
+		position: absolute;
+		border-radius: 5px;
+		box-shadow: 0 0 200px #000;
+		z-index: -1;
+	}
+	.black {
+		background: #000;
+	}
+	.yellow {
+		background: rgba(200, 200, 0, 0.8);
+	}
+	.green {
+		background: rgba(0, 128, 0, 0.8);
+	}
+</style>
