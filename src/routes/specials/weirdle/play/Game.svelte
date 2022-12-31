@@ -15,13 +15,16 @@
 		if ($nextGuess.length !== solution.length) {
 			return;
 		}
-		const currentGuess = ($nextGuess.toLocaleLowerCase().split('') as FiveLetterWord).reduce<
-			LetterInfo[]
-		>((acc, letter, index) => {
+		const guessedWord = $nextGuess.toLocaleLowerCase().split('') as FiveLetterWord;
+		const currentGuess = guessedWord.reduce<LetterInfo[]>((acc, letter, index) => {
 			const isLetterAtPosition = solution[index] === letter;
-			const amountOfThisLetter = acc.filter((info) => info.letter === letter).length + 1;
+			const amountOfThisLetterInGreen = guessedWord.reduce((acc, l, i) => {
+				return acc + (l === letter && solution[i] === l ? 1 : 0);
+			}, 0);
+			const amountOfThisLetterBefore = acc.filter((info) => info.letter === letter).length;
+			const amountOfLetterInSolution = solution.filter((l) => l === letter).length;
 			const hasThisAmountOfLetters =
-				amountOfThisLetter <= solution.filter((l) => l === letter).length;
+				amountOfThisLetterBefore + amountOfThisLetterInGreen < amountOfLetterInSolution;
 			const letterInfo: LetterInfo = {
 				letter,
 				correctnessInGuess: isLetterAtPosition
@@ -57,7 +60,6 @@
 	{/each}
 </div>
 {#if $guesses.length < 6 && $gameState === 'playing'}
-	<p>Guess more:</p>
 	<form on:submit={guess}>
 		<input bind:value={$nextGuess} minlength={solution.length} maxlength={solution.length} />
 		<button disabled={$nextGuess.length !== solution.length} on:click|preventDefault={guess}
@@ -106,5 +108,12 @@
 	}
 	.green {
 		background: rgba(0, 128, 0, 0.8);
+	}
+
+	form {
+		padding: 1em 0.5em;
+		display: flex;
+		justify-content: center;
+		gap: 0.5em;
 	}
 </style>
