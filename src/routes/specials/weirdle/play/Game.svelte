@@ -73,6 +73,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5em;
+		align-items: center;
 	}
 	.guess {
 		font-family: sans-serif;
