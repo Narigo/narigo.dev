@@ -60,7 +60,9 @@
 	<p>Guess more:</p>
 	<form on:submit={guess}>
 		<input bind:value={$nextGuess} minlength={solution.length} maxlength={solution.length} />
-		<button on:click|preventDefault={guess}>Guess</button>
+		<button disabled={$nextGuess.length !== solution.length} on:click|preventDefault={guess}
+			>Guess</button
+		>
 	</form>
 {:else if $gameState === 'lost'}
 	<p>Better luck next time, the word to be found was: {word}</p>
