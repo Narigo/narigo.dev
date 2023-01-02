@@ -6,7 +6,11 @@
 
 <div>
 	<input id="navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
-	<label for="navigation-menu-toggle"><div class="menu-icon" /></label>
+	<label for="navigation-menu-toggle">
+		<div class="menu-icon" />
+		<span class="opened">Open Menu</span>
+		<span class="closed">Close Menu</span>
+	</label>
 	<nav aria-expanded={isExpanded}>
 		<li><a href="{base}/">🏠 Home</a></li>
 		<li><a href="{base}/talks">🗣️ Talks</a></li>
@@ -66,28 +70,37 @@
 		display: flex;
 		flex-flow: column;
 	}
+	input[type='checkbox'] ~ label .closed {
+		display: none;
+	}
+	input[type='checkbox'] ~ label .opened {
+		display: inline;
+	}
+	input[type='checkbox']:checked ~ label .closed {
+		display: inline;
+	}
+	input[type='checkbox']:checked ~ label .opened {
+		display: none;
+	}
 	label {
+		background: rgba(73, 153, 66, 1);
+		cursor: pointer;
+		color: #fff;
 		display: flex;
 		flex: 1;
-		width: 100%;
-	}
-	label::before {
-		background: rgba(0, 128, 0, 0.8);
-		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
-		color: #fff;
-		content: 'Menu';
-		cursor: pointer;
-		display: inline-flex;
-		flex: 1;
-		margin: 0 0 1em 0;
 		padding: 0.5em 1em;
+		position: relative;
 		text-decoration: none;
 	}
-	label:hover::before {
-		background: rgba(51, 179, 51, 0.8);
+	label:hover {
+		background: rgba(101, 193, 96, 1);
 	}
-	input[type='checkbox']:checked ~ label::before {
-		content: 'Close Menu';
+	label::before {
+		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
 	}
 
 	@media screen and (min-width: 800px) {
