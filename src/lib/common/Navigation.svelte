@@ -23,6 +23,7 @@
 	div {
 		display: flex;
 		flex-flow: column;
+		font-family: var(--font-family-headline);
 		margin-bottom: 1em;
 	}
 	nav {
@@ -30,7 +31,6 @@
 		display: flex;
 		flex: 1;
 		flex-flow: row wrap;
-		font-family: var(--font-family-headline);
 		gap: 0 0.5em;
 		justify-content: stretch;
 		max-width: var(--max-page-width);
