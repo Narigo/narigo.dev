@@ -44,6 +44,9 @@
 		max-width: var(--max-page-width);
 		padding: 1em;
 	}
+	header .content {
+		padding-bottom: 0;
+	}
 	main {
 		flex: 1;
 	}
