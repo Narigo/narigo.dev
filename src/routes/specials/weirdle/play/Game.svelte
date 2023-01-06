@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Bubble from '$lib/common/Bubble.svelte';
 	import { writable } from 'svelte/store';
 	import type { FiveLetterWord, GameState, Letter, LetterInfo } from './gameTypes';
@@ -69,8 +70,16 @@
 	</form>
 {:else if $gameState === 'lost'}
 	<Bubble>Better luck next time, the word to be found was: {word}</Bubble>
+	<Bubble
+		>If you want to create your own word, <a href="{base}/specials/weirdle/create">start here</a
+		>!</Bubble
+	>
 {:else if $gameState === 'won'}
 	<Bubble>You found it! It was {word}!</Bubble>
+	<Bubble
+		>If you want to create your own word, <a href="{base}/specials/weirdle/create">start here</a
+		>!</Bubble
+	>
 {/if}
 
 <style>
