@@ -1,11 +1,14 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Shaker from './Shaker.svelte';
 
 	export let side: 'left' | 'right' = 'left';
+	export let delay: number = 0;
 
 	let angle = Math.random() * 1.5 - 1.5 / 2;
 	let translateX = Math.random() * 5 - 5 / 2;
+	let show = delay === 0;
 
 	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
 	let mode = 0;
@@ -17,28 +20,36 @@
 			translateX = Math.random() * 5 - 5 / 2;
 		}
 	};
+
+	onMount(() => {
+		setTimeout(() => {
+			show = true;
+		}, delay);
+	});
 </script>
 
-<Shaker shake={modes[mode] === 'shout'}>
-	<div
-		class="wrap"
-		class:shutup={modes[mode] === 'shutup'}
-		class:left={side === 'left'}
-		class:right={side === 'right'}
-		style="--angle: {angle}deg; --x: {translateX}px;"
-	>
-		{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
-			<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
-				<div class="content">
-					<slot />
+{#if show}
+	<Shaker shake={modes[mode] === 'shout'}>
+		<div
+			class="wrap"
+			class:shutup={modes[mode] === 'shutup'}
+			class:left={side === 'left'}
+			class:right={side === 'right'}
+			style="--angle: {angle}deg; --x: {translateX}px;"
+		>
+			{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
+				<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
+					<div class="content">
+						<slot />
+					</div>
 				</div>
-			</div>
-		{/if}
-		<button class="avatar" on:click|preventDefault={toggleTalking}>
-			{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
-		</button>
-	</div>
-</Shaker>
+			{/if}
+			<button class="avatar" on:click|preventDefault={toggleTalking}>
+				{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
+			</button>
+		</div>
+	</Shaker>
+{/if}
 
 <style>
 	.wrap {

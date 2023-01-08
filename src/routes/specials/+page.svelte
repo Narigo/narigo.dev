@@ -7,11 +7,11 @@
 <PageLayout>
 	<h2>Specials</h2>
 	<Bubble>Hey, what's up with this page?</Bubble>
-	<Bubble side="right">I thought I may want to write some code here.</Bubble>
-	<Bubble>Okay, but ...</Bubble>
-	<Bubble>what?</Bubble>
-	<Bubble side="right">For example an animation for this "exchange" here.</Bubble>
-	<Bubble side="right"
+	<Bubble delay={1000} side="right">I thought I may want to write some code here.</Bubble>
+	<Bubble delay={2000}>Okay, but ...</Bubble>
+	<Bubble delay={3000}>what?</Bubble>
+	<Bubble delay={4000} side="right">For example an animation for this "exchange" here.</Bubble>
+	<Bubble delay={5000} side="right"
 		>Or a clone of a word game where you can provide your own word: <a
 			href="{base}/specials/weirdle">Weirdle</a
 		></Bubble
