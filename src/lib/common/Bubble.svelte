@@ -1,14 +1,23 @@
+<script lang="ts" context="module">
+	let animations: Record<string, number> = {};
+</script>
+
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
+
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Shaker from './Shaker.svelte';
 
 	export let side: 'left' | 'right' = 'left';
 	export let delay: number = 0;
+	export let duration: number = 100;
+	export let delayNext: number = 0;
+	export let animation: string | undefined = undefined;
 
 	let angle = Math.random() * 1.5 - 1.5 / 2;
 	let translateX = Math.random() * 5 - 5 / 2;
-	let show = delay === 0;
+	let show = delay === 0 && animation === undefined;
 
 	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
 	let mode = 0;
@@ -22,9 +31,20 @@
 	};
 
 	onMount(() => {
+		let expectedDelay = delay;
+		if (animation) {
+			if (animations[animation] === undefined) {
+				animations[animation] = 0;
+			}
+			expectedDelay = animations[animation];
+			animations[animation] += delayNext;
+		}
 		setTimeout(() => {
 			show = true;
-		}, delay);
+		}, expectedDelay);
+	});
+	afterNavigate(() => {
+		animations = {};
 	});
 </script>
 
@@ -38,7 +58,7 @@
 			style="--angle: {angle}deg; --x: {translateX}px;"
 		>
 			{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
-				<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration: 100 }}>
+				<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration }}>
 					<div class="content">
 						<slot />
 					</div>
