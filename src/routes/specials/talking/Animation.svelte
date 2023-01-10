@@ -5,7 +5,9 @@
 </script>
 
 {#each lines as line, index}
-	<Bubble animation="dialog" delayNext={300 + line.length * 50} side={index % 2 === 0 ? 'left' : 'right'}
-		>{line}</Bubble
+	<Bubble
+		animation="dialog"
+		delayNext={500 + line.length * 30}
+		side={index % 2 === 0 ? 'left' : 'right'}>{line}</Bubble
 	>
 {/each}
