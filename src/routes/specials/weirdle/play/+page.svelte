@@ -28,7 +28,7 @@
 			</p>
 		{/if}
 	{:else if !browser}
-		<p>This game is to be played in a browser with JavaScript enabled.</p>
+		<p>This game needs to be played in a browser with JavaScript enabled.</p>
 	{:else}
 		<Game word={window.atob(encryptedWord)} hint={hint ? window.atob(hint) : undefined} />
 	{/if}
