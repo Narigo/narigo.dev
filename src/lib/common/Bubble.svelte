@@ -42,6 +42,11 @@
 		setTimeout(() => {
 			show = true;
 		}, expectedDelay);
+		const clickHandler = () => {
+			show = true;
+			document.removeEventListener('click', clickHandler);
+		};
+		document.addEventListener('click', clickHandler);
 	});
 	afterNavigate(() => {
 		animations = {};
