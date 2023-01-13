@@ -1,9 +1,12 @@
 <script lang="ts" context="module">
-	let animations: Record<string, number> = {};
+	let animations: Record<
+		string,
+		{ current: number; delays: number[]; timeouts: ReturnType<typeof setTimeout>[] }
+	> = {};
 </script>
 
 <script lang="ts">
-	import { afterNavigate } from '$app/navigation';
+	import { beforeNavigate } from '$app/navigation';
 
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
@@ -30,25 +33,52 @@
 		}
 	};
 
+	let myId = 0;
+	let clickHandler: (() => void) | null = null;
 	onMount(() => {
 		let expectedDelay = delay;
 		if (animation) {
 			if (animations[animation] === undefined) {
-				animations[animation] = 0;
+				animations[animation] = { current: 0, delays: [], timeouts: [] };
 			}
-			expectedDelay = animations[animation];
-			animations[animation] += delayNext;
+			myId = animations[animation].delays.length;
+			expectedDelay = animations[animation].delays.slice(0, myId).reduce((sum, d) => sum + d, 0);
+			animations[animation].delays[myId] = delayNext;
+			clickHandler = () => {
+				runAnimation();
+			};
+			document.addEventListener('click', clickHandler);
+			animations[animation].timeouts[myId] = setTimeout(runAnimation, expectedDelay);
 		}
-		setTimeout(() => {
-			show = true;
-		}, expectedDelay);
-		const clickHandler = () => {
-			show = true;
-			document.removeEventListener('click', clickHandler);
-		};
-		document.addEventListener('click', clickHandler);
+		return;
+
+		function runAnimation() {
+			const current = animation ? animations[animation].current : 0;
+			if (myId <= current) {
+				show = true;
+				setTimeout(() => {
+					if (animation) {
+						animations[animation].current += 1;
+						if (animations[animation].timeouts[myId] !== null) {
+							clearTimeout(animations[animation].timeouts[myId]);
+						}
+					}
+				}, 1);
+				if (clickHandler !== null) {
+					document.removeEventListener('click', clickHandler);
+				}
+			}
+		}
 	});
-	afterNavigate(() => {
+	beforeNavigate(() => {
+		if (clickHandler !== null) {
+			document.removeEventListener('click', clickHandler);
+		}
+		if (animation) {
+			if (animations[animation].timeouts[myId] !== null) {
+				clearTimeout(animations[animation].timeouts[myId]);
+			}
+		}
 		animations = {};
 	});
 </script>
