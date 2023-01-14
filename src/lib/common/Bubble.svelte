@@ -44,11 +44,9 @@
 			myId = animations[animation].delays.length;
 			expectedDelay = animations[animation].delays.slice(0, myId).reduce((sum, d) => sum + d, 0);
 			animations[animation].delays[myId] = delayNext;
-			clickHandler = () => {
-				runAnimation();
-			};
+			clickHandler = runAnimation;
 			document.addEventListener('click', clickHandler);
-			animations[animation].timeouts[myId] = setTimeout(runAnimation, expectedDelay);
+			animations[animation].timeouts[myId] = setTimeout(clickHandler, expectedDelay);
 		}
 		return;
 
