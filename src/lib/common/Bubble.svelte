@@ -39,13 +39,8 @@
 	};
 
 	let myId = 0;
-	let clickHandler: (() => void) | null = null;
 	onMount(() => {
 		if (animation) {
-			const anim = () => {
-				console.log('running animation for', myId);
-				show = true;
-			};
 			if (animations[animation] === undefined) {
 				animations[animation] = {
 					current: 0,
@@ -54,48 +49,43 @@
 					animations: []
 				};
 			}
-			myId = animations[animation].animations.length;
+			const animationData = animations[animation];
+			myId = animationData.animations.length;
 			const runAnimation = () => {
+				console.log('runAnimation called', animation, myId);
 				if (animation) {
-					console.log({ current: animations[animation].current, myId });
-					if (myId <= animations[animation].current) {
-						const { nextTimer } = animations[animation];
+					console.log({ current: animationData.current, myId });
+					if (myId <= animationData.current) {
+						document.removeEventListener('click', runAnimation);
+						const { nextTimer } = animationData;
 						if (nextTimer !== null) {
 							clearTimeout(nextTimer);
-							animations[animation].nextTimer = null;
+							animationData.nextTimer = null;
 						}
-						anim();
-						animations[animation].current += 1;
+						show = true;
+						animationData.current += 1;
 						const nextAnimation =
-							animations[animation].current < animations[animation].animations.length
-								? animations[animation].animations[animations[animation].current]
+							animationData.current < animationData.animations.length
+								? animationData.animations[animationData.current]
 								: undefined;
 						if (nextAnimation) {
-							animations[animation].nextTimer = setTimeout(
+							animationData.nextTimer = setTimeout(
 								nextAnimation.animation,
 								nextAnimation.delayNext
 							);
-						}
-						if (clickHandler !== null) {
-							document.removeEventListener('click', clickHandler);
+							document.addEventListener('click', nextAnimation.animation);
 						}
 					}
 				} else {
-					anim();
-					if (clickHandler !== null) {
-						document.removeEventListener('click', clickHandler);
-					}
+					show = true;
+					document.removeEventListener('click', runAnimation);
 				}
 			};
-			animations[animation].animations.push({ delayNext, animation: runAnimation });
-			clickHandler = () => {
-				console.log('running click');
-				runAnimation();
-			};
-			document.addEventListener('click', clickHandler);
-			if (!animations[animation].started) {
-				animations[animation].started = true;
-				animations[animation].nextTimer = setTimeout(runAnimation, delay);
+			animationData.animations.push({ delayNext, animation: runAnimation });
+			if (!animationData.started) {
+				animationData.started = true;
+				animationData.nextTimer = setTimeout(runAnimation, delay);
+				document.addEventListener('click', runAnimation);
 			}
 		}
 	});
