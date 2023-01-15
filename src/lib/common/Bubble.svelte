@@ -1,7 +1,12 @@
 <script lang="ts" context="module">
 	let animations: Record<
 		string,
-		{ current: number; delays: number[]; timeouts: ReturnType<typeof setTimeout>[] }
+		{
+			current: number;
+			started: boolean;
+			nextTimer: ReturnType<typeof window.setTimeout> | null;
+			animations: { delayNext: number; animation: () => void }[];
+		}
 	> = {};
 </script>
 
@@ -36,35 +41,61 @@
 	let myId = 0;
 	let clickHandler: (() => void) | null = null;
 	onMount(() => {
-		let expectedDelay = delay;
 		if (animation) {
-			if (animations[animation] === undefined) {
-				animations[animation] = { current: 0, delays: [], timeouts: [] };
-			}
-			myId = animations[animation].delays.length;
-			expectedDelay = animations[animation].delays.slice(0, myId).reduce((sum, d) => sum + d, 0);
-			animations[animation].delays[myId] = delayNext;
-			clickHandler = runAnimation;
-			document.addEventListener('click', clickHandler);
-			animations[animation].timeouts[myId] = setTimeout(clickHandler, expectedDelay);
-		}
-		return;
-
-		function runAnimation() {
-			const current = animation ? animations[animation].current : 0;
-			if (myId <= current) {
+			const anim = () => {
+				console.log('running animation for', myId);
 				show = true;
-				setTimeout(() => {
-					if (animation) {
+			};
+			if (animations[animation] === undefined) {
+				animations[animation] = {
+					current: 0,
+					started: false,
+					nextTimer: null,
+					animations: []
+				};
+			}
+			myId = animations[animation].animations.length;
+			const runAnimation = () => {
+				if (animation) {
+					console.log({ current: animations[animation].current, myId });
+					if (myId <= animations[animation].current) {
+						const { nextTimer } = animations[animation];
+						if (nextTimer !== null) {
+							clearTimeout(nextTimer);
+							animations[animation].nextTimer = null;
+						}
+						anim();
 						animations[animation].current += 1;
-						if (animations[animation].timeouts[myId] !== null) {
-							clearTimeout(animations[animation].timeouts[myId]);
+						const nextAnimation =
+							animations[animation].current < animations[animation].animations.length
+								? animations[animation].animations[animations[animation].current]
+								: undefined;
+						if (nextAnimation) {
+							animations[animation].nextTimer = setTimeout(
+								nextAnimation.animation,
+								nextAnimation.delayNext
+							);
+						}
+						if (clickHandler !== null) {
+							document.removeEventListener('click', clickHandler);
 						}
 					}
-				}, 1);
-				if (clickHandler !== null) {
-					document.removeEventListener('click', clickHandler);
+				} else {
+					anim();
+					if (clickHandler !== null) {
+						document.removeEventListener('click', clickHandler);
+					}
 				}
+			};
+			animations[animation].animations.push({ delayNext, animation: runAnimation });
+			clickHandler = () => {
+				console.log('running click');
+				runAnimation();
+			};
+			document.addEventListener('click', clickHandler);
+			if (!animations[animation].started) {
+				animations[animation].started = true;
+				animations[animation].nextTimer = setTimeout(runAnimation, delay);
 			}
 		}
 	});
@@ -73,8 +104,9 @@
 			document.removeEventListener('click', clickHandler);
 		}
 		if (animation) {
-			if (animations[animation].timeouts[myId] !== null) {
-				clearTimeout(animations[animation].timeouts[myId]);
+			const { nextTimer } = animations[animation];
+			if (nextTimer !== null) {
+				clearTimeout(nextTimer);
 			}
 		}
 		animations = {};
