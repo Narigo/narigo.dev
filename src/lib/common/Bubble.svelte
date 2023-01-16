@@ -52,9 +52,7 @@
 			const animationData = animations[animation];
 			myId = animationData.animations.length;
 			const runAnimation = () => {
-				console.log('runAnimation called', animation, myId);
 				if (animation) {
-					console.log({ current: animationData.current, myId });
 					if (myId <= animationData.current) {
 						document.removeEventListener('click', runAnimation);
 						const { nextTimer } = animationData;
