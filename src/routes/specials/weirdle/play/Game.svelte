@@ -126,4 +126,9 @@
 		justify-content: center;
 		gap: 0.5em;
 	}
+
+	input {
+		border: 0;
+		border-bottom: 1px solid rgba(0, 0, 0, .5);
+	}
 </style>
