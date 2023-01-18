@@ -128,7 +128,13 @@
 	}
 
 	input {
+		background: transparent;
 		border: 0;
-		border-bottom: 1px solid rgba(0, 0, 0, .5);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+		font-family: monospace;
+	}
+	input:focus {
+		outline: 0;
+		border-bottom: 2px solid rgba(0, 0, 0, 1);
 	}
 </style>
