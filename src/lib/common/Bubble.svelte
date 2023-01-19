@@ -39,6 +39,7 @@
 	};
 
 	let myId = 0;
+	let clickHandler: ((this: Document, ev: MouseEvent) => any) | null = null;
 	onMount(() => {
 		if (animation) {
 			if (animations[animation] === undefined) {
@@ -71,11 +72,13 @@
 								nextAnimation.animation,
 								nextAnimation.delayNext
 							);
-							document.addEventListener('click', nextAnimation.animation);
+							clickHandler = nextAnimation.animation;
+							document.addEventListener('click', clickHandler);
 						}
 					}
 				} else {
 					show = true;
+					clickHandler = runAnimation;
 					document.removeEventListener('click', runAnimation);
 				}
 			};
@@ -83,6 +86,7 @@
 			if (!animationData.started) {
 				animationData.started = true;
 				animationData.nextTimer = setTimeout(runAnimation, delay);
+				clickHandler = runAnimation;
 				document.addEventListener('click', runAnimation);
 			}
 		}

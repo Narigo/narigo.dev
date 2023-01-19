@@ -23,4 +23,7 @@
 			href="{base}/specials/weirdle">Weirdle</a
 		></Bubble
 	>
+	<Bubble animation="dialog" delayNext={1000} side="right"
+		>Or <a href="{base}/specials/recharge">Recharge</a> someone</Bubble
+	>
 </PageLayout>
