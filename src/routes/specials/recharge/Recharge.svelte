@@ -9,8 +9,19 @@
 
 	let active = false;
 	let done = false;
-	let currentEmoji = writable<string>('');
+	let currentEmojis = writable<string[]>([]);
 
+	const floatUp: (node: Element) => TransitionConfig = (_node) => {
+		return {
+			duration: 5000,
+			css(t) {
+				return `
+				${t < 1 ? `bottom: ${Math.min(80, Math.max(0, t * 100))}%;` : ''}
+				scale: ${t * 3};
+				`;
+			}
+		};
+	};
 	const recharge: (node: Element) => TransitionConfig = (_node) => {
 		const allEmojis = emojis.split(new RegExp('', 'u'));
 		return {
@@ -21,10 +32,10 @@
 				`;
 			},
 			tick(t) {
-				$currentEmoji = allEmojis[Math.round(t * (allEmojis.length - 1))];
+				$currentEmojis = [...$currentEmojis, allEmojis[Math.round(t * (allEmojis.length - 1))]];
 
 				if (t === 1) {
-					$currentEmoji = allEmojis[allEmojis.length - 1];
+					$currentEmojis = [...$currentEmojis, allEmojis[allEmojis.length - 1]];
 					done = true;
 				}
 			}
@@ -37,7 +48,11 @@
 	{#if !active}
 		<button class="battery" on:click={() => (active = true)} />
 	{:else}
-		<div class="battery" in:recharge>{$currentEmoji}</div>
+		<div class="battery" in:recharge>
+			{#each $currentEmojis as currentEmoji, index}
+				<span in:floatUp style="z-index: {$currentEmojis.length - index}">{currentEmoji}</span>
+			{/each}
+		</div>
 	{/if}
 	{#if done}
 		{#if message !== ''}<div>{message}</div>{/if}
@@ -59,11 +74,15 @@
 		background: #0f0;
 		display: grid;
 		place-items: center;
+		position: relative;
 	}
 	section {
 		display: grid;
 		padding: 2vh;
 		place-items: center;
 		flex: 1;
+	}
+	span {
+		position: absolute;
 	}
 </style>
