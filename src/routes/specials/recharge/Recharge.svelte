@@ -28,7 +28,15 @@
 			duration: 5000,
 			css(t) {
 				return `
-				background: linear-gradient(to top, #0f0 ${t * 100}%, #000 ${t * 100}%);
+				background: linear-gradient(
+					to top,
+					#b3b3b3 1vh,
+					#0f0 1vh,
+					#0f0 calc(${t * 100}% - 1vh),
+					#333 calc(${t * 100}% - 1vh),
+					#333 calc(100% - 1vh),
+					#b3b3b3 calc(100% - 1vh)
+				);
 				`;
 			},
 			tick(t) {
@@ -65,13 +73,25 @@
 	.battery {
 		height: 40vh;
 		width: 10vh;
-		border: 1vh solid #000;
+		border: 0;
 		border-radius: 1vh;
-		background: #333;
-		box-shadow: 0px -3vh 0 -2vh #000;
+		background: linear-gradient(
+			to bottom,
+			#b3b3b3 1vh,
+			#333 1vh,
+			#333 calc(100% - 1vh),
+			#b3b3b3 calc(100% - 1vh)
+		);
+		box-shadow: 0px -3vh 0 -2vh #b3b3b3;
 	}
 	div.battery {
-		background: #0f0;
+		background: linear-gradient(
+			to bottom,
+			#b3b3b3 1vh,
+			#0f0 1vh,
+			#0f0 calc(100% - 1vh),
+			#b3b3b3 calc(100% - 1vh)
+		);
 		display: grid;
 		place-items: center;
 		position: relative;
