@@ -40,7 +40,13 @@
 				`;
 			},
 			tick(t) {
-				$currentEmojis = [...$currentEmojis, allEmojis[Math.round(t * (allEmojis.length - 1))]];
+				const nextEmoji = allEmojis[Math.round(t * (allEmojis.length - 1))];
+				if (
+					$currentEmojis.length === 0 ||
+					$currentEmojis[$currentEmojis.length - 1] !== nextEmoji
+				) {
+					$currentEmojis = [...$currentEmojis, nextEmoji];
+				}
 
 				if (t === 1) {
 					$currentEmojis = [...$currentEmojis, allEmojis[allEmojis.length - 1]];
@@ -69,6 +75,25 @@
 </section>
 
 <style>
+	@keyframes change-opacity {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	button.battery {
+		cursor: pointer;
+	}
+	button.battery::before {
+		content: '⚡️';
+		font-size: 5vh;
+		animation: change-opacity 2s ease 0s infinite normal;
+	}
 	div.battery,
 	.battery {
 		height: 40vh;
@@ -82,7 +107,7 @@
 			#333 calc(100% - 1vh),
 			#b3b3b3 calc(100% - 1vh)
 		);
-		box-shadow: 0px -3vh 0 -2vh #b3b3b3;
+		box-shadow: 0px -3vh 0 -2vh #b3b3b3, -0.5vh 0 2vh #333 inset;
 	}
 	div.battery {
 		background: linear-gradient(
