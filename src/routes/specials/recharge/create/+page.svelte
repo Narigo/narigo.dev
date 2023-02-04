@@ -15,7 +15,7 @@
 	function submitForm(e: Event) {
 		e.preventDefault();
 		const encUrl = encode(JSON.stringify({ person: $person, emojis: $emojis, message: $message }));
-		$link = `${base}/specials/recharge/?e=${encodeURIComponent(encUrl)}`;
+		$link = `${base}/specials/recharge?e=${encodeURIComponent(encUrl)}`;
 	}
 </script>
 
