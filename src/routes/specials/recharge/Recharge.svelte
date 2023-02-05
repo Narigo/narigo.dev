@@ -2,6 +2,7 @@
 	import Bubble from '$lib/common/Bubble.svelte';
 	import { writable } from 'svelte/store';
 	import type { TransitionConfig } from 'svelte/transition';
+	import { bounceOut } from 'svelte/easing';
 
 	export let person: string;
 	export let emojis: string;
@@ -11,12 +12,18 @@
 	let done = false;
 	let currentEmojis = writable<string[]>([]);
 
-	const floatUp: (node: Element) => TransitionConfig = (_node) => {
+	const floatUp: (node: Element, params: { index: number }) => TransitionConfig = (
+		_node,
+		{ index }
+	) => {
 		return {
 			duration: 5000,
+			easing: bounceOut,
 			css(t) {
 				return `
-				${t < 1 ? `bottom: ${Math.min(80, Math.max(0, t * 100))}%;` : ''}
+				${t < 1 ? `bottom: ${Math.min(100, Math.max(0, t * 200 >= 100 ? 200 - t * 200 : t * 200))}%;` : ''}
+				${index % 2 === 0 ? `left: ${2.5 + t * 15}vh;` : `right: ${2.5 + t * 15}vh;`}
+				opacity: ${t * 2 >= 1 ? 2 - t * 2 : t};
 				scale: ${t * 3};
 				`;
 			}
@@ -64,13 +71,20 @@
 	{:else}
 		<div class="battery" in:recharge>
 			{#each $currentEmojis as currentEmoji, index}
-				<span in:floatUp style="z-index: {$currentEmojis.length - index}">{currentEmoji}</span>
+				<span in:floatUp={{ index }} style="z-index: {$currentEmojis.length - index}"
+					>{currentEmoji}</span
+				>
 			{/each}
 		</div>
 	{/if}
 	{#if done}
 		{#if message !== ''}<div>{message}</div>{/if}
-		<button on:click={() => (active = done = false)}>reset</button>
+		<button
+			on:click={() => {
+				active = done = false;
+				$currentEmojis = [];
+			}}>reset</button
+		>
 	{/if}
 </section>
 
@@ -129,5 +143,6 @@
 	}
 	span {
 		position: absolute;
+		opacity: 0;
 	}
 </style>
