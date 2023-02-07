@@ -38,10 +38,8 @@
 				background: linear-gradient(
 					to top,
 					#b3b3b3 1vh,
-					#0f0 1vh,
-					#0f0 calc(${t * 100}% - 1vh),
-					#333 calc(${t * 100}% - 1vh),
-					#333 calc(100% - 1vh),
+					#28de53 1vh calc(${t * 100}% - 1vh),
+					#333 calc(${t * 100}% - 1vh) calc(100% - 1vh),
 					#b3b3b3 calc(100% - 1vh)
 				);
 				`;
@@ -117,8 +115,7 @@
 		background: linear-gradient(
 			to bottom,
 			#b3b3b3 1vh,
-			#333 1vh,
-			#333 calc(100% - 1vh),
+			#333 1vh calc(100% - 1vh),
 			#b3b3b3 calc(100% - 1vh)
 		);
 		box-shadow: 0px -3vh 0 -2vh #b3b3b3, -0.5vh 0 2vh #333 inset;
@@ -127,8 +124,7 @@
 		background: linear-gradient(
 			to bottom,
 			#b3b3b3 1vh,
-			#0f0 1vh,
-			#0f0 calc(100% - 1vh),
+			#28de53 1vh calc(100% - 1vh),
 			#b3b3b3 calc(100% - 1vh)
 		);
 		display: grid;
@@ -137,6 +133,7 @@
 	}
 	section {
 		display: grid;
+		gap: 2em;
 		padding: 2vh;
 		place-items: center;
 		flex: 1;
