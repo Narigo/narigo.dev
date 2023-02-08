@@ -122,7 +122,9 @@
 				</div>
 			{/if}
 			<button class="avatar" on:click|preventDefault={toggleTalking}>
-				{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
+				<slot name="avatar">
+					{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
+				</slot>
 			</button>
 		</div>
 	</Shaker>
