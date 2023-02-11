@@ -15,7 +15,7 @@
 
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import Shaker from './Shaker.svelte';
+	import Shaker from '../Shaker.svelte';
 
 	export let side: 'left' | 'right' = 'left';
 	export let delay: number = 0;
@@ -122,7 +122,7 @@
 				</div>
 			{/if}
 			<button class="avatar" on:click|preventDefault={toggleTalking}>
-				<slot name="avatar">
+				<slot name="avatar" mode={modes[mode]}>
 					{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 				</slot>
 			</button>

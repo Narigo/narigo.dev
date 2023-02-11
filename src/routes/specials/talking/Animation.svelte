@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Bubble from '$lib/common/Bubble.svelte';
+	import Bubble from '$lib/common/bubble/Bubble.svelte';
 
 	export let lines: string[];
 </script>

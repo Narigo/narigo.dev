@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Bubble from '$lib/common/Bubble.svelte';
+	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import { writable } from 'svelte/store';
 	import type { TransitionConfig } from 'svelte/transition';
 	import { bounceOut } from 'svelte/easing';

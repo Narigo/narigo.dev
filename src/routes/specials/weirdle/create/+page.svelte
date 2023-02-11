@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Bubble from '$lib/common/Bubble.svelte';
+	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
 
