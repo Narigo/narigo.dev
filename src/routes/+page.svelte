@@ -35,6 +35,17 @@
 				internal and external tools to make their offerings more efficient and user friendly.
 			</p>
 		</Narigo>
+		<Narigo>
+			<p>
+				In my spare time, I'm helping to organize the <a
+					href="https://jscraftcamp.org/"
+					rel="external noopener noreferrer"
+					target="_blank">JSCraftCamp</a
+				>, which is a two-day Barcamp / Open Space in Munich. You can attend it for free thanks to
+				lots of sponsors. Every time I attend this event, I leave with new friends, professional
+				contacts and much more knowledge than before.
+			</p>
+		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
 			<p>I needed a space where I can put slides for talks online.</p>
