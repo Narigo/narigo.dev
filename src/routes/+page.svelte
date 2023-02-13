@@ -45,6 +45,14 @@
 				lots of sponsors. Every time I attend this event, I leave with new friends, professional
 				contacts and much more knowledge than before.
 			</p>
+			<p>
+				For VirtualCoffee.io, I organize the "Frontend Friday Folks battling <a
+					href="https://cssbattle.dev"
+					rel="external noopener noreferrer"
+					target="_blank">CSSBattle.dev</a
+				>", which is a place where people with all kind of levels in CSS proficiency learn something
+				from each other.
+			</p>
 		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
