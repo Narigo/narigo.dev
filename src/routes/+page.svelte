@@ -57,6 +57,7 @@
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
 			<p>I needed a space where I can put slides for talks online.</p>
+			<p>But I somehow started building a "real" web page...</p>
 		</Narigo>
 	</section>
 </PageLayout>
