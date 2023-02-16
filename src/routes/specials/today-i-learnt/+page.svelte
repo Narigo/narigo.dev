@@ -14,9 +14,15 @@
 		<li>
 			<h3>Drawing with linear gradients</h3>
 			<p>
-				In VirtualCoffee Frontend Friday Folks, we have to create divs that resemble a given image
-				on CSSBattle.dev. Lately, I've tried to do the puzzles by styling them with <code
-					>background: linear-gradient()</code
+				In <a href="https://virtualcoffee.io/" rel="external">VirtualCoffee.io</a> Frontend Friday
+				Folks, we have to create divs that resemble a given image on
+				<a href="https://cssbattle.dev/" rel="external">CSSBattle.dev</a>. Lately, I've tried to do
+				the puzzles by styling them with
+				<code
+					>background: <a
+						href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient"
+						rel="external">linear-gradient()</a
+					></code
 				>. When you find out a way how to draw it like that, it always feels like a hack of the
 				puzzle itself.
 			</p>
