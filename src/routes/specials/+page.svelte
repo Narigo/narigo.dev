@@ -27,4 +27,7 @@
 	<Narigo animation="dialog" delayNext={1000} side="right"
 		>Or <a href="{base}/specials/recharge">Recharge</a> someone</Narigo
 	>
+	<Narigo animation="dialog" delayNext={1000} side="right"
+		>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
+	>
 </PageLayout>
