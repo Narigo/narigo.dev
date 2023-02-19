@@ -30,4 +30,9 @@
 	<Narigo animation="dialog" delayNext={1000} side="right"
 		>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
 	>
+	<Narigo animation="dialog" delayNext={1000} side="right"
+		>Or look up solutions from <a href="{base}/specials/frontend-friday-folks"
+			>Frontend Friday Folks</a
+		>.</Narigo
+	>
 </PageLayout>
