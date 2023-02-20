@@ -1,18 +1,27 @@
 <script lang="ts">
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import { onMount } from 'svelte';
 
 	export let solution: string;
 	export let title: string;
 
 	const trimmedSolution = solution.trim();
+
+	let iframe: HTMLIFrameElement;
+	onMount(() => {
+		const processedCode = `<style>body{overflow:hidden}</style>${trimmedSolution}`;
+		iframe.contentDocument?.open();
+		iframe.contentDocument?.write(processedCode);
+		iframe.contentDocument?.close();
+	});
 </script>
 
 <PageLayout>
 	<div class="iframe-container">
 		<iframe
+			bind:this={iframe}
 			{title}
-			style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px; box-sizing: border-box;"
-			srcdoc={`<html><head><style>body{overflow:hidden;}</style></head><body>${trimmedSolution}</body></html>`}
+			style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;"
 		/>
 	</div>
 	<div>Highlighted solution ({trimmedSolution.length} characters)</div>
@@ -21,23 +30,15 @@
 </PageLayout>
 
 <style>
-	.iframe-container {
-		aspect-ratio: 4/3;
+	* {
 		box-sizing: border-box;
-		height: 300px;
+		margin: 0;
+	}
+	.iframe-container {
+		box-sizing: border-box;
+		height: 100%;
 		overflow: hidden;
 		position: relative;
-		width: 400px;
-	}
-	.iframe-container * {
-		box-sizing: border-box;
-	}
-	.iframe-container :global(html),
-	.iframe-container :global(body) {
-		max-height: 100%;
-	}
-	iframe {
-		height: 100%;
 		width: 100%;
 	}
 </style>
