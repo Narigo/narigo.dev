@@ -39,7 +39,10 @@
 			another way, how to solve this. By using multiple backgrounds, stacked on top of each other,
 			it's possible to create the same effect with gradients.
 		</p>
-		<p>The solution shows</p></Narigo
+		<p>
+			The <code>&lt;div id="r"&gt;</code> shows the <code>border-radius</code> approach and the
+			<code>&lt;div id="y"&gt;</code> is all about using gradients to draw.
+		</p></Narigo
 	>
 	<Bubble side="right">
 		MDN has a great <a
