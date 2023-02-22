@@ -12,6 +12,7 @@
 		going to share some puzzle solutions and write about it.</Narigo
 	>
 	<ul>
+		<li><a href="{base}/specials/frontend-friday-folks/puzzle-33">Puzzle 33 - Birdie</a></li>
 		<li><a href="{base}/specials/frontend-friday-folks/puzzle-35">Puzzle 35 - Ice Cream</a></li>
 	</ul>
 </PageLayout>

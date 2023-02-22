@@ -1,44 +1,31 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
-	import { onMount } from 'svelte';
+	import Puzzle from './Puzzle.svelte';
 
-	export let solution: string;
-	export let title: string;
-
-	const trimmedSolution = solution.trim();
-
-	let iframe: HTMLIFrameElement;
-	onMount(() => {
-		const processedCode = `<style>body{overflow:hidden}</style>${trimmedSolution}`;
-		iframe.contentDocument?.open();
-		iframe.contentDocument?.write(processedCode);
-		iframe.contentDocument?.close();
-	});
+	export let solution: string | undefined = undefined;
+	export let title: string | undefined = undefined;
 </script>
 
 <PageLayout>
-	<div class="iframe-container">
-		<iframe
-			bind:this={iframe}
-			{title}
-			style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;"
-		/>
+	<div>
+		<a href="{base}/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
+		<section>
+			{#if title && solution}
+				<Puzzle {title} solution={solution.trim()} />
+				<slot />
+			{:else}
+				<slot />
+			{/if}
+		</section>
+		<a href="{base}/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
 	</div>
-	<div>Highlighted solution ({trimmedSolution.length} characters)</div>
-	<pre>{trimmedSolution}</pre>
-	<slot />
 </PageLayout>
 
 <style>
-	* {
-		box-sizing: border-box;
-		margin: 0;
-	}
-	.iframe-container {
-		box-sizing: border-box;
-		height: 100%;
-		overflow: hidden;
-		position: relative;
-		width: 100%;
+	div {
+		display: flex;
+		flex-flow: column;
+		gap: 2em;
 	}
 </style>
