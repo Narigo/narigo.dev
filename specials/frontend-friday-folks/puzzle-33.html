@@ -17,7 +17,7 @@
 		<link rel="modulepreload" href="../../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../../_app/immutable/components/pages/_layout.svelte-f7f07dfb.js">
-		<link rel="modulepreload" href="../../_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-35/_page.svelte-569d4144.js">
+		<link rel="modulepreload" href="../../_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-33/_page.svelte-8f5a10cd.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Bubble-a24ce691.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/index-c8144c3c.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Narigo-77b73723.js">
@@ -38,45 +38,53 @@
 		<li class="svelte-1tl4cms"><a href="/contact" class="svelte-1tl4cms">🧑‍💼 Contact</a></li></nav>
 </div></div></header>
 	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><div class="svelte-1e4pxc6"><a href="/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
-		<section><div class="iframe-container svelte-6uac30"><iframe title="Puzzle 35 solution" style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;" class="svelte-6uac30"></iframe></div>
-<div class="svelte-6uac30">Highlighted solution (737 characters)</div>
-<pre class="svelte-6uac30">&lt;div id="y">&lt;/div>
-&lt;div id="r">&lt;/div>
+		<section><div class="iframe-container svelte-6uac30"><iframe title="Puzzle 33 solution" style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;" class="svelte-6uac30"></iframe></div>
+<div class="svelte-6uac30">Highlighted solution (414 characters)</div>
+<pre class="svelte-6uac30">&lt;div>&lt;/div>
 &lt;style>
   body {
-    background: #293462;
-    display: grid;
-    justify-items: center;
-    place-content: center;
+    background: #1A4341;
   }
-  #y {
-    width: 100px;
-    height: 150px;
+  div {
+    position: absolute;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    inset: 50px 100px;
     background:
-      radial-gradient(circle at 50% 50px, #FFF1C1 50px, transparent 0),
-      radial-gradient(circle at 20% 130px, #FFF1C1 20px, transparent 0),
-      radial-gradient(circle at 80% 130px, #FFF1C1 20px, transparent 0),
-      linear-gradient(#293462 50px, #FFF1C1 0 130px, transparent 0),
-      linear-gradient(90deg, transparent 20px, #FFF1C1 0 80px, transparent 0)
-    ;
-  }
-  #r {
-    width: 30%;
-    height: 50px;
-    background: linear-gradient(#A64942 10px, #FE5F55 0);
-    border-radius: 0 0 10px 10px;
-  }
-&lt;/style></pre>
-				<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.10518687656227255deg; --x: 0.8318855914591703px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr"><p>While we can do the popsicle and the stick with border radius, the presented solution shows
-			another way, how to solve this. By using multiple backgrounds, stacked on top of each other,
-			it&#39;s possible to create the same effect with gradients.
-		</p>
-		<p>The <code>&lt;div id=&quot;r&quot;&gt;</code> shows the <code>border-radius</code> approach and the
-			<code>&lt;div id=&quot;y&quot;&gt;</code> is all about using gradients to draw.
-		</p></div></div>
+      radial-gradient(#0B2429 15px, transparent 0) -30px -30px,
+      conic-gradient(#F3AC3C 90deg, transparent 0),
+      radial-gradient(transparent 75px, #1A4341 0),
+      conic-gradient(transparent 180deg, #998235 0);
+  }</pre>
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: -0.268390169178753deg; --x: -2.258587685730319px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">This is the first puzzle where I used multiple backgrounds with gradients. It&#39;s not optimized
+		yet, but the idea is clear.</div></div>
 			<button class="avatar svelte-1l3simr"><div slot="avatar"><img src="/_app/immutable/assets/narigo-e54b8f62.png" alt="Narigo" class="svelte-14cyrh4"></div></button></div>
 </div>
-	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr   right" style="--angle: -0.4596258325619179deg; --x: 2.184345398127321px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">MDN has a great <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds" rel="external">explanation for using multiple backgrounds</a>.
+	<div class="iframe-container svelte-6uac30"><iframe title="Puzzle 33 solution" style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;" class="svelte-6uac30"></iframe></div>
+<div class="svelte-6uac30">Highlighted solution (337 characters)</div>
+<pre class="svelte-6uac30">&lt;div>&lt;/div>
+&lt;style>
+  body {
+    background: #1A4341;
+  }
+  div {
+    position: absolute;
+    border-radius: 50%;
+    inset: 50px 100px;
+    background:
+      radial-gradient(#0B2429 15px, transparent 0) -30px -30px,
+      conic-gradient(#F3AC3C 90deg, #1A4341 0 180deg,transparent 0),
+      radial-gradient(#998235 75px, #1A4341 0);
+  }</pre>
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.2720335610227451deg; --x: -0.1876349273732747px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">Here is an improved version by leveraging the fact that <code>inset</code> is already telling
+		CSS how big the box is. <code>width</code> and
+		<code>height</code> settings are therefore not necessary. The second improvement is how the gradients
+		are applied: Instead of using four different, it can do it in three, using multiple color stops.
+	</div></div>
+			<button class="avatar svelte-1l3simr"><div slot="avatar"><img src="/_app/immutable/assets/narigo-e54b8f62.png" alt="Narigo" class="svelte-14cyrh4"></div></button></div>
+</div>
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr   right" style="--angle: -0.18608992346338704deg; --x: -0.7902042525204178px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">MDN has a great <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds" rel="external">explanation for using multiple backgrounds</a>.
 	</div></div>
 			<button class="avatar svelte-1l3simr">
 					🗣️
@@ -89,16 +97,16 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1pgmoz6">
+		<script type="module" data-sveltekit-hydrate="20bm38">
 			import { start } from "../../_app/immutable/start-f162bbf0.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1pgmoz6"]').parentNode,
+				target: document.querySelector('[data-sveltekit-hydrate="20bm38"]').parentNode,
 				version: "1677265245278",
 				hydrate: {
-					node_ids: [0, 8],
+					node_ids: [0, 7],
 					data: [{type:"data",data:null,uses:{}},null],
 					form: null
 				}

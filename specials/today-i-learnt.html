@@ -9,14 +9,14 @@
 		<link href="../_app/immutable/assets/Narigo-05624ce8.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Bubble-950d7dbd.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/PageLayout-e8cc6741.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-eb786147.js">
+		<link rel="modulepreload" href="../_app/immutable/start-f162bbf0.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-87c0e17b.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-6c0e0665.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-672b6c3a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-f7f07dfb.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-2c8f0c2f.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-8fd5bcfa.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Narigo-77b73723.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Bubble-a24ce691.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-c8144c3c.js">
@@ -36,7 +36,7 @@
 		<li class="svelte-1tl4cms"><a href="/contact" class="svelte-1tl4cms">🧑‍💼 Contact</a></li></nav>
 </div></div></header>
 	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><h2>Today I learnt</h2>
-	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.44797565685529994deg; --x: 1.4632264116905036px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: -0.29341698778484115deg; --x: -1.2540462228368265px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
 		whenever I find something worth to log. Most of this will be around web development, but I don&#39;t
 		want to limit myself to that. Let&#39;s see where this leads to.
 	</div></div>
@@ -49,6 +49,15 @@
 				the puzzles by styling them with
 				<code>background: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient" rel="external">linear-gradient()</a></code>. When you find out a way how to draw it like that, it always feels like a hack of the
 				puzzle itself.
+			</p></li>
+		<li><h3>srcdoc sets an iframes doctype implicitly, Quirks mode expands the body height</h3>
+			<p>When working on the Puzzle iframe for the <a href="/specials/frontend-friday-folks">Frontend Friday Folks</a>, I had trouble centering the image. I had the same code result in the Chrome Dev Tools as
+				in CSSBattle.dev, when inspecting the elements, so I didn&#39;t realize why it still looked
+				different. It looks like when using the <code>srcdoc</code> on an <code>iframe</code>
+				element, the iframe sets the doctype implicitly. When writing into the iframe through
+				<code>contentWindow.write</code>, it doesn&#39;t set a doctype for the iframe and hence it stays
+				in Quirks mode. Quirks mode seems to expand the body height, without having to set
+				<code>html,body { height: 100% }</code> or something similar.
 			</p></li></ul></div></main>
 	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
 			<div>© Jörn Bernhardt</div>
@@ -56,16 +65,16 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1pspkua">
-			import { start } from "../_app/immutable/start-eb786147.js";
+		<script type="module" data-sveltekit-hydrate="bzm260">
+			import { start } from "../_app/immutable/start-f162bbf0.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1pspkua"]').parentNode,
-				version: "1676935697921",
+				target: document.querySelector('[data-sveltekit-hydrate="bzm260"]').parentNode,
+				version: "1677265245278",
 				hydrate: {
-					node_ids: [0, 12],
+					node_ids: [0, 13],
 					data: [{type:"data",data:null,uses:{}},null],
 					form: null
 				}
