@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
@@ -25,6 +26,20 @@
 					></code
 				>. When you find out a way how to draw it like that, it always feels like a hack of the
 				puzzle itself.
+			</p>
+		</li>
+		<li>
+			<h3>srcdoc sets an iframes doctype implicitly, Quirks mode expands the body height</h3>
+			<p>
+				When working on the Puzzle iframe for the <a href="{base}/specials/frontend-friday-folks"
+					>Frontend Friday Folks</a
+				>, I had trouble centering the image. I had the same code result in the Chrome Dev Tools as
+				in CSSBattle.dev, when inspecting the elements, so I didn't realize why it still looked
+				different. It looks like when using the <code>srcdoc</code> on an <code>iframe</code>
+				element, the iframe sets the doctype implicitly. When writing into the iframe through
+				<code>contentWindow.write</code>, it doesn't set a doctype for the iframe and hence it stays
+				in Quirks mode. Quirks mode seems to expand the body height, without having to set
+				<code>html,body {'{ height: 100% }'}</code> or something similar.
 			</p>
 		</li>
 	</ul>
