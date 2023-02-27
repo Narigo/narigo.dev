@@ -77,7 +77,7 @@
   div {
     width: 50px;
     height: 100%;
-    animation: 500ms 5s alternate ease-in-out infinite;
+    animation: 500ms 1s alternate ease-in-out infinite;
   }
   .t {
     background:
@@ -93,17 +93,16 @@
       radial-gradient(circle, #F3AC3C 25px, transparent 0),
       linear-gradient(to top, #F3AC3C 175px, transparent 0)
     ;
-    background-position: 0px -25px, 0px 0px;
+    background-position: 0px -25px, 0px -150px;
+    background-size: 100% 100%, 100% 150%;
     animation-name: sliding-m;
   }
   @keyframes sliding-m {
     0% {
-      background-position: 0 -25px, 0 0;
-      background-size: 100% 100%, 100% 100%;
+      background-position: 0 -25px, 0 -150px;
     }
     100% {
       background-position: 0 125px, 0 0;
-      background-size: 100% 100%, 100% 450px;
     }
   }
   @keyframes sliding-t {
@@ -131,9 +130,11 @@
 	>
 	<Puzzle title="Puzzle 36 - animation" solution={solutionAnimation} />
 	<Narigo>
-		Ok, this one is a bit odd. I've added an animation to it, but I'm not yet sure why I can change
-		the background-size for one easily to remove a weird "background comes back from the other side"
-		effect.
+		The animated version moves the background of the divs around to create the animation effect. So
+		instead of moving the containers around with their positioning, it uses
+		<code>background-position</code> and <code>background-size</code> to position the gradients in a
+		way they can move without "overflowing". The overflow effect can cause a part of the gradient to
+		appear on the other side of the container.
 	</Narigo>
 	<Bubble side="right">
 		Whenever I think of learning resources for Flexbox or Grid, I need to link to
