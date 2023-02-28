@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import { onMount } from 'svelte';
 
 	export let solution: string;
@@ -23,7 +24,7 @@
 	/>
 </div>
 <div>Highlighted solution ({solution.length} characters)</div>
-<pre>{solution}</pre>
+<CodeBlock code={solution} />
 
 <style>
 	* {
