@@ -42,5 +42,16 @@
 				<code>html,body {'{ height: 100% }'}</code> or something similar.
 			</p>
 		</li>
+		<li>
+			<h3>`::before` and `::after` are siblings, nested and `display: inline` in a div</h3>
+			<p>
+				I can never really remember how they work and during this Frontend Friday Folks puzzle, we
+				looked into that again. It seems to be easier to nest divs than using the pseudo elements
+				here. So to understand it better: <code
+					>&lt;div&gt;&lt;::before&gt;content in ::before&lt;/::before&gt;content of
+					div&lt;::after&gt;content in ::after&lt;/::after&gt;&lt;/div&gt;</code
+				>
+			</p>
+		</li>
 	</ul>
 </PageLayout>
