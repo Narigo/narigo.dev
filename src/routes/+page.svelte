@@ -54,6 +54,15 @@
 				from each other.
 			</p>
 		</Narigo>
+		<Narigo side="right">
+			<p>
+				...and since the Frontend Friday Folks is a really nice format, I'm trying something similar
+				with JavaScript katas now. You can join through <a
+					href="https://www.meetup.com/js-craftcamp/events/291808574/"
+					rel="external">the JSCraftCamp meetup group</a
+				>, which will guide you to the JSCraftCamp Discord community where we'll host it.
+			</p>
+		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
 			<p>I needed a space where I can put slides for talks online.</p>
