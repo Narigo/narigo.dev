@@ -62,6 +62,7 @@
 					rel="external">the JSCraftCamp meetup group</a
 				>, which will guide you to the JSCraftCamp Discord community where we'll host it.
 			</p>
+			<p>We'll do it again sometime soon!</p>
 		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
