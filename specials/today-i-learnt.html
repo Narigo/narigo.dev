@@ -9,14 +9,14 @@
 		<link href="../_app/immutable/assets/Narigo-05624ce8.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Bubble-950d7dbd.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/PageLayout-e8cc6741.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-6952d57c.js">
+		<link rel="modulepreload" href="../_app/immutable/start-267170bb.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-543a8e9c.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-44976a15.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-ebfb4040.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-50e92a86.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-6fa22621.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-9546c96c.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Narigo-aec83592.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Bubble-4e6bc313.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-b5859f61.js">
@@ -36,7 +36,7 @@
 		<li class="svelte-1tl4cms"><a href="/contact" class="svelte-1tl4cms">🧑‍💼 Contact</a></li></nav>
 </div></div></header>
 	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><h2>Today I learnt</h2>
-	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.49826203500065014deg; --x: -0.37140426042512553px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.1265254291176856deg; --x: 2.3291676124710357px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
 		whenever I find something worth to log. Most of this will be around web development, but I don&#39;t
 		want to limit myself to that. Let&#39;s see where this leads to.
 	</div></div>
@@ -58,23 +58,28 @@
 				<code>contentWindow.write</code>, it doesn&#39;t set a doctype for the iframe and hence it stays
 				in Quirks mode. Quirks mode seems to expand the body height, without having to set
 				<code>html,body { height: 100% }</code> or something similar.
-			</p></li></ul></div></main>
+			</p></li>
+		<li><h3>`::before` and `::after` are siblings, nested and `display: inline` in a div</h3>
+			<p>I can never really remember how they work and during this Frontend Friday Folks puzzle, we
+				looked into that again. It seems to be easier to nest divs than using the pseudo elements
+				here. So to understand it better: <code>&lt;div&gt;&lt;::before&gt;content in ::before&lt;/::before&gt;content of
+					div&lt;::after&gt;content in ::after&lt;/::after&gt;&lt;/div&gt;</code></p></li></ul></div></main>
 	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
 			<div>© Jörn Bernhardt</div>
 			<div>Statically hosted on GitHub Pages.</div></div></footer>
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1pr9425">
-			import { start } from "../_app/immutable/start-6952d57c.js";
+		<script type="module" data-sveltekit-hydrate="18kt6yb">
+			import { start } from "../_app/immutable/start-267170bb.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1pr9425"]').parentNode,
-				version: "1677547817971",
+				target: document.querySelector('[data-sveltekit-hydrate="18kt6yb"]').parentNode,
+				version: "1678501807288",
 				hydrate: {
-					node_ids: [0, 14],
+					node_ids: [0, 16],
 					data: [{type:"data",data:null,uses:{}},null],
 					form: null
 				}
