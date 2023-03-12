@@ -16,5 +16,6 @@
 		<li><a href="{base}/specials/frontend-friday-folks/puzzle-35">Puzzle 35 - Ice Cream</a></li>
 		<li><a href="{base}/specials/frontend-friday-folks/puzzle-36">Puzzle 36 - Interleaved</a></li>
 		<li><a href="{base}/specials/frontend-friday-folks/puzzle-37">Puzzle 37 - Tunnel</a></li>
+		<li><a href="{base}/specials/frontend-friday-folks/puzzle-38">Puzzle 38 - Not Simply Square</a></li>
 	</ul>
 </PageLayout>
