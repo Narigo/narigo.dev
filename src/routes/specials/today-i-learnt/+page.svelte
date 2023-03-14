@@ -53,5 +53,14 @@
 				>
 			</p>
 		</li>
+		<li>
+			<h3>Strings in JavaScript are iterable without using `split`</h3>
+			<p>
+				When using <code>for (const c of string) {'{ ... }'}</code>, it's not necessary to do a
+				<code>string.split('')</code>
+				before. If you want to <code>string.map()</code> or <code>string.filter()</code> though, you
+				need to split it first.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
