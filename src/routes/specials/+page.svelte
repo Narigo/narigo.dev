@@ -28,11 +28,16 @@
 		>Or <a href="{base}/specials/recharge">Recharge</a> someone</Narigo
 	>
 	<Narigo animation="dialog" delayNext={1000} side="right"
-		>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
-	>
-	<Narigo animation="dialog" delayNext={1000} side="right"
 		>Or look up solutions from <a href="{base}/specials/frontend-friday-folks"
 			>Frontend Friday Folks</a
 		>.</Narigo
+	>
+	<Narigo animation="dialog" delayNext={1000} side="right"
+		>Or check previous events from <a href="{base}/specials/crafters-vs-codewars"
+			>Crafters vs CodeWars</a
+		>.</Narigo
+	>
+	<Narigo animation="dialog" delayNext={1000} side="right"
+		>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
 	>
 </PageLayout>
