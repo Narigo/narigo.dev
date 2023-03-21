@@ -12,6 +12,6 @@
 		more meetups.</Narigo
 	>
 	<ul>
-		<!-- <li><a href="{base}/specials/crafters-vs-codewars/event-2023-03-09">Disemvowel Trolls</a></li> -->
+		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-03-09">Disemvowel Trolls</a></li>
 	</ul>
 </PageLayout>
