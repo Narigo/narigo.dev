@@ -13,7 +13,7 @@
 	function submitForm(e: Event) {
 		e.preventDefault();
 		const encUrl = encode(JSON.stringify($lines));
-		$link = `${base}/specials/talking/?e=${encodeURIComponent(encUrl)}`;
+		$link = `${base}/specials/talking?e=${encodeURIComponent(encUrl)}`;
 	}
 </script>
 
