@@ -19,6 +19,7 @@
 			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
 			<div>Statically hosted on GitHub Pages.</div>
+			<div><a href="https://github.com/Narigo/narigo.dev" rel="external">Source</a></div>
 		</div>
 	</footer>
 </div>
