@@ -60,7 +60,11 @@
 
 <PuzzlePageLayout title="Push Button">
 	<Puzzle title="Puzzle 3 solution" solution={solutionFirst} />
-	<Narigo>My first solution when we started out.</Narigo>
+	<Narigo
+		>My first solution when we started playing these CSS battles. Instead of using two inner divs,
+		this could have been done with <code>::before</code> and <code>::after</code> pseudo elements - but
+		I didn't know them too well back then.</Narigo
+	>
 	<Puzzle title="Puzzle 3 solution" solution={solutionGradient} />
 	<Narigo
 		>Gradients! This has been done when the Saturday edition of the Frontend Friday Folks started
