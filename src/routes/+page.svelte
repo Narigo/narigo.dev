@@ -64,6 +64,13 @@
 			</p>
 			<p>We'll do it again sometime soon!</p>
 		</Narigo>
+		<h3>Are you available for hire? 🤔</h3>
+		<Narigo>
+			<p>
+				If you need a senior developer to help level up your team, we can talk about that. Usually I
+				work with my own team and we're building web applications.
+			</p>
+		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
 			<p>I needed a space where I can put slides for talks online.</p>
