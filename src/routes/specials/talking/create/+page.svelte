@@ -5,6 +5,8 @@
 
 	let lines = writable<string[]>(['']);
 	let link = writable<string>('');
+	let characterA: string = '';
+	let characterB: string = '';
 
 	function encode(str: string): string {
 		return window.btoa(encodeURIComponent(str));
@@ -12,7 +14,9 @@
 
 	function submitForm(e: Event) {
 		e.preventDefault();
-		const encUrl = encode(JSON.stringify($lines));
+		const toEncode =
+			characterA !== '' || characterB !== '' ? { f: [characterA, characterB], l: $lines } : $lines;
+		const encUrl = encode(JSON.stringify(toEncode));
 		$link = `${base}/specials/talking?e=${encodeURIComponent(encUrl)}`;
 	}
 </script>
@@ -20,6 +24,14 @@
 <PageLayout>
 	<h2>Talking</h2>
 	<form on:submit={submitForm}>
+		<label for="talking-create-face-a"
+			>Gravatar hash of character A:<br />(leave empty for no Gravatar)</label
+		>
+		<input id="talking-create-face-a" type="text" bind:value={characterA} />
+		<label for="talking-create-face-b"
+			>Gravatar hash of character B:<br />(leave empty for no Gravatar)</label
+		>
+		<input id="talking-create-face-b" type="text" bind:value={characterB} />
 		{#each $lines as line, index}
 			<label for="talking-create-line-{index}">Character {index % 2 === 0 ? 'A' : 'B'}:</label>
 			<input id="talking-create-line-{index}" type="text" bind:value={line} />

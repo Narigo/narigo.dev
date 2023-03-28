@@ -7,13 +7,26 @@
 	import Animation from './Animation.svelte';
 
 	let encrypted: string | null;
-	let lines: string[] = [];
+	let lines: { side: 'left' | 'right'; avatar?: string; line: string }[] = [];
 
 	onMount(() => {
 		encrypted = $page.url.searchParams.get('e');
-		if (browser && encrypted) {
-			lines = JSON.parse(decode(encrypted));
+		if (!(browser && encrypted)) {
+			return;
 		}
+		const object = JSON.parse(decode(encrypted));
+		if (Array.isArray(object)) {
+			lines = (object as string[]).map((line, index) => ({
+				side: index % 2 === 0 ? 'left' : 'right',
+				line
+			}));
+			return;
+		}
+		lines = (object.l as string[]).map((line, index) => ({
+			side: index % 2 === 0 ? 'left' : 'right',
+			avatar: object.f?.[index % 2],
+			line
+		}));
 	});
 
 	function decode(str: string): string {
