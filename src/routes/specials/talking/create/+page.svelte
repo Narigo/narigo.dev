@@ -3,6 +3,18 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
 
+	/**
+	 * There are two encoding formats right now:
+	 * 1. Array of lines, with two talking heads;
+	 * ['line 1 of char A', 'line 1 of char B', 'line 2 of char A', 'line 2 of char B', 'line 3 of char A', ...]
+	 *
+	 * 2. Object with gravatar.com hashes to show real faces:
+	 * {
+	 *   f: ['gravatar.com hash for character A', 'gravatar.com hash for character B'],
+	 *   l: ['line 1 of char A', 'line 1 of char B', 'line 2 of char A', 'line 2 of char B', 'line 3 of char A', ...]
+	 * }
+	 */
+
 	let lines = writable<string[]>(['']);
 	let link = writable<string>('');
 	let characterA: string = '';
