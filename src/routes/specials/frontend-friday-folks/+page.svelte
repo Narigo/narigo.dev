@@ -30,6 +30,7 @@
 			</li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-39">Puzzle 39 - Sunset</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-40">Puzzle 40 - Letter B</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-41">Puzzle 41 - Fox Head</a></li>
 		</ul>
 	</Narigo>
 </PageLayout>
