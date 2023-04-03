@@ -95,9 +95,13 @@
     "file": "_app/immutable/assets/PageLayout-e8cc6741.css",
     "src": "PageLayout.css"
   },
-  "CodeBlock.css": {
-    "file": "_app/immutable/assets/CodeBlock-2e90b6d8.css",
-    "src": "CodeBlock.css"
+  "Bubble.css": {
+    "file": "_app/immutable/assets/Bubble-950d7dbd.css",
+    "src": "Bubble.css"
+  },
+  "src/routes/specials/recharge/create/+page.css": {
+    "file": "_app/immutable/assets/_page-8e43047b.css",
+    "src": "src/routes/specials/recharge/create/+page.css"
   },
   "PuzzlePageLayout.css": {
     "file": "_app/immutable/assets/PuzzlePageLayout-a316fb00.css",
@@ -107,21 +111,17 @@
     "file": "_app/immutable/assets/_page-591419a4.css",
     "src": "src/routes/specials/recharge/+page.css"
   },
-  "src/routes/specials/talking/create/+page.css": {
-    "file": "_app/immutable/assets/_page-8e43047b.css",
-    "src": "src/routes/specials/talking/create/+page.css"
-  },
   "src/routes/specials/talking/+page.css": {
     "file": "_app/immutable/assets/_page-9f676f43.css",
     "src": "src/routes/specials/talking/+page.css"
   },
-  "Bubble.css": {
-    "file": "_app/immutable/assets/Bubble-950d7dbd.css",
-    "src": "Bubble.css"
+  "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.css": {
+    "file": "_app/immutable/assets/_page-862b2201.css",
+    "src": "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.css"
   },
-  "src/routes/talks/static-pages-with-dynamic-content/+page.css": {
-    "file": "_app/immutable/assets/_page-91122d03.css",
-    "src": "src/routes/talks/static-pages-with-dynamic-content/+page.css"
+  "CodeBlock.css": {
+    "file": "_app/immutable/assets/CodeBlock-2e90b6d8.css",
+    "src": "CodeBlock.css"
   },
   "src/routes/specials/weirdle/create/+page.css": {
     "file": "_app/immutable/assets/_page-8c52d032.css",
@@ -131,70 +131,14 @@
     "file": "_app/immutable/assets/_page-c1b97d90.css",
     "src": "src/routes/specials/weirdle/play/+page.css"
   },
-  "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-e13bf733.js",
-    "src": "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/client/start.js",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_singletons-44976a15.js",
-      "_preload-helper-41c905a7.js",
-      "_paths-b4419565.js"
-    ],
-    "dynamicImports": [
-      ".svelte-kit/generated/nodes/0.js",
-      ".svelte-kit/generated/nodes/1.js",
-      ".svelte-kit/generated/nodes/2.js",
-      ".svelte-kit/generated/nodes/3.js",
-      ".svelte-kit/generated/nodes/4.js",
-      ".svelte-kit/generated/nodes/5.js",
-      ".svelte-kit/generated/nodes/6.js",
-      ".svelte-kit/generated/nodes/7.js",
-      ".svelte-kit/generated/nodes/8.js",
-      ".svelte-kit/generated/nodes/9.js",
-      ".svelte-kit/generated/nodes/10.js",
-      ".svelte-kit/generated/nodes/11.js",
-      ".svelte-kit/generated/nodes/12.js",
-      ".svelte-kit/generated/nodes/13.js",
-      ".svelte-kit/generated/nodes/14.js",
-      ".svelte-kit/generated/nodes/15.js",
-      ".svelte-kit/generated/nodes/16.js",
-      ".svelte-kit/generated/nodes/17.js",
-      ".svelte-kit/generated/nodes/18.js",
-      ".svelte-kit/generated/nodes/19.js",
-      ".svelte-kit/generated/nodes/20.js",
-      ".svelte-kit/generated/nodes/21.js",
-      ".svelte-kit/generated/nodes/22.js",
-      ".svelte-kit/generated/nodes/23.js",
-      ".svelte-kit/generated/nodes/24.js",
-      ".svelte-kit/generated/nodes/25.js",
-      ".svelte-kit/generated/nodes/26.js",
-      ".svelte-kit/generated/nodes/27.js"
-    ]
+  "src/routes/talks/static-pages-with-dynamic-content/+page.css": {
+    "file": "_app/immutable/assets/_page-91122d03.css",
+    "src": "src/routes/talks/static-pages-with-dynamic-content/+page.css"
   },
   "_index-ebfb4040.js": {
     "file": "_app/immutable/chunks/index-ebfb4040.js",
     "imports": [
       "_index-543a8e9c.js"
-    ]
-  },
-  "_stores-b8c32e83.js": {
-    "file": "_app/immutable/chunks/stores-b8c32e83.js",
-    "imports": [
-      "_index-543a8e9c.js",
-      "_singletons-44976a15.js"
-    ]
-  },
-  "_preload-helper-41c905a7.js": {
-    "file": "_app/immutable/chunks/preload-helper-41c905a7.js"
-  },
-  "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-d5f296bc.js",
-    "src": "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_stores-b8c32e83.js"
     ]
   },
   "_paths-b4419565.js": {
@@ -207,6 +151,28 @@
       "_paths-b4419565.js"
     ]
   },
+  "_stores-b8c32e83.js": {
+    "file": "_app/immutable/chunks/stores-b8c32e83.js",
+    "imports": [
+      "_index-543a8e9c.js",
+      "_singletons-44976a15.js"
+    ]
+  },
+  "_index-b5859f61.js": {
+    "file": "_app/immutable/chunks/index-b5859f61.js",
+    "imports": [
+      "_index-543a8e9c.js"
+    ]
+  },
+  "src/routes/contact/+page.svelte": {
+    "file": "_app/immutable/components/pages/contact/_page.svelte-1b0be9a7.js",
+    "src": "src/routes/contact/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
   "src/routes/+page.svelte": {
     "file": "_app/immutable/components/pages/_page.svelte-0b5a694b.js",
     "src": "src/routes/+page.svelte",
@@ -217,12 +183,168 @@
       "_PageLayout-8dc71dc3.js"
     ]
   },
-  ".svelte-kit/generated/nodes/25.js": {
-    "file": "_app/immutable/chunks/25-74b30d54.js",
-    "src": ".svelte-kit/generated/nodes/25.js",
+  "src/routes/imprint/+page.svelte": {
+    "file": "_app/immutable/components/pages/imprint/_page.svelte-b08ec4b5.js",
+    "src": "src/routes/imprint/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
+  "src/routes/specials/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/_page.svelte-5f321b5d.js",
+    "src": "src/routes/specials/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
+  "src/routes/specials/crafters-vs-codewars/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/crafters-vs-codewars/_page.svelte-91c95d27.js",
+    "src": "src/routes/specials/crafters-vs-codewars/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_Narigo-aec83592.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
+  ".svelte-kit/generated/nodes/27.js": {
+    "file": "_app/immutable/chunks/27-85d22898.js",
+    "src": ".svelte-kit/generated/nodes/27.js",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/specials/weirdle/play/+page.svelte"
+      "src/routes/talks/static-pages-with-dynamic-content/+page.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/10.js": {
+    "file": "_app/immutable/chunks/10-a5bdf667.js",
+    "src": ".svelte-kit/generated/nodes/10.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-33/_page.svelte-86e80bba.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-35/_page.svelte-d13ddf99.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-38/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-38/_page.svelte-ef381c1b.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-38/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/+layout.svelte": {
+    "file": "_app/immutable/components/pages/_layout.svelte-50e92a86.js",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout-56287999.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/annie-use-your-telescope-latin-400-normal-26d9ba20.woff2",
+      "_app/immutable/assets/annie-use-your-telescope-all-400-normal-b813c9e3.woff",
+      "_app/immutable/assets/gochi-hand-latin-400-normal-8479481c.woff2",
+      "_app/immutable/assets/gochi-hand-all-400-normal-152552ee.woff",
+      "_app/immutable/assets/permanent-marker-latin-400-normal-4884fec2.woff2",
+      "_app/immutable/assets/permanent-marker-all-400-normal-d1b8e012.woff"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/_page.svelte-0ddf713a.js",
+    "src": "src/routes/specials/frontend-friday-folks/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_Narigo-aec83592.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-41/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-41/_page.svelte-dc96cde6.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-41/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-39/_page.svelte-8508afd0.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-3/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-3/_page.svelte-f00e13b5.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-3/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/today-i-learnt/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-a5de1eb6.js",
+    "src": "src/routes/specials/today-i-learnt/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_Narigo-aec83592.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
+  "src/routes/talks/+page.svelte": {
+    "file": "_app/immutable/components/pages/talks/_page.svelte-d58c9719.js",
+    "src": "src/routes/talks/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_PageLayout-8dc71dc3.js"
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
@@ -231,6 +353,14 @@
     "isDynamicEntry": true,
     "imports": [
       "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/0.js": {
+    "file": "_app/immutable/chunks/0-481403ec.js",
+    "src": ".svelte-kit/generated/nodes/0.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/+layout.svelte"
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
@@ -265,6 +395,16 @@
       "src/routes/specials/+page.svelte"
     ]
   },
+  "src/routes/specials/weirdle/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/weirdle/_page.svelte-24d86106.js",
+    "src": "src/routes/specials/weirdle/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_PageLayout-8dc71dc3.js"
+    ]
+  },
   ".svelte-kit/generated/nodes/6.js": {
     "file": "_app/immutable/chunks/6-a5e6c858.js",
     "src": ".svelte-kit/generated/nodes/6.js",
@@ -274,7 +414,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/7.js": {
-    "file": "_app/immutable/chunks/7-eff8dfa2.js",
+    "file": "_app/immutable/chunks/7-1432d606.js",
     "src": ".svelte-kit/generated/nodes/7.js",
     "isDynamicEntry": true,
     "imports": [
@@ -297,20 +437,12 @@
       "src/routes/specials/frontend-friday-folks/puzzle-3/+page.svelte"
     ]
   },
-  ".svelte-kit/generated/nodes/10.js": {
-    "file": "_app/immutable/chunks/10-a5bdf667.js",
-    "src": ".svelte-kit/generated/nodes/10.js",
+  ".svelte-kit/generated/nodes/23.js": {
+    "file": "_app/immutable/chunks/23-31f237c4.js",
+    "src": ".svelte-kit/generated/nodes/23.js",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/11.js": {
-    "file": "_app/immutable/chunks/11-ae0b89bf.js",
-    "src": ".svelte-kit/generated/nodes/11.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte"
+      "src/routes/specials/weirdle/+page.svelte"
     ]
   },
   ".svelte-kit/generated/nodes/12.js": {
@@ -329,28 +461,20 @@
       "src/routes/specials/frontend-friday-folks/puzzle-37/+page.svelte"
     ]
   },
+  ".svelte-kit/generated/nodes/11.js": {
+    "file": "_app/immutable/chunks/11-ae0b89bf.js",
+    "src": ".svelte-kit/generated/nodes/11.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte"
+    ]
+  },
   ".svelte-kit/generated/nodes/14.js": {
     "file": "_app/immutable/chunks/14-2e6cd630.js",
     "src": ".svelte-kit/generated/nodes/14.js",
     "isDynamicEntry": true,
     "imports": [
       "src/routes/specials/frontend-friday-folks/puzzle-38/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/15.js": {
-    "file": "_app/immutable/chunks/15-015a2dbd.js",
-    "src": ".svelte-kit/generated/nodes/15.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/16.js": {
-    "file": "_app/immutable/chunks/16-7ce2083b.js",
-    "src": ".svelte-kit/generated/nodes/16.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte"
     ]
   },
   ".svelte-kit/generated/nodes/17.js": {
@@ -401,12 +525,20 @@
       "src/routes/specials/today-i-learnt/+page.svelte"
     ]
   },
-  ".svelte-kit/generated/nodes/23.js": {
-    "file": "_app/immutable/chunks/23-31f237c4.js",
-    "src": ".svelte-kit/generated/nodes/23.js",
+  ".svelte-kit/generated/nodes/16.js": {
+    "file": "_app/immutable/chunks/16-7ce2083b.js",
+    "src": ".svelte-kit/generated/nodes/16.js",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/specials/weirdle/+page.svelte"
+      "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/15.js": {
+    "file": "_app/immutable/chunks/15-015a2dbd.js",
+    "src": ".svelte-kit/generated/nodes/15.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte"
     ]
   },
   ".svelte-kit/generated/nodes/24.js": {
@@ -417,32 +549,12 @@
       "src/routes/specials/weirdle/create/+page.svelte"
     ]
   },
-  "src/routes/specials/weirdle/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/weirdle/_page.svelte-24d86106.js",
-    "src": "src/routes/specials/weirdle/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/talks/+page.svelte": {
-    "file": "_app/immutable/components/pages/talks/_page.svelte-d58c9719.js",
-    "src": "src/routes/talks/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  ".svelte-kit/generated/nodes/0.js": {
-    "file": "_app/immutable/chunks/0-481403ec.js",
-    "src": ".svelte-kit/generated/nodes/0.js",
+  ".svelte-kit/generated/nodes/25.js": {
+    "file": "_app/immutable/chunks/25-74b30d54.js",
+    "src": ".svelte-kit/generated/nodes/25.js",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/+layout.svelte"
+      "src/routes/specials/weirdle/play/+page.svelte"
     ]
   },
   ".svelte-kit/generated/nodes/26.js": {
@@ -453,90 +565,95 @@
       "src/routes/talks/+page.svelte"
     ]
   },
-  ".svelte-kit/generated/nodes/27.js": {
-    "file": "_app/immutable/chunks/27-85d22898.js",
-    "src": ".svelte-kit/generated/nodes/27.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/talks/static-pages-with-dynamic-content/+page.svelte"
-    ]
-  },
-  "src/routes/specials/recharge/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/recharge/_page.svelte-e9f36df0.js",
-    "src": "src/routes/specials/recharge/+page.svelte",
+  "src/routes/specials/frontend-friday-folks/puzzle-36/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-36/_page.svelte-ce3ca440.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-36/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_stores-b8c32e83.js",
-      "_PageLayout-8dc71dc3.js",
       "_Bubble-4e6bc313.js",
-      "_index-ebfb4040.js",
-      "_index-b5859f61.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page-591419a4.css"
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
     ]
   },
-  "src/routes/specials/talking/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/talking/_page.svelte-2d0d15b3.js",
-    "src": "src/routes/specials/talking/+page.svelte",
+  "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "_app/immutable/components/error.svelte-d5f296bc.js",
+    "src": "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_stores-b8c32e83.js",
-      "_PageLayout-8dc71dc3.js",
+      "_stores-b8c32e83.js"
+    ]
+  },
+  "_index-543a8e9c.js": {
+    "file": "_app/immutable/chunks/index-543a8e9c.js"
+  },
+  "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/client/start.js": {
+    "file": "_app/immutable/start-cb230ba9.js",
+    "src": "node_modules/.pnpm/@sveltejs+kit@1.0.1_svelte@3.55.0+vite@4.0.1/node_modules/@sveltejs/kit/src/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_singletons-44976a15.js",
+      "_preload-helper-41c905a7.js",
+      "_paths-b4419565.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/generated/nodes/0.js",
+      ".svelte-kit/generated/nodes/1.js",
+      ".svelte-kit/generated/nodes/2.js",
+      ".svelte-kit/generated/nodes/3.js",
+      ".svelte-kit/generated/nodes/4.js",
+      ".svelte-kit/generated/nodes/5.js",
+      ".svelte-kit/generated/nodes/6.js",
+      ".svelte-kit/generated/nodes/7.js",
+      ".svelte-kit/generated/nodes/8.js",
+      ".svelte-kit/generated/nodes/9.js",
+      ".svelte-kit/generated/nodes/10.js",
+      ".svelte-kit/generated/nodes/11.js",
+      ".svelte-kit/generated/nodes/12.js",
+      ".svelte-kit/generated/nodes/13.js",
+      ".svelte-kit/generated/nodes/14.js",
+      ".svelte-kit/generated/nodes/15.js",
+      ".svelte-kit/generated/nodes/16.js",
+      ".svelte-kit/generated/nodes/17.js",
+      ".svelte-kit/generated/nodes/18.js",
+      ".svelte-kit/generated/nodes/19.js",
+      ".svelte-kit/generated/nodes/20.js",
+      ".svelte-kit/generated/nodes/21.js",
+      ".svelte-kit/generated/nodes/22.js",
+      ".svelte-kit/generated/nodes/23.js",
+      ".svelte-kit/generated/nodes/24.js",
+      ".svelte-kit/generated/nodes/25.js",
+      ".svelte-kit/generated/nodes/26.js",
+      ".svelte-kit/generated/nodes/27.js"
+    ]
+  },
+  "_preload-helper-41c905a7.js": {
+    "file": "_app/immutable/chunks/preload-helper-41c905a7.js"
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-40/_page.svelte-a7d23e77.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "_Narigo-aec83592.js": {
+    "file": "_app/immutable/chunks/Narigo-aec83592.js",
+    "imports": [
+      "_index-543a8e9c.js",
       "_Bubble-4e6bc313.js"
     ],
     "css": [
-      "_app/immutable/assets/_page-9f676f43.css"
+      "_app/immutable/assets/Narigo-05624ce8.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/narigo-e54b8f62.png"
     ]
-  },
-  "_index-b5859f61.js": {
-    "file": "_app/immutable/chunks/index-b5859f61.js",
-    "imports": [
-      "_index-543a8e9c.js"
-    ]
-  },
-  "src/routes/imprint/+page.svelte": {
-    "file": "_app/immutable/components/pages/imprint/_page.svelte-b08ec4b5.js",
-    "src": "src/routes/imprint/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/specials/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/_page.svelte-5f321b5d.js",
-    "src": "src/routes/specials/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/specials/crafters-vs-codewars/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/crafters-vs-codewars/_page.svelte-91c95d27.js",
-    "src": "src/routes/specials/crafters-vs-codewars/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_Narigo-aec83592.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "node_modules/.pnpm/reveal.js@4.4.0/node_modules/reveal.js/dist/reveal.esm.js": {
-    "file": "_app/immutable/chunks/reveal.esm-5c119aeb.js",
-    "src": "node_modules/.pnpm/reveal.js@4.4.0/node_modules/reveal.js/dist/reveal.esm.js",
-    "isDynamicEntry": true
   },
   "src/routes/specials/recharge/create/+page.svelte": {
     "file": "_app/immutable/components/pages/specials/recharge/create/_page.svelte-8c83e9af.js",
@@ -550,6 +667,75 @@
     ],
     "css": [
       "_app/immutable/assets/_page-8e43047b.css"
+    ]
+  },
+  "node_modules/.pnpm/reveal.js@4.4.0/node_modules/reveal.js/dist/reveal.esm.js": {
+    "file": "_app/immutable/chunks/reveal.esm-5c119aeb.js",
+    "src": "node_modules/.pnpm/reveal.js@4.4.0/node_modules/reveal.js/dist/reveal.esm.js",
+    "isDynamicEntry": true
+  },
+  "src/routes/specials/talking/create/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/talking/create/_page.svelte-fc832180.js",
+    "src": "src/routes/specials/talking/create/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_PageLayout-8dc71dc3.js",
+      "_index-ebfb4040.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-8e43047b.css"
+    ]
+  },
+  "_PuzzlePageLayout-913b8df1.js": {
+    "file": "_app/immutable/chunks/PuzzlePageLayout-913b8df1.js",
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_PageLayout-8dc71dc3.js",
+      "_CodeBlock-e25b5803.js"
+    ],
+    "css": [
+      "_app/immutable/assets/PuzzlePageLayout-a316fb00.css"
+    ]
+  },
+  "src/routes/specials/frontend-friday-folks/puzzle-37/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-37/_page.svelte-65584203.js",
+    "src": "src/routes/specials/frontend-friday-folks/puzzle-37/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Bubble-4e6bc313.js",
+      "_Narigo-aec83592.js",
+      "_PuzzlePageLayout-913b8df1.js"
+    ]
+  },
+  "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/crafters-vs-codewars/event-2023-03-09/_page.svelte-59e2c703.js",
+    "src": "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_Narigo-aec83592.js",
+      "_CodeBlock-e25b5803.js",
+      "_PageLayout-8dc71dc3.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-862b2201.css"
+    ]
+  },
+  "_PageLayout-8dc71dc3.js": {
+    "file": "_app/immutable/chunks/PageLayout-8dc71dc3.js",
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js"
+    ],
+    "css": [
+      "_app/immutable/assets/PageLayout-e8cc6741.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/bg-c0d3350e.svg"
     ]
   },
   "src/routes/specials/weirdle/play/+page.svelte": {
@@ -568,126 +754,6 @@
       "_app/immutable/assets/_page-c1b97d90.css"
     ]
   },
-  "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/crafters-vs-codewars/event-2023-03-09/_page.svelte-e2c3b395.js",
-    "src": "src/routes/specials/crafters-vs-codewars/event-2023-03-09/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_CodeBlock-e25b5803.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/_page.svelte-0ddf713a.js",
-    "src": "src/routes/specials/frontend-friday-folks/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_Narigo-aec83592.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-3/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-3/_page.svelte-f00e13b5.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-3/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-33/_page.svelte-86e80bba.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-33/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-35/_page.svelte-d13ddf99.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-35/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-36/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-36/_page.svelte-ce3ca440.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-36/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-37/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-37/_page.svelte-65584203.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-37/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Bubble-4e6bc313.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-38/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-38/_page.svelte-ef381c1b.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-38/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-39/_page.svelte-8508afd0.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-39/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-40/_page.svelte-a7d23e77.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-40/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/talking/create/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/talking/create/_page.svelte-fc832180.js",
-    "src": "src/routes/specials/talking/create/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_PageLayout-8dc71dc3.js",
-      "_index-ebfb4040.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page-8e43047b.css"
-    ]
-  },
   "_Bubble-4e6bc313.js": {
     "file": "_app/immutable/chunks/Bubble-4e6bc313.js",
     "imports": [
@@ -699,118 +765,36 @@
       "_app/immutable/assets/Bubble-950d7dbd.css"
     ]
   },
-  "_index-543a8e9c.js": {
-    "file": "_app/immutable/chunks/index-543a8e9c.js"
-  },
-  "src/routes/specials/today-i-learnt/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-a5de1eb6.js",
-    "src": "src/routes/specials/today-i-learnt/+page.svelte",
+  "src/routes/specials/talking/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/talking/_page.svelte-2d0d15b3.js",
+    "src": "src/routes/specials/talking/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-543a8e9c.js",
       "_paths-b4419565.js",
-      "_Narigo-aec83592.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/contact/+page.svelte": {
-    "file": "_app/immutable/components/pages/contact/_page.svelte-1b0be9a7.js",
-    "src": "src/routes/contact/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_PageLayout-8dc71dc3.js"
-    ]
-  },
-  "src/routes/specials/frontend-friday-folks/puzzle-41/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/frontend-friday-folks/puzzle-41/_page.svelte-dc96cde6.js",
-    "src": "src/routes/specials/frontend-friday-folks/puzzle-41/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_Narigo-aec83592.js",
-      "_PuzzlePageLayout-913b8df1.js"
-    ]
-  },
-  "src/routes/specials/weirdle/create/+page.svelte": {
-    "file": "_app/immutable/components/pages/specials/weirdle/create/_page.svelte-86323e5b.js",
-    "src": "src/routes/specials/weirdle/create/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js",
-      "_Bubble-4e6bc313.js",
+      "_stores-b8c32e83.js",
       "_PageLayout-8dc71dc3.js",
-      "_index-ebfb4040.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page-8c52d032.css"
-    ]
-  },
-  "src/routes/+layout.svelte": {
-    "file": "_app/immutable/components/pages/_layout.svelte-50e92a86.js",
-    "src": "src/routes/+layout.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-543a8e9c.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_layout-56287999.css"
-    ],
-    "assets": [
-      "_app/immutable/assets/annie-use-your-telescope-latin-400-normal-26d9ba20.woff2",
-      "_app/immutable/assets/annie-use-your-telescope-all-400-normal-b813c9e3.woff",
-      "_app/immutable/assets/gochi-hand-latin-400-normal-8479481c.woff2",
-      "_app/immutable/assets/gochi-hand-all-400-normal-152552ee.woff",
-      "_app/immutable/assets/permanent-marker-latin-400-normal-4884fec2.woff2",
-      "_app/immutable/assets/permanent-marker-all-400-normal-d1b8e012.woff"
-    ]
-  },
-  "_Narigo-aec83592.js": {
-    "file": "_app/immutable/chunks/Narigo-aec83592.js",
-    "imports": [
-      "_index-543a8e9c.js",
       "_Bubble-4e6bc313.js"
     ],
     "css": [
-      "_app/immutable/assets/Narigo-05624ce8.css"
-    ],
-    "assets": [
-      "_app/immutable/assets/narigo-e54b8f62.png"
+      "_app/immutable/assets/_page-9f676f43.css"
     ]
   },
-  "_PageLayout-8dc71dc3.js": {
-    "file": "_app/immutable/chunks/PageLayout-8dc71dc3.js",
-    "imports": [
-      "_index-543a8e9c.js",
-      "_paths-b4419565.js"
-    ],
-    "css": [
-      "_app/immutable/assets/PageLayout-e8cc6741.css"
-    ],
-    "assets": [
-      "_app/immutable/assets/bg-c0d3350e.svg"
-    ]
-  },
-  "_CodeBlock-e25b5803.js": {
-    "file": "_app/immutable/chunks/CodeBlock-e25b5803.js",
-    "imports": [
-      "_index-543a8e9c.js"
-    ],
-    "css": [
-      "_app/immutable/assets/CodeBlock-2e90b6d8.css"
-    ]
-  },
-  "_PuzzlePageLayout-913b8df1.js": {
-    "file": "_app/immutable/chunks/PuzzlePageLayout-913b8df1.js",
+  "src/routes/specials/recharge/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/recharge/_page.svelte-e9f36df0.js",
+    "src": "src/routes/specials/recharge/+page.svelte",
+    "isEntry": true,
     "imports": [
       "_index-543a8e9c.js",
       "_paths-b4419565.js",
+      "_stores-b8c32e83.js",
       "_PageLayout-8dc71dc3.js",
-      "_CodeBlock-e25b5803.js"
+      "_Bubble-4e6bc313.js",
+      "_index-ebfb4040.js",
+      "_index-b5859f61.js"
     ],
     "css": [
-      "_app/immutable/assets/PuzzlePageLayout-a316fb00.css"
+      "_app/immutable/assets/_page-591419a4.css"
     ]
   },
   "src/routes/talks/static-pages-with-dynamic-content/+page.svelte": {
@@ -844,8 +828,32 @@
       "_app/immutable/assets/source-sans-pro-semibolditalic-e8ec22b6.ttf"
     ]
   },
-  "src/routes/specials/recharge/create/+page.css": {
+  "src/routes/specials/weirdle/create/+page.svelte": {
+    "file": "_app/immutable/components/pages/specials/weirdle/create/_page.svelte-86323e5b.js",
+    "src": "src/routes/specials/weirdle/create/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-543a8e9c.js",
+      "_paths-b4419565.js",
+      "_Bubble-4e6bc313.js",
+      "_PageLayout-8dc71dc3.js",
+      "_index-ebfb4040.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-8c52d032.css"
+    ]
+  },
+  "_CodeBlock-e25b5803.js": {
+    "file": "_app/immutable/chunks/CodeBlock-e25b5803.js",
+    "imports": [
+      "_index-543a8e9c.js"
+    ],
+    "css": [
+      "_app/immutable/assets/CodeBlock-2e90b6d8.css"
+    ]
+  },
+  "src/routes/specials/talking/create/+page.css": {
     "file": "_app/immutable/assets/_page-8e43047b.css",
-    "src": "src/routes/specials/talking/create/+page.css"
+    "src": "src/routes/specials/recharge/create/+page.css"
   }
 }
