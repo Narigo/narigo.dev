@@ -4,7 +4,7 @@
 	let isExpanded = false;
 </script>
 
-<div>
+<div class="navigation">
 	<input id="navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
 	<label for="navigation-menu-toggle">
 		<div class="menu-icon" />
@@ -12,28 +12,34 @@
 		<span class="closed">Close Menu</span>
 	</label>
 	<nav aria-expanded={isExpanded}>
-		<li><a href="{base}/">🏠 Home</a></li>
-		<li><a href="{base}/talks">🗣️ Talks</a></li>
-		<li><a href="{base}/specials">🤪 Specials</a></li>
-		<li><a href="{base}/contact">🧑‍💼 Contact</a></li>
+		<ul>
+			<li><a href="{base}/">🏠 Home</a></li>
+			<li><a href="{base}/talks">🗣️ Talks</a></li>
+			<li><a href="{base}/specials">🤪 Specials</a></li>
+			<li><a href="{base}/contact">🧑‍💼 Contact</a></li>
+		</ul>
 	</nav>
 </div>
 
 <style>
-	div {
+	.navigation {
 		display: flex;
 		flex-flow: column;
 		font-family: var(--font-family-headline);
 		margin-bottom: 1em;
 	}
 	nav {
+		display: contents;
+	}
+	nav ul {
 		align-items: stretch;
 		display: flex;
 		flex: 1;
 		flex-flow: row wrap;
 		gap: 0 0.5em;
-		justify-content: stretch;
+		justify-content: space-between;
 		max-width: var(--max-page-width);
+		padding: 0;
 	}
 	li {
 		position: relative;
