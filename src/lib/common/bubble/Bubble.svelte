@@ -1,19 +1,26 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 	import { fly } from 'svelte/transition';
 	import Shaker from '../Shaker.svelte';
-	import type { AnimationData } from './AnimationContext.svelte';
+	import type { AnimationContext } from './AnimationContext.svelte';
 
 	export let side: 'left' | 'right' = 'left';
 	export let delay: number = 0;
 	export let duration: number = 100;
 	export let delayNext: number = 0;
 
-	const animationData = getContext<AnimationData>('Bubble:animationData');
+	const animationContext = getContext<AnimationContext>('AnimationContext');
 
 	let angle = Math.random() * 1.5 - 1.5 / 2;
 	let translateX = Math.random() * 5 - 5 / 2;
-	let show = delay === 0 && animationData === undefined;
+	const show = writable<boolean>(delay === 0 && animationContext === undefined);
+
+	onMount(() => {
+		if (animationContext) {
+			animationContext.createAnimation(show, delay, delayNext);
+		}
+	});
 
 	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
 	let mode = 0;
@@ -25,54 +32,9 @@
 			translateX = Math.random() * 5 - 5 / 2;
 		}
 	};
-
-	let myId = 0;
-	let clickHandler: ((this: Document, ev: MouseEvent) => any) | null = null;
-	onMount(() => {
-		if (animationData) {
-			myId = animationData.animations.length;
-			const runAnimation = () => {
-				if (animationData) {
-					if (myId <= animationData.current) {
-						document.removeEventListener('click', runAnimation);
-						const { nextTimer } = animationData;
-						if (nextTimer !== null) {
-							clearTimeout(nextTimer);
-							animationData.nextTimer = null;
-						}
-						show = true;
-						animationData.current += 1;
-						const nextAnimation =
-							animationData.current < animationData.animations.length
-								? animationData.animations[animationData.current]
-								: undefined;
-						if (nextAnimation) {
-							animationData.nextTimer = setTimeout(
-								nextAnimation.animation,
-								nextAnimation.delayNext
-							);
-							clickHandler = nextAnimation.animation;
-							document.addEventListener('click', clickHandler);
-						}
-					}
-				} else {
-					show = true;
-					clickHandler = runAnimation;
-					document.removeEventListener('click', runAnimation);
-				}
-			};
-			animationData.animations.push({ delayNext, animation: runAnimation });
-			if (!animationData.started) {
-				animationData.started = true;
-				animationData.nextTimer = setTimeout(runAnimation, delay);
-				clickHandler = runAnimation;
-				document.addEventListener('click', runAnimation);
-			}
-		}
-	});
 </script>
 
-{#if show}
+{#if $show}
 	<Shaker shake={modes[mode] === 'shout'}>
 		<div
 			class="wrap"

@@ -3,6 +3,7 @@
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
@@ -10,6 +11,7 @@
 	<h2>Specials</h2>
 
 	<AnimationContext name="dialog">
+		<StopAllAnimations />
 		<Bubble delayNext={1000}>Hey, what's up with this page?</Bubble>
 		<Narigo delayNext={1000} side="right">I thought I may want to write some code here.</Narigo>
 		<Bubble delayNext={1000}>Okay, but ...</Bubble>

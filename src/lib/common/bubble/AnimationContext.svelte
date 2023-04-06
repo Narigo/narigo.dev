@@ -5,13 +5,21 @@
 		nextTimer: ReturnType<typeof window.setTimeout> | null;
 		animations: { delayNext: number; animation: () => void }[];
 	};
+	export type AnimationContext = {
+		animationsDone: Writable<boolean>;
+		createAnimation: (show: Writable<boolean>, delay: number, delayNext: number) => void;
+		finishAllAnimations: () => void;
+	};
 	let animations: Record<string, AnimationData> = {};
 </script>
 
 <script lang="ts">
+	import { browser } from '$app/environment';
+
 	import { beforeNavigate } from '$app/navigation';
 
-	import { setContext } from 'svelte';
+	import { onDestroy, onMount, setContext } from 'svelte';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
 
@@ -21,12 +29,58 @@
 		nextTimer: null,
 		animations: []
 	};
+	const animationData = animations[name];
+	const animationsDone = writable(false);
 
-	setContext('Bubble:animationName', name);
-	setContext('Bubble:animations', animations);
-	setContext('Bubble:animationData', animations[name]);
+	const clickHandler: (this: Document, ev: MouseEvent) => any = () => {
+		if (animationData.current < animationData.animations.length) {
+			animationData.animations[animationData.current].animation();
+		}
+		if (animationData.current === animationData.animations.length) {
+			document.removeEventListener('click', clickHandler);
+		}
+	};
+	const createAnimation = (show: Writable<boolean>, delay: number, delayNext: number) => {
+		let myId = animationData.animations.length;
+		const runAnimation = () => {
+			if (animationData) {
+				if (myId <= animationData.current) {
+					const { nextTimer } = animationData;
+					if (nextTimer !== null) {
+						clearTimeout(nextTimer);
+						animationData.nextTimer = null;
+					}
+					show.set(true);
+					animationData.current += 1;
+					const nextAnimation =
+						animationData.current < animationData.animations.length
+							? animationData.animations[animationData.current]
+							: undefined;
+					if (nextAnimation) {
+						animationData.nextTimer = setTimeout(nextAnimation.animation, nextAnimation.delayNext);
+					} else {
+						animationsDone.set(true);
+						document.removeEventListener('click', clickHandler);
+					}
+				}
+			} else {
+				show.set(true);
+			}
+		};
+		animationData.animations.push({ delayNext, animation: runAnimation });
 
-	let clickHandler: ((this: Document, ev: MouseEvent) => any) | null = null;
+		if (!animationData.started) {
+			animationData.started = true;
+			animationData.nextTimer = setTimeout(runAnimation, delay);
+		}
+	};
+	const finishAllAnimations = () => {
+		animationData.animations.slice(animationData.current).forEach((anim) => {
+			anim.animation();
+		});
+	};
+
+	setContext('AnimationContext', { animationsDone, createAnimation, finishAllAnimations });
 
 	beforeNavigate(() => {
 		if (clickHandler !== null) {
@@ -40,6 +94,16 @@
 			}
 		}
 		animations = {};
+	});
+	onMount(() => {
+		if (browser) {
+			document.addEventListener('click', clickHandler);
+		}
+	});
+	onDestroy(() => {
+		if (browser) {
+			document.removeEventListener('click', clickHandler);
+		}
 	});
 </script>
 
