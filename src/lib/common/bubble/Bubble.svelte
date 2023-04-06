@@ -1,31 +1,19 @@
-<script lang="ts" context="module">
-	let animations: Record<
-		string,
-		{
-			current: number;
-			started: boolean;
-			nextTimer: ReturnType<typeof window.setTimeout> | null;
-			animations: { delayNext: number; animation: () => void }[];
-		}
-	> = {};
-</script>
-
 <script lang="ts">
-	import { beforeNavigate } from '$app/navigation';
-
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Shaker from '../Shaker.svelte';
+	import type { AnimationData } from './AnimationContext.svelte';
 
 	export let side: 'left' | 'right' = 'left';
 	export let delay: number = 0;
 	export let duration: number = 100;
 	export let delayNext: number = 0;
-	export let animation: string | undefined = undefined;
+
+	const animationData = getContext<AnimationData>('Bubble:animationData');
 
 	let angle = Math.random() * 1.5 - 1.5 / 2;
 	let translateX = Math.random() * 5 - 5 / 2;
-	let show = delay === 0 && animation === undefined;
+	let show = delay === 0 && animationData === undefined;
 
 	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
 	let mode = 0;
@@ -41,19 +29,10 @@
 	let myId = 0;
 	let clickHandler: ((this: Document, ev: MouseEvent) => any) | null = null;
 	onMount(() => {
-		if (animation) {
-			if (animations[animation] === undefined) {
-				animations[animation] = {
-					current: 0,
-					started: false,
-					nextTimer: null,
-					animations: []
-				};
-			}
-			const animationData = animations[animation];
+		if (animationData) {
 			myId = animationData.animations.length;
 			const runAnimation = () => {
-				if (animation) {
+				if (animationData) {
 					if (myId <= animationData.current) {
 						document.removeEventListener('click', runAnimation);
 						const { nextTimer } = animationData;
@@ -90,18 +69,6 @@
 				document.addEventListener('click', runAnimation);
 			}
 		}
-	});
-	beforeNavigate(() => {
-		if (clickHandler !== null) {
-			document.removeEventListener('click', clickHandler);
-		}
-		if (animation) {
-			const { nextTimer } = animations[animation];
-			if (nextTimer !== null) {
-				clearTimeout(nextTimer);
-			}
-		}
-		animations = {};
 	});
 </script>
 
