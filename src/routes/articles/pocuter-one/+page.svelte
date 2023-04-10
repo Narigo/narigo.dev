@@ -1,5 +1,25 @@
 <script>
+	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+
+	const appDir = `apps/
+     1/
+          esp32c3.app
+     2/
+          esp32c3.app
+     3/
+          esp32c3.app
+     4/
+          esp32c3.app
+     ...
+config/      (optionally)
+     1/
+          settings.ini
+          TIME.ini
+          WIFI.ini
+     2/      (these folders can be empty)
+     3/
+     ...`;
 </script>
 
 <PageLayout>
@@ -120,26 +140,7 @@
 		keeping the numbered folder.
 	</p>
 	<p>To make it clear, the structure of the SD card should look like this:</p>
-	<pre>
-apps/
-     1/
-          esp32c3.app
-     2/
-          esp32c3.app
-     3/
-          esp32c3.app
-     4/
-          esp32c3.app
-     ...
-config/      (optionally)
-     1/
-          settings.ini
-          TIME.ini
-          WIFI.ini
-     2/      (these folders can be empty)
-     3/
-     ...
-	</pre>
+	<CodeBlock code={appDir} />
 	<p>
 		Once the apps are put onto the SD card in the proper structure, putting it back into the pocuter
 		and restarting it yielded all the apps in there.
