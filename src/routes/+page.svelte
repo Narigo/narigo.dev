@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
@@ -76,6 +77,11 @@
 		<Narigo>
 			<p>I needed a space where I can put slides for talks online.</p>
 			<p>But I somehow started building a "real" web page...</p>
+			<p>
+				I even started <a href="{base}/articles/pocuter-one"
+					>a longer article about using and programming a Pocuter</a
+				>...
+			</p>
 		</Narigo>
 	</section>
 </PageLayout>
