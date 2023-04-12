@@ -13,5 +13,6 @@
 	>
 	<ul>
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-03-09">Disemvowel Trolls</a></li>
+		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-04-11">Mumbling</a></li>
 	</ul>
 </PageLayout>
