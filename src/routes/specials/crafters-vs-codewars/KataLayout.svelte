@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 
@@ -15,7 +16,8 @@
 			<Narigo>
 				If you want to learn more about the puzzle first, check out the <a
 					href="https://www.codewars.com/kata/{id}">Kata on CodeWars</a
-				>.
+				>. If you want to check out other katas, look at
+				<a href="{base}/specials/crafters-vs-codewars/">the list of kata's we solved</a>.
 			</Narigo>
 		</section>
 		{#if showSolutions}
