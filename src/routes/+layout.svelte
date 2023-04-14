@@ -4,6 +4,8 @@
 	@import './fonts.css';
 
 	:root {
+		--color-primary: rgba(0, 128, 0, 0.8);
+		--color-text: #000;
 		--font-family-primary: 'Gochi Hand', cursive;
 		--font-family-headline: 'Permanent Marker', 'Gochi Hand', cursive;
 		--font-size-primary: 24px;
@@ -12,12 +14,13 @@
 	:global(html, body) {
 		height: 100%;
 		font-size: var(--font-size-primary);
+		color: var(--color-text);
 		margin: 0;
 		padding: 0;
 	}
 
 	:global(h1, h2, h3, h4, h5, h6) {
-		background: rgba(0, 128, 0, 0.8);
+		background: var(--color-primary);
 		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
 		clear: both;
 		color: #fff;

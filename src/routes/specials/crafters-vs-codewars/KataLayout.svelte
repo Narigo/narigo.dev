@@ -34,4 +34,13 @@
 		flex-flow: column;
 		gap: 2em;
 	}
+	button {
+		align-self: center;
+		background: var(--color-primary);
+		border: 0;
+		color: #fff;
+		cursor: pointer;
+		font: inherit;
+		padding: 1em;
+	}
 </style>
