@@ -14,6 +14,7 @@
 	<nav aria-expanded={isExpanded}>
 		<ul>
 			<li><a href="{base}/">🏠 Home</a></li>
+			<li><a href="{base}/articles">📝 Articles</a></li>
 			<li><a href="{base}/talks">🗣️ Talks</a></li>
 			<li><a href="{base}/specials">🤪 Specials</a></li>
 			<li><a href="{base}/contact">🧑‍💼 Contact</a></li>
@@ -35,7 +36,7 @@
 		align-items: stretch;
 		display: flex;
 		flex: 1;
-		flex-flow: row wrap;
+		flex-flow: column nowrap;
 		gap: 0 0.5em;
 		justify-content: space-between;
 		max-width: var(--max-page-width);
@@ -109,8 +110,8 @@
 		z-index: -1;
 	}
 
-	@media screen and (min-width: 800px) {
-		div {
+	@media screen and (min-width: 1000px) {
+		nav ul {
 			flex-flow: row wrap;
 		}
 		label {
