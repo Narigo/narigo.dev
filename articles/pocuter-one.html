@@ -6,17 +6,17 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
 		<link href="../_app/immutable/assets/_layout-8db15d1d.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/_page-42051ba5.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/_page-9f29f103.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/CodeBlock-2e90b6d8.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/PageLayout-7a4894c4.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-232bfe01.js">
+		<link rel="modulepreload" href="../_app/immutable/start-1dfb53ee.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-ed5c000a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-aaeaacc7.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-8741c17f.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-5125c151.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/articles/pocuter-one/_page.svelte-14c35e6e.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/articles/pocuter-one/_page.svelte-bb45b23a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CodeBlock-718745a2.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/PageLayout-59cb6841.js"><!-- HEAD_svelte-b3mtpz_START --><!-- HTML_TAG_START --><style>/*!
   Theme: Classic Dark
@@ -40,7 +40,7 @@
 			<li class="svelte-1xvfxl5"><a href="/specials" class="svelte-1xvfxl5">🤪 Specials</a></li>
 			<li class="svelte-1xvfxl5"><a href="/contact" class="svelte-1xvfxl5">🧑‍💼 Contact</a></li></ul></nav>
 </div></div></header>
-	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><p class="info svelte-10vhhi8">Be aware, I&#39;m going to continue writing and improving on this article. Maybe the parts I release
+	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><p class="info svelte-g074k7">Be aware, I&#39;m going to continue writing and improving on this article. Maybe the parts I release
 		are already useful for someone.
 	</p>
 
@@ -231,7 +231,27 @@
 	<p>Once the apps are put onto the SD card in the proper structure, putting it back into the pocuter
 		and restarting it yielded all the apps in there.
 	</p>
-	<p>Writing my own app took a bit longer...</p></div></main>
+	<p>Writing my own app took a bit longer...</p>
+
+	<h3>Writing an app for the Pocuter</h3>
+	<p>To develop an application for the Pocuter, it&#39;s necessary to have a build setup that allows to
+		compile code to the Arduino. It&#39;s possible to do this in different ways, the easiest is to use
+		the <a href="https://www.arduino.cc/en/software" rel="external">Arduino IDE</a>. In the current
+		pocuter documentation, it&#39;s documented how to setup the Arduino IDE 1.x, but there is a version
+		2 already. I&#39;ve made it work with version 2 on my Mac before I got a working build setup with my
+		currently favorite IDE, VSCode. I&#39;m documenting how I set it up in both ways.
+	</p>
+	<h4>Setup Arduino IDE 2.x</h4>
+	<p>First thing I had to do is adding the additional boards manager URL. They provided the URL <code>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code>
+		in their documentation and this value can be put into
+		<code>Arduino IDE -&gt; Settings ... &gt; &quot;Additional Boards Manager URLs&quot;</code>. After doing
+		this, the Pocuter board should be included in the &quot;boards manager&quot;. The boards manager is the
+		second item on the left side.
+	</p>
+	<img src="/_app/immutable/assets/boards-manager-a9b14f77.png" alt="The boards manager" class="svelte-g074k7">
+	<p>As far as I understood it, you need the various boards to be able to actually compile code for
+		it.
+	</p></div></main>
 	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
 			<div>© Jörn Bernhardt</div>
 			<div>Statically hosted on GitHub Pages.</div>
@@ -239,14 +259,14 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="vxzgqq">
-			import { start } from "../_app/immutable/start-232bfe01.js";
+		<script type="module" data-sveltekit-hydrate="qa8ln8">
+			import { start } from "../_app/immutable/start-1dfb53ee.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="vxzgqq"]').parentNode,
-				version: "1681564240628",
+				target: document.querySelector('[data-sveltekit-hydrate="qa8ln8"]').parentNode,
+				version: "1681663723255",
 				hydrate: {
 					node_ids: [0, 4],
 					data: [{type:"data",data:null,uses:{}},null],
