@@ -1,6 +1,7 @@
 <script>
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import boardsManager from './boards-manager.png';
 
 	const appDir = `apps/
      1/
@@ -146,6 +147,31 @@ config/      (optionally)
 		and restarting it yielded all the apps in there.
 	</p>
 	<p>Writing my own app took a bit longer...</p>
+
+	<h3>Writing an app for the Pocuter</h3>
+	<p>
+		To develop an application for the Pocuter, it's necessary to have a build setup that allows to
+		compile code to the Arduino. It's possible to do this in different ways, the easiest is to use
+		the <a href="https://www.arduino.cc/en/software" rel="external">Arduino IDE</a>. In the current
+		pocuter documentation, it's documented how to setup the Arduino IDE 1.x, but there is a version
+		2 already. I've made it work with version 2 on my Mac before I got a working build setup with my
+		currently favorite IDE, VSCode. I'm documenting how I set it up in both ways.
+	</p>
+	<h4>Setup Arduino IDE 2.x</h4>
+	<p>
+		First thing I had to do is adding the additional boards manager URL. They provided the URL <code
+			>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code
+		>
+		in their documentation and this value can be put into
+		<code>Arduino IDE -&gt; Settings ... &gt; "Additional Boards Manager URLs"</code>. After doing
+		this, the Pocuter board should be included in the "boards manager". The boards manager is the
+		second item on the left side.
+	</p>
+	<img src={boardsManager} alt="The boards manager" />
+	<p>
+		As far as I understood it, you need the various boards to be able to actually compile code for
+		it.
+	</p>
 </PageLayout>
 
 <style>
@@ -153,5 +179,9 @@ config/      (optionally)
 		background: #f002;
 		border: 1px solid #f00b;
 		padding: 1em;
+	}
+	img {
+		display: block;
+		max-width: 100%;
 	}
 </style>
