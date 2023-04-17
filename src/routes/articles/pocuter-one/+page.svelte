@@ -170,7 +170,7 @@ config/      (optionally)
 	<img src={boardsManager} alt="The boards manager" />
 	<p>
 		As far as I understood it, you need the various boards to be able to actually compile code for
-		it.
+		them.
 	</p>
 </PageLayout>
 
