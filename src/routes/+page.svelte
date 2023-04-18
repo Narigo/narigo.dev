@@ -44,7 +44,8 @@
 					target="_blank">JSCraftCamp</a
 				>, which is a two-day Barcamp / Open Space in Munich. You can attend it for free thanks to
 				lots of sponsors. Every time I attend this event, I leave with new friends, professional
-				contacts and much more knowledge than before.
+				contacts and much more knowledge than before. This year, it's on June 30th / July 1st.
+				Registration opens on May 1st.
 			</p>
 			<p>
 				For VirtualCoffee.io, I organize the "Frontend Friday Folks battling <a
@@ -63,7 +64,10 @@
 					rel="external">the JSCraftCamp meetup group</a
 				>, which will guide you to the JSCraftCamp Discord community where we'll host it.
 			</p>
-			<p>We'll do it again sometime soon!</p>
+			<p>
+				We're doing it weekly now: Every Thursday at 19:00 CEST, at least until the JSCraftCamp
+				starts.
+			</p>
 		</Narigo>
 		<h3>Are you available for hire? 🤔</h3>
 		<Narigo>
