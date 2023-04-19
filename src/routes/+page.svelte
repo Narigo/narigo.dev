@@ -48,10 +48,11 @@
 				Registration opens on May 1st.
 			</p>
 			<p>
-				For VirtualCoffee.io, I organize the "Frontend Friday Folks battling <a
-					href="https://cssbattle.dev"
-					rel="external noopener noreferrer"
-					target="_blank">CSSBattle.dev</a
+				For <a href="https://virtualcoffee.io" rel="external noopener noreferrer" target="_blank"
+					>VirtualCoffee.io</a
+				>, I organize the "Frontend Friday Folks battling
+				<a href="https://cssbattle.dev" rel="external noopener noreferrer" target="_blank"
+					>CSSBattle.dev</a
 				>", which is a place where people with all kind of levels in CSS proficiency learn something
 				from each other.
 			</p>
