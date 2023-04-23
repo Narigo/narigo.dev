@@ -31,7 +31,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout>
+<PuzzlePageLayout title="Wrench">
 	<Puzzle title="Puzzle 43 solution" {solution} />
 	<Narigo
 		>That was tricky! The numbers don't really line up well and it feels like there is something off

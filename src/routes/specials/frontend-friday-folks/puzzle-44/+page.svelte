@@ -71,7 +71,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout>
+<PuzzlePageLayout title="Stripes">
 	<Puzzle title="Puzzle 44 solution 99.9%" solution={solution99} />
 	<Narigo
 		><p>

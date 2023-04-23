@@ -1,6 +1,7 @@
 <script>
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
 	const solution = `<div id="y"></div>
@@ -32,7 +33,8 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Puzzle 35 solution" {solution}>
+<PuzzlePageLayout title="Ice Cream">
+	<Puzzle title="Puzzle 35 solution" {solution} />
 	<Narigo
 		><p>
 			While we can do the popsicle and the stick with border radius, the presented solution shows

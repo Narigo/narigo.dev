@@ -38,7 +38,7 @@
 `;
 </script>
 
-<PuzzlePageLayout>
+<PuzzlePageLayout title="Not Simply Square">
 	<Puzzle title="Puzzle 38 solution" {solution} />
 	<Narigo>
 		Whenever doing a <code>transform</code>, remember that the order matters...!

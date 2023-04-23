@@ -33,7 +33,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Birdie">
+<PuzzlePageLayout title="Christmas Tree">
 	<Puzzle title="Puzzle 34 solution" {solution} />
 	<Narigo
 		>Using pseudo elements here to check the stacking seemed to be a good way to solve this.</Narigo

@@ -27,7 +27,7 @@
 `;
 </script>
 
-<PuzzlePageLayout>
+<PuzzlePageLayout title="Sunset">
 	<Puzzle title="Puzzle 39 solution" {solution} />
 	<Narigo>The repeating-linear-gradient is one character less than adding the color again.</Narigo>
 </PuzzlePageLayout>

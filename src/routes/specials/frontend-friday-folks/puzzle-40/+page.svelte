@@ -31,7 +31,7 @@
 `;
 </script>
 
-<PuzzlePageLayout>
+<PuzzlePageLayout title="Letter B">
 	<Puzzle title="Puzzle 40 solution" {solution} />
 	<Narigo>Something with linear-gradients again!</Narigo>
 </PuzzlePageLayout>

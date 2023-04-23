@@ -11,6 +11,7 @@
 	<div>
 		<a href="{base}/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
 		<section>
+			{#if title}<h2>{title}</h2>{/if}
 			{#if title && solution}
 				<Puzzle {title} solution={solution.trim()} />
 				<slot />
