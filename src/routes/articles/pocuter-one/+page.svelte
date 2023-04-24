@@ -170,7 +170,18 @@ config/      (optionally)
 	<img src={boardsManager} alt="The boards manager" />
 	<p>
 		As far as I understood it, you need the various boards to be able to actually compile code for
-		them.
+		them. As soon as the board is there, writing an application and compiling it should work.
+	</p>
+	<h4>Connecting the Pocuter</h4>
+	<p>
+		This one was tricky when working with my Mac OS Ventura. There are quite a few blog posts out
+		there mentioning to install some third party USB drivers. Most of them seem to be outdated
+		though and when I tried out a couple of these, the USB connection still didn't work for me. I
+		took me a while to understand one crucial thing: USB cables are not equal to USB cables. There
+		are some cables that only deliver current but no data. If you happen to try and use one of the
+		"current-only" cables, you won't be able to find your Pocuter through the serial ports at all.
+		If you don't see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
+		it, the cable itself may be the culprit.
 	</p>
 </PageLayout>
 
