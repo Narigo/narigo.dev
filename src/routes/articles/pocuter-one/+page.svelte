@@ -183,6 +183,11 @@ config/      (optionally)
 		If you don't see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
 		it, the cable itself may be the culprit.
 	</p>
+	<p>
+		When trying to upload code from the Arduino IDE, I faced another issue, telling me <code
+			>upload.tool.serial</code
+		> needs to be set.
+	</p>
 </PageLayout>
 
 <style>
