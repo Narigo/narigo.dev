@@ -22,7 +22,7 @@
 		<ul>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-3">Puzzle 3 - Push Button</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-33">Puzzle 33 - Birdie</a></li>
-			<li><a href="{base}/specials/frontend-friday-folks/puzzle-35">Puzzle 34 - Christmas Tree</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-34">Puzzle 34 - Christmas Tree</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-35">Puzzle 35 - Ice Cream</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-36">Puzzle 36 - Interleaved</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-37">Puzzle 37 - Tunnel</a></li>
