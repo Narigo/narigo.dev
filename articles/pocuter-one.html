@@ -9,14 +9,14 @@
 		<link href="../_app/immutable/assets/_page-9f29f103.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/CodeBlock-2e90b6d8.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/PageLayout-7a4894c4.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-86e73f92.js">
+		<link rel="modulepreload" href="../_app/immutable/start-0464557e.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-ed5c000a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-aaeaacc7.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-8741c17f.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-5125c151.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/articles/pocuter-one/_page.svelte-d3d00f8b.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/articles/pocuter-one/_page.svelte-88f99cf9.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CodeBlock-718745a2.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/PageLayout-59cb6841.js"><!-- HEAD_svelte-b3mtpz_START --><!-- HTML_TAG_START --><style>/*!
   Theme: Classic Dark
@@ -250,7 +250,19 @@
 	</p>
 	<img src="/_app/immutable/assets/boards-manager-a9b14f77.png" alt="The boards manager" class="svelte-g074k7">
 	<p>As far as I understood it, you need the various boards to be able to actually compile code for
-		them.
+		them. As soon as the board is there, writing an application and compiling it should work.
+	</p>
+	<h4>Connecting the Pocuter</h4>
+	<p>This one was tricky when working with my Mac OS Ventura. There are quite a few blog posts out
+		there mentioning to install some third party USB drivers. Most of them seem to be outdated
+		though and when I tried out a couple of these, the USB connection still didn&#39;t work for me. I
+		took me a while to understand one crucial thing: USB cables are not equal to USB cables. There
+		are some cables that only deliver current but no data. If you happen to try and use one of the
+		&quot;current-only&quot; cables, you won&#39;t be able to find your Pocuter through the serial ports at all.
+		If you don&#39;t see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
+		it, the cable itself may be the culprit.
+	</p>
+	<p>When trying to upload code from the Arduino IDE, I faced another issue, telling me <code>upload.tool.serial</code> needs to be set.
 	</p></div></main>
 	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
 			<div>© Jörn Bernhardt</div>
@@ -259,14 +271,14 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1ert6jh">
-			import { start } from "../_app/immutable/start-86e73f92.js";
+		<script type="module" data-sveltekit-hydrate="8sd6ff">
+			import { start } from "../_app/immutable/start-0464557e.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1ert6jh"]').parentNode,
-				version: "1682208807721",
+				target: document.querySelector('[data-sveltekit-hydrate="8sd6ff"]').parentNode,
+				version: "1682629072662",
 				hydrate: {
 					node_ids: [0, 4],
 					data: [{type:"data",data:null,uses:{}},null],
