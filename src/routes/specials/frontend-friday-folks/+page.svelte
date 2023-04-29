@@ -35,6 +35,7 @@
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-42">Puzzle 42 - Baby</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-43">Puzzle 43 - Wrench</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-44">Puzzle 44 - Stripes</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-45">Puzzle 45 - Magical Tree</a></li>
 		</ul>
 	</Narigo>
 </PageLayout>
