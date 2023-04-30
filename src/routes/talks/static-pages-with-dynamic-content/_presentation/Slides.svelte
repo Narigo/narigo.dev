@@ -12,7 +12,6 @@
 		const shakeIt = fragment.getAttribute('data-shake-it');
 		if (shakeIt === 'true') {
 			fragment.classList.add('shakeit');
-			console.log('TODO shake it!');
 		}
 	});
 </script>
