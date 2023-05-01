@@ -5,6 +5,24 @@
 </script>
 
 <PageLayout>
+	<section class="announcement">
+		<h2>
+			<div class="icon">
+				📢
+				<div class="mirror-x">🗣️</div>
+			</div>
+			<div>Public Service Announcement!</div>
+			<div class="icon">
+				🗣️
+				<div class="mirror-x">📢</div>
+			</div>
+		</h2>
+		<Narigo>
+			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open! Check
+			out the page and create your pull request on GitHub if you want to join Munich's best in class
+			JavaScript conference this year!
+		</Narigo>
+	</section>
 	<section>
 		<h2>Welcome to Jörns page! 👋</h2>
 		<Narigo>
@@ -90,3 +108,23 @@
 		</Narigo>
 	</section>
 </PageLayout>
+
+<style>
+	.announcement h2 {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: center;
+		text-align: center;
+	}
+	.announcement h2 div {
+		display: inline-block;
+	}
+	.announcement {
+		margin-bottom: 2em;
+	}
+	.mirror-x {
+		scale: -1 1;
+	}
+</style>
