@@ -112,10 +112,12 @@
 <style>
 	.announcement h2 {
 		align-items: center;
+		animation: announcement 2s infinite;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1em;
 		justify-content: center;
+		margin: 0 auto 0.5em;
 		text-align: center;
 	}
 	.announcement h2 div {
@@ -126,5 +128,23 @@
 	}
 	.mirror-x {
 		scale: -1 1;
+	}
+
+	@keyframes announcement {
+		0% {
+			scale: 1;
+		}
+		50% {
+			scale: 1.1;
+		}
+		100% {
+			scale: 1;
+		}
+	}
+
+	@media (prefers-reduced-motion) {
+		.announcement h2 {
+			animation: none;
+		}
 	}
 </style>
