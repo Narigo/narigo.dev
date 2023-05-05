@@ -14,5 +14,8 @@
 	<ul>
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-03-09">Disemvowel Trolls</a></li>
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-04-11">Mumbling</a></li>
+		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-04-20">Sum of Digits / Digital Root</a></li>
+
+		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-05-04">Moving Zeros To The End</a></li>
 	</ul>
 </PageLayout>
