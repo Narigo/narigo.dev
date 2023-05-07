@@ -183,10 +183,91 @@ config/      (optionally)
 		If you don't see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
 		it, the cable itself may be the culprit.
 	</p>
+	<h4>Uploading code to the pocuter</h4>
+	<p>Ok, so I've seen multiple ways to do this, each of them have their own pros and cons:</p>
+	<ol>
+		<li>Update the SD card and write into the <code>/apps/</code> folder</li>
+		<li>Upload compiled code directly through the USB serial port</li>
+		<li>Upload through HTTP through an app installed on the pocuter</li>
+	</ol>
+	<h5>1. Using SD card</h5>
 	<p>
-		When trying to upload code from the Arduino IDE, I faced another issue, telling me <code
-			>upload.tool.serial</code
-		> needs to be set.
+		The SD card approach is the one mentioned in the documentation and is done through multiple
+		steps:
+	</p>
+	<ol>
+		<li>Compile the new version of your app (several steps)</li>
+		<li>Remove the SD card from the pocuter</li>
+		<li>Put the SD card into a reader</li>
+		<li>Mount it on the computer</li>
+		<li>Copy the compiled version into the <code>/apps/</code> folder on the SD card</li>
+		<li>Unmount the SD card from the computer</li>
+		<li>Put the SD card back into the pocuter</li>
+		<li>Restart the pocuter</li>
+	</ol>
+	<p>
+		While these steps worked really well for me, especially when I had the issue with the USB cable,
+		this is quite a tedious process and involves a lot of manual work that can't easily be
+		automated. It works for releases, but testing intermediate versions of your app takes quite some
+		time.
+	</p>
+	<h5>2. Using USB</h5>
+	<p>
+		The second option is to upload compiled code directly to the pocuter. When trying to upload code
+		through the Arduino IDE 2.x, I faced another issue. The error told me something like <code
+			>Property 'upload.tool' is undefined</code
+		>
+		or <code>Property 'upload.tool.serial' is undefined</code>. It looks like Arduino IDE 2.x
+		changed a bit regarding the <code>boards.txt</code> files, which seem to be the instructions for
+		how to upload code to the board.
+	</p>
+	<p>
+		First of all, the I had to install the version <code>2.0.5-RC1-PC1.3</code> of the Pocuter
+		library because the newer version didn't compile for me. After using that version and seeing the
+		error above, I had to change the file
+		<code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</code> to
+		make this work. There is a line <code>pocuterone.upload.tool=esptool_py</code> which needed to
+		be changed to
+		<code>pocuterone.upload.tool.serial=esptool_py</code>. After this change, uploading through the
+		Arduino IDE 2.x worked.
+	</p>
+	<p>
+		Since this worked now, I could even change my setup to make uploading work through the command
+		line. This improves my development experience, because I can use my favorite IDE instead of the
+		Arduino IDE to prepare the Sketches (VSCode) and then use the command line tool <code
+			>arduino-cli</code
+		> to compile and upload it. My current setup consists of two steps to make the compilation and upload
+		work:
+	</p>
+	<ol>
+		<li>
+			<code>arduino-cli compile -b "$FQBN" -p "$USB_PORT" --build-path "$BUILD_PATH"</code>
+		</li>
+		<li>
+			<code>arduino-cli upload --input-dir "$BUILD_PATH" -b "$FQBN" -p "$USB_PORT"</code>
+		</li>
+	</ol>
+	<p>
+		The <code>FQBN</code> I got from checking the boards list (<code>arduino-cli board listall</code
+		>), which gave me <code>esp32:esp32:pocuterone</code> identifier. The <code>USB_PORT</code> I
+		get by using <code>find /dev/cu.usb*</code> when the Pocuter is connected with a USB cable that
+		supports data transfer - as I mentioned earlier, this took me a while to figure out. The
+		<code>BUILD_PATH</code>
+		is set to <code>./build</code> so it doesn't use some temporary directory and always needs to recompile
+		if something fails during upload.
+	</p>
+	<p>
+		The bad side of this is that uploading code through USB is only replacing the current version.
+		It will not persist as an app and you still need to write to the SD card in a later step.
+	</p>
+	<h5>Using HTTP server</h5>
+	<p>
+		I have to admit, I haven't tried this yet, but someone in the Pocuter Discord shared their <a
+			href="https://github.com/kallistisoft/PocuterUtils"
+			rel="external">deployment tool</a
+		>. From my understanding, you can install this Code Upload Server app to directly write on the
+		SD card. That means you'll be able to quickly write the whole app on it instead of using the SD
+		card approach mentioned earlier.
 	</p>
 </PageLayout>
 
