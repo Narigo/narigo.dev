@@ -42,4 +42,8 @@
 		height: 1em;
 		width: 1em;
 	}
+
+	:global(code) {
+		word-wrap: break-word;
+	}
 </style>
