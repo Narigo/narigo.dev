@@ -62,5 +62,25 @@
 				need to split it first.
 			</p>
 		</li>
+		<li>
+			<h3>A `.github` repository for templates, code of conduct, etc.</h3>
+			<p>
+				I tried template repositories and forking them before, but it always felt a bit weird.
+				Thanks to Bekah from VirtualCoffee.io, I learnt that you can have a <code>.github</code>
+				repository instead of a folder in each of your projects to hold your templates. Credit goes to
+				<a
+					href="https://dev.to/opensauced/managing-community-health-files-and-templates-with-a-github-repository-l8f"
+					rel="external">Bekah's blog post</a
+				>!
+			</p>
+		</li>
+		<li>
+			<h3>Check whether form is valid or not with CSS</h3>
+			<p>
+				There is a selector called <code>:invalid</code>! Thanks to Travis Barnette for pointing
+				that out in VirtualCoffee and to Justin Noel for asking this question. Up to that point, I
+				thought you can only check validity with JavaScript enabled...!
+			</p>
+		</li>
 	</ul>
 </PageLayout>
