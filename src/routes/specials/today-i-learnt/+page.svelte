@@ -84,3 +84,23 @@
 		</li>
 	</ul>
 </PageLayout>
+
+<style>
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 1em;
+	}
+	h3 {
+		display: inline;
+		-moz-box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+		position: relative;
+		line-height: 1.75em;
+		padding: .25em 1em;
+		text-indent: 5em;
+	}
+</style>
