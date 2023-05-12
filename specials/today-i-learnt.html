@@ -5,18 +5,19 @@
 		<link rel="icon" href="../favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="../_app/immutable/assets/_layout-8db15d1d.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/_layout-d45718e6.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/_page-a2fefd0d.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Narigo-05624ce8.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Bubble-950d7dbd.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/PageLayout-7a4894c4.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-344f71db.js">
+		<link rel="modulepreload" href="../_app/immutable/start-01b0b32b.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-ed5c000a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-aaeaacc7.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-8741c17f.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/paths-b4419565.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-5125c151.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-e3a13b03.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/specials/today-i-learnt/_page.svelte-c2bdb06c.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Narigo-406ea8d0.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Bubble-111f0336.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-d484f8b1.js">
@@ -37,13 +38,13 @@
 			<li class="svelte-1xvfxl5"><a href="/contact" class="svelte-1xvfxl5">🧑‍💼 Contact</a></li></ul></nav>
 </div></div></header>
 	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><h2>Today I learnt</h2>
-	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.4759352153903187deg; --x: -2.022998433245675px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.7482899967051306deg; --x: 1.175455231149943px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">To remember more of the little things I learn, I want to write them down. I&#39;ll update this page
 		whenever I find something worth to log. Most of this will be around web development, but I don&#39;t
 		want to limit myself to that. Let&#39;s see where this leads to.
 	</div></div>
 			<button class="avatar svelte-1l3simr"><div slot="avatar"><img src="/_app/immutable/assets/narigo-e54b8f62.png" alt="Narigo" class="svelte-14cyrh4"></div></button></div>
 </div>
-	<ul><li><h3>Drawing with linear gradients</h3>
+	<ul class="svelte-1daqhfo"><li><h3 class="svelte-1daqhfo">Drawing with linear gradients</h3>
 			<p>In <a href="https://virtualcoffee.io/" rel="external">VirtualCoffee.io</a> Frontend Friday
 				Folks, we have to create divs that resemble a given image on
 				<a href="https://cssbattle.dev/" rel="external">CSSBattle.dev</a>. Lately, I&#39;ve tried to do
@@ -51,7 +52,7 @@
 				<code>background: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient" rel="external">linear-gradient()</a></code>. When you find out a way how to draw it like that, it always feels like a hack of the
 				puzzle itself.
 			</p></li>
-		<li><h3>srcdoc sets an iframes doctype implicitly, Quirks mode expands the body height</h3>
+		<li><h3 class="svelte-1daqhfo">srcdoc sets an iframes doctype implicitly, Quirks mode expands the body height</h3>
 			<p>When working on the Puzzle iframe for the <a href="/specials/frontend-friday-folks">Frontend Friday Folks</a>, I had trouble centering the image. I had the same code result in the Chrome Dev Tools as
 				in CSSBattle.dev, when inspecting the elements, so I didn&#39;t realize why it still looked
 				different. It looks like when using the <code>srcdoc</code> on an <code>iframe</code>
@@ -60,16 +61,27 @@
 				in Quirks mode. Quirks mode seems to expand the body height, without having to set
 				<code>html,body { height: 100% }</code> or something similar.
 			</p></li>
-		<li><h3>`::before` and `::after` are siblings, nested and `display: inline` in a div</h3>
+		<li><h3 class="svelte-1daqhfo">`::before` and `::after` are siblings, nested and `display: inline` in a div</h3>
 			<p>I can never really remember how they work and during this Frontend Friday Folks puzzle, we
 				looked into that again. It seems to be easier to nest divs than using the pseudo elements
 				here. So to understand it better: <code>&lt;div&gt;&lt;::before&gt;content in ::before&lt;/::before&gt;content of
 					div&lt;::after&gt;content in ::after&lt;/::after&gt;&lt;/div&gt;</code></p></li>
-		<li><h3>Strings in JavaScript are iterable without using `split`</h3>
+		<li><h3 class="svelte-1daqhfo">Strings in JavaScript are iterable without using `split`</h3>
 			<p>When using <code>for (const c of string) { ... }</code>, it&#39;s not necessary to do a
 				<code>string.split(&#39;&#39;)</code>
 				before. If you want to <code>string.map()</code> or <code>string.filter()</code> though, you
 				need to split it first.
+			</p></li>
+		<li><h3 class="svelte-1daqhfo">A `.github` repository for templates, code of conduct, etc.</h3>
+			<p>I tried template repositories and forking them before, but it always felt a bit weird.
+				Thanks to Bekah from VirtualCoffee.io, I learnt that you can have a <code>.github</code>
+				repository instead of a folder in each of your projects to hold your templates. Credit goes to
+				<a href="https://dev.to/opensauced/managing-community-health-files-and-templates-with-a-github-repository-l8f" rel="external">Bekah&#39;s blog post</a>!
+			</p></li>
+		<li><h3 class="svelte-1daqhfo">Check whether form is valid or not with CSS</h3>
+			<p>There is a selector called <code>:invalid</code>! Thanks to Travis Barnette for pointing
+				that out in VirtualCoffee and to Justin Noel for asking this question. Up to that point, I
+				thought you can only check validity with JavaScript enabled...!
 			</p></li></ul></div></main>
 	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
 			<div>© Jörn Bernhardt</div>
@@ -78,16 +90,16 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="scwr93">
-			import { start } from "../_app/immutable/start-344f71db.js";
+		<script type="module" data-sveltekit-hydrate="1kb34g1">
+			import { start } from "../_app/immutable/start-01b0b32b.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="scwr93"]').parentNode,
-				version: "1683582514164",
+				target: document.querySelector('[data-sveltekit-hydrate="1kb34g1"]').parentNode,
+				version: "1683892309203",
 				hydrate: {
-					node_ids: [0, 35],
+					node_ids: [0, 36],
 					data: [{type:"data",data:null,uses:{}},null],
 					form: null
 				}
