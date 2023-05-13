@@ -43,6 +43,7 @@
 				<a href="{base}/specials/frontend-friday-folks/puzzle-45">Puzzle 45 - Magical Tree</a>
 			</li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-46">Puzzle 46 - Mountains</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-48">Puzzle 48 - Wash your hands</a></li>
 		</ul>
 	</Narigo>
 </PageLayout>
