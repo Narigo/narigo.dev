@@ -82,6 +82,17 @@
 				thought you can only check validity with JavaScript enabled...!
 			</p>
 		</li>
+		<li>
+			<h3>`box-decoration-break` for inline padding over lines</h3>
+			<p>
+				The <a
+					href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
+					rel="external">box-decoration-break</a
+				> property allows styling boxes on inline element breaks across multiple lines. By setting it
+				to `clone`, it will create multiple boxes, one for each line. It's necessary to add `-webkit-box-decoration-break`
+				as well to make it work on most browsers currently.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
@@ -100,7 +111,7 @@
 		box-decoration-break: clone;
 		position: relative;
 		line-height: 1.75em;
-		padding: .25em 1em;
+		padding: 0.25em 1em;
 		text-indent: 5em;
 	}
 </style>
