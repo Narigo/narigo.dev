@@ -30,7 +30,7 @@
 		</Narigo>
 		<CodeBlock code={fasterSolution} />
 		<Narigo>
-			This is walking throught the array to find the first that's not unique.
+			This is walking through the array to find the first that's not unique.
 		</Narigo>
 	</section>
 </KataLayout>
