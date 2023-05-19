@@ -17,5 +17,6 @@
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-04-20">Sum of Digits / Digital Root</a></li>
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-05-04">Moving Zeros To The End</a></li>
 		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-05-11">Find the unique number</a></li>
+		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-05-18">Stop gninnipS My sdroW!, </a></li>
 	</ul>
 </PageLayout>

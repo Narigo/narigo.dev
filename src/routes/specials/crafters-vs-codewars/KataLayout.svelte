@@ -2,45 +2,21 @@
 	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
-
-	export let id: string;
-	export let name: string;
-
-	let showSolutions = false;
+	import Kata from './Kata.svelte';
+	export let id: string | undefined = undefined;
+	export let name: string | undefined = undefined;
 </script>
 
 <PageLayout>
-	<div>
-		<section>
-			<h2>{name}</h2>
-			<Narigo>
-				If you want to learn more about the puzzle first, check out the <a
-					href="https://www.codewars.com/kata/{id}">Kata on CodeWars</a
-				>. If you want to check out other katas, look at
-				<a href="{base}/specials/crafters-vs-codewars/">the list of kata's we solved</a>.
-			</Narigo>
-		</section>
-		{#if showSolutions}
+	{#if id && name}
+		<Kata {id} {name}>
 			<slot />
-		{:else}
-			<button on:click={() => (showSolutions = true)}>Show solutions</button>
-		{/if}
-	</div>
+		</Kata>
+	{:else}
+		<slot />
+	{/if}
+	<Narigo>
+		If you want to check out other katas we did, look at
+		<a href="{base}/specials/crafters-vs-codewars/">the list of Crafters vs CodeWars events</a>.
+	</Narigo>
 </PageLayout>
-
-<style>
-	div {
-		display: flex;
-		flex-flow: column;
-		gap: 2em;
-	}
-	button {
-		align-self: center;
-		background: var(--color-primary);
-		border: 0;
-		color: #fff;
-		cursor: pointer;
-		font: inherit;
-		padding: 1em;
-	}
-</style>
