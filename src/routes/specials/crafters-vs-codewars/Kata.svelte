@@ -30,7 +30,6 @@
 	div {
 		display: grid;
 		gap: 2em;
-		margin-bottom: 2em;
 	}
 	button {
 		align-self: center;

@@ -13,10 +13,19 @@
 			<slot />
 		</Kata>
 	{:else}
-		<slot />
+		<div>
+			<slot />
+		</div>
 	{/if}
 	<Narigo>
 		If you want to check out other katas we did, look at
 		<a href="{base}/specials/crafters-vs-codewars/">the list of Crafters vs CodeWars events</a>.
 	</Narigo>
 </PageLayout>
+
+<style>
+	div {
+		display: grid;
+		gap: 2em;
+	}
+</style>
