@@ -21,7 +21,7 @@
 		<p>Here are solutions to puzzles we completed:</p>
 		<ul>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-3">Puzzle 3 - Push Button</a></li>
-			<li><a href="{base}/specials/frontend-friday-folks/puzzle-4">Puzzle 4 - Push Button</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-4">Puzzle 4 - Ups n Downs</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-7">Puzzle 7 - Leafy Trail</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-33">Puzzle 33 - Birdie</a></li>
 			<li>

@@ -69,7 +69,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Push Button">
+<PuzzlePageLayout title="Ups n Downs">
 	<Puzzle title="Puzzle 4 solution" {solution} />
 	<Narigo
 		>In my first solution I used regular positioning and thought the left-bottom and middle one were
