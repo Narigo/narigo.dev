@@ -77,6 +77,9 @@
 	<Narigo>
 		Today we didn't really manage to create very short solutions for this. There is probably a
 		better way how to solve this, but it seems like there should be a way to make this a lot
-		shorter. Maybe we get back to it!
+		shorter. Maybe I'll get back to it - or someone else has shared a better solution on <a
+			href="https://github.com/orgs/Virtual-Coffee/discussions/891"
+			rel="external">the VirtualCoffee.io discussion thread for CSS Battle #50</a
+		>.
 	</Narigo>
 </PuzzlePageLayout>
