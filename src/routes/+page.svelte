@@ -19,7 +19,7 @@
 		</h2>
 		<Narigo>
 			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open! Check
-			out the page and create your pull request on GitHub if you want to join Munich's best in class
+			out the page and <a href="https://github.com/jscraftcamp/website" rel="external">create your pull request on GitHub</a> if you want to join Munich's best in class
 			JavaScript conference this year!
 		</Narigo>
 	</section>
