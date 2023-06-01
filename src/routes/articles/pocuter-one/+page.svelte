@@ -30,6 +30,7 @@ config/      (optionally)
 	</p>
 
 	<h2>Pocuter One</h2>
+	<div class="date">Last update on <span>2023-06-01</span></div>
 	<p>
 		The Pocuter One is a project I've backed on Kickstarter a while ago. I received their package
 		right before Easter holidays in Germany, so I had some time to assemble it.
@@ -276,6 +277,10 @@ config/      (optionally)
 		background: #f002;
 		border: 1px solid #f00b;
 		padding: 1em;
+	}
+	.date {
+		font-size: .8em;
+		opacity: 0.7;
 	}
 	img {
 		display: block;
