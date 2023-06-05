@@ -11,7 +11,7 @@
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
 	</label>
-	<nav aria-expanded={isExpanded}>
+	<nav>
 		<ul>
 			<li><a href="{base}/">🏠 Home</a></li>
 			<li><a href="{base}/articles">📝 Articles</a></li>
