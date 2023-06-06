@@ -112,7 +112,7 @@
 <style>
 	.announcement h2 {
 		align-items: center;
-		animation: announcement 2s infinite;
+		animation: announcement 2s infinite ease-in-out;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1em;
@@ -132,12 +132,21 @@
 
 	@keyframes announcement {
 		0% {
+			rotate: 0deg;
 			scale: 1;
 		}
+		25% {
+			rotate: -1deg;
+		}
 		50% {
+			rotate: 0deg;
 			scale: 1.1;
 		}
+		75% {
+			rotate: 1deg;
+		}
 		100% {
+			rotate: 0deg;
 			scale: 1;
 		}
 	}
