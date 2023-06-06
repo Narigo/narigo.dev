@@ -18,9 +18,11 @@
 			</div>
 		</h2>
 		<Narigo>
-			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open! Check
-			out the page and <a href="https://github.com/jscraftcamp/website" rel="external">create your pull request on GitHub</a> if you want to join Munich's best in class
-			JavaScript conference this year!
+			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open!
+			Check out the page and
+			<a href="https://github.com/jscraftcamp/website" rel="external"
+				>create your pull request on GitHub</a
+			> if you want to join Munich's best in class JavaScript conference this year!
 		</Narigo>
 	</section>
 	<section>
@@ -112,7 +114,7 @@
 <style>
 	.announcement h2 {
 		align-items: center;
-		animation: announcement 2s infinite ease-in-out;
+		animation: announcement 2s infinite;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1em;
@@ -136,14 +138,16 @@
 			scale: 1;
 		}
 		25% {
-			rotate: -1deg;
+			rotate: -2deg;
+			scale: 1.05;
 		}
 		50% {
 			rotate: 0deg;
-			scale: 1.1;
+			scale: 1;
 		}
 		75% {
-			rotate: 1deg;
+			rotate: 2deg;
+			scale: 1.05;
 		}
 		100% {
 			rotate: 0deg;
