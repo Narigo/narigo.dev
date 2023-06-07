@@ -1,22 +1,12 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Announcement from '$lib/common/Announcement.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
-	<section class="announcement">
-		<h2>
-			<div class="icon">
-				📢
-				<div class="mirror-x">🗣️</div>
-			</div>
-			<div>Public Service Announcement!</div>
-			<div class="icon">
-				🗣️
-				<div class="mirror-x">📢</div>
-			</div>
-		</h2>
+	<Announcement title="Public Service Announcement!">
 		<Narigo>
 			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open!
 			Check out the page and
@@ -24,8 +14,8 @@
 				>create your pull request on GitHub</a
 			> if you want to join Munich's best in class JavaScript conference this year!
 		</Narigo>
-	</section>
-	<section>
+	</Announcement>
+	<section class="first">
 		<h2>Welcome to Jörns page! 👋</h2>
 		<Narigo>
 			<p>
@@ -112,52 +102,7 @@
 </PageLayout>
 
 <style>
-	.announcement h2 {
-		align-items: center;
-		animation: announcement 2s infinite;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1em;
-		justify-content: center;
-		margin: 0 auto 0.5em;
-		text-align: center;
-	}
-	.announcement h2 div {
-		display: inline-block;
-	}
-	.announcement {
-		margin-bottom: 2em;
-	}
-	.mirror-x {
-		scale: -1 1;
-	}
-
-	@keyframes announcement {
-		0% {
-			rotate: 0deg;
-			scale: 1;
-		}
-		25% {
-			rotate: -2deg;
-			scale: 1.05;
-		}
-		50% {
-			rotate: 0deg;
-			scale: 1;
-		}
-		75% {
-			rotate: 2deg;
-			scale: 1.05;
-		}
-		100% {
-			rotate: 0deg;
-			scale: 1;
-		}
-	}
-
-	@media (prefers-reduced-motion) {
-		.announcement h2 {
-			animation: none;
-		}
+	.first {
+		margin-top: 2em;
 	}
 </style>
