@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../../favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="../../_app/immutable/assets/0.68b0b2b1.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/Narigo.05624ce8.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/Bubble.950d7dbd.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/PuzzlePageLayout.a316fb00.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/PageLayout.e344ccb5.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/CodeBlock.62aa156a.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.f6513a47.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.0bb61340.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/singletons.d08fa862.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.b093ad20.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/paths.d1750941.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.bd47ef7b.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.d18f60f2.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/35.76022147.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Narigo.7389b9d0.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Bubble.0a9e1c86.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/index.c2f67073.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/PuzzlePageLayout.add04823.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/PageLayout.1b1ca4e9.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CodeBlock.f5da237b.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/_commonjsHelpers.725317a4.js"><!-- HEAD_svelte-b3mtpz_START --><!-- HTML_TAG_START --><style>/*!
+  Theme: Classic Dark
+  Author: Jason Heeris (http://heeris.id.au)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#d0d0d0;background:#151515}.hljs ::selection,.hljs::selection{background-color:#303030;color:#d0d0d0}.hljs-comment{color:#505050}.hljs-tag{color:#b0b0b0}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#d0d0d0}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#ac4142}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#d28445}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#f4bf75}.hljs-strong{font-weight:700;color:#f4bf75}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#90a959}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#75b5aa}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#6a9fb5}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#aa759f}.hljs-emphasis{color:#aa759f;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#8f5536}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}</style><!-- HTML_TAG_END --><!-- HEAD_svelte-b3mtpz_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+<div class="page svelte-b46c5z"><header class="svelte-b46c5z"><div class="content svelte-b46c5z"><div class="navigation svelte-1xvfxl5"><input id="navigation-menu-toggle" type="checkbox" class="svelte-1xvfxl5">
+	<label for="navigation-menu-toggle" class="svelte-1xvfxl5"><div class="menu-icon"></div>
+		<span class="opened svelte-1xvfxl5">Open Menu</span>
+		<span class="closed svelte-1xvfxl5">Close Menu</span></label>
+	<nav class="svelte-1xvfxl5"><ul class="svelte-1xvfxl5"><li class="svelte-1xvfxl5"><a href="/" class="svelte-1xvfxl5">🏠 Home</a></li>
+			<li class="svelte-1xvfxl5"><a href="/articles" class="svelte-1xvfxl5">📝 Articles</a></li>
+			<li class="svelte-1xvfxl5"><a href="/talks" class="svelte-1xvfxl5">🗣️ Talks</a></li>
+			<li class="svelte-1xvfxl5"><a href="/specials" class="svelte-1xvfxl5">🤪 Specials</a></li>
+			<li class="svelte-1xvfxl5"><a href="/contact" class="svelte-1xvfxl5">🧑‍💼 Contact</a></li></ul></nav>
+</div></div></header>
+	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><div class="svelte-1e4pxc6"><a href="/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
+		<section><h2>Black Lives Matter</h2>
+			<div class="iframe-container svelte-6uac30"><iframe title="Puzzle 54 solution" style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;" class="svelte-6uac30"></iframe></div>
+<div class="svelte-6uac30">Highlighted solution (1185 characters)</div>
+
+
+<div class="svelte-1vh31p0" style="overflow-x: auto;"><table class="svelte-1vh31p0"><tbody class="hljs">
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">1</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START --><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;w&quot;</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">2</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs&quot;</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">3</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h f f1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">4</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h f f2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">5</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h f f3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">6</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h f f4&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">7</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">8</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h x palm&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">9</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h x arm&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">10</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;h f thumb&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">11</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START --><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">12</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START --><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">13</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-tag">body</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">14</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">background</span>: <span class="hljs-number">#F9E492</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">15</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">display</span>: grid;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">16</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    place-items: center;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">17</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">18</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">19</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.w</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">20</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">display</span>: grid;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">21</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">position</span>: relative;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">22</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">23</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">10px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">24</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">25</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.fs</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">26</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">display</span>: grid;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">27</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>fr);<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">28</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">grid-column</span>: <span class="hljs-number">1</span> / <span class="hljs-number">5</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">29</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">70px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">30</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    place-items: end;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">31</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">32</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.h</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">33</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">background</span>: <span class="hljs-number">#191919</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">34</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">35</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.f</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">36</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">box-sizing</span>: border-box;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">37</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">20px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">38</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid <span class="hljs-number">#F9E492</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">39</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">margin-right</span>: -<span class="hljs-number">5px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">40</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">45px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">41</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">width</span>: <span class="hljs-number">30px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">42</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">43</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.f1</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">44</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">55px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">45</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">46</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.f2</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">47</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">65px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">48</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">49</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.f3</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">50</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">55px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">51</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">52</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.x</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">53</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">10px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">54</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">55</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.palm</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">56</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">grid-column</span>: <span class="hljs-number">1</span> / <span class="hljs-number">5</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">57</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">58</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">59</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.arm</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">60</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">grid-column</span>: <span class="hljs-number">2</span> / <span class="hljs-number">4</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">61</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">45px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">62</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">63</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  <span class="hljs-selector-class">.thumb</span> {<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">64</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">position</span>: absolute;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">65</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">height</span>: <span class="hljs-number">75px</span>;<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">66</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">2px</span>, <span class="hljs-number">36.5px</span>) <span class="hljs-built_in">rotate</span>(<span class="hljs-number">60deg</span>);<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">67</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->  }<!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr>
+        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">68</code>
+            </td>
+          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START --></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><!-- HTML_TAG_END --></code></pre>
+            </td>
+        </tr></tbody></table>
+</div>
+	<div class="svelte-17vayou"><div class="wrap svelte-1l3simr  left" style="--angle: 0.18951693758034005deg; --x: 2.267698735079886px;"><div class="bubble svelte-1l3simr"><div class="content svelte-1l3simr">Ok, interesting use of grid here. In the end, we got 100%, so &quot;good enough&quot;.</div></div>
+			<button class="avatar svelte-1l3simr"><div slot="avatar"><img src="/_app/immutable/assets/narigo.e54b8f62.png" alt="Narigo" class="svelte-14cyrh4"></div></button></div>
+</div></section>
+		<a href="/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a></div></div></main>
+	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
+			<div>© Jörn Bernhardt</div>
+			<div>Statically hosted on GitHub Pages.</div>
+			<div><a href="https://github.com/Narigo/narigo.dev" rel="external" class="svelte-b46c5z">Source</a></div></div></footer>
+</div>
+
+
+			
+			<script>
+				{
+					__sveltekit_15x2ty6 = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [{"type":"data","data":null,"uses":{}},null];
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.f6513a47.js"),
+						import("../../_app/immutable/entry/app.bd47ef7b.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 35],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
