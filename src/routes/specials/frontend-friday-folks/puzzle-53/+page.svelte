@@ -3,7 +3,30 @@
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
-	const solution = ``;
+	const solution = `<div>
+<div id=c></div>
+<div id=r></div>
+</div>
+<style>
+  body {
+    display: grid;
+    place-items: center;
+    background: #19191A;
+  }
+  #c {
+    isolation: isolate;
+    background: conic-gradient(#4F77FF 50%, #9AD5FF 0 75%, #4F77FF 0);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  #r {
+    margin-top: -75px;
+    width: 75px;
+    height: 125px;
+    background: #F9E492;
+  }
+</style>`;
 </script>
 
 <PuzzlePageLayout title="Pastel Logo">
