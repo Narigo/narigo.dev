@@ -75,5 +75,9 @@
 
 <PuzzlePageLayout title="Black Lives Matter">
 	<Puzzle title="Puzzle 54 solution" {solution} />
-	<Narigo>Ok, interesting use of grid here. In the end, we got 100%, so "good enough".</Narigo>
+	<Narigo>
+		It was interesting to use grid here. The solution needed multiple wrappers, to get it done, but
+		there may be some possibilties to optimize it. No real code golf ideas to make the solution
+		smaller, but we got to 100% with this. So for us, 100% is "good enough". 😅
+	</Narigo>
 </PuzzlePageLayout>
