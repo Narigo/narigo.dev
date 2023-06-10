@@ -45,6 +45,8 @@
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-46">Puzzle 46 - Mountains</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-48">Puzzle 48 - Wash your hands</a></li>
 			<li><a href="{base}/specials/frontend-friday-folks/puzzle-50">Puzzle 50 - Use Hand Sanitizer</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-53">Puzzle 53 - Pastel Logo</a></li>
+			<li><a href="{base}/specials/frontend-friday-folks/puzzle-54">Puzzle 54 - Black Lives Matter</a></li>
 		</ul>
 	</Narigo>
 </PageLayout>
