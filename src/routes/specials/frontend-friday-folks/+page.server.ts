@@ -10,9 +10,15 @@ export const load: PageServerLoad = async () => {
 	let puzzles = [];
 	for (let folder of puzzleFolderNames) {
 		const number = parseInt(folder.slice(folder.indexOf('-') + 1), 10);
-		const contents = await readFile(`${currentFolder}/${folder}/+page.svelte`, 'utf-8');
-		const [_, title] = /PuzzlePageLayout title="(.*?)"/.exec(contents)!;
-		puzzles.push({ number, title });
+		try {
+			const contents = await readFile(`${currentFolder}/${folder}/+page.svelte`, 'utf-8');
+			const [_, title] = /PuzzlePageLayout title="(.*?)"/.exec(contents)!;
+			puzzles.push({ number, title });
+		} catch {
+			const contents = await readFile(`${currentFolder}/${folder}/_page.svelte.js`, 'utf-8');
+			const [_, title] = /title:\s*"(.*?)"/.exec(contents)!;
+			puzzles.push({ number, title });
+		}
 	}
 	puzzles.sort(({ number: a }, { number: b }) => (a < b ? -1 : b < a ? 1 : 0));
 	return {
