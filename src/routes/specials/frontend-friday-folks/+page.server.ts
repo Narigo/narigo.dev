@@ -1,25 +1,15 @@
-import { dirname } from 'node:path';
-import { readdir, readFile } from 'node:fs/promises';
 import type { PageServerLoad } from './$types';
 
-// TODO replace with import.meta.glob
-const currentFolder = dirname(new URL(import.meta.url).pathname);
+const puzzleFiles = Object.entries(
+	import.meta.glob(['./puzzle-*/+page.svelte'], { as: 'raw', eager: true })
+);
 
 export const load: PageServerLoad = async () => {
-	const filesAndFolders = await readdir(currentFolder);
-	const puzzleFolderNames = filesAndFolders.filter((name) => /^puzzle-\d+$/.test(name));
 	let puzzles = [];
-	for (let folder of puzzleFolderNames) {
-		const number = parseInt(folder.slice(folder.indexOf('-') + 1), 10);
-		try {
-			const contents = await readFile(`${currentFolder}/${folder}/+page.svelte`, 'utf-8');
-			const [_, title] = /PuzzlePageLayout title="(.*?)"/.exec(contents)!;
-			puzzles.push({ number, title });
-		} catch {
-			const contents = await readFile(`${currentFolder}/${folder}/_page.svelte.js`, 'utf-8');
-			const [_, title] = /title:\s*"(.*?)"/.exec(contents)!;
-			puzzles.push({ number, title });
-		}
+	for (let [path, content] of puzzleFiles) {
+		const number = parseInt(path.slice(path.indexOf('-') + 1, path.lastIndexOf('/')), 10);
+		const [_, title] = /PuzzlePageLayout title="(.*?)"/.exec(content)!;
+		puzzles.push({ number, title });
 	}
 	puzzles.sort(({ number: a }, { number: b }) => (a < b ? -1 : b < a ? 1 : 0));
 	return {
