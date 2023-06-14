@@ -2,6 +2,7 @@ import { dirname } from 'node:path';
 import { readdir, readFile } from 'node:fs/promises';
 import type { PageServerLoad } from './$types';
 
+// TODO replace with import.meta.glob
 const currentFolder = dirname(new URL(import.meta.url).pathname);
 
 export const load: PageServerLoad = async () => {
