@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Kata from '../Kata.svelte';
 	import KataLayout from '../KataLayout.svelte';

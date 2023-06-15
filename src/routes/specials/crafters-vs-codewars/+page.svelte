@@ -2,6 +2,9 @@
 	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <PageLayout>
@@ -12,23 +15,15 @@
 		more meetups.</Narigo
 	>
 	<ul>
-		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-03-09">Disemvowel Trolls</a></li>
-		<li><a href="{base}/specials/crafters-vs-codewars/event-2023-04-11">Mumbling</a></li>
-		<li>
-			<a href="{base}/specials/crafters-vs-codewars/event-2023-04-20"
-				>Sum of Digits / Digital Root</a
-			>
-		</li>
-		<li>
-			<a href="{base}/specials/crafters-vs-codewars/event-2023-05-04">Moving Zeros To The End</a>
-		</li>
-		<li>
-			<a href="{base}/specials/crafters-vs-codewars/event-2023-05-11">Find the unique number</a>
-		</li>
-		<li>
-			<a href="{base}/specials/crafters-vs-codewars/event-2023-05-18"
-				>Stop gninnipS My sdroW!, Training on Multiples of 3 or 5, Who likes it?</a
-			>
-		</li>
+		{#each data.events as { date, names }}
+			<li>
+				<a href="{base}/specials/crafters-vs-codewars/event-{date}">
+					{date}
+					{#if names.length > 0}
+						- {names.join('; ')}
+					{/if}
+				</a>
+			</li>
+		{/each}
 	</ul>
 </PageLayout>
