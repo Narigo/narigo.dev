@@ -8,11 +8,14 @@
 <PageLayout>
 	<Announcement title="Public Service Announcement!">
 		<Narigo>
-			The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open!
-			Check out the page and
-			<a href="https://github.com/jscraftcamp/website" rel="external"
-				>create your pull request on GitHub</a
-			> if you want to join Munich's best in class JavaScript conference this year!
+			<p>
+				The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open!
+				Check out the page and
+				<a href="https://github.com/jscraftcamp/website" rel="external"
+					>create your pull request on GitHub</a
+				> if you want to join Munich's best in class JavaScript conference this year!
+			</p>
+			<p>Be aware: There is a waitlist for Friday already!</p>
 		</Narigo>
 	</Announcement>
 	<section class="first">
