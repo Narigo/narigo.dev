@@ -15,7 +15,10 @@
 					>create your pull request on GitHub</a
 				> if you want to join Munich's best in class JavaScript conference this year!
 			</p>
-			<p>Be aware: There is a waitlist for Friday already!</p>
+			<p>
+				Be aware: There is a waitlist for Friday already! And we're going to close the registration
+				soon!
+			</p>
 		</Narigo>
 	</Announcement>
 	<section class="first">
