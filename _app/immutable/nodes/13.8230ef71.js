@@ -1,0 +1,14 @@
+import{S as K,i as O,s as U,y as g,z as h,A as d,g as _,d as b,B as q,k as v,q as w,a as A,l as B,m as F,r as k,h as l,c as S,b as y,G as m,H as z}from"../chunks/index.3d7f15fc.js";import{C as x}from"../chunks/CodeBlock.f87bc43a.js";import{N as H}from"../chunks/Narigo.f2af5427.js";import{K as D}from"../chunks/KataLayout.4d921d0f.js";function G(i){let t,e,r,s;return{c(){t=w("The easy "),e=v("code"),r=w("filter().length > 1"),s=w(" solution is not performant enough for the tests to work. Two sets worked better.")},l(n){t=k(n,"The easy "),e=B(n,"CODE",{});var f=F(e);r=k(f,"filter().length > 1"),f.forEach(l),s=k(n," solution is not performant enough for the tests to work. Two sets worked better.")},m(n,f){y(n,t,f),y(n,e,f),m(e,r),y(n,s,f)},p:z,d(n){n&&l(t),n&&l(e),n&&l(s)}}}function I(i){let t;return{c(){t=w("This is walking through the array to find the first that's not unique.")},l(e){t=k(e,"This is walking through the array to find the first that's not unique.")},m(e,r){y(e,t,r)},d(e){e&&l(t)}}}function L(i){let t,e,r,s,n,f,u,C,$,E,c,T;return n=new x({props:{code:i[0]}}),u=new H({props:{$$slots:{default:[G]},$$scope:{ctx:i}}}),$=new x({props:{code:i[1]}}),c=new H({props:{$$slots:{default:[I]},$$scope:{ctx:i}}}),{c(){t=v("section"),e=v("h3"),r=w("Find the unique number"),s=A(),g(n.$$.fragment),f=A(),g(u.$$.fragment),C=A(),g($.$$.fragment),E=A(),g(c.$$.fragment)},l(o){t=B(o,"SECTION",{});var a=F(t);e=B(a,"H3",{});var p=F(e);r=k(p,"Find the unique number"),p.forEach(l),s=S(a),h(n.$$.fragment,a),f=S(a),h(u.$$.fragment,a),C=S(a),h($.$$.fragment,a),E=S(a),h(c.$$.fragment,a),a.forEach(l)},m(o,a){y(o,t,a),m(t,e),m(e,r),m(t,s),d(n,t,null),m(t,f),d(u,t,null),m(t,C),d($,t,null),m(t,E),d(c,t,null),T=!0},p(o,a){const p={};a&4&&(p.$$scope={dirty:a,ctx:o}),u.$set(p);const N={};a&4&&(N.$$scope={dirty:a,ctx:o}),c.$set(N)},i(o){T||(_(n.$$.fragment,o),_(u.$$.fragment,o),_($.$$.fragment,o),_(c.$$.fragment,o),T=!0)},o(o){b(n.$$.fragment,o),b(u.$$.fragment,o),b($.$$.fragment,o),b(c.$$.fragment,o),T=!1},d(o){o&&l(t),q(n),q(u),q($),q(c)}}}function P(i){let t,e;return t=new D({props:{id:"585d7d5adb20cf33cb000235",name:"Find the unique number",$$slots:{default:[L]},$$scope:{ctx:i}}}),{c(){g(t.$$.fragment)},l(r){h(t.$$.fragment,r)},m(r,s){d(t,r,s),e=!0},p(r,[s]){const n={};s&4&&(n.$$scope={dirty:s,ctx:r}),t.$set(n)},i(r){e||(_(t.$$.fragment,r),e=!0)},o(r){b(t.$$.fragment,r),e=!1},d(r){q(t,r)}}}function j(i){return[`function findUniq(arr) {
+    const [a, b, c] = arr;
+    const [uniqA, uniqB] = new Set(arr);
+    if (uniqA === a && (uniqA === b || uniqA === c)) return uniqB;
+    return uniqA;
+  }`,`function findUniq(arr) {
+  const [a, b, c] = arr;
+  if (a !== b && b === c) return a;
+  if (a !== c && a === c) return b;
+  
+  for (let i = arr.length - 1; i > 0; --i) {
+    if (arr[i] !== a) return arr[i];
+  }
+}`]}class V extends K{constructor(t){super(),O(this,t,j,P,U,{})}}export{V as component};
