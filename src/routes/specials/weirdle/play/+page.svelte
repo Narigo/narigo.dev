@@ -4,10 +4,10 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { afterUpdate } from 'svelte';
 	import Game from './Game.svelte';
+	import { possibleWords } from '$lib/weirdle/words';
 
 	let encryptedWord: string | null;
 	let hint: string | null;
-	const possibleWords = ['hello', 'below', 'canon', 'alpha', 'stare'];
 	const randomWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
 
 	afterUpdate(() => {
