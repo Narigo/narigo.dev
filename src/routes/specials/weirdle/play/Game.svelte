@@ -70,16 +70,10 @@
 	</form>
 {:else if $gameState === 'lost'}
 	<Bubble>Better luck next time, the word to be found was: {word}</Bubble>
-	<Bubble side="right"
-		>If you want to create your own word, <a href="{base}/specials/weirdle/create">start here</a
-		>!</Bubble
-	>
+	<Bubble side="right"><a href="{base}/specials/weirdle/play">Play another round</a>?</Bubble>
 {:else if $gameState === 'won'}
 	<Bubble>You found it! It was {word}!</Bubble>
-	<Bubble side="right"
-		>If you want to create your own word, <a href="{base}/specials/weirdle/create">start here</a
-		>!</Bubble
-	>
+	<Bubble side="right"><a href="{base}/specials/weirdle/play">Play another round</a>?</Bubble>
 {/if}
 
 <style>

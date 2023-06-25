@@ -4,16 +4,23 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { afterUpdate } from 'svelte';
 	import Game from './Game.svelte';
-	import { possibleWords } from '$lib/weirdle/words';
 
 	let encryptedWord: string | null;
 	let hint: string | null;
-	const randomWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+	let timeNeeded = 0;
 
 	afterUpdate(() => {
 		encryptedWord = $page.url.searchParams.get('enc');
 		hint = $page.url.searchParams.get('hint');
 	});
+
+	async function getRandomWord(): Promise<string> {
+		timeNeeded = Date.now();
+		const { possibleWords } = await import('$lib/weirdle/words2');
+		const randomWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+		timeNeeded = Date.now() - timeNeeded;
+		return randomWord;
+	}
 </script>
 
 <PageLayout>
@@ -21,11 +28,18 @@
 	{#if !encryptedWord}
 		<p>Please use a proper link with an 'enc' parameter attached to it!</p>
 		{#if browser}
-			<p>
-				Or do you want to play <a href="?enc={encodeURIComponent(window.btoa(randomWord))}"
-					>a randomly selected word</a
-				>?
-			</p>
+			{#await getRandomWord()}
+				<p>Loading a random word...</p>
+			{:then randomWord}
+				<p>
+					Or do you want to play <a href="?enc={encodeURIComponent(window.btoa(randomWord))}"
+						>a randomly selected word</a
+					>? (generated in {timeNeeded}ms)
+				</p>
+			{:catch err}
+				<p>Got an error:</p>
+				<pre>{err}</pre>
+			{/await}
 		{/if}
 	{:else if !browser}
 		<p>This game needs to be played in a browser with JavaScript enabled.</p>
