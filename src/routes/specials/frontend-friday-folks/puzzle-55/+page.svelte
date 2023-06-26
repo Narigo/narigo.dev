@@ -79,12 +79,12 @@
 </script>
 
 <PuzzlePageLayout title="Windmill">
-	<Puzzle title="Puzzle 54 solution" {solution} />
+	<Puzzle title="Puzzle 55 solution" {solution} />
 	<Narigo>
 		We figured out that using counters is not going to work here. Also using <code>attr()</code> doesn't
 		work to not have to redundantly tell CSS which child it is.
 	</Narigo>
-	<Puzzle title="Puzzle 54 solution" solution={solutionAnimation} />
+	<Puzzle title="Puzzle 55 solution" solution={solutionAnimation} />
 	<Narigo>
 		...but since I couldn't get it to work with counters, at least I could add an animation 😵‍💫
 	</Narigo>
