@@ -49,5 +49,11 @@
 
 <PuzzlePageLayout title="Skull">
 	<Puzzle title="Puzzle 56 solution" {solution} />
-	<Narigo>That was "fun" using gradients for the teeth and nose...</Narigo>
+	<Narigo
+		>That was "fun" using gradients for the teeth and nose. The linear-gradient creates the long
+		parts of the teeth, using the background color and a transparent one in between. The background
+		size and origin start it at the appropriate pixels. The radial-gradients sit on top of these
+		teeth to create the rounded part of the teeth. The nose had to be split up and needed to be
+		included in both parts: The upper skull and the jar.</Narigo
+	>
 </PuzzlePageLayout>
