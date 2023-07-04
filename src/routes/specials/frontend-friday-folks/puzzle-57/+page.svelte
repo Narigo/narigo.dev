@@ -49,9 +49,15 @@
 <PuzzlePageLayout title="Skull">
 	<Puzzle title="Puzzle 57 solution" {solution} />
 	<Narigo>
-		Lots of <code>-webkit-box-reflect</code> in here! We did this 100% solution at the
-		<a href="https://jscraftcamp.org" rel="external">JSCraftCamp 2023</a> in a group. Later, we started
-		working on another solution with gradients. Somehow the numbers didn't really add up, so maybe other
-		units like percentages or similar should have been used to cleanly get to 100%.
+		<p>
+			Lots of <code>-webkit-box-reflect</code> in here! We did this 100% solution at the
+			<a href="https://jscraftcamp.org" rel="external">JSCraftCamp 2023</a> in a group. Later, we started
+			working on another solution with gradients. Somehow the numbers didn't really add up, so maybe
+			other units like percentages or similar should have been used to cleanly get to 100%.
+		</p>
+		<p>
+			Interestingly, using <code>r</code> (or other non-assigned names) as an element name seems to work
+			out as block elements!
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
