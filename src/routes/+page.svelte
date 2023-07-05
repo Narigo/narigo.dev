@@ -1,26 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Announcement from '$lib/common/Announcement.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
-	<Announcement title="Public Service Announcement!">
-		<Narigo>
-			<p>
-				The <a href="https://jscraftcamp.org" rel="external">JSCraftCamp</a> registration is open!
-				Check out the page and
-				<a href="https://github.com/jscraftcamp/website" rel="external"
-					>create your pull request on GitHub</a
-				> if you want to join Munich's best in class JavaScript conference this year!
-			</p>
-			<p>
-				Be aware: There is a waitlist for Friday already! And we're going to close the registration
-				soon!
-			</p>
-		</Narigo>
-	</Announcement>
 	<section class="first">
 		<h2>Welcome to Jörns page! 👋</h2>
 		<Narigo>
