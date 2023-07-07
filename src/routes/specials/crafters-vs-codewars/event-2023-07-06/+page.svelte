@@ -10,6 +10,22 @@
   const nextSlice = str.slice(at + 1) + str.slice(0, at + 1);
   return rotate(str, [...acc, nextSlice], at + 1);
 }`;
+
+	const solutionPalindrome = `function longestPalindrome(s){
+  let maxAmountOfChars = 0;
+  for (let start = 0; start < (s.length - maxAmountOfChars); start++) {
+    for (let endOfPalindrome = s.length; (start + maxAmountOfChars) < endOfPalindrome; endOfPalindrome--) {
+      if (isPalindrome(s.slice(start, endOfPalindrome))) {
+        maxAmountOfChars = endOfPalindrome - start;
+      }
+    }
+  }
+  return maxAmountOfChars;
+}
+
+function isPalindrome(s) {
+  return s.split("").reverse().join("") === s;
+}`;
 </script>
 
 <KataLayout>
@@ -26,6 +42,14 @@
 				the length of the string. While it takes a bit more memory, I'm still wondering which
 				approach would be faster for the computer to work with.
 			</p>
+		</Narigo>
+	</Kata>
+	<Kata id="54bb6f887e5a80180900046b" name="Longest Palindrome" solution={solutionPalindrome}>
+		<Narigo>
+			This is the second challenge that has been done. I didn't create a solution during the event
+			as I had to leave early. From what I could see in the chat, my solution differs in the way of
+			the for loops: If you switch them (count backwards in the outer one), it's possible to return
+			the outer one as the length of the palindrome.
 		</Narigo>
 	</Kata>
 </KataLayout>
