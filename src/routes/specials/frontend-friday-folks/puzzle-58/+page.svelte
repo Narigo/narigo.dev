@@ -70,7 +70,9 @@
 <PuzzlePageLayout title="Rose">
 	<Puzzle title="Puzzle 58 solution" {solution} />
 	<Narigo>
-		I learned something! The border itself is somehow counting towards the border-radius. So if you
-		need to have some radius with a thicker border, add the border thickness itself at least.
+		Thanks to Dan Ott, I learned something new about <code>border-radius</code> this time! The border
+		itself counts towards the border-radius. So to see any radius, it needs to be at least as thick as
+		the border itself to be visible. It may also lead to different "angles" of the border, but I need
+		to research that at some point...
 	</Narigo>
 </PuzzlePageLayout>
