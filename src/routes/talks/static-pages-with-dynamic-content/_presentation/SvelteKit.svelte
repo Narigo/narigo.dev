@@ -23,6 +23,7 @@
 </script>
 
 <section
+	role="presentation"
 	on:click={() => {
 		visible = !visible;
 	}}
