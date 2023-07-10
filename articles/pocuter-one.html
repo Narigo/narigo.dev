@@ -1,26 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="../favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		
-		<link href="../_app/immutable/assets/0.3e4eed61.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/0.4b7538b9.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/4.6e0121be.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/CodeBlock.62aa156a.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/PageLayout.e344ccb5.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.d129ab1d.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.b1660a48.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.e1d3abc3.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.5e1915b1.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/paths.f18037d8.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.1bd29cb0.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.41c905a7.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.5677d006.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/4.f9c00aac.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/CodeBlock.5c44a274.js">
+		<link href="../_app/immutable/assets/PageLayout.99b20446.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.fb875202.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.52b7490a.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.6278e9e0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.0f083efd.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/paths.caed3b73.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.8bbff241.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.cf010ec4.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.644eb738.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.f9e92162.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/4.f8026c75.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CodeBlock.b7e19fb6.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/spread.8a54911c.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/_commonjsHelpers.725317a4.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/PageLayout.25f445d6.js"><!-- HEAD_svelte-b3mtpz_START --><!-- HTML_TAG_START --><style>/*!
+		<link rel="modulepreload" href="../_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/PageLayout.006f4288.js"><!-- HEAD_svelte-b3mtpz_START --><!-- HTML_TAG_START --><style>/*!
   Theme: Classic Dark
   Author: Jason Heeris (http://heeris.id.au)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
@@ -29,313 +32,103 @@
 */pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#d0d0d0;background:#151515}.hljs ::selection,.hljs::selection{background-color:#303030;color:#d0d0d0}.hljs-comment{color:#505050}.hljs-tag{color:#b0b0b0}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#d0d0d0}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#ac4142}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#d28445}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#f4bf75}.hljs-strong{font-weight:700;color:#f4bf75}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#90a959}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#75b5aa}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#6a9fb5}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#aa759f}.hljs-emphasis{color:#aa759f;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#8f5536}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}</style><!-- HTML_TAG_END --><!-- HEAD_svelte-b3mtpz_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">
-
-
-<div class="page svelte-b46c5z"><header class="svelte-b46c5z"><div class="content svelte-b46c5z"><div class="navigation svelte-1xvfxl5"><input id="navigation-menu-toggle" type="checkbox" class="svelte-1xvfxl5">
-	<label for="navigation-menu-toggle" class="svelte-1xvfxl5"><div class="menu-icon"></div>
-		<span class="opened svelte-1xvfxl5">Open Menu</span>
-		<span class="closed svelte-1xvfxl5">Close Menu</span></label>
-	<nav class="svelte-1xvfxl5"><ul class="svelte-1xvfxl5"><li class="svelte-1xvfxl5"><a href="/" class="svelte-1xvfxl5">🏠 Home</a></li>
-			<li class="svelte-1xvfxl5"><a href="/articles" class="svelte-1xvfxl5">📝 Articles</a></li>
-			<li class="svelte-1xvfxl5"><a href="/talks" class="svelte-1xvfxl5">🗣️ Talks</a></li>
-			<li class="svelte-1xvfxl5"><a href="/specials" class="svelte-1xvfxl5">🤪 Specials</a></li>
-			<li class="svelte-1xvfxl5"><a href="/contact" class="svelte-1xvfxl5">🧑‍💼 Contact</a></li></ul></nav>
-</div></div></header>
-	<main class="svelte-b46c5z"><div class="content svelte-b46c5z"><p class="info svelte-7arsvs">Be aware, I&#39;m going to continue writing and improving on this article. Maybe the parts I release
-		are already useful for someone.
-	</p>
-
-	<h2>Pocuter One</h2>
-	<div class="date svelte-7arsvs">Last update on <span>2023-06-01</span></div>
-	<p>The Pocuter One is a project I&#39;ve backed on Kickstarter a while ago. I received their package
-		right before Easter holidays in Germany, so I had some time to assemble it.
-	</p>
-	<p>While I was pretty shocked to learn that I had to solder a battery onto this mini computer for
+		<div style="display: contents">  <div class="page svelte-b46c5z"><header class="svelte-b46c5z"><div class="content svelte-b46c5z"><div class="navigation svelte-1xvfxl5"><input id="navigation-menu-toggle" type="checkbox" class="svelte-1xvfxl5"> <label for="navigation-menu-toggle" class="svelte-1xvfxl5" data-svelte-h="svelte-zxno4p"><div class="menu-icon"></div> <span class="opened svelte-1xvfxl5">Open Menu</span> <span class="closed svelte-1xvfxl5">Close Menu</span></label> <nav class="svelte-1xvfxl5"><ul class="svelte-1xvfxl5"><li class="svelte-1xvfxl5"><a href="/" class="svelte-1xvfxl5">🏠 Home</a></li> <li class="svelte-1xvfxl5"><a href="/articles" class="svelte-1xvfxl5">📝 Articles</a></li> <li class="svelte-1xvfxl5"><a href="/talks" class="svelte-1xvfxl5">🗣️ Talks</a></li> <li class="svelte-1xvfxl5"><a href="/specials" class="svelte-1xvfxl5">🤪 Specials</a></li> <li class="svelte-1xvfxl5"><a href="/contact" class="svelte-1xvfxl5">🧑‍💼 Contact</a></li></ul></nav> </div></div></header> <main class="svelte-b46c5z"><div class="content svelte-b46c5z"><p class="info svelte-7arsvs" data-svelte-h="svelte-jopodt">Be aware, I&#39;m going to continue writing and improving on this article. Maybe the parts I release
+		are already useful for someone.</p> <h2 data-svelte-h="svelte-1qejv56">Pocuter One</h2> <div class="date svelte-7arsvs" data-svelte-h="svelte-1xih6zg">Last update on <span>2023-06-01</span></div> <p data-svelte-h="svelte-j8b7sp">The Pocuter One is a project I&#39;ve backed on Kickstarter a while ago. I received their package
+		right before Easter holidays in Germany, so I had some time to assemble it.</p> <p data-svelte-h="svelte-n6z256">While I was pretty shocked to learn that I had to solder a battery onto this mini computer for
 		it to work, I&#39;m pretty happy with the result. Since I&#39;m pretty much new to working with
-		hardware, I want to share what I had to do in order to get to a result.
-	</p>
-	<p>If you haven&#39;t checked out the <a href="https://pocuter.com/docs/pocuter-one" rel="external">documentation of the Pocuter One</a>, it&#39;s definitely something to look at first.
-	</p>
-
-	<h3>WatchKit assembly</h3>
-	<p>There are a few things that need to be done before playing around with apps:</p>
-	<ol><li>Solder a battery to the chip</li>
-		<li>Assemble the watch itself</li></ol>
-
-	<h4>Soldering the battery</h4>
-	<p>The very first one was the most intimidating for me as someone who doesn&#39;t have much experience
+		hardware, I want to share what I had to do in order to get to a result.</p> <p data-svelte-h="svelte-7fc19q">If you haven&#39;t checked out the <a href="https://pocuter.com/docs/pocuter-one" rel="external">documentation of the Pocuter One</a>, it&#39;s definitely something to look at first.</p> <h3 data-svelte-h="svelte-lnnvof">WatchKit assembly</h3> <p data-svelte-h="svelte-1vd0g0h">There are a few things that need to be done before playing around with apps:</p> <ol data-svelte-h="svelte-19tijkj"><li>Solder a battery to the chip</li> <li>Assemble the watch itself</li></ol> <h4 data-svelte-h="svelte-147ynil">Soldering the battery</h4> <p data-svelte-h="svelte-1j8gc5t">The very first one was the most intimidating for me as someone who doesn&#39;t have much experience
 		with hardware. I wasn&#39;t sure which cable needs to go to which pole, since the only thing I saw
 		was a red and a black cable and the <code>+</code> and <code>-</code> symbols on the chip. So my
-		first research was about whether the red or the black cable is <code>+</code> or <code>-</code>.
-	</p>
-	<p>When I researched cable color codes, I found conflicting information based on what part of the
+		first research was about whether the red or the black cable is <code>+</code> or <code>-</code>.</p> <p data-svelte-h="svelte-wiutu">When I researched cable color codes, I found conflicting information based on what part of the
 		world you are in. I know that the company that sells the computer is based in Germany, but as
-		far as I understand it, the parts come from China.
-	</p>
-	<p>Long story short, in <a href="https://discord.com/channels/762688795035697182/762688795035697186" rel="external">the Pocuter Discord</a>, people shared pictures of how they put batteries on the board. I could infer that the red
+		far as I understand it, the parts come from China.</p> <p data-svelte-h="svelte-47v0dh">Long story short, in <a href="https://discord.com/channels/762688795035697182/762688795035697186" rel="external">the Pocuter Discord</a>, people shared pictures of how they put batteries on the board. I could infer that the red
 		cable goes to the <code>+</code> pole and the black cable to the <code>-</code> pole. I can definitly
-		recommend joining their Discord as they seem to be very active and helpful regarding support.
-	</p>
-	<p>To be able to solder a cable, I had to cut the outer parts of the wire, so the metallic inside
+		recommend joining their Discord as they seem to be very active and helpful regarding support.</p> <p data-svelte-h="svelte-xibkkc">To be able to solder a cable, I had to cut the outer parts of the wire, so the metallic inside
 		is visible. There are specialized tools for doing that and trying to cut it off with something
 		sharp resulted in losing quite a bit of the wire itself. I then found a small tool I could use
 		that I got from some random hackathon or conference that I attended. It worked out, but it was
 		quite painful to get it done. Anyways, once you see the metallic inside of the red and the black
 		wires from the battery, you can solder it. I opened it a couple of millimeters, so I was sure I
-		can hit it with my relatively big soldering iron.
-	</p>
-	<p>I put the cables from &quot;below&quot; into the holes. &quot;Below&quot; means when folding the screen on top of
+		can hit it with my relatively big soldering iron.</p> <p data-svelte-h="svelte-10f8c6i">I put the cables from &quot;below&quot; into the holes. &quot;Below&quot; means when folding the screen on top of
 		the chip as it needs to be put in the watch case, the battery is below the chip. The red and
 		black cables from the battery then don&#39;t need to be wrapped around the chip in the small watch
-		case.
-	</p>
-	<p>I then started soldering with the black one on the <code>-</code> pole. I thought it&#39;s probably
+		case.</p> <p data-svelte-h="svelte-crb3jd">I then started soldering with the black one on the <code>-</code> pole. I thought it&#39;s probably
 		easier to put the soldering down on the less exposed port first, so fixing something wouldn&#39;t
 		automatically mean I have to remove the potentially working and more exposed
-		<code>+</code> port as well.
-	</p>
-	<p>While soldering, the watch started to boot up. For me, this was the sign that the soldering
+		<code>+</code> port as well.</p> <p data-svelte-h="svelte-9guby9">While soldering, the watch started to boot up. For me, this was the sign that the soldering
 		worked out well and I made sure both cables were properly fixed. I made sure the soldered metal
 		wasn&#39;t too high, so the screen wouldn&#39;t be hurt by that. I had to take off some of the soldering
 		again by using the hot soldering iron and gently draw something away from it again. I guess it
-		was pure luck that I didn&#39;t destroy anything while doing that - the pocuter continued to work!
-	</p>
-	<p>If the watch turned off at some point during the assembly, it wasn&#39;t because of my lack of
+		was pure luck that I didn&#39;t destroy anything while doing that - the pocuter continued to work!</p> <p data-svelte-h="svelte-1yzo84u">If the watch turned off at some point during the assembly, it wasn&#39;t because of my lack of
 		experience with the soldering: The included battery runs out pretty quickly. I think when using
 		the &quot;Clock&quot; application, it&#39;s running for about 1.5 hours after having the USB connected for an
-		extended period of time.
-	</p>
-
-	<h4>Assembly of the watch kit</h4>
-	<p>Ok, so this looked pretty straightforward. The screen only has one place where it can go. I
+		extended period of time.</p> <h4 data-svelte-h="svelte-fwpozx">Assembly of the watch kit</h4> <p data-svelte-h="svelte-1rhi3z5">Ok, so this looked pretty straightforward. The screen only has one place where it can go. I
 		could see from the outside where the USB port and the buttons / knobs should be. The buttons
 		were a bit too hard to put in and it felt a bit wrong to push them so hard into it. I made it,
 		but once I put in all the screws, I couldn&#39;t really push the buttons at all or they were &quot;always
-		pushed&quot;. This felt really wrong.
-	</p>
-	<p>After checking the Discord again, I saw that people used a file to make the inside of the button
+		pushed&quot;. This felt really wrong.</p> <p data-svelte-h="svelte-1pz9e1y">After checking the Discord again, I saw that people used a file to make the inside of the button
 		a bit wider, so I tried that out myself: Unscrew the watch case, take out the knobs again.
 		Equipped with a small file for fingernails, I could scrub a little bit away from the sides from
 		the inside of the &quot;U&quot;-shaped buttons. When I put the buttons into the watch again, they were
 		fitting way better than before and I didn&#39;t even have to push them into the case - they actually
 		fit really nice after using the file. The problems with &quot;always pushed&quot; buttons or having a hard
-		time to press anything at all, vanished completely.
-	</p>
-	<p>Setting up the wrist band worked well for me: I had to put the metal bars into one hole, then
+		time to press anything at all, vanished completely.</p> <p data-svelte-h="svelte-dra5i8">Setting up the wrist band worked well for me: I had to put the metal bars into one hole, then
 		press and hold the tiny metal piece so the whole bar fits into the side of the watch and once it
 		inside the sides, find the other hole by wiggling it around a bit. It took me a few tries but it
-		worked out eventually and didn&#39;t take too long.
-	</p>
-
-	<h3>Applications</h3>
-	<p>There are a couple of apps you can download and add to the pocuter. This is actually quite easy
+		worked out eventually and didn&#39;t take too long.</p> <h3 data-svelte-h="svelte-z6pnr3">Applications</h3> <p data-svelte-h="svelte-1gks29k">There are a couple of apps you can download and add to the pocuter. This is actually quite easy
 		to do, but the documentation was a bit lacking. The SD card from the pocuter should be plugged
 		into a regular computer. The apps that can currently be downloaded are <code>.zip</code> files.
 		In these, there is a folder named with a number and in that folder, there is a file called
 		<code>esp32c3.app</code>. On the SD card, these need to be put into an <code>apps</code> folder,
-		keeping the numbered folder.
-	</p>
-	<p>To make it clear, the structure of the SD card should look like this:</p>
-	
-
-<div class="svelte-1vh31p0" style="overflow-x: auto;"><table class="svelte-1vh31p0"><tbody class="hljs">
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">1</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->apps/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">2</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">1</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">3</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">4</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">2</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">5</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">6</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">3</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">7</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">8</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">4</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">9</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">10</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     ...<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">11</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->config/      (optionally)<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">12</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">1</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">13</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          settings<span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">14</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          <span class="hljs-selector-tag">TIME</span><span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">15</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          WIFI<span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">16</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">2</span>/      (these folders can be empty)<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">17</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">3</span>/<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr>
-        <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">18</code>
-            </td>
-          <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     ...<!-- HTML_TAG_END --></code></pre>
-            </td>
-        </tr></tbody></table>
-</div>
-	<p>Once the apps are put onto the SD card in the proper structure, putting it back into the pocuter
-		and restarting it yielded all the apps in there.
-	</p>
-	<p>Writing my own app took a bit longer...</p>
-
-	<h3>Writing an app for the Pocuter</h3>
-	<p>To develop an application for the Pocuter, it&#39;s necessary to have a build setup that allows to
+		keeping the numbered folder.</p> <p data-svelte-h="svelte-1bdbb3j">To make it clear, the structure of the SD card should look like this:</p>  <div class="svelte-1vh31p0" style="overflow-x: auto;"><table class="svelte-1vh31p0"><tbody class="hljs"> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">1</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->apps/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">2</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">1</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">3</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">4</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">2</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">5</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">6</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">3</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">7</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">8</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">4</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">9</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          esp32c3<span class="hljs-selector-class">.app</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">10</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     ...<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">11</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->config/      (optionally)<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">12</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">1</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">13</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          settings<span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">14</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          <span class="hljs-selector-tag">TIME</span><span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">15</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->          WIFI<span class="hljs-selector-class">.ini</span><!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">16</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">2</span>/      (these folders can be empty)<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">17</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     <span class="hljs-number">3</span>/<!-- HTML_TAG_END --></code></pre> </td> </tr> <tr class="svelte-1vh31p0"><td class="svelte-1vh31p0 hljs" style="position: sticky; left: 0; text-align: right; user-select: none; width: 24px;"><code class="svelte-1vh31p0" style="color: var(--line-number-color, currentColor);">18</code> </td> <td class="svelte-1vh31p0"><pre class="svelte-1vh31p0 wrapLines"><code><!-- HTML_TAG_START -->     ...<!-- HTML_TAG_END --></code></pre> </td> </tr></tbody></table> </div> <p data-svelte-h="svelte-15rc4vt">Once the apps are put onto the SD card in the proper structure, putting it back into the pocuter
+		and restarting it yielded all the apps in there.</p> <p data-svelte-h="svelte-1kysifp">Writing my own app took a bit longer...</p> <h3 data-svelte-h="svelte-tyr8a8">Writing an app for the Pocuter</h3> <p data-svelte-h="svelte-fnr80b">To develop an application for the Pocuter, it&#39;s necessary to have a build setup that allows to
 		compile code to the Arduino. It&#39;s possible to do this in different ways, the easiest is to use
 		the <a href="https://www.arduino.cc/en/software" rel="external">Arduino IDE</a>. In the current
 		pocuter documentation, it&#39;s documented how to setup the Arduino IDE 1.x, but there is a version
 		2 already. I&#39;ve made it work with version 2 on my Mac before I got a working build setup with my
-		currently favorite IDE, VSCode. I&#39;m documenting how I set it up in both ways.
-	</p>
-	<h4>Setup Arduino IDE 2.x</h4>
-	<p>First thing I had to do is adding the additional boards manager URL. They provided the URL <code>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code>
+		currently favorite IDE, VSCode. I&#39;m documenting how I set it up in both ways.</p> <h4 data-svelte-h="svelte-rfswll">Setup Arduino IDE 2.x</h4> <p data-svelte-h="svelte-1xfsz9h">First thing I had to do is adding the additional boards manager URL. They provided the URL <code>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code>
 		in their documentation and this value can be put into
 		<code>Arduino IDE -&gt; Settings ... &gt; &quot;Additional Boards Manager URLs&quot;</code>. After doing
 		this, the Pocuter board should be included in the &quot;boards manager&quot;. The boards manager is the
-		second item on the left side.
-	</p>
-	<img src="/_app/immutable/assets/boards-manager.a9b14f77.png" alt="The boards manager" class="svelte-7arsvs">
-	<p>As far as I understood it, you need the various boards to be able to actually compile code for
-		them. As soon as the board is there, writing an application and compiling it should work.
-	</p>
-	<h4>Connecting the Pocuter</h4>
-	<p>This one was tricky when working with my Mac OS Ventura. There are quite a few blog posts out
+		second item on the left side.</p> <img src="/_app/immutable/assets/boards-manager.a9b14f77.png" alt="The boards manager" class="svelte-7arsvs"> <p data-svelte-h="svelte-1ilpk0d">As far as I understood it, you need the various boards to be able to actually compile code for
+		them. As soon as the board is there, writing an application and compiling it should work.</p> <h4 data-svelte-h="svelte-1kq7vvf">Connecting the Pocuter</h4> <p data-svelte-h="svelte-swgr3h">This one was tricky when working with my Mac OS Ventura. There are quite a few blog posts out
 		there mentioning to install some third party USB drivers. Most of them seem to be outdated
 		though and when I tried out a couple of these, the USB connection still didn&#39;t work for me. I
 		took me a while to understand one crucial thing: USB cables are not equal to USB cables. There
 		are some cables that only deliver current but no data. If you happen to try and use one of the
 		&quot;current-only&quot; cables, you won&#39;t be able to find your Pocuter through the serial ports at all.
 		If you don&#39;t see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
-		it, the cable itself may be the culprit.
-	</p>
-	<h4>Uploading code to the pocuter</h4>
-	<p>Ok, so I&#39;ve seen multiple ways to do this, each of them have their own pros and cons:</p>
-	<ol><li>Update the SD card and write into the <code>/apps/</code> folder</li>
-		<li>Upload compiled code directly through the USB serial port</li>
-		<li>Upload through HTTP through an app installed on the pocuter</li></ol>
-	<h5>1. Using SD card</h5>
-	<p>The SD card approach is the one mentioned in the documentation and is done through multiple
-		steps:
-	</p>
-	<ol><li>Compile the new version of your app (several steps)</li>
-		<li>Remove the SD card from the pocuter</li>
-		<li>Put the SD card into a reader</li>
-		<li>Mount it on the computer</li>
-		<li>Copy the compiled version into the <code>/apps/</code> folder on the SD card</li>
-		<li>Unmount the SD card from the computer</li>
-		<li>Put the SD card back into the pocuter</li>
-		<li>Restart the pocuter</li></ol>
-	<p>While these steps worked really well for me, especially when I had the issue with the USB cable,
+		it, the cable itself may be the culprit.</p> <h4 data-svelte-h="svelte-1v23qlw">Uploading code to the pocuter</h4> <p data-svelte-h="svelte-1l50psk">Ok, so I&#39;ve seen multiple ways to do this, each of them have their own pros and cons:</p> <ol data-svelte-h="svelte-mmnrno"><li>Update the SD card and write into the <code>/apps/</code> folder</li> <li>Upload compiled code directly through the USB serial port</li> <li>Upload through HTTP through an app installed on the pocuter</li></ol> <h5 data-svelte-h="svelte-r5nf54">1. Using SD card</h5> <p data-svelte-h="svelte-uel9j8">The SD card approach is the one mentioned in the documentation and is done through multiple
+		steps:</p> <ol data-svelte-h="svelte-1nllx92"><li>Compile the new version of your app (several steps)</li> <li>Remove the SD card from the pocuter</li> <li>Put the SD card into a reader</li> <li>Mount it on the computer</li> <li>Copy the compiled version into the <code>/apps/</code> folder on the SD card</li> <li>Unmount the SD card from the computer</li> <li>Put the SD card back into the pocuter</li> <li>Restart the pocuter</li></ol> <p data-svelte-h="svelte-1ptht36">While these steps worked really well for me, especially when I had the issue with the USB cable,
 		this is quite a tedious process and involves a lot of manual work that can&#39;t easily be
 		automated. It works for releases, but testing intermediate versions of your app takes quite some
-		time.
-	</p>
-	<h5>2. Using USB</h5>
-	<p>The second option is to upload compiled code directly to the pocuter. When trying to upload code
+		time.</p> <h5 data-svelte-h="svelte-1dajjfy">2. Using USB</h5> <p data-svelte-h="svelte-y8iukk">The second option is to upload compiled code directly to the pocuter. When trying to upload code
 		through the Arduino IDE 2.x, I faced another issue. The error told me something like <code>Property &#39;upload.tool&#39; is undefined</code>
 		or <code>Property &#39;upload.tool.serial&#39; is undefined</code>. It looks like Arduino IDE 2.x
 		changed a bit regarding the <code>boards.txt</code> files, which seem to be the instructions for
-		how to upload code to the board.
-	</p>
-	<p>First of all, the I had to install the version <code>2.0.5-RC1-PC1.3</code> of the Pocuter
+		how to upload code to the board.</p> <p data-svelte-h="svelte-gzki10">First of all, the I had to install the version <code>2.0.5-RC1-PC1.3</code> of the Pocuter
 		library because the newer version didn&#39;t compile for me. After using that version and seeing the
 		error above, I had to change the file
 		<code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</code> to
 		make this work. There is a line <code>pocuterone.upload.tool=esptool_py</code> which needed to
 		be changed to
 		<code>pocuterone.upload.tool.serial=esptool_py</code>. After this change, uploading through the
-		Arduino IDE 2.x worked.
-	</p>
-	<p>Since this worked now, I could even change my setup to make uploading work through the command
+		Arduino IDE 2.x worked.</p> <p data-svelte-h="svelte-1okw025">Since this worked now, I could even change my setup to make uploading work through the command
 		line. This improves my development experience, because I can use my favorite IDE instead of the
 		Arduino IDE to prepare the Sketches (VSCode) and then use the command line tool <code>arduino-cli</code> to compile and upload it. My current setup consists of two steps to make the compilation and upload
-		work:
-	</p>
-	<ol><li><code>arduino-cli compile -b &quot;$FQBN&quot; -p &quot;$USB_PORT&quot; --build-path &quot;$BUILD_PATH&quot;</code></li>
-		<li><code>arduino-cli upload --input-dir &quot;$BUILD_PATH&quot; -b &quot;$FQBN&quot; -p &quot;$USB_PORT&quot;</code></li></ol>
-	<p>The <code>FQBN</code> I got from checking the boards list (<code>arduino-cli board listall</code>), which gave me <code>esp32:esp32:pocuterone</code> identifier. The <code>USB_PORT</code> I
+		work:</p> <ol data-svelte-h="svelte-sjcky7"><li><code>arduino-cli compile -b &quot;$FQBN&quot; -p &quot;$USB_PORT&quot; --build-path &quot;$BUILD_PATH&quot;</code></li> <li><code>arduino-cli upload --input-dir &quot;$BUILD_PATH&quot; -b &quot;$FQBN&quot; -p &quot;$USB_PORT&quot;</code></li></ol> <p data-svelte-h="svelte-1unaxx6">The <code>FQBN</code> I got from checking the boards list (<code>arduino-cli board listall</code>), which gave me <code>esp32:esp32:pocuterone</code> identifier. The <code>USB_PORT</code> I
 		get by using <code>find /dev/cu.usb*</code> when the Pocuter is connected with a USB cable that
 		supports data transfer - as I mentioned earlier, this took me a while to figure out. The
 		<code>BUILD_PATH</code>
 		is set to <code>./build</code> so it doesn&#39;t use some temporary directory and always needs to recompile
-		if something fails during upload.
-	</p>
-	<p>The bad side of this is that uploading code through USB is only replacing the current version.
-		It will not persist as an app and you still need to write to the SD card in a later step.
-	</p>
-	<h5>Using HTTP server</h5>
-	<p>I have to admit, I haven&#39;t tried this yet, but someone in the Pocuter Discord shared their <a href="https://github.com/kallistisoft/PocuterUtils" rel="external">deployment tool</a>. From my understanding, you can install this Code Upload Server app to directly write on the
+		if something fails during upload.</p> <p data-svelte-h="svelte-16lephz">The bad side of this is that uploading code through USB is only replacing the current version.
+		It will not persist as an app and you still need to write to the SD card in a later step.</p> <h5 data-svelte-h="svelte-r5kg9b">Using HTTP server</h5> <p data-svelte-h="svelte-1mzhkc6">I have to admit, I haven&#39;t tried this yet, but someone in the Pocuter Discord shared their <a href="https://github.com/kallistisoft/PocuterUtils" rel="external">deployment tool</a>. From my understanding, you can install this Code Upload Server app to directly write on the
 		SD card. That means you&#39;ll be able to quickly write the whole app on it instead of using the SD
-		card approach mentioned earlier.
-	</p></div></main>
-	<footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div>
-			<div>© Jörn Bernhardt</div>
-			<div>Statically hosted on GitHub Pages.</div>
-			<div><a href="https://github.com/Narigo/narigo.dev" rel="external" class="svelte-b46c5z">Source</a></div></div></footer>
-</div>
-
-
+		card approach mentioned earlier.</p></div></main> <footer class="svelte-b46c5z"><div class="content svelte-b46c5z"><div><a href="/imprint" class="svelte-b46c5z">ℹ️ Imprint</a></div> <div data-svelte-h="svelte-18526ca">© Jörn Bernhardt</div> <div data-svelte-h="svelte-ux5i8d">Statically hosted on GitHub Pages.</div> <div data-svelte-h="svelte-1bzmhv5"><a href="https://github.com/Narigo/narigo.dev" rel="external" class="svelte-b46c5z">Source</a></div></div></footer> </div> 
 			
 			<script>
 				{
-					__sveltekit_17687kk = {
+					__sveltekit_w10afw = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -345,8 +138,8 @@
 					const data = [{"type":"data","data":null,"uses":{}},null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.d129ab1d.js"),
-						import("../_app/immutable/entry/app.1bd29cb0.js")
+						import("../_app/immutable/entry/start.fb875202.js"),
+						import("../_app/immutable/entry/app.8bbff241.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4],
