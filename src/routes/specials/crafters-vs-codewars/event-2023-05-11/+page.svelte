@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import KataLayout from '../KataLayout.svelte';
@@ -26,7 +27,7 @@
 		<h3>Find the unique number</h3>
 		<CodeBlock code={solution} />
 		<Narigo>
-			The easy <code>filter().length &gt; 1</code> solution is not performant enough for the tests to work. Two sets worked better.
+			The easy <Code>filter().length &gt; 1</Code> solution is not performant enough for the tests to work. Two sets worked better.
 		</Narigo>
 		<CodeBlock code={fasterSolution} />
 		<Narigo>

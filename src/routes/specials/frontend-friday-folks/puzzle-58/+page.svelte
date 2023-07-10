@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -70,7 +71,7 @@
 <PuzzlePageLayout title="Rose">
 	<Puzzle title="Puzzle 58 solution" {solution} />
 	<Narigo>
-		Thanks to Dan Ott, I learned something new about <code>border-radius</code> this time! The border
+		Thanks to Dan Ott, I learned something new about <Code>border-radius</Code> this time! The border
 		itself counts towards the border-radius. So to see any radius, it needs to be at least as thick as
 		the border itself to be visible. It may also lead to different "angles" of the border, but I need
 		to research that at some point...

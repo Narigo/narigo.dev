@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Kata from '../Kata.svelte';
 	import KataLayout from '../KataLayout.svelte';
@@ -53,7 +54,7 @@
 	>
 		<Narigo>
 			I first thought this was FizzBuzz, but it summing these numbers turns out to be a bit
-			different. The solutions do not include the <code>number &lt;= 0</code> guard in the beginning,
+			different. The solutions do not include the <Code>number &lt;= 0</Code> guard in the beginning,
 			but from the specification, it sounds more like the test for that is missing.
 		</Narigo>
 	</Kata>

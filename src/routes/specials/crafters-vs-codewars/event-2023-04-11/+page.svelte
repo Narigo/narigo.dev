@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import KataLayout from '../KataLayout.svelte';
@@ -75,8 +76,8 @@
 		<CodeBlock code={solutionMap} />
 		<Narigo
 			>A completely different solution, using split, map and join instead of using loops. After
-			submitting we saw a different way to split the string by using <code>[...inputString]</code>,
-			but it seemed "too clever", so we kept using <code>split('')</code>.</Narigo
+			submitting we saw a different way to split the string by using <Code>[...inputString]</Code>,
+			but it seemed "too clever", so we kept using <Code>split('')</Code>.</Narigo
 		>
 	</section>
 </KataLayout>

@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -81,6 +82,6 @@
 			>-webkit-box-reflect</code
 		>
 		but it looks like it can only mirror on the X or the Y axis - not both at the same time. So I resorted
-		to the <code>scale(-1)</code> trick. For this to work, the boxes needed to be duplicated.</Narigo
+		to the <Code>scale(-1)</Code> trick. For this to work, the boxes needed to be duplicated.</Narigo
 	>
 </PuzzlePageLayout>

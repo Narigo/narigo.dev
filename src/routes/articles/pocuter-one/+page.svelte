@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import boardsManager from './boards-manager.png';
@@ -57,8 +58,8 @@ config/      (optionally)
 	<p>
 		The very first one was the most intimidating for me as someone who doesn't have much experience
 		with hardware. I wasn't sure which cable needs to go to which pole, since the only thing I saw
-		was a red and a black cable and the <code>+</code> and <code>-</code> symbols on the chip. So my
-		first research was about whether the red or the black cable is <code>+</code> or <code>-</code>.
+		was a red and a black cable and the <Code>+</Code> and <Code>-</Code> symbols on the chip. So my
+		first research was about whether the red or the black cable is <Code>+</Code> or <Code>-</Code>.
 	</p>
 	<p>
 		When I researched cable color codes, I found conflicting information based on what part of the
@@ -70,7 +71,7 @@ config/      (optionally)
 			href="https://discord.com/channels/762688795035697182/762688795035697186"
 			rel="external">the Pocuter Discord</a
 		>, people shared pictures of how they put batteries on the board. I could infer that the red
-		cable goes to the <code>+</code> pole and the black cable to the <code>-</code> pole. I can definitly
+		cable goes to the <Code>+</Code> pole and the black cable to the <Code>-</Code> pole. I can definitly
 		recommend joining their Discord as they seem to be very active and helpful regarding support.
 	</p>
 	<p>
@@ -89,10 +90,10 @@ config/      (optionally)
 		case.
 	</p>
 	<p>
-		I then started soldering with the black one on the <code>-</code> pole. I thought it's probably
+		I then started soldering with the black one on the <Code>-</Code> pole. I thought it's probably
 		easier to put the soldering down on the less exposed port first, so fixing something wouldn't
 		automatically mean I have to remove the potentially working and more exposed
-		<code>+</code> port as well.
+		<Code>+</Code> port as well.
 	</p>
 	<p>
 		While soldering, the watch started to boot up. For me, this was the sign that the soldering
@@ -136,9 +137,9 @@ config/      (optionally)
 	<p>
 		There are a couple of apps you can download and add to the pocuter. This is actually quite easy
 		to do, but the documentation was a bit lacking. The SD card from the pocuter should be plugged
-		into a regular computer. The apps that can currently be downloaded are <code>.zip</code> files.
+		into a regular computer. The apps that can currently be downloaded are <Code>.zip</Code> files.
 		In these, there is a folder named with a number and in that folder, there is a file called
-		<code>esp32c3.app</code>. On the SD card, these need to be put into an <code>apps</code> folder,
+		<Code>esp32c3.app</Code>. On the SD card, these need to be put into an <Code>apps</Code> folder,
 		keeping the numbered folder.
 	</p>
 	<p>To make it clear, the structure of the SD card should look like this:</p>
@@ -164,7 +165,7 @@ config/      (optionally)
 			>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code
 		>
 		in their documentation and this value can be put into
-		<code>Arduino IDE -&gt; Settings ... &gt; "Additional Boards Manager URLs"</code>. After doing
+		<Code>Arduino IDE -&gt; Settings ... &gt; "Additional Boards Manager URLs"</Code>. After doing
 		this, the Pocuter board should be included in the "boards manager". The boards manager is the
 		second item on the left side.
 	</p>
@@ -181,13 +182,13 @@ config/      (optionally)
 		took me a while to understand one crucial thing: USB cables are not equal to USB cables. There
 		are some cables that only deliver current but no data. If you happen to try and use one of the
 		"current-only" cables, you won't be able to find your Pocuter through the serial ports at all.
-		If you don't see any changes in <code>ls /dev/cu.*</code> when plugging the cable in or removing
+		If you don't see any changes in <Code>ls /dev/cu.*</Code> when plugging the cable in or removing
 		it, the cable itself may be the culprit.
 	</p>
 	<h4>Uploading code to the pocuter</h4>
 	<p>Ok, so I've seen multiple ways to do this, each of them have their own pros and cons:</p>
 	<ol>
-		<li>Update the SD card and write into the <code>/apps/</code> folder</li>
+		<li>Update the SD card and write into the <Code>/apps/</Code> folder</li>
 		<li>Upload compiled code directly through the USB serial port</li>
 		<li>Upload through HTTP through an app installed on the pocuter</li>
 	</ol>
@@ -201,7 +202,7 @@ config/      (optionally)
 		<li>Remove the SD card from the pocuter</li>
 		<li>Put the SD card into a reader</li>
 		<li>Mount it on the computer</li>
-		<li>Copy the compiled version into the <code>/apps/</code> folder on the SD card</li>
+		<li>Copy the compiled version into the <Code>/apps/</Code> folder on the SD card</li>
 		<li>Unmount the SD card from the computer</li>
 		<li>Put the SD card back into the pocuter</li>
 		<li>Restart the pocuter</li>
@@ -218,18 +219,18 @@ config/      (optionally)
 		through the Arduino IDE 2.x, I faced another issue. The error told me something like <code
 			>Property 'upload.tool' is undefined</code
 		>
-		or <code>Property 'upload.tool.serial' is undefined</code>. It looks like Arduino IDE 2.x
-		changed a bit regarding the <code>boards.txt</code> files, which seem to be the instructions for
+		or <Code>Property 'upload.tool.serial' is undefined</Code>. It looks like Arduino IDE 2.x
+		changed a bit regarding the <Code>boards.txt</Code> files, which seem to be the instructions for
 		how to upload code to the board.
 	</p>
 	<p>
-		First of all, the I had to install the version <code>2.0.5-RC1-PC1.3</code> of the Pocuter
+		First of all, the I had to install the version <Code>2.0.5-RC1-PC1.3</Code> of the Pocuter
 		library because the newer version didn't compile for me. After using that version and seeing the
 		error above, I had to change the file
-		<code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</code> to
-		make this work. There is a line <code>pocuterone.upload.tool=esptool_py</code> which needed to
+		<Code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</Code> to
+		make this work. There is a line <Code>pocuterone.upload.tool=esptool_py</Code> which needed to
 		be changed to
-		<code>pocuterone.upload.tool.serial=esptool_py</code>. After this change, uploading through the
+		<Code>pocuterone.upload.tool.serial=esptool_py</Code>. After this change, uploading through the
 		Arduino IDE 2.x worked.
 	</p>
 	<p>
@@ -242,19 +243,18 @@ config/      (optionally)
 	</p>
 	<ol>
 		<li>
-			<code>arduino-cli compile -b "$FQBN" -p "$USB_PORT" --build-path "$BUILD_PATH"</code>
+			<Code>arduino-cli compile -b "$FQBN" -p "$USB_PORT" --build-path "$BUILD_PATH"</Code>
 		</li>
 		<li>
-			<code>arduino-cli upload --input-dir "$BUILD_PATH" -b "$FQBN" -p "$USB_PORT"</code>
+			<Code>arduino-cli upload --input-dir "$BUILD_PATH" -b "$FQBN" -p "$USB_PORT"</Code>
 		</li>
 	</ol>
 	<p>
-		The <code>FQBN</code> I got from checking the boards list (<code>arduino-cli board listall</code
-		>), which gave me <code>esp32:esp32:pocuterone</code> identifier. The <code>USB_PORT</code> I
-		get by using <code>find /dev/cu.usb*</code> when the Pocuter is connected with a USB cable that
+		The <Code>FQBN</Code> I got from checking the boards list (<Code>arduino-cli board listall</Code>), which gave me <Code>esp32:esp32:pocuterone</Code> identifier. The <Code>USB_PORT</Code> I
+		get by using <Code>find /dev/cu.usb*</Code> when the Pocuter is connected with a USB cable that
 		supports data transfer - as I mentioned earlier, this took me a while to figure out. The
-		<code>BUILD_PATH</code>
-		is set to <code>./build</code> so it doesn't use some temporary directory and always needs to recompile
+		<Code>BUILD_PATH</Code>
+		is set to <Code>./build</Code> so it doesn't use some temporary directory and always needs to recompile
 		if something fails during upload.
 	</p>
 	<p>

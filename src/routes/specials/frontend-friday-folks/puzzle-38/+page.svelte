@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -41,7 +42,7 @@
 <PuzzlePageLayout title="Not Simply Square">
 	<Puzzle title="Puzzle 38 solution" {solution} />
 	<Narigo>
-		Whenever doing a <code>transform</code>, remember that the order matters...!
+		Whenever doing a <Code>transform</Code>, remember that the order matters...!
 	</Narigo>
 	<Puzzle title="Puzzle 38 solution" solution={solutionNoElement} />
 	<Narigo>Ok, one more solution with no elements set up.</Narigo>

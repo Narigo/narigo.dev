@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -44,7 +45,7 @@
 <PuzzlePageLayout title="Magical Tree">
 	<Puzzle title="Puzzle 45 solution" {solution} />
 	<Narigo
-		>Finally I had a puzzle where I could use <code>-webkit-box-reflect</code>. I now know that it
+		>Finally I had a puzzle where I could use <Code>-webkit-box-reflect</Code>. I now know that it
 		doesn't span a size, so centering something is not as easy, if you want the reflection to be
 		counted as well. I used selectors instead of classes and ids this time, just to not having to
 		name the boxes.</Narigo

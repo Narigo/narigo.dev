@@ -1,5 +1,6 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import KataLayout from '../KataLayout.svelte';
 
@@ -41,7 +42,7 @@ function disemvowel(str) {
 
 	<section>
 		<h3>for-of</h3>
-		<p>Did you know that <code>for ... of string</code> does not need to split the string?</p>
+		<p>Did you know that <Code>for ... of string</Code> does not need to split the string?</p>
 		<CodeBlock code={forOfSolution} />
 		<Narigo>
 			I didn't know that for ... of splits a string directly! It's fun to hear other people's

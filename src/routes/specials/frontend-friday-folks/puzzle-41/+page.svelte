@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -40,7 +41,7 @@
 		for what we have here. Still, it is possible to achieve the result with gradients and I'm happy I
 		could make it - even if it take a lot longer than expected. One cool thing here is to mirror the
 		face of the fox by using
-		<code>transform: scaleX(-1)</code>. I wonder whether it's possible to the whole face with
+		<Code>transform: scaleX(-1)</Code>. I wonder whether it's possible to the whole face with
 		gradients though! 🤔</Narigo
 	>
 </PuzzlePageLayout>

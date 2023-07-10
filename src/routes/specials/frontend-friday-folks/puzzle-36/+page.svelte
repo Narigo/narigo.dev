@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
@@ -132,7 +133,7 @@
 	<Narigo>
 		The animated version moves the background of the divs around to create the animation effect. So
 		instead of moving the containers around with their positioning, it uses
-		<code>background-position</code> and <code>background-size</code> to position the gradients in a
+		<Code>background-position</Code> and <Code>background-size</Code> to position the gradients in a
 		way they can move without "overflowing". The overflow effect can cause a part of the gradient to
 		appear on the other side of the container.
 	</Narigo>

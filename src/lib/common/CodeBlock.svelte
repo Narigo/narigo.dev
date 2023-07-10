@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
-	import theme from 'svelte-highlight/styles/classic-dark';
+	import theme from 'svelte-highlight/styles/darcula';
 
 	export let code: string;
+
 </script>
 
 <svelte:head>

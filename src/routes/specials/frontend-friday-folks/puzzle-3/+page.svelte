@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -61,7 +62,7 @@
 	<Puzzle title="Puzzle 3 solution" solution={solutionFirst} />
 	<Narigo
 		>My first solution when we started playing these CSS battles. Instead of using two inner divs,
-		this could have been done with <code>::before</code> and <code>::after</code> pseudo elements - but
+		this could have been done with <Code>::before</Code> and <Code>::after</Code> pseudo elements - but
 		I didn't know them too well back then.</Narigo
 	>
 	<Puzzle title="Puzzle 3 solution" solution={solutionGradient} />

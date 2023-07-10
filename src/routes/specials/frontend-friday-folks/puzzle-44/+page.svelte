@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -76,7 +77,7 @@
 	<Narigo
 		><p>
 			This was a hard one! We initially created this solution with less divs, but this was always
-			ending up in a 99.9% solution - even when the <code>Diff</code> view showed up almost completely
+			ending up in a 99.9% solution - even when the <Code>Diff</Code> view showed up almost completely
 			black. Only when we zooming in the black diff-preview, we could see tiny discrepancies, but they
 			weren't even solvable by incrementing by half-pixel values or similar.
 		</p>

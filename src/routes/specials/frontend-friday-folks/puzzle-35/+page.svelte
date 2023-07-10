@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
@@ -42,8 +43,8 @@
 			it's possible to create the same effect with gradients.
 		</p>
 		<p>
-			The <code>&lt;div id="r"&gt;</code> shows the <code>border-radius</code> approach and the
-			<code>&lt;div id="y"&gt;</code> is all about using gradients to draw.
+			The <Code>&lt;div id="r"&gt;</Code> shows the <Code>border-radius</Code> approach and the
+			<Code>&lt;div id="y"&gt;</Code> is all about using gradients to draw.
 		</p></Narigo
 	>
 	<Bubble side="right">

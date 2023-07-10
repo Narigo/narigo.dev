@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Code from '$lib/common/Code.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
@@ -35,11 +36,11 @@
 					>Frontend Friday Folks</a
 				>, I had trouble centering the image. I had the same code result in the Chrome Dev Tools as
 				in CSSBattle.dev, when inspecting the elements, so I didn't realize why it still looked
-				different. It looks like when using the <code>srcdoc</code> on an <code>iframe</code>
+				different. It looks like when using the <Code>srcdoc</Code> on an <Code>iframe</Code>
 				element, the iframe sets the doctype implicitly. When writing into the iframe through
-				<code>contentWindow.write</code>, it doesn't set a doctype for the iframe and hence it stays
+				<Code>contentWindow.write</Code>, it doesn't set a doctype for the iframe and hence it stays
 				in Quirks mode. Quirks mode seems to expand the body height, without having to set
-				<code>html,body {'{ height: 100% }'}</code> or something similar.
+				<Code>html,body {'{ height: 100% }'}</Code> or something similar.
 			</p>
 		</li>
 		<li>
@@ -56,9 +57,9 @@
 		<li>
 			<h3>Strings in JavaScript are iterable without using `split`</h3>
 			<p>
-				When using <code>for (const c of string) {'{ ... }'}</code>, it's not necessary to do a
-				<code>string.split('')</code>
-				before. If you want to <code>string.map()</code> or <code>string.filter()</code> though, you
+				When using <Code>for (const c of string) {'{ ... }'}</Code>, it's not necessary to do a
+				<Code>string.split('')</Code>
+				before. If you want to <Code>string.map()</Code> or <Code>string.filter()</Code> though, you
 				need to split it first.
 			</p>
 		</li>
@@ -66,7 +67,7 @@
 			<h3>A `.github` repository for templates, code of conduct, etc.</h3>
 			<p>
 				I tried template repositories and forking them before, but it always felt a bit weird.
-				Thanks to Bekah from VirtualCoffee.io, I learnt that you can have a <code>.github</code>
+				Thanks to Bekah from VirtualCoffee.io, I learnt that you can have a <Code>.github</Code>
 				repository instead of a folder in each of your projects to hold your templates. Credit goes to
 				<a
 					href="https://dev.to/opensauced/managing-community-health-files-and-templates-with-a-github-repository-l8f"
@@ -77,7 +78,7 @@
 		<li>
 			<h3>Check whether form is valid or not with CSS</h3>
 			<p>
-				There is a selector called <code>:invalid</code>! Thanks to Travis Barnette for pointing
+				There is a selector called <Code>:invalid</Code>! Thanks to Travis Barnette for pointing
 				that out in VirtualCoffee and to Justin Noel for asking this question. Up to that point, I
 				thought you can only check validity with JavaScript enabled...!
 			</p>

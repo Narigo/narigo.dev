@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
@@ -46,9 +47,9 @@
 	>
 	<Puzzle title="Puzzle 33 solution" solution={solutionImproved} />
 	<Narigo
-		>Here is an improved version by leveraging the fact that <code>inset</code> is already telling
-		CSS how big the box is. <code>width</code> and
-		<code>height</code> settings are therefore not necessary. The second improvement is how the gradients
+		>Here is an improved version by leveraging the fact that <Code>inset</Code> is already telling
+		CSS how big the box is. <Code>width</Code> and
+		<Code>height</Code> settings are therefore not necessary. The second improvement is how the gradients
 		are applied: Instead of using four different, it can do it in three, using multiple color stops.
 	</Narigo>
 	<Bubble side="right">

@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -81,7 +82,7 @@
 <PuzzlePageLayout title="Windmill">
 	<Puzzle title="Puzzle 55 solution" {solution} />
 	<Narigo>
-		We figured out that using counters is not going to work here. Also using <code>attr()</code> doesn't
+		We figured out that using counters is not going to work here. Also using <Code>attr()</Code> doesn't
 		work to not have to redundantly tell CSS which child it is.
 	</Narigo>
 	<Puzzle title="Puzzle 55 solution" solution={solutionAnimation} />

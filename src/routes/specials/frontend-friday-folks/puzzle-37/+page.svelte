@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -34,7 +35,7 @@
 <PuzzlePageLayout title="Tunnel">
 	<Puzzle title="Puzzle 37 solution" {solution} />
 	<Narigo>
-		Ok, I initially thought that <code>::before</code> and <code>::after</code> could be used for nesting.
+		Ok, I initially thought that <Code>::before</Code> and <Code>::after</Code> could be used for nesting.
 		But that's not really the case, so the rotation after rotating is not possible easily.
 	</Narigo>
 </PuzzlePageLayout>

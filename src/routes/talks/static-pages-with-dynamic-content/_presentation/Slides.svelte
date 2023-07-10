@@ -3,6 +3,7 @@
 	import type Reveal from 'reveal.js';
 	import Intro from './Intro.svelte';
 	import SvelteKit from './SvelteKit.svelte';
+	import Code from '$lib/common/Code.svelte';
 
 	const getReveal = getContext<() => Reveal.Api>('Reveal');
 	const Reveal = getReveal();
@@ -123,7 +124,7 @@
 	<section>
 		<h2>Contact form</h2>
 		<p class="fragment fade-in-then-semi-out">Phone numbers and e-mails rarely change ☎️</p>
-		<p class="fragment fade-in-then-semi-out">Generate <code>mailto:</code>-links ✅</p>
+		<p class="fragment fade-in-then-semi-out">Generate <Code>mailto:</Code>-links ✅</p>
 		<p class="fragment fade-in-then-semi-out">Use a third-party service ✅</p>
 	</section>
 	<section>
