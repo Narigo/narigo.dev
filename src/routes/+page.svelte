@@ -25,15 +25,15 @@
 		<h2>FAQ 🙋</h2>
 		<h3>Who are you? 🤔</h3>
 		<Narigo>
-			<p>I'm Jörn.</p>
+			<p>I'm Jörn. A software engineer focused on building applications for the web.</p>
 		</Narigo>
 		<h3>What do you do? 🤔</h3>
 		<Narigo>
 			<p>
 				I work at <a href="https://compose.us/" rel="external noopener noreferrer" target="_blank"
 					>compose.us</a
-				> and our team builds digital services for public administrations. That means we're building
-				internal and external tools to make their offerings more efficient and user friendly.
+				> and our team builds digital services. That means we're building internal and external tools
+				to make our customer's offerings more efficient and user friendly.
 			</p>
 		</Narigo>
 		<Narigo>
