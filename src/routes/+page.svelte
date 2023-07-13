@@ -44,8 +44,7 @@
 					target="_blank">JSCraftCamp</a
 				>, which is a two-day Barcamp / Open Space in Munich. You can attend it for free thanks to
 				lots of sponsors. Every time I attend this event, I leave with new friends, professional
-				contacts and much more knowledge than before. This year, it's on June 30th / July 1st.
-				Registration opens on May 1st.
+				contacts and much more knowledge than before.
 			</p>
 			<p>
 				For <a href="https://virtualcoffee.io" rel="external noopener noreferrer" target="_blank"
