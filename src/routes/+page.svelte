@@ -84,7 +84,7 @@
 			<p>
 				I even started <a href="{base}/articles/pocuter-one"
 					>a longer article about using and programming a Pocuter</a
-				>...
+				>.
 			</p>
 		</Narigo>
 	</section>
