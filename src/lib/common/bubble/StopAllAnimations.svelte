@@ -6,17 +6,21 @@
 	const { animationsDone, finishAllAnimations } = context;
 </script>
 
-<button on:click={() => finishAllAnimations()} disabled={$animationsDone}
-	>Fast forward animations &gt;&gt;</button
->
+{#if !$animationsDone}
+	<button on:click={() => finishAllAnimations()}>Fast forward animations &gt;&gt;</button>
+{/if}
 
 <style>
 	button {
+		position: fixed;
+		top: 0;
+		right: 0;
 		background: none;
 		border: none;
 		cursor: pointer;
 		font: inherit;
 		padding: 0.5em 1em;
+		z-index: 1;
 	}
 	button:hover {
 		background: #0002;

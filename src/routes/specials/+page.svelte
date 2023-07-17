@@ -11,7 +11,7 @@
 	<h2>Specials</h2>
 
 	<AnimationContext name="dialog">
-		<div><StopAllAnimations /></div>
+		<StopAllAnimations />
 		<Bubble delayNext={1000}>Hey, what's up with this page?</Bubble>
 		<Narigo delayNext={1000} side="right">I thought I may want to write some code here.</Narigo>
 		<Bubble delayNext={1000}>Okay, but ...</Bubble>
@@ -44,9 +44,3 @@
 		>
 	</AnimationContext>
 </PageLayout>
-
-<style>
-	div {
-		text-align: center;
-	}
-</style>
