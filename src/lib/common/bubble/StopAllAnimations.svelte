@@ -8,8 +8,10 @@
 </script>
 
 {#if !$animationsDone}
-	<button transition:fade|global disabled={$animationsDone} on:click={() => finishAllAnimations()}
-		>Fast forward animations &gt;&gt;</button
+	<button
+		transition:fade|global={{ duration: 500 }}
+		disabled={$animationsDone}
+		on:click={() => finishAllAnimations()}>Fast forward animations &gt;&gt;</button
 	>
 {/if}
 
