@@ -26,6 +26,7 @@
 		font: inherit;
 		padding: 0.5em 1em;
 		z-index: 1;
+		animation: pulse 1000ms ease-in-out 500ms infinite forwards;
 	}
 	button:hover {
 		background: #0002;
@@ -33,5 +34,17 @@
 	button:disabled:hover {
 		background: none;
 		cursor: not-allowed;
+	}
+
+	@keyframes pulse {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 </style>
