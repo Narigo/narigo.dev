@@ -29,7 +29,7 @@
 		animation: pulse 1000ms ease-in-out 500ms infinite forwards;
 	}
 	button:hover {
-		background: #0002;
+		background: rgba(0, 0, 0, 0.2);
 	}
 	button:disabled:hover {
 		background: none;
