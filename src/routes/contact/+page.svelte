@@ -23,6 +23,13 @@
 				target="_blank">Jörn Bernhardt</a
 			> on LinkedIn
 		</li>
+		<li>
+			Jörn (he/him) on <a
+				href="https://discord.gg/3mHhaXVEjP"
+				rel="external noopener noreferrer"
+				target="_blank">JSCraftCamp Discord</a
+			>
+		</li>
 	</ul>
 	<p>Or use hello@narigo.dev.</p>
 </PageLayout>
