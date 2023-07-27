@@ -27,10 +27,26 @@
 <style>
 	.page {
 		--max-page-width: 38rem;
+		--rgbv-background-color: 255, 255, 255;
+		--rgbv-background-inverted-color: 0, 0, 0;
 
 		display: flex;
-		background: url('./bg.svg') no-repeat;
-		background-position: 0 0;
+		/* background: url('./bg.svg') no-repeat; */
+		background: linear-gradient(
+					to top right,
+					rgba(var(--rgbv-background-inverted-color), 0) 50%,
+					rgba(var(--rgbv-background-inverted-color), 0.02) 50%,
+					rgba(var(--rgbv-background-inverted-color), 0)
+				)
+				fixed 0 0 / contain no-repeat,
+			linear-gradient(
+					to top left,
+					rgba(var(--rgbv-background-inverted-color), 0) 50%,
+					rgba(var(--rgbv-background-inverted-color), 0.02) 50%,
+					rgba(var(--rgbv-background-inverted-color), 0)
+				)
+				center / cover no-repeat,
+			rgba(var(--rgbv-background-color), 1);
 		background-size: cover;
 		flex: 1;
 		flex-direction: column;
@@ -52,7 +68,6 @@
 		flex: 1;
 	}
 	footer {
-		background: #fff4;
 		padding: 2em 1em;
 		position: relative;
 	}
