@@ -72,9 +72,9 @@
 		<h3>Are you available for hire? 🤔</h3>
 		<Narigo>
 			<p>
-				Usually I work with my own team and we're building web applications. If you need assistance
-				from senior developers to help you deliver quality software while leveling up your own team,
-				shoot me a message!
+				Usually, I work with my own team and we're building web applications. If you need assistance
+				from senior developers to help you deliver high quality software while leveling up your own
+				team, shoot me a message!
 			</p>
 		</Narigo>
 		<h3>Why is this here again? 🤔</h3>
