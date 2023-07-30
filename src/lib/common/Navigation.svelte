@@ -62,6 +62,7 @@
 		width: 100%;
 		height: 100%;
 		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
+		z-index: -1;
 	}
 	a:hover {
 		background: rgba(101, 193, 96, 1);
