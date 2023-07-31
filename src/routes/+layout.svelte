@@ -27,6 +27,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		font-family: var(--font-family-headline);
+		isolation: isolate;
 		padding: 0.5em 1em;
 		margin: 0 0.5em 0.5em 0;
 		max-width: max-content;

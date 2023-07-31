@@ -46,6 +46,7 @@
 		position: relative;
 		display: inline-flex;
 		flex: 1;
+		isolation: isolate;
 		list-style-type: none;
 	}
 	a {
@@ -95,6 +96,7 @@
 		color: #fff;
 		display: flex;
 		flex: 1;
+		isolation: isolate;
 		padding: 0.5em 1em;
 		position: relative;
 		text-decoration: none;
