@@ -15,7 +15,9 @@
 			</p>
 		</Narigo>
 		<Narigo>
-			<p>This time, it's built with SvelteKit.</p>
+			<p>
+				This time, it's built with <a href="https://kit.svelte.dev/" rel="external">SvelteKit</a>.
+			</p>
 		</Narigo>
 		<Narigo side="right">
 			<p>... and I like comics.</p>
