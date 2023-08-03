@@ -5,7 +5,7 @@
 </script>
 
 <PageLayout>
-	<section class="first">
+	<section>
 		<h2>Welcome to Jörns page! 👋</h2>
 		<Narigo>
 			<p>
@@ -91,9 +91,3 @@
 		</Narigo>
 	</section>
 </PageLayout>
-
-<style>
-	.first {
-		margin-top: 2em;
-	}
-</style>
