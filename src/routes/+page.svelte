@@ -55,7 +55,9 @@
 				<a href="https://cssbattle.dev" rel="external noopener noreferrer" target="_blank"
 					>CSSBattle.dev</a
 				>", which is a place where people with all kind of levels in CSS proficiency learn something
-				from each other.
+				from each other. While I share
+				<a href="{base}/specials/frontend-friday-folks">my solutions</a> here, there are more people
+				sharing theirs in the VirtualCoffee discussion board.
 			</p>
 		</Narigo>
 		<Narigo side="right">
