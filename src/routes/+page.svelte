@@ -57,7 +57,11 @@
 				>", which is a place where people with all kind of levels in CSS proficiency learn something
 				from each other. While I share
 				<a href="{base}/specials/frontend-friday-folks">my solutions</a> here, there are more people
-				sharing theirs in the VirtualCoffee discussion board.
+				sharing theirs in the
+				<a
+					href="https://github.com/orgs/Virtual-Coffee/discussions/categories/css-battles"
+					rel="external">VirtualCoffee discussions on GitHub</a
+				>.
 			</p>
 		</Narigo>
 		<Narigo side="right">
