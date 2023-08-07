@@ -22,6 +22,8 @@
   }
 </style>
 `;
+
+	const solutionAnimation = ``;
 </script>
 
 <PuzzlePageLayout title="Sunset">
@@ -29,5 +31,10 @@
 	<Narigo>
 		Ari, Satoshi and I were doing this together today. This was a nice puzzle to do with radial
 		gradients again!
+	</Narigo>
+	<Puzzle title="Extra: Psychedelic animation" solution={solutionAnimation} />
+	<Narigo>
+		Since we were done pretty quickly, we played around with different gradients, came up with some
+		kind of psychedelic effect and added some animation to the mix.
 	</Narigo>
 </PuzzlePageLayout>
