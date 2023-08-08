@@ -51,13 +51,12 @@
 			<p>
 				For <a href="https://virtualcoffee.io" rel="external noopener noreferrer" target="_blank"
 					>VirtualCoffee.io</a
-				>, I organize the "Frontend Friday Folks battling
+				>, I organize the "<a href="{base}/specials/frontend-friday-folks">Frontend Friday Folks</a>
+				battling
 				<a href="https://cssbattle.dev" rel="external noopener noreferrer" target="_blank"
 					>CSSBattle.dev</a
 				>", which is a place where people with all kind of levels in CSS proficiency learn something
-				from each other. While I share
-				<a href="{base}/specials/frontend-friday-folks">my solutions</a> here, there are more people
-				sharing theirs in the
+				from each other. There are more people sharing their solutions in the
 				<a
 					href="https://github.com/orgs/Virtual-Coffee/discussions/categories/css-battles"
 					rel="external">VirtualCoffee discussions on GitHub</a
