@@ -3,11 +3,11 @@
 		current: number;
 		started: boolean;
 		nextTimer: ReturnType<typeof window.setTimeout> | null;
-		animations: { delayNext: number; animation: () => void }[];
+		animations: { delay: number; animation: () => void }[];
 	};
 	export type AnimationContext = {
 		animationsDone: Writable<boolean>;
-		createAnimation: (show: Writable<boolean>, delay: number, delayNext: number) => void;
+		createAnimation: (show: Writable<boolean>, delay: number) => void;
 		finishAllAnimations: () => void;
 	};
 	let animations: Record<string, AnimationData> = {};
@@ -40,7 +40,7 @@
 			document.removeEventListener('click', clickHandler);
 		}
 	};
-	const createAnimation = (show: Writable<boolean>, delay: number, delayNext: number) => {
+	const createAnimation = (show: Writable<boolean>, delay: number) => {
 		let myId = animationData.animations.length;
 		const runAnimation = () => {
 			if (animationData) {
@@ -57,7 +57,7 @@
 							? animationData.animations[animationData.current]
 							: undefined;
 					if (nextAnimation) {
-						animationData.nextTimer = setTimeout(nextAnimation.animation, nextAnimation.delayNext);
+						animationData.nextTimer = setTimeout(nextAnimation.animation, nextAnimation.delay);
 					} else {
 						animationsDone.set(true);
 						document.removeEventListener('click', clickHandler);
@@ -67,7 +67,7 @@
 				show.set(true);
 			}
 		};
-		animationData.animations.push({ delayNext, animation: runAnimation });
+		animationData.animations.push({ delay, animation: runAnimation });
 
 		if (!animationData.started) {
 			animationData.started = true;

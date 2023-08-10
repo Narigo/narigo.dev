@@ -7,8 +7,7 @@
 
 	export let side: 'left' | 'right' = 'left';
 	export let delay: number = 0;
-	export let duration: number = 100;
-	export let delayNext: number = 0;
+	export let duration: number = 1000;
 
 	const animationContext = getContext<AnimationContext>('AnimationContext');
 
@@ -18,7 +17,7 @@
 
 	onMount(() => {
 		if (animationContext) {
-			animationContext.createAnimation(show, delay, delayNext);
+			animationContext.createAnimation(show, delay);
 		}
 	});
 
