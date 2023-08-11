@@ -7,7 +7,7 @@
 	};
 	export type AnimationContext = {
 		animationsDone: Writable<boolean>;
-		createAnimation: (show: Writable<boolean>, delay: number) => void;
+		createAnimation: (show: Writable<boolean>, delay?: number) => void;
 		finishAllAnimations: () => void;
 	};
 	let animations: Record<string, AnimationData> = {};
@@ -22,6 +22,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
+	export let defaultDelay: number = 0;
 
 	animations[name] = {
 		current: 0,
@@ -40,7 +41,7 @@
 			document.removeEventListener('click', clickHandler);
 		}
 	};
-	const createAnimation = (show: Writable<boolean>, delay: number) => {
+	const createAnimation = (show: Writable<boolean>, delay: number = defaultDelay) => {
 		let myId = animationData.animations.length;
 		const runAnimation = () => {
 			if (animationData) {
@@ -57,7 +58,10 @@
 							? animationData.animations[animationData.current]
 							: undefined;
 					if (nextAnimation) {
-						animationData.nextTimer = setTimeout(nextAnimation.animation, nextAnimation.delay);
+						animationData.nextTimer = setTimeout(
+							nextAnimation.animation,
+							nextAnimation.delay ?? defaultDelay
+						);
 					} else {
 						animationsDone.set(true);
 						document.removeEventListener('click', clickHandler);

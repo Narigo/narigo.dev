@@ -6,7 +6,7 @@
 	import type { AnimationContext } from './AnimationContext.svelte';
 
 	export let side: 'left' | 'right' = 'left';
-	export let delay: number = 0;
+	export let delay: number | undefined = undefined;
 	export let duration: number = 1000;
 
 	const animationContext = getContext<AnimationContext>('AnimationContext');
