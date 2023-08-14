@@ -3,15 +3,14 @@
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
-	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
 	<h2>Specials</h2>
 
-	<AnimationContext name="dialog" defaultDelay={1000}>
-		<StopAllAnimations />
+	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
+		<button disabled={isDone} on:click={stopAllAnimations}>stop it!</button>
 		<Bubble>Hey, what's up with this page?</Bubble>
 		<Narigo side="right">I thought I may want to write some code here.</Narigo>
 		<Bubble>Okay, but ...</Bubble>

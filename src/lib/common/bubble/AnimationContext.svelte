@@ -111,4 +111,8 @@
 	});
 </script>
 
-<slot />
+<slot
+	isDone={$animationsDone}
+	fastForwardNextAnimation={clickHandler}
+	stopAllAnimations={finishAllAnimations}
+/>
