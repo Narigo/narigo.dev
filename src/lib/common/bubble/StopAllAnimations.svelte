@@ -6,18 +6,13 @@
 	export let stopAllAnimations: (() => void) | undefined = undefined;
 
 	const context = getContext<AnimationContext>('AnimationContext');
-	const { animationsDone, finishAllAnimations } = context;
 
 	const stopAll = stopAllAnimations ?? context.finishAllAnimations;
 </script>
 
-{#if !$animationsDone}
-	<button
-		transition:fade|global={{ duration: 500 }}
-		disabled={$animationsDone}
-		on:click={() => stopAll()}>Fast forward animations &gt;&gt;</button
-	>
-{/if}
+<button transition:fade|global={{ duration: 500 }} on:click={() => stopAll()}
+	>Fast forward animations &gt;&gt;</button
+>
 
 <style>
 	button {

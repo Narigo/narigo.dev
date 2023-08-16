@@ -3,15 +3,14 @@
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
 	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
 		{#if !isDone}
-			<div class="buttonAnchor">
-				<button on:click={stopAllAnimations}>stop it!</button>
-			</div>
+			<StopAllAnimations {stopAllAnimations} />
 		{/if}
 		<h2>Specials</h2>
 
@@ -46,16 +45,3 @@
 		>
 	</AnimationContext>
 </PageLayout>
-
-<style>
-	.buttonAnchor {
-		position: relative;
-		width: 100%;
-		height: 0;
-	}
-
-	button {
-		position: absolute;
-		right: 0;
-	}
-</style>
