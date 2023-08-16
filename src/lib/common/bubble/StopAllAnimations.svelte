@@ -3,15 +3,20 @@
 	import type { AnimationContext } from './AnimationContext.svelte';
 	import { fade } from 'svelte/transition';
 
+	export let stopAllAnimations: (() => void) | undefined = undefined;
+
 	const context = getContext<AnimationContext>('AnimationContext');
 	const { animationsDone, finishAllAnimations } = context;
+
+	stopAllAnimations =
+		stopAllAnimations === undefined ? context.finishAllAnimations : stopAllAnimations;
 </script>
 
 {#if !$animationsDone}
 	<button
 		transition:fade|global={{ duration: 500 }}
 		disabled={$animationsDone}
-		on:click={() => finishAllAnimations()}>Fast forward animations &gt;&gt;</button
+		on:click={() => stopAllAnimations()}>Fast forward animations &gt;&gt;</button
 	>
 {/if}
 
