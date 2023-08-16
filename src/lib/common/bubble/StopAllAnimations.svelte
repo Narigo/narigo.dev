@@ -8,15 +8,14 @@
 	const context = getContext<AnimationContext>('AnimationContext');
 	const { animationsDone, finishAllAnimations } = context;
 
-	stopAllAnimations =
-		stopAllAnimations === undefined ? context.finishAllAnimations : stopAllAnimations;
+	const stopAll = stopAllAnimations ?? context.finishAllAnimations;
 </script>
 
 {#if !$animationsDone}
 	<button
 		transition:fade|global={{ duration: 500 }}
 		disabled={$animationsDone}
-		on:click={() => stopAllAnimations()}>Fast forward animations &gt;&gt;</button
+		on:click={() => stopAll()}>Fast forward animations &gt;&gt;</button
 	>
 {/if}
 
