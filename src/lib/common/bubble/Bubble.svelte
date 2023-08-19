@@ -13,7 +13,7 @@
 
 	let angle = Math.random() * 1.5 - 1.5 / 2;
 	let translateX = Math.random() * 5 - 5 / 2;
-	const show = writable<boolean>(delay === 0 && animationContext === undefined);
+	const show = writable<boolean>(delay === 0 || animationContext === undefined);
 
 	onMount(() => {
 		if (animationContext) {
