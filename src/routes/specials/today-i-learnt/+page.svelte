@@ -94,6 +94,15 @@
 				as well to make it work on most browsers currently.
 			</p>
 		</li>
+		<li>
+			<h3>pnpm install --prod=false</h3>
+			<p>
+				This not really documented feature allows me to override the `NODE_ENV="development"`
+				setting. If `pnpm install --dev` is used, it will only install the `devDependencies`. `pnpm
+				install --prod` would only install the regular `dependencies`. To ensure both are installed,
+				`pnpm install --prod=false` helps.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
