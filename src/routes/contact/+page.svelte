@@ -3,7 +3,7 @@
 </script>
 
 <PageLayout>
-	<h2>Contact me.</h2>
+	<h2>Contact me</h2>
 	<p>There are multiple ways to contact me through social media:</p>
 	<ul>
 		<li>
