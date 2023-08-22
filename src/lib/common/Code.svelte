@@ -8,5 +8,4 @@
 		padding: 2px 0.25em;
 		word-wrap: break-word;
 	}
-
 </style>

@@ -118,7 +118,9 @@
 			#333 1vh calc(100% - 1vh),
 			#b3b3b3 calc(100% - 1vh)
 		);
-		box-shadow: 0px -3vh 0 -2vh #b3b3b3, -0.5vh 0 2vh #333 inset;
+		box-shadow:
+			0px -3vh 0 -2vh #b3b3b3,
+			-0.5vh 0 2vh #333 inset;
 	}
 	div.battery {
 		background: linear-gradient(

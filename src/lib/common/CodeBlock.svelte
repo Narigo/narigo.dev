@@ -3,7 +3,6 @@
 	import theme from 'svelte-highlight/styles/darcula';
 
 	export let code: string;
-
 </script>
 
 <svelte:head>

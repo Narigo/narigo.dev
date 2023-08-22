@@ -90,9 +90,9 @@ config/      (optionally)
 		case.
 	</p>
 	<p>
-		I then started soldering with the black one on the <Code>-</Code> pole. I thought it's probably
-		easier to put the soldering down on the less exposed port first, so fixing something wouldn't
-		automatically mean I have to remove the potentially working and more exposed
+		I then started soldering with the black one on the <Code>-</Code> pole. I thought it's probably easier
+		to put the soldering down on the less exposed port first, so fixing something wouldn't automatically
+		mean I have to remove the potentially working and more exposed
 		<Code>+</Code> port as well.
 	</p>
 	<p>
@@ -137,8 +137,8 @@ config/      (optionally)
 	<p>
 		There are a couple of apps you can download and add to the pocuter. This is actually quite easy
 		to do, but the documentation was a bit lacking. The SD card from the pocuter should be plugged
-		into a regular computer. The apps that can currently be downloaded are <Code>.zip</Code> files.
-		In these, there is a folder named with a number and in that folder, there is a file called
+		into a regular computer. The apps that can currently be downloaded are <Code>.zip</Code> files. In
+		these, there is a folder named with a number and in that folder, there is a file called
 		<Code>esp32c3.app</Code>. On the SD card, these need to be put into an <Code>apps</Code> folder,
 		keeping the numbered folder.
 	</p>
@@ -224,12 +224,12 @@ config/      (optionally)
 		how to upload code to the board.
 	</p>
 	<p>
-		First of all, the I had to install the version <Code>2.0.5-RC1-PC1.3</Code> of the Pocuter
-		library because the newer version didn't compile for me. After using that version and seeing the
-		error above, I had to change the file
+		First of all, the I had to install the version <Code>2.0.5-RC1-PC1.3</Code> of the Pocuter library
+		because the newer version didn't compile for me. After using that version and seeing the error above,
+		I had to change the file
 		<Code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</Code> to
-		make this work. There is a line <Code>pocuterone.upload.tool=esptool_py</Code> which needed to
-		be changed to
+		make this work. There is a line <Code>pocuterone.upload.tool=esptool_py</Code> which needed to be
+		changed to
 		<Code>pocuterone.upload.tool.serial=esptool_py</Code>. After this change, uploading through the
 		Arduino IDE 2.x worked.
 	</p>
@@ -250,9 +250,10 @@ config/      (optionally)
 		</li>
 	</ol>
 	<p>
-		The <Code>FQBN</Code> I got from checking the boards list (<Code>arduino-cli board listall</Code>), which gave me <Code>esp32:esp32:pocuterone</Code> identifier. The <Code>USB_PORT</Code> I
-		get by using <Code>find /dev/cu.usb*</Code> when the Pocuter is connected with a USB cable that
-		supports data transfer - as I mentioned earlier, this took me a while to figure out. The
+		The <Code>FQBN</Code> I got from checking the boards list (<Code>arduino-cli board listall</Code
+		>), which gave me <Code>esp32:esp32:pocuterone</Code> identifier. The <Code>USB_PORT</Code> I get
+		by using <Code>find /dev/cu.usb*</Code> when the Pocuter is connected with a USB cable that supports
+		data transfer - as I mentioned earlier, this took me a while to figure out. The
 		<Code>BUILD_PATH</Code>
 		is set to <Code>./build</Code> so it doesn't use some temporary directory and always needs to recompile
 		if something fails during upload.
@@ -279,7 +280,7 @@ config/      (optionally)
 		padding: 1em;
 	}
 	.date {
-		font-size: .8em;
+		font-size: 0.8em;
 		opacity: 0.7;
 	}
 	img {

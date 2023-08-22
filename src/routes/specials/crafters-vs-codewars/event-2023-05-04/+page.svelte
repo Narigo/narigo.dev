@@ -12,7 +12,9 @@
 		<h3>Moving Zeros To The End</h3>
 		<CodeBlock code={solutionReduce} />
 		<Narigo>
-			There were a couple of solutions to this problem, lots of different ideas even though there were less people than usually tonight. It feels like for every challenge about an array, there has to be a solution with <Code>Array.reduce</Code>. So there is mine! 😅
+			There were a couple of solutions to this problem, lots of different ideas even though there
+			were less people than usually tonight. It feels like for every challenge about an array, there
+			has to be a solution with <Code>Array.reduce</Code>. So there is mine! 😅
 		</Narigo>
 	</section>
 </KataLayout>

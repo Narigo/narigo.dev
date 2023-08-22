@@ -27,11 +27,10 @@
 		<h3>Find the unique number</h3>
 		<CodeBlock code={solution} />
 		<Narigo>
-			The easy <Code>filter().length &gt; 1</Code> solution is not performant enough for the tests to work. Two sets worked better.
+			The easy <Code>filter().length &gt; 1</Code> solution is not performant enough for the tests to
+			work. Two sets worked better.
 		</Narigo>
 		<CodeBlock code={fasterSolution} />
-		<Narigo>
-			This is walking through the array to find the first that's not unique.
-		</Narigo>
+		<Narigo>This is walking through the array to find the first that's not unique.</Narigo>
 	</section>
 </KataLayout>

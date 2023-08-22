@@ -47,8 +47,8 @@
 	>
 	<Puzzle title="Puzzle 33 solution" solution={solutionImproved} />
 	<Narigo
-		>Here is an improved version by leveraging the fact that <Code>inset</Code> is already telling
-		CSS how big the box is. <Code>width</Code> and
+		>Here is an improved version by leveraging the fact that <Code>inset</Code> is already telling CSS
+		how big the box is. <Code>width</Code> and
 		<Code>height</Code> settings are therefore not necessary. The second improvement is how the gradients
 		are applied: Instead of using four different, it can do it in three, using multiple color stops.
 	</Narigo>

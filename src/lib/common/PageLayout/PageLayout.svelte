@@ -31,7 +31,8 @@
 		--rgbv-background-inverted-color: 0, 0, 0;
 
 		display: flex;
-		background: linear-gradient(
+		background:
+			linear-gradient(
 					to top right,
 					rgba(var(--rgbv-background-inverted-color), 0) 50%,
 					rgba(var(--rgbv-background-inverted-color), 0.02) 50%,
