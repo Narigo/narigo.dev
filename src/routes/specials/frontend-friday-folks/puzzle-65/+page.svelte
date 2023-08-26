@@ -38,6 +38,8 @@
 	<Puzzle title="Puzzle 65 solution" {solution} />
 	<Narigo>
 		The idea used here yielded 100%, but I'm pretty sure if you want to really get the same picture,
-		you'd do it differently.
+		you'd do it differently. On the image, the left side of the speaker looks circular, but when
+		solving it like we did, it becomes more like an ellipse. To get it to a circular shape, the
+		border sizes would have to match. It seems that this isn't the case here.
 	</Narigo>
 </PuzzlePageLayout>
