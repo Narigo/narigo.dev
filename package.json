@@ -24,7 +24,7 @@
 		"@types/reveal.js": "^4.4.2",
 		"@typescript-eslint/eslint-plugin": "^6.4.1",
 		"@typescript-eslint/parser": "^6.4.1",
-		"eslint": "^8.47.0",
+		"eslint": "^8.48.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte": "^2.33.0",
 		"highlight.js": "^11.8.0",
@@ -37,7 +37,7 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
 		"vite": "^4.4.9",
-		"vitest": "^0.34.2"
+		"vitest": "^0.34.3"
 	},
 	"packageManager": "pnpm@8.6.7",
 	"type": "module"
