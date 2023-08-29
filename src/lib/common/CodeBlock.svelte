@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import theme from 'svelte-highlight/styles/darcula';
+	import SvelteHeadOnce from './SvelteHeadOnce.svelte';
 
 	export let code: string;
 </script>
 
-<svelte:head>
+<SvelteHeadOnce>
 	{@html theme}
-</svelte:head>
+</SvelteHeadOnce>
 
 <HighlightSvelte {code} let:highlighted>
 	<LineNumbers {highlighted} wrapLines />
