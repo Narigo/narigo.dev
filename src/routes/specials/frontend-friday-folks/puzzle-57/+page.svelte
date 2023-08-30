@@ -47,7 +47,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Skull">
+<PuzzlePageLayout title="Pillars">
 	<Puzzle title="Puzzle 57 solution" {solution} />
 	<Narigo>
 		<p>
