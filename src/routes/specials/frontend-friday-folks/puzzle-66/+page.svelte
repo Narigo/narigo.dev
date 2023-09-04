@@ -103,8 +103,8 @@
 	<Puzzle title="Puzzle 66 solution" solution={solutionBackgroundSize} />
 	<Narigo>
 		If using background size, it will let us save a few more characters. Still, it needs some kind
-		of gradient to create an image first that can be set with background size. <code
-			>conic-gradient</code
-		> saves another char vs radial and linear.
+		of gradient to create an image first that can be set with background size.
+		<code>conic-gradient</code> saves another char vs radial and linear. The <code>no-repeat</code> is
+		still necessary, to ensure the square won't fill the whole background again by repeating itself.
 	</Narigo>
 </PuzzlePageLayout>
