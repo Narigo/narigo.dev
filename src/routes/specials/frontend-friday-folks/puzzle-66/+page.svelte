@@ -94,13 +94,17 @@
 	<Narigo>Again, having lots of fun with gradients!</Narigo>
 	<Puzzle title="Puzzle 66 solution" solution={solutionBackgroundPosition} />
 	<Narigo>
-		There is a minor improvement with this, by moving the background position down by 10px using
-		no-repeat.
+		There is a minor improvement with this, by moving the background position down by <code
+			>10px</code
+		>
+		using
+		<code>no-repeat</code>.
 	</Narigo>
 	<Puzzle title="Puzzle 66 solution" solution={solutionBackgroundSize} />
 	<Narigo>
 		If using background size, it will let us save a few more characters. Still, it needs some kind
-		of gradient to create an image first that can be set with background size. conic-gradient saves
-		another char vs radial and linear.
+		of gradient to create an image first that can be set with background size. <code
+			>conic-gradient</code
+		> saves another char vs radial and linear.
 	</Narigo>
 </PuzzlePageLayout>
