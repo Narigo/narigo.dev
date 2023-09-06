@@ -43,4 +43,8 @@
 		height: 1em;
 		width: 1em;
 	}
+
+	:global(code) {
+		font-family: 'Victor Mono', monospace;
+	}
 </style>
