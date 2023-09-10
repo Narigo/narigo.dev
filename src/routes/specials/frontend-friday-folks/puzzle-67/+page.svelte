@@ -28,5 +28,10 @@
 
 <PuzzlePageLayout title="Video Reel">
 	<Puzzle title="Puzzle 67 solution" {solution} />
-	<Narigo>It's a grid!</Narigo>
+	<Narigo>
+		It's a grid! I first tried it with nested grids: First for the columns, the inner ones for the
+		rows. It looks like that renders a bit differently, since I couldn't get it to 100%. Thanks to
+		Ariadne for sharing a simpler solution: It made me remove the inner grids, which worked out way
+		better!
+	</Narigo>
 </PuzzlePageLayout>
