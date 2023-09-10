@@ -17,16 +17,16 @@
 	},
 	"devDependencies": {
 		"@fontsource/annie-use-your-telescope": "^5.0.8",
-		"@fontsource/gochi-hand": "^5.0.11",
+		"@fontsource/gochi-hand": "^5.0.12",
 		"@fontsource/permanent-marker": "^5.0.8",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.24.1",
 		"@types/reveal.js": "^4.4.2",
 		"@typescript-eslint/eslint-plugin": "^6.6.0",
 		"@typescript-eslint/parser": "^6.6.0",
-		"eslint": "^8.48.0",
+		"eslint": "^8.49.0",
 		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte": "^2.33.0",
+		"eslint-plugin-svelte": "^2.33.1",
 		"highlight.js": "^11.8.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-svelte": "^3.0.3",
@@ -38,7 +38,7 @@
 		"typescript": "^5.2.2",
 		"victormono": "^1.5.5",
 		"vite": "^4.4.9",
-		"vitest": "^0.34.3"
+		"vitest": "^0.34.4"
 	},
 	"packageManager": "pnpm@8.7.4",
 	"type": "module"
