@@ -1,5 +1,4 @@
 <script>
-	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>

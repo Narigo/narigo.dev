@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-ignore
 	import Markdown from 'reveal.js/plugin/markdown/markdown.js';
 	import type Reveal from 'reveal.js';
 	import 'reveal.js/dist/reveal.css';

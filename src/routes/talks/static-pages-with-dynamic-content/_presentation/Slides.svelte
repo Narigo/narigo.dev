@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type Reveal from 'reveal.js';
+	import type RevealJs from 'reveal.js';
 	import Intro from './Intro.svelte';
 	import SvelteKit from './SvelteKit.svelte';
 	import Code from '$lib/common/Code.svelte';
 
-	const getReveal = getContext<() => Reveal.Api>('Reveal');
+	const getReveal = getContext<() => RevealJs.Api>('Reveal');
 	const Reveal = getReveal();
 
 	Reveal.on('fragmentshown', (event) => {

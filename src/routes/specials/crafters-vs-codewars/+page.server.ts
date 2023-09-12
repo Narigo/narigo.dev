@@ -7,8 +7,8 @@ export const load: PageServerLoad = async () => {
 	const eventFiles = Object.entries(
 		import.meta.glob(['./event-*/+page.svelte'], { as: 'raw', eager: true })
 	);
-	let events = [];
-	for (let [path, content] of eventFiles) {
+	const events = [];
+	for (const [path, content] of eventFiles) {
 		const date = path.slice(path.indexOf('-') + 1, path.lastIndexOf('/'));
 		const names = [];
 		let matches;

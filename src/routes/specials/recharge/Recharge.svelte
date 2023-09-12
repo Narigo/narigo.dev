@@ -29,7 +29,7 @@
 			}
 		};
 	};
-	const recharge: (node: Element) => TransitionConfig = (_node) => {
+	const recharge: (node: Element) => TransitionConfig = () => {
 		const allEmojis = emojis.split(new RegExp('', 'u'));
 		return {
 			duration: 5000,

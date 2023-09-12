@@ -2,8 +2,6 @@
 	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
-
-	let unused = 4;
 </script>
 
 <PageLayout>

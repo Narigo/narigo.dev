@@ -33,7 +33,7 @@
 	const animationData = animations[name];
 	const animationsDone = writable(false);
 
-	const clickHandler: (this: Document, ev: MouseEvent) => any = () => {
+	const clickHandler: (this: Document, ev: MouseEvent) => void = () => {
 		if (animationData.current < animationData.animations.length) {
 			animationData.animations[animationData.current].animation();
 		}
