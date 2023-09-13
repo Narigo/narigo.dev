@@ -1,4 +1,6 @@
-<slot />
+<div class="layout" style="display:contents">
+	<slot />
+</div>
 
 <style>
 	@import './fonts.css';
@@ -19,7 +21,12 @@
 		padding: 0;
 	}
 
-	:global(h1, h2, h3, h4, h5, h6) {
+	.layout :global(h1),
+	.layout :global(h2),
+	.layout :global(h3),
+	.layout :global(h4),
+	.layout :global(h5),
+	.layout :global(h6) {
 		background: var(--color-primary);
 		box-shadow: 0.25rem 0.25rem 0 #555;
 		clear: both;
@@ -32,7 +39,7 @@
 		margin: 0 0.5em 0.5em 0;
 		max-width: max-content;
 	}
-	:global(a[rel~='external']::after) {
+	.layout :global(a[rel~='external']::after) {
 		position: relative;
 		content: '';
 		display: inline-flex;
@@ -44,7 +51,7 @@
 		width: 1em;
 	}
 
-	:global(code) {
+	.layout :global(code) {
 		font-family: 'Victor Mono', monospace;
 	}
 </style>

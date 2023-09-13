@@ -1,11 +1,10 @@
 <script>
-	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
 <PageLayout>
 	<h2>JSCC23</h2>
-	<div class="date">Last update on <span>2023-07-23</span></div>
+	<div class="date">Last update on <span>2023-08-20</span></div>
 	<p>
 		It's done! The JavaScript CraftCamp 2023 is over. I'm happy I got the chance to help organizing
 		the event.
