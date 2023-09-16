@@ -3,7 +3,31 @@
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
-	const solution = ``;
+	const solution = `<div></div>
+<style>
+  body {
+    background: #191919;
+    display: grid;
+    place-items: center;
+  }
+  div {
+    position:relative;
+    width: 120px;
+    height: 120px;
+    background: #E08027;
+    border-radius: 50% 50% 10px 10px;
+  }
+  body::before {
+    content:'';
+    position:absolute;
+    height:170px;
+    width:50px;
+    background: linear-gradient(#F2AD43 50%, #824B20 0);
+    border-radius: 50px;
+    top: 65px;
+    left: 175px;
+  }
+</style>`;
 </script>
 
 <PuzzlePageLayout title="Bell">
