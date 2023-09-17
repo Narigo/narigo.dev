@@ -13,14 +13,14 @@
 		"format": "prettier --write --plugin prettier-plugin-svelte ."
 	},
 	"dependencies": {
-		"reveal.js": "^4.6.0"
+		"reveal.js": "^4.6.1"
 	},
 	"devDependencies": {
 		"@fontsource/annie-use-your-telescope": "^5.0.8",
 		"@fontsource/gochi-hand": "^5.0.12",
 		"@fontsource/permanent-marker": "^5.0.8",
 		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.24.1",
+		"@sveltejs/kit": "^1.25.0",
 		"@types/reveal.js": "^4.4.2",
 		"@typescript-eslint/eslint-plugin": "^6.7.0",
 		"@typescript-eslint/parser": "^6.7.0",
