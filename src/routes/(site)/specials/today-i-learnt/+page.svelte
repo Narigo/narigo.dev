@@ -103,6 +103,14 @@
 				`pnpm install --prod=false` helps.
 			</p>
 		</li>
+		<li>
+			<h3>Svelte layout resets reset server side as well</h3>
+			<p>
+				If you use a <code>+layout@.svelte</code> somewhere, it resets the
+				<code>+layout.server.ts</code> as well. Need to be aware of that, that this is done
+				implicitly and doesn't need a separate <code>+layout@.server.ts</code>.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
