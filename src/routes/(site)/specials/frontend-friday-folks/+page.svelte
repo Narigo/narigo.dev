@@ -13,9 +13,10 @@
 	<h2>Frontend Friday Folks</h2>
 	<Narigo>
 		<p>
-			In <a href="https://virtualcoffee.io/" rel="external">the VirtualCoffee.io community</a>, we started a
-			group that meets every Friday to work on a CSSBattle.dev puzzle. I think there hasn't been a
-			single time where I haven't learnt a new CSS trick.
+			In <a href="https://virtualcoffee.io/" rel="external">the VirtualCoffee.io community</a>, we
+			started a group that meets every Friday to work on a
+			<a href="https://cssbattle.dev/" rel="external">CSSBattle.dev</a> puzzle. I think there hasn't
+			been a single time where I haven't learnt a new CSS trick.
 		</p>
 		<p>
 			There was enough interest to actually start a second session per week now. I'm sharing
