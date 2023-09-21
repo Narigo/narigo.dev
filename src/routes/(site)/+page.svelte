@@ -65,15 +65,11 @@
 		</Narigo>
 		<Narigo side="right">
 			<p>
-				...and since the Frontend Friday Folks is a really nice format, I'm trying something similar
-				with JavaScript katas now. You can join through <a
-					href="https://www.meetup.com/js-craftcamp/events/291808574/"
-					rel="external">the JSCraftCamp meetup group</a
-				>, which will guide you to the JSCraftCamp Discord community where we'll host it.
-			</p>
-			<p>
-				We're doing it weekly now: Every Thursday at 19:00 CEST, at least until the JSCraftCamp
-				starts.
+				...and since the Frontend Friday Folks is a really nice format, I've started something
+				similar with JavaScript katas. You can join <a
+					href="https://discord.gg/3mHhaXVEjP"
+					rel="external">the JSCraftCamp Discord</a
+				> to attend these events.
 			</p>
 		</Narigo>
 		<h3>Are you available for hire? 🤔</h3>
