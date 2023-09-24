@@ -8,11 +8,11 @@
 </script>
 
 <PageLayout>
+	<h2>Specials</h2>
 	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
 		{#if !isDone}
 			<StopAllAnimations {stopAllAnimations} />
 		{/if}
-		<h2>Specials</h2>
 
 		<Bubble>Hey, what's up with this page?</Bubble>
 		<Narigo side="right">I thought I may want to write some code here.</Narigo>
@@ -44,4 +44,12 @@
 			>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
 		>
 	</AnimationContext>
+	<section>
+		<h3>Some projects / links</h3>
+		<ul>
+			<li><a href="https://github.com/Narigo/keepass-diff" rel="external">keepass-diff</a></li>
+			<li><a href="https://github.com/Narigo/reimemonster" rel="external">Reimemonster</a></li>
+			<li><a href="https://github.com/Narigo/dripping-spray" rel="external">Dripping spray</a></li>
+		</ul>
+	</section>
 </PageLayout>
