@@ -47,8 +47,8 @@
 	<section>
 		<h3>Some projects / links</h3>
 		<Narigo>
-			There are some projects I've created that I want to highlight a bit. I had a real need for
-			these at some point in time and I'm pretty happy I can share some of them today.
+			There are some projects I've created that I want to highlight. I had a real need for these at
+			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
 		<ul>
 			<li><a href="https://github.com/Narigo/keepass-diff" rel="external">keepass-diff</a></li>
