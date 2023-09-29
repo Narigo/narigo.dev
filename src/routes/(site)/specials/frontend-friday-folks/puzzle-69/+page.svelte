@@ -3,7 +3,7 @@
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
-	const solution99 = `<r>
+	const solution = `<r>
   <div l></div>
   <p></p>
   <div r></div>
@@ -42,8 +42,8 @@
   div::after {
     content: '';
     position:absolute;
-    inset: 47px 41px;
-    height: 12px;
+    inset: 48px 41px;
+    height: 10px;
     width: 12px;
     border: 10px solid #E08027;
     border-radius:50%;
@@ -59,6 +59,10 @@
 </script>
 
 <PuzzlePageLayout title="PushOwl">
-	<Puzzle title="Puzzle 69 solution" solution={solution99} />
-	<Narigo>I missed doing this puzzle with VirtualCoffee, so I had to do this on my own. Only achieved 99.9% this time.</Narigo>
+	<Puzzle title="Puzzle 69 solution" {solution} />
+	<Narigo>
+		I missed doing this puzzle with VirtualCoffee, so I had to do this on my own. After lots of
+		tinkering with the pixel values, I got a 100% solution. I have to admit I don't like having
+		pixel values like this. There is probably a better way to solve this!
+	</Narigo>
 </PuzzlePageLayout>
