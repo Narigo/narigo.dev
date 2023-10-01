@@ -6,11 +6,13 @@
 	@import './fonts.css';
 
 	:root {
-		--color-primary: #409a45;
+		--color-primary-rgb: 64, 154, 69;
 		--color-text: #000;
 		--font-family-primary: 'Gochi Hand', cursive;
 		--font-family-headline: 'Permanent Marker', 'Gochi Hand', cursive;
 		--font-size-primary: 24px;
+
+		--color-primary: rgb(var(--color-primary-rgb));
 	}
 
 	:global(html, body) {

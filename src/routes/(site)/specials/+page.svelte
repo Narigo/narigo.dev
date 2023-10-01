@@ -5,6 +5,7 @@
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import Panel from '$lib/common/Panel.svelte';
 </script>
 
 <PageLayout>
@@ -51,9 +52,40 @@
 			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
 		<ul>
-			<li><a href="https://github.com/Narigo/keepass-diff" rel="external">keepass-diff</a></li>
+			<li>
+				<a href="https://github.com/Narigo/keepass-diff" rel="external">
+					<Panel>
+						<div slot="text">keepass-diff</div>
+						<div class="keepass-diff">
+							<Bubble side="right"
+								>Shoot, my keepass database on Nextcloud created a synch file when I changed it on
+								multiple devices!</Bubble
+							>
+							<Narigo>Did you try out keepass-diff yet?</Narigo>
+						</div>
+					</Panel>
+				</a>
+			</li>
 			<li><a href="https://github.com/Narigo/reimemonster" rel="external">Reimemonster</a></li>
 			<li><a href="https://github.com/Narigo/dripping-spray" rel="external">Dripping spray</a></li>
 		</ul>
 	</section>
 </PageLayout>
+
+<style lang="postcss">
+	ul,
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	ul > li > a {
+		text-decoration: none;
+	}
+	ul > li > a::after {
+		background: none;
+	}
+	.keepass-diff {
+		margin-top: 2.5rem;
+	}
+</style>
