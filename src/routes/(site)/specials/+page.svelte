@@ -54,8 +54,10 @@
 		<ul>
 			<li>
 				<a href="https://github.com/Narigo/keepass-diff" rel="external">
-					<Panel>
-						<div slot="text">keepass-diff</div>
+					<Panel textBgColor="#d22c">
+						<div slot="text">
+							After finding multiple binary files in my cloud storage that couldn't sync...
+						</div>
 						<div class="panel">
 							<Bubble side="right"
 								>Shoot, my keepass database on Nextcloud created a synch file when I changed it on
@@ -68,8 +70,8 @@
 			</li>
 			<li>
 				<a href="https://github.com/Narigo/reimemonster" rel="external">
-					<Panel>
-						<div slot="text">Reimemonster</div>
+					<Panel textBgColor="#dd2c" textColor="#000">
+						<div slot="text">While working on a poem for a birthday</div>
 						<div class="panel">
 							<Bubble side="right"
 								>I want to create poems and need words that rhyme. I'd like to have hints that the
@@ -86,13 +88,15 @@
 			<li>
 				<a href="https://github.com/Narigo/dripping-spray" rel="external">
 					<Panel>
-						<div slot="text">dripping-spray</div>
+						<div slot="text">Frustrations with unrealistic spray cans...</div>
 						<div class="panel">
 							<Bubble side="right"
 								>All the painting tools have an unrealistic spray can brush. It never creates drops
 								when spraying on the same spot or it generates the same one over and over again.</Bubble
 							>
-							<Narigo>There is dripping-spray to help you create a better experience!</Narigo>
+							<Narigo>
+								There is <strong>dripping-spray</strong> to help you create a better experience!
+							</Narigo>
 						</div>
 					</Panel>
 				</a>
@@ -109,6 +113,7 @@
 		padding: 0;
 	}
 	ul > li > a {
+		color: var(--color-text);
 		text-decoration: none;
 	}
 	ul > li > a::after {
@@ -117,8 +122,8 @@
 	.panel {
 		background: linear-gradient(
 			rgba(var(--color-primary-rgb), 0),
-			rgba(var(--color-primary-rgb), .25)
+			rgba(var(--color-primary-rgb), 0.25)
 		);
-		padding: 2.5rem 0.5rem 0.5rem;
+		padding: 0.5rem;
 	}
 </style>
