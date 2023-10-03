@@ -5,11 +5,13 @@
 </script>
 
 <section style="--rotation: {rotation};--text-bg-color: {textBgColor};--text-color: {textColor};">
-	<div class="text">
-		<span><slot name="text" /></span>
-	</div>
 	<div class="panel">
-		<slot />
+		<div class="text">
+			<span><slot name="text" /></span>
+		</div>
+		<div class="image">
+			<slot />
+		</div>
 	</div>
 </section>
 
@@ -17,7 +19,9 @@
 	:root {
 		--panel-padding: 0.5rem;
 	}
-	* {
+	section,
+	.panel,
+	.text span {
 		border: 2px solid #000;
 		border-radius: 2px;
 	}
@@ -28,7 +32,6 @@
 		rotate: calc(var(--rotation) * 1deg);
 	}
 	.text {
-		border-bottom: 0;
 		display: flex;
 		justify-content: end;
 	}
@@ -50,8 +53,5 @@
 		font-size: 0.75rem;
 		margin: -2px;
 		padding: 0.25rem;
-	}
-	.panel {
-		border-top: 0;
 	}
 </style>
