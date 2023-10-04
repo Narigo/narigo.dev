@@ -54,4 +54,8 @@
 		margin: -2px;
 		padding: 0.25rem;
 	}
+
+	section:hover {
+		box-shadow: 0.25rem 0.25rem 0 0 #000;
+	}
 </style>
