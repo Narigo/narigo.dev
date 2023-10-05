@@ -52,7 +52,11 @@
 			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
 		<ul>
-			<li>
+			<li
+				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
+					Math.random() * 255
+				)},{Math.floor(Math.random() * 255)};"
+			>
 				<a href="https://github.com/Narigo/keepass-diff" rel="external">
 					<Panel textBgColor="#d22c">
 						<div slot="text">
@@ -68,7 +72,11 @@
 					</Panel>
 				</a>
 			</li>
-			<li>
+			<li
+				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
+					Math.random() * 255
+				)},{Math.floor(Math.random() * 255)};"
+			>
 				<a href="https://github.com/Narigo/reimemonster" rel="external">
 					<Panel textBgColor="#dd2c" textColor="#000">
 						<div slot="text">While working on a poem for a birthday</div>
@@ -85,7 +93,11 @@
 					</Panel>
 				</a>
 			</li>
-			<li>
+			<li
+				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
+					Math.random() * 255
+				)},{Math.floor(Math.random() * 255)};"
+			>
 				<a href="https://github.com/Narigo/dripping-spray" rel="external">
 					<Panel>
 						<div slot="text">Frustrations with unrealistic spray cans...</div>
@@ -120,10 +132,7 @@
 		background: none;
 	}
 	.panel {
-		background: linear-gradient(
-			rgba(var(--color-primary-rgb), 0),
-			rgba(var(--color-primary-rgb), 0.25)
-		);
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(var(--color-random), 0.15));
 		padding: 0.5rem;
 	}
 </style>
