@@ -6,6 +6,12 @@
 	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Panel from '$lib/common/Panel.svelte';
+
+	function getRandomColor() {
+		return `${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(
+			Math.random() * 255
+		)}`;
+	}
 </script>
 
 <PageLayout>
@@ -52,11 +58,7 @@
 			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
 		<ul>
-			<li
-				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
-					Math.random() * 255
-				)},{Math.floor(Math.random() * 255)};"
-			>
+			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/keepass-diff" rel="external">
 					<Panel textBgColor="#d22c">
 						<div slot="text">
@@ -72,11 +74,7 @@
 					</Panel>
 				</a>
 			</li>
-			<li
-				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
-					Math.random() * 255
-				)},{Math.floor(Math.random() * 255)};"
-			>
+			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/reimemonster" rel="external">
 					<Panel textBgColor="#dd2c" textColor="#000">
 						<div slot="text">While working on a poem for a birthday</div>
@@ -93,11 +91,7 @@
 					</Panel>
 				</a>
 			</li>
-			<li
-				style="--color-random:{Math.floor(Math.random() * 255)},{Math.floor(
-					Math.random() * 255
-				)},{Math.floor(Math.random() * 255)};"
-			>
+			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/dripping-spray" rel="external">
 					<Panel>
 						<div slot="text">Frustrations with unrealistic spray cans...</div>
