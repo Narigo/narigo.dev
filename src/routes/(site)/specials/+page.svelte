@@ -60,7 +60,7 @@
 		<ul>
 			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/keepass-diff" rel="external">
-					<Panel textBgColor="#d22c">
+					<Panel classes="panellink" textBgColor="#d22c">
 						<div slot="text">
 							After finding multiple binary files in my cloud storage that couldn't sync...
 						</div>
@@ -76,7 +76,7 @@
 			</li>
 			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/reimemonster" rel="external">
-					<Panel textBgColor="#dd2c" textColor="#000">
+					<Panel classes="panellink" textBgColor="#dd2c" textColor="#000">
 						<div slot="text">While working on a poem for a birthday</div>
 						<div class="panel">
 							<Bubble side="right"
@@ -93,7 +93,7 @@
 			</li>
 			<li style="--color-random:{getRandomColor()};">
 				<a href="https://github.com/Narigo/dripping-spray" rel="external">
-					<Panel>
+					<Panel classes="panellink">
 						<div slot="text">Frustrations with unrealistic spray cans...</div>
 						<div class="panel">
 							<Bubble side="right"
@@ -128,5 +128,8 @@
 	.panel {
 		background: linear-gradient(rgba(255, 255, 255, 0), rgba(var(--color-random), 0.15));
 		padding: 0.5rem;
+	}
+	:global(.panellink):hover {
+		box-shadow: 0.25rem 0.25rem 0 0 #000;
 	}
 </style>
