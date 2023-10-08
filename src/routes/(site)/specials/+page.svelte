@@ -130,6 +130,6 @@
 		padding: 0.5rem;
 	}
 	:global(.panellink):hover {
-		box-shadow: 0.25rem 0.25rem 0 0 #000;
+		box-shadow: 0.25rem 0.25rem 0 #555;
 	}
 </style>
