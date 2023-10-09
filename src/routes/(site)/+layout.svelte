@@ -12,6 +12,8 @@
 		--font-family-headline: 'Permanent Marker', 'Gochi Hand', cursive;
 		--font-size-primary: 24px;
 
+		--nd-box-shadow: 0.25rem 0.25rem 0 #555;
+
 		--color-primary: rgb(var(--color-primary-rgb));
 	}
 
@@ -30,7 +32,7 @@
 	.layout :global(h5),
 	.layout :global(h6) {
 		background: var(--color-primary);
-		box-shadow: 0.25rem 0.25rem 0 #555;
+		box-shadow: var(--nd-box-shadow);
 		clear: both;
 		color: #fff;
 		display: flex;
