@@ -44,6 +44,7 @@
 	<Puzzle title="Puzzle 72 solution" {solution} />
 	<Narigo>
 		This one is again something I only got 99.9% for. David has seen this as two divs with one
-		rotated 45 degrees.
+		rotated 45 degrees. I thought of having eight circles on the outside but when looking at it more
+		closely, it seems like circles wouldn't fit.
 	</Narigo>
 </PuzzlePageLayout>
