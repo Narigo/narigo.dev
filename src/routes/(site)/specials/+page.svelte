@@ -58,7 +58,12 @@
 			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
 		<ul>
-			<li style="--color-random:{getRandomColor()};">
+			<li
+				on:mouseenter={(e) => {
+					e.currentTarget?.style.setProperty('--color-random', getRandomColor());
+				}}
+				style="--color-random:{getRandomColor()};"
+			>
 				<a href="https://github.com/Narigo/keepass-diff" rel="external">
 					<Panel classes="panellink" textBgColor="#d22c">
 						<div slot="text">
@@ -74,7 +79,12 @@
 					</Panel>
 				</a>
 			</li>
-			<li style="--color-random:{getRandomColor()};">
+			<li
+				on:mouseenter={(e) => {
+					e.currentTarget?.style.setProperty('--color-random', getRandomColor());
+				}}
+				style="--color-random:{getRandomColor()};"
+			>
 				<a href="https://github.com/Narigo/reimemonster" rel="external">
 					<Panel classes="panellink" textBgColor="#dd2c" textColor="#000">
 						<div slot="text">While working on a poem for a birthday</div>
@@ -91,7 +101,12 @@
 					</Panel>
 				</a>
 			</li>
-			<li style="--color-random:{getRandomColor()};">
+			<li
+				on:mouseenter={(e) => {
+					e.currentTarget?.style.setProperty('--color-random', getRandomColor());
+				}}
+				style="--color-random:{getRandomColor()};"
+			>
 				<a href="https://github.com/Narigo/dripping-spray" rel="external">
 					<Panel classes="panellink">
 						<div slot="text">Frustrations with unrealistic spray cans...</div>
