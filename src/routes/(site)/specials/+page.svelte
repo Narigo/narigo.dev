@@ -23,7 +23,11 @@
 	<h2>Specials</h2>
 	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
 		{#if !isDone}
-			<StopAllAnimations {stopAllAnimations} />
+			<div style="position:relative;height:2em">
+				<div style="position:absolute;top:0;right:0;">
+					<StopAllAnimations {stopAllAnimations} />
+				</div>
+			</div>
 		{/if}
 
 		<Bubble>Hey, what's up with this page?</Bubble>
