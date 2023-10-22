@@ -78,7 +78,7 @@
 								>Shoot, my keepass database on Nextcloud created a synch file when I changed it on
 								multiple devices!</Bubble
 							>
-							<Narigo>Did you try out keepass-diff yet?</Narigo>
+							<Narigo>Did you try out <strong>keepass-diff</strong> yet?</Narigo>
 						</div>
 					</Panel>
 				</a>
@@ -94,7 +94,7 @@
 							>
 							<Narigo
 								>If you're looking for a tool to help you write poems in German, there is:
-								Reimemonster!</Narigo
+								<strong>Reimemonster</strong>!</Narigo
 							>
 						</div>
 					</Panel>
