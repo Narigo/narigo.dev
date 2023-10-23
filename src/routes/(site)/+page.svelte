@@ -40,7 +40,7 @@
 		</Narigo>
 		<Narigo>
 			<p>
-				In my spare time, I'm helping to organize the <a
+				I'm helping to organize the <a
 					href="https://jscraftcamp.org/"
 					rel="external noopener noreferrer"
 					target="_blank">JSCraftCamp</a
@@ -70,6 +70,14 @@
 					href="https://discord.gg/3mHhaXVEjP"
 					rel="external">the JSCraftCamp Discord</a
 				> to attend these events.
+			</p>
+		</Narigo>
+		<Narigo>
+			<p>
+				Aside from work and tech related stuff, I like visiting poetry slams and draw pictures of
+				the texts I'm hearing. For our local <a href="https://www.sprechakt.de/" rel="external"
+					>SprechAkt poetry slam</a
+				>, I even contributed the homepage through our company.
 			</p>
 		</Narigo>
 		<h3>Are you available for hire? 🤔</h3>
