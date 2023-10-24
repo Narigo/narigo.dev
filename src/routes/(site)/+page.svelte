@@ -75,7 +75,7 @@
 		<Narigo>
 			<p>
 				Aside from work and tech related stuff, I like visiting poetry slams and draw pictures of
-				the texts I'm hearing. For our local <a href="https://www.sprechakt.de/" rel="external"
+				the texts I'm hearing. For the local <a href="https://www.sprechakt.de/" rel="external"
 					>SprechAkt poetry slam</a
 				>, I even contributed the homepage through our company.
 			</p>
