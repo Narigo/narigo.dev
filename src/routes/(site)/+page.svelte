@@ -74,10 +74,13 @@
 		</Narigo>
 		<Narigo>
 			<p>
-				Aside from work and tech related stuff, I like visiting poetry slams and draw pictures of
-				the texts I'm hearing. For the local <a href="https://www.sprechakt.de/" rel="external"
-					>SprechAkt poetry slam</a
-				>, I contributed the homepage through our company.
+				Aside from work and tech related stuff, I like visiting poetry slams and <a
+					href="https://www.instagram.com/slammaler/"
+					rel="external">draw pictures</a
+				>
+				of the texts I'm hearing. For the local
+				<a href="https://www.sprechakt.de/" rel="external">SprechAkt poetry slam</a>, I contributed
+				the homepage through our company.
 			</p>
 		</Narigo>
 		<h3>Are you available for hire? 🤔</h3>
