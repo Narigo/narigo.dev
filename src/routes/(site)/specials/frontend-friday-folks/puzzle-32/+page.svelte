@@ -18,7 +18,8 @@
 	<Puzzle title="Puzzle 32 solution" solution={solution2} />
 	<Narigo>
 		And after Meg challenging me after me saying "I got a character less!", this is my newest
-		solution. I saw that using some undefined element needs display:block to work like regular divs.
-		Otherwise you have to resort to using position:fixed or display:block on those elements. 🤔
+		solution. I saw that using some undefined element needs <code>display: block</code> to work like
+		regular divs. Otherwise you have to resort to using <code>position: fixed</code> or
+		<code>display: block</code> on those elements. 🤔
 	</Narigo>
 </PuzzlePageLayout>
