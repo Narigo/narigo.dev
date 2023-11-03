@@ -59,7 +59,7 @@
 				from each other. There are more people sharing their solutions in the
 				<a
 					href="https://github.com/orgs/Virtual-Coffee/discussions/categories/css-battles"
-					rel="external">VirtualCoffee discussions on GitHub</a
+					rel="external noopener noreferrer">VirtualCoffee discussions on GitHub</a
 				>.
 			</p>
 		</Narigo>
@@ -68,7 +68,7 @@
 				...and since the Frontend Friday Folks is a really nice format, I've started something
 				similar with JavaScript katas. You can join <a
 					href="https://discord.gg/3mHhaXVEjP"
-					rel="external">the JSCraftCamp Discord</a
+					rel="external noopener noreferrer">the JSCraftCamp Discord</a
 				> to attend these events.
 			</p>
 		</Narigo>
@@ -78,8 +78,9 @@
 					href="https://www.instagram.com/slammaler/"
 					rel="external noopener noreferrer">draw pictures of the texts I'm hearing</a
 				>. For the local
-				<a href="https://www.sprechakt.de/" rel="external">SprechAkt poetry slam</a>, I contributed
-				the homepage through our company.
+				<a href="https://www.sprechakt.de/" rel="external noopener noreferrer"
+					>SprechAkt poetry slam</a
+				>, I contributed the homepage through our company.
 			</p>
 		</Narigo>
 		<h3>Are you available for hire? 🤔</h3>
