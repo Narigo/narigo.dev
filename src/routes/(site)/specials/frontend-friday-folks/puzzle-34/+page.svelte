@@ -31,6 +31,33 @@
   }
 </style>
 `;
+
+	const saturdaySolution = `<div c></div>
+<div b></div>
+<div a></div>
+<style>
+  body {background:#007065}
+  div {
+    position: fixed;
+    left: 75;
+    width: 250;
+    height:100;
+    background: conic-gradient(at 50% 0, #0000 128.66deg, var(--c) 0 231.34deg, #0000 0);
+  }
+  [a] {
+    --c:#FFEECF;
+    top: 50;
+  }
+  [b] {
+    --c: #F5C181;
+    top: 100;
+  }
+  [c] {
+    --c:#00A79D;
+    top: 150;
+  }
+</style>
+`;
 </script>
 
 <PuzzlePageLayout title="Christmas Tree">
@@ -38,4 +65,6 @@
 	<Narigo
 		>Using pseudo elements here to check the stacking seemed to be a good way to solve this.</Narigo
 	>
+	<Puzzle title="Puzzle 34 solution" solution={saturdaySolution} />
+	<Narigo>Saturday CSS battle made me redo this with a gradient!</Narigo>
 </PuzzlePageLayout>
