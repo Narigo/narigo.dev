@@ -55,13 +55,13 @@
     left:185;
   }
   [o] {
-    border:80px solid #050044;
-    border-top:50px solid#0000;
     position:fixed;
     top:65;
     left:120;
     right:120;
-    bottom:150
+    bottom:100;
+    background:#050044;
+    clip-path: polygon(0 0, 80px 50px, 100% 0, 152px 100%, 8px 100%);
   }
 </style>
 `;
@@ -69,5 +69,8 @@
 
 <PuzzlePageLayout title="Evil Cat">
 	<Puzzle title="Puzzle 175 solution" {solution} />
-	<Narigo>Only 99.8% match. No time to check how to rotate or scale this...!</Narigo>
+	<Narigo
+		>Amy took over today and selected a random puzzle. It took me a few tries, but I finally got to
+		100%.</Narigo
+	>
 </PuzzlePageLayout>
