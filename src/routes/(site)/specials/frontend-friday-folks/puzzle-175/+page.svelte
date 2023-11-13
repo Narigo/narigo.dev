@@ -69,8 +69,10 @@
 
 <PuzzlePageLayout title="Evil Cat">
 	<Puzzle title="Puzzle 175 solution" {solution} />
-	<Narigo
-		>Amy took over today and selected a random puzzle. It took me a few tries, but I finally got to
-		100%.</Narigo
-	>
+	<Narigo>
+		Amy took over today and selected a random puzzle. It took me a few tries, but I finally got to
+		100%. The ears were problematic for me. I tried rotating them, but only using clip-path seemed
+		to work for 100% for me. I'm wondering whether that's the correct approach or whether I've just
+		not found the right numbers for rotating the ears.
+	</Narigo>
 </PuzzlePageLayout>
