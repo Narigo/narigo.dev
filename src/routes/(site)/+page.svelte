@@ -37,6 +37,13 @@
 				> and our team builds digital services. That means we're building internal and external tools
 				to make our customer's offerings more efficient and user friendly.
 			</p>
+			<p>
+				We are currently experimenting with <a
+					href="https://github.com/compose-us/build-in-public/"
+					rel="external noopener noreferrer"
+					target="_blank">building in public</a
+				>, so if you have feedback to our idea and implementation: Please let me know!
+			</p>
 		</Narigo>
 		<Narigo>
 			<p>
