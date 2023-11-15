@@ -1,10 +1,8 @@
 <script>
-	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<PageLayout>
-	<h2>JSCC23</h2>
-	<div class="date">Last update on <span>2023-08-20</span></div>
+<ArticleLayout title="JSCC23" lastUpdateOn="2023-08-20">
 	<p>
 		It's done! The JavaScript CraftCamp 2023 is over. I'm happy I got the chance to help organizing
 		the event.
@@ -16,11 +14,4 @@
 		things were organized "on the fly", like having enough BBQ grills. And some stuff just worked
 		out by chance shortly before the event - like having Friday's breakfast sponsored.
 	</p>
-</PageLayout>
-
-<style>
-	.date {
-		font-size: 0.8em;
-		opacity: 0.7;
-	}
-</style>
+</ArticleLayout>

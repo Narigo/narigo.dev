@@ -1,7 +1,7 @@
 <script>
 	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
-	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 	import boardsManager from './boards-manager.png';
 
 	const appDir = `apps/
@@ -24,14 +24,11 @@ config/      (optionally)
      ...`;
 </script>
 
-<PageLayout>
+<ArticleLayout title="Pocuter One" lastUpdateOn="2023-06-01">
 	<p class="info">
 		Be aware, I'm going to continue writing and improving on this article. Maybe the parts I release
 		are already useful for someone.
 	</p>
-
-	<h2>Pocuter One</h2>
-	<div class="date">Last update on <span>2023-06-01</span></div>
 	<p>
 		The Pocuter One is a project I've backed on Kickstarter a while ago. I received their package
 		right before Easter holidays in Germany, so I had some time to assemble it.
@@ -271,7 +268,7 @@ config/      (optionally)
 		SD card. That means you'll be able to quickly write the whole app on it instead of using the SD
 		card approach mentioned earlier.
 	</p>
-</PageLayout>
+</ArticleLayout>
 
 <style>
 	.info {
