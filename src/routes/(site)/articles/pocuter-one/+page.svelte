@@ -276,10 +276,6 @@ config/      (optionally)
 		border: 1px solid #f00b;
 		padding: 1em;
 	}
-	.date {
-		font-size: 0.8em;
-		opacity: 0.7;
-	}
 	img {
 		display: block;
 		max-width: 100%;
