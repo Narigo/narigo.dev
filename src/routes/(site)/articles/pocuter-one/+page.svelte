@@ -44,14 +44,14 @@ config/      (optionally)
 		>, it's definitely something to look at first.
 	</p>
 
-	<h3>WatchKit assembly</h3>
+	<h2>WatchKit assembly</h2>
 	<p>There are a few things that need to be done before playing around with apps:</p>
 	<ol>
 		<li>Solder a battery to the chip</li>
 		<li>Assemble the watch itself</li>
 	</ol>
 
-	<h4>Soldering the battery</h4>
+	<h3>Soldering the battery</h3>
 	<p>
 		The very first one was the most intimidating for me as someone who doesn't have much experience
 		with hardware. I wasn't sure which cable needs to go to which pole, since the only thing I saw
@@ -106,7 +106,7 @@ config/      (optionally)
 		extended period of time.
 	</p>
 
-	<h4>Assembly of the watch kit</h4>
+	<h3>Assembly of the watch kit</h3>
 	<p>
 		Ok, so this looked pretty straightforward. The screen only has one place where it can go. I
 		could see from the outside where the USB port and the buttons / knobs should be. The buttons
@@ -130,7 +130,7 @@ config/      (optionally)
 		worked out eventually and didn't take too long.
 	</p>
 
-	<h3>Applications</h3>
+	<h2>Applications</h2>
 	<p>
 		There are a couple of apps you can download and add to the pocuter. This is actually quite easy
 		to do, but the documentation was a bit lacking. The SD card from the pocuter should be plugged
@@ -147,7 +147,7 @@ config/      (optionally)
 	</p>
 	<p>Writing my own app took a bit longer...</p>
 
-	<h3>Writing an app for the Pocuter</h3>
+	<h2>Writing an app for the Pocuter</h2>
 	<p>
 		To develop an application for the Pocuter, it's necessary to have a build setup that allows to
 		compile code to the Arduino. It's possible to do this in different ways, the easiest is to use
@@ -156,7 +156,7 @@ config/      (optionally)
 		2 already. I've made it work with version 2 on my Mac before I got a working build setup with my
 		currently favorite IDE, VSCode. I'm documenting how I set it up in both ways.
 	</p>
-	<h4>Setup Arduino IDE 2.x</h4>
+	<h3>Setup Arduino IDE 2.x</h3>
 	<p>
 		First thing I had to do is adding the additional boards manager URL. They provided the URL <code
 			>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code
@@ -171,7 +171,7 @@ config/      (optionally)
 		As far as I understood it, you need the various boards to be able to actually compile code for
 		them. As soon as the board is there, writing an application and compiling it should work.
 	</p>
-	<h4>Connecting the Pocuter</h4>
+	<h3>Connecting the Pocuter</h3>
 	<p>
 		This one was tricky when working with my Mac OS Ventura. There are quite a few blog posts out
 		there mentioning to install some third party USB drivers. Most of them seem to be outdated
@@ -182,14 +182,14 @@ config/      (optionally)
 		If you don't see any changes in <Code>ls /dev/cu.*</Code> when plugging the cable in or removing
 		it, the cable itself may be the culprit.
 	</p>
-	<h4>Uploading code to the pocuter</h4>
+	<h3>Uploading code to the pocuter</h3>
 	<p>Ok, so I've seen multiple ways to do this, each of them have their own pros and cons:</p>
 	<ol>
 		<li>Update the SD card and write into the <Code>/apps/</Code> folder</li>
 		<li>Upload compiled code directly through the USB serial port</li>
 		<li>Upload through HTTP through an app installed on the pocuter</li>
 	</ol>
-	<h5>1. Using SD card</h5>
+	<h4>1. Using SD card</h4>
 	<p>
 		The SD card approach is the one mentioned in the documentation and is done through multiple
 		steps:
@@ -210,7 +210,7 @@ config/      (optionally)
 		automated. It works for releases, but testing intermediate versions of your app takes quite some
 		time.
 	</p>
-	<h5>2. Using USB</h5>
+	<h4>2. Using USB</h4>
 	<p>
 		The second option is to upload compiled code directly to the pocuter. When trying to upload code
 		through the Arduino IDE 2.x, I faced another issue. The error told me something like <code
@@ -259,7 +259,7 @@ config/      (optionally)
 		The bad side of this is that uploading code through USB is only replacing the current version.
 		It will not persist as an app and you still need to write to the SD card in a later step.
 	</p>
-	<h5>Using HTTP server</h5>
+	<h4>Using HTTP server</h4>
 	<p>
 		I have to admit, I haven't tried this yet, but someone in the Pocuter Discord shared their <a
 			href="https://github.com/kallistisoft/PocuterUtils"
