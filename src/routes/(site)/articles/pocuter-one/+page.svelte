@@ -158,8 +158,8 @@ config/      (optionally)
 	</p>
 	<h3>Setup Arduino IDE 2.x</h3>
 	<p>
-		First thing I had to do is adding the additional boards manager URL. They provided the URL <code
-			>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</code
+		First thing I had to do is adding the additional boards manager URL. They provided the URL <Code
+			>https://raw.githubusercontent.com/pocuter/ArduinoBoard/main/pocuter_arduino.json</Code
 		>
 		in their documentation and this value can be put into
 		<Code>Arduino IDE -&gt; Settings ... &gt; "Additional Boards Manager URLs"</Code>. After doing
@@ -213,10 +213,9 @@ config/      (optionally)
 	<h4>2. Using USB</h4>
 	<p>
 		The second option is to upload compiled code directly to the pocuter. When trying to upload code
-		through the Arduino IDE 2.x, I faced another issue. The error told me something like <code
-			>Property 'upload.tool' is undefined</code
-		>
-		or <Code>Property 'upload.tool.serial' is undefined</Code>. It looks like Arduino IDE 2.x
+		through the Arduino IDE 2.x, I faced another issue. The error told me something like <Code
+			>Property 'upload.tool' is undefined</Code
+		> or <Code>Property 'upload.tool.serial' is undefined</Code>. It looks like Arduino IDE 2.x
 		changed a bit regarding the <Code>boards.txt</Code> files, which seem to be the instructions for
 		how to upload code to the board.
 	</p>
@@ -233,8 +232,8 @@ config/      (optionally)
 	<p>
 		Since this worked now, I could even change my setup to make uploading work through the command
 		line. This improves my development experience, because I can use my favorite IDE instead of the
-		Arduino IDE to prepare the Sketches (VSCode) and then use the command line tool <code
-			>arduino-cli</code
+		Arduino IDE to prepare the Sketches (VSCode) and then use the command line tool <Code
+			>arduino-cli</Code
 		> to compile and upload it. My current setup consists of two steps to make the compilation and upload
 		work:
 	</p>
