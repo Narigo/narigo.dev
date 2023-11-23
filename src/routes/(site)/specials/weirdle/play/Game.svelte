@@ -32,8 +32,8 @@
 				correctnessInGuess: isLetterAtPosition
 					? 'green'
 					: hasThisAmountOfLetters
-					? 'yellow'
-					: 'black'
+					  ? 'yellow'
+					  : 'black'
 			};
 			return [...acc, letterInfo];
 		}, []);
