@@ -111,6 +111,13 @@
 				implicitly and doesn't need a separate <code>+layout@.server.ts</code>.
 			</p>
 		</li>
+		<li>
+			<h3>CSS border-radius "from" and "to" can be styled</h3>
+			<p>
+				Using <code>border-radius</code> with <code>/</code> allows setting its horizontal and vertical
+				values differently to each other. So a corner does not need to be symmetrical.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
