@@ -7,6 +7,7 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Panel from '$lib/common/Panel.svelte';
 	import type { MouseEventHandler } from 'svelte/elements';
+	import SpecialNavigation from './SpecialNavigation.svelte';
 
 	function getRandomColor() {
 		return `${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(
@@ -21,6 +22,7 @@
 
 <PageLayout>
 	<h2>Specials</h2>
+	<SpecialNavigation />
 	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
 		{#if !isDone}
 			<div style="position:relative;height:2em">
