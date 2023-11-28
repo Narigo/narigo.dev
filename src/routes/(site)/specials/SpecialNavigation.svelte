@@ -5,8 +5,8 @@
 </script>
 
 <div class="navigation">
-	<input id="navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
-	<label for="navigation-menu-toggle">
+	<input id="special-navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
+	<label for="special-navigation-menu-toggle">
 		<div class="menu-icon" />
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
