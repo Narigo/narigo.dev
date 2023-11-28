@@ -116,23 +116,4 @@
 		inset: 0;
 		z-index: -1;
 	}
-
-	@media screen and (min-width: 1000px) {
-		nav ul {
-			flex-flow: row wrap;
-		}
-		label {
-			display: none;
-		}
-		input[type='checkbox']:checked ~ nav,
-		input[type='checkbox'] ~ nav {
-			align-items: center;
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-between;
-		}
-		li {
-			flex: unset;
-		}
-	}
 </style>
