@@ -118,6 +118,13 @@
 				values differently to each other. So a corner does not need to be symmetrical.
 			</p>
 		</li>
+		<li>
+			<h3>Pasting an image into VSCode Markdown creates a file</h3>
+			<p>
+				I knew that pasting into GitHub uploads the image. Doing the same thing in VSCode when you
+				are editing a Markdown file was new to me.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
