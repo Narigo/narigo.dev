@@ -122,7 +122,8 @@
 			<h3>Pasting an image into VSCode Markdown creates a file</h3>
 			<p>
 				I knew that pasting into GitHub uploads the image. Doing the same thing in VSCode when you
-				are editing a Markdown file was new to me.
+				are editing a Markdown file was new to me: It creates the image next to the saved Markdown
+				file. An untitled / unsaved Markdown editor does NOT work - it has to be an actual file!
 			</p>
 		</li>
 	</ul>
