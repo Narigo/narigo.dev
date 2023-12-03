@@ -4,15 +4,15 @@
 	let isExpanded = false;
 </script>
 
-<div class="navigation">
+<div class="flex flex-col mb-4">
 	<input id="navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
-	<label for="navigation-menu-toggle">
+	<label class="uppercase" for="navigation-menu-toggle">
 		<div class="menu-icon" />
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
 	</label>
-	<nav>
-		<ul>
+	<nav class="contents">
+		<ul class="flex items-stretch flex-1 flex-col flex-nowrap gap-x-2 justify-between p-0">
 			<li><a href="{base}/">🏠 Home</a></li>
 			<li><a href="{base}/articles">📝 Articles</a></li>
 			<li><a href="{base}/talks">🗣️ Talks</a></li>
@@ -23,25 +23,6 @@
 </div>
 
 <style>
-	.navigation {
-		display: flex;
-		flex-flow: column;
-		font-family: var(--font-family-headline);
-		margin-bottom: 1em;
-	}
-	nav {
-		display: contents;
-	}
-	nav ul {
-		align-items: stretch;
-		display: flex;
-		flex: 1;
-		flex-flow: column nowrap;
-		gap: 0 0.5em;
-		justify-content: space-between;
-		max-width: var(--max-page-width);
-		padding: 0;
-	}
 	li {
 		position: relative;
 		display: inline-flex;
