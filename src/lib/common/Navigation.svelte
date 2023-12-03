@@ -13,23 +13,24 @@
 	</label>
 	<nav class="contents">
 		<ul class="flex items-stretch flex-1 flex-col flex-nowrap gap-x-2 justify-between p-0">
-			<li><a href="{base}/">🏠 Home</a></li>
-			<li><a href="{base}/articles">📝 Articles</a></li>
-			<li><a href="{base}/talks">🗣️ Talks</a></li>
-			<li><a href="{base}/specials">🤪 Specials</a></li>
-			<li><a href="{base}/contact">🧑‍💼 Contact</a></li>
+			<li class="relative inline-flex flex-1 isolate"><a href="{base}/">🏠 Home</a></li>
+			<li class="relative inline-flex flex-1 isolate">
+				<a href="{base}/articles">📝 Articles</a>
+			</li>
+			<li class="relative inline-flex flex-1 isolate">
+				<a href="{base}/talks">🗣️ Talks</a>
+			</li>
+			<li class="relative inline-flex flex-1 isolate">
+				<a href="{base}/specials">🤪 Specials</a>
+			</li>
+			<li class="relative inline-flex flex-1 isolate">
+				<a href="{base}/contact">🧑‍💼 Contact</a>
+			</li>
 		</ul>
 	</nav>
 </div>
 
 <style>
-	li {
-		position: relative;
-		display: inline-flex;
-		flex: 1;
-		isolation: isolate;
-		list-style-type: none;
-	}
 	a {
 		background: rgba(73, 153, 66, 1);
 		color: #fff;
