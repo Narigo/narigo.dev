@@ -5,14 +5,8 @@
 	export let code: string;
 </script>
 
-<div>
+<div class="text-xs">
 	<HighlightSvelte {code} let:highlighted>
 		<LineNumbers {highlighted} wrapLines />
 	</HighlightSvelte>
 </div>
-
-<style>
-	div {
-		font-size: smaller;
-	}
-</style>
