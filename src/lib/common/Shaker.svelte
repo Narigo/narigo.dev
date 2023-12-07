@@ -2,15 +2,11 @@
 	export let shake: boolean = true;
 </script>
 
-<div class:shakeit={shake}>
+<div class="contents" class:shakeit={shake}>
 	<slot {...{ ...$$props, class: shake ? 'shakeit' : '' }} />
 </div>
 
 <style>
-	div {
-		display: contents;
-	}
-
 	.shakeit > :global(*) {
 		animation-name: shake;
 		animation-iteration-count: infinite;

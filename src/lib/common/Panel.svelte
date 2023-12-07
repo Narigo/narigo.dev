@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let textBgColor: string = 'rgba(var(--color-primary-rgb), .8)';
+	export let textBgColor: string = 'rgb(var(--color-primary-rgb) / .8)';
 	export let textColor: string = '#fff';
 	export let rotation: number = Math.random() - 0.5;
 	export let classes: string;
