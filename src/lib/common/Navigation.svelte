@@ -13,32 +13,39 @@
 	</label>
 	<nav class="contents">
 		<ul class="flex items-stretch flex-1 flex-col flex-nowrap gap-x-2 justify-between p-0">
-			<li class="relative inline-flex flex-1 isolate"><a href="{base}/">🏠 Home</a></li>
 			<li class="relative inline-flex flex-1 isolate">
-				<a href="{base}/articles">📝 Articles</a>
+				<a class="bg-green-600 hover:bg-green-500 [&&]:text-white [&&]:no-underline [&&]:hover:text-white flex py-2 px-4 m-0" href="{base}/"
+					>🏠 Home</a
+				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
-				<a href="{base}/talks">🗣️ Talks</a>
+				<a
+					class="bg-green-600 hover:bg-green-500 [&&]:text-white [&&]:no-underline [&&]:hover:text-white flex py-2 px-4 m-0"
+					href="{base}/articles">📝 Articles</a
+				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
-				<a href="{base}/specials">🤪 Specials</a>
+				<a class="bg-green-600 hover:bg-green-500 [&&]:text-white [&&]:no-underline [&&]:hover:text-white flex py-2 px-4 m-0" href="{base}/talks"
+					>🗣️ Talks</a
+				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
-				<a href="{base}/contact">🧑‍💼 Contact</a>
+				<a
+					class="bg-green-600 hover:bg-green-500 [&&]:text-white [&&]:no-underline [&&]:hover:text-white flex py-2 px-4 m-0"
+					href="{base}/specials">🤪 Specials</a
+				>
+			</li>
+			<li class="relative inline-flex flex-1 isolate">
+				<a
+					class="bg-green-600 hover:bg-green-500 [&&]:text-white [&&]:no-underline [&&]:hover:text-white flex align-center py-2 px-4 m-0"
+					href="{base}/contact">🧑‍💼 Contact</a
+				>
 			</li>
 		</ul>
 	</nav>
 </div>
 
 <style>
-	a {
-		background: rgba(73, 153, 66, 1);
-		color: #fff;
-		flex: 1;
-		padding: 0.5em 1em;
-		margin: 0;
-		text-decoration: none;
-	}
 	li::after {
 		position: absolute;
 		content: '';
@@ -46,9 +53,6 @@
 		height: 100%;
 		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
 		z-index: -1;
-	}
-	a:hover {
-		background: rgba(101, 193, 96, 1);
 	}
 	input[type='checkbox'] {
 		display: none;

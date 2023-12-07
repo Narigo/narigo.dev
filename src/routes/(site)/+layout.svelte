@@ -2,7 +2,7 @@
 	<slot />
 </div>
 
-<style>
+<style lang="postcss">
 	@import './fonts.css';
 
 	:root {
@@ -25,12 +25,12 @@
 		padding: 0;
 	}
 
-	.layout :global(h1),
-	.layout :global(h2),
-	.layout :global(h3),
-	.layout :global(h4),
-	.layout :global(h5),
-	.layout :global(h6) {
+	:where(.layout) :global(h1),
+	:where(.layout) :global(h2),
+	:where(.layout) :global(h3),
+	:where(.layout) :global(h4),
+	:where(.layout) :global(h5),
+	:where(.layout) :global(h6) {
 		background: var(--color-primary);
 		box-shadow: var(--nd-box-shadow);
 		clear: both;
@@ -43,7 +43,13 @@
 		margin: 0 0.5em 0.5em 0;
 		max-width: max-content;
 	}
-	.layout :global(a[rel~='external']::after) {
+	:where(.layout) :global(a) {
+		@apply underline text-blue-900;
+	}
+	:where(.layout) :global(a:hover) {
+		@apply no-underline text-blue-700;
+	}
+	:where(.layout) :global(a[rel~='external']::after) {
 		position: relative;
 		content: '';
 		display: inline-flex;
@@ -55,7 +61,7 @@
 		width: 1em;
 	}
 
-	.layout :global(code) {
+	:where(.layout) :global(code) {
 		font-family: 'Victor Mono', monospace;
 	}
 </style>
