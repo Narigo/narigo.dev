@@ -55,7 +55,7 @@
 		list-style-type: none;
 	}
 	a {
-		background: rgba(73, 153, 66, 1);
+		background: rgb(var(--color-primary));
 		color: #fff;
 		flex: 1;
 		padding: 0.5em 1em;
@@ -71,7 +71,7 @@
 		z-index: -1;
 	}
 	a:hover {
-		background: rgba(101, 193, 96, 1);
+		background: rgb(var(--color-primary-light));
 	}
 	input[type='checkbox'] {
 		display: none;
@@ -96,7 +96,7 @@
 		display: none;
 	}
 	label {
-		background: rgba(73, 153, 66, 1);
+		background: rgb(var(--color-primary));
 		cursor: pointer;
 		color: #fff;
 		display: flex;
@@ -107,7 +107,7 @@
 		text-decoration: none;
 	}
 	label:hover {
-		background: rgba(101, 193, 96, 1);
+		background: rgb(var(--color-primary-light));
 	}
 	label::before {
 		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
