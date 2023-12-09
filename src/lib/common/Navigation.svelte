@@ -15,31 +15,31 @@
 		<ul class="flex items-stretch flex-1 flex-col flex-nowrap gap-x-2 justify-between p-0">
 			<li class="relative inline-flex flex-1 isolate">
 				<a
-					class="bg-green-600 hover:bg-green-500 text-white no-underline flex py-2 px-4 m-0"
+					class="bg-green-600 hover:bg-green-500 text-white hover:text-white no-underline flex py-2 px-4 m-0"
 					href="{base}/">🏠 Home</a
 				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
 				<a
-					class="bg-green-600 hover:bg-green-500 text-white no-underline flex py-2 px-4 m-0"
+					class="bg-green-600 hover:bg-green-500 text-white hover:text-white no-underline flex py-2 px-4 m-0"
 					href="{base}/articles">📝 Articles</a
 				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
 				<a
-					class="bg-green-600 hover:bg-green-500 text-white no-underline flex py-2 px-4 m-0"
+					class="bg-green-600 hover:bg-green-500 text-white hover:text-white no-underline flex py-2 px-4 m-0"
 					href="{base}/talks">🗣️ Talks</a
 				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
 				<a
-					class="bg-green-600 hover:bg-green-500 text-white no-underline flex py-2 px-4 m-0"
+					class="bg-green-600 hover:bg-green-500 text-white hover:text-white no-underline flex py-2 px-4 m-0"
 					href="{base}/specials">🤪 Specials</a
 				>
 			</li>
 			<li class="relative inline-flex flex-1 isolate">
 				<a
-					class="bg-green-600 hover:bg-green-500 text-white no-underline flex align-center py-2 px-4 m-0"
+					class="bg-green-600 hover:bg-green-500 text-white hover:text-white no-underline flex align-center py-2 px-4 m-0"
 					href="{base}/contact">🧑‍💼 Contact</a
 				>
 			</li>
