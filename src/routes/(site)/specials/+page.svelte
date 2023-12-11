@@ -7,7 +7,7 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Panel from '$lib/common/Panel.svelte';
 	import type { MouseEventHandler } from 'svelte/elements';
-	import SpecialNavigation from './SpecialNavigation.svelte';
+	import SpecialNavigation from '../../../lib/common/navigation/SpecialNavigation.svelte';
 
 	function getRandomColor() {
 		return `${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(

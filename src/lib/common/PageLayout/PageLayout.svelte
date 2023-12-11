@@ -1,6 +1,6 @@
 <script>
 	import { base } from '$app/paths';
-	import Navigation from '../Navigation.svelte';
+	import Navigation from '../navigation/Navigation.svelte';
 </script>
 
 <div class="page">
