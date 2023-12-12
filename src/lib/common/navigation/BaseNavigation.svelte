@@ -3,10 +3,10 @@
 </script>
 
 <script lang="ts">
-	import { base } from '$app/paths';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
 	export let menuItems: (HTMLAnchorAttributes & { href: string; label: string })[];
+	export let variant: '' | 'stretch' = '';
 
 	let navigationId = ++navigationCounter;
 	let isExpanded = false;
@@ -20,11 +20,15 @@
 		<span class="closed">Close Menu</span>
 	</label>
 	<nav class="contents">
-		<ul class="flex items-stretch flex-1 flex-col flex-nowrap gap-x-2 justify-between p-0">
+		<ul
+			class="flex items-stretch flex-1 gap-x-2 justify-between p-0 {variant === 'stretch'
+				? 'flex-col flex-nowrap'
+				: 'flex-row flex-wrap'}"
+		>
 			{#each menuItems as { label, href, ...linkProps }}
 				<li class="relative inline-flex flex-1 isolate">
 					<a
-						class="bg-primary hover:bg-primary-light text-white hover:text-white no-underline flex py-2 px-4 m-0"
+						class="bg-primary hover:bg-primary-light flex-1 text-white hover:text-white no-underline flex py-2 px-4 m-0"
 						{href}
 						{...linkProps}>{label}</a
 					>
@@ -88,9 +92,6 @@
 	}
 
 	@media screen and (min-width: 1000px) {
-		nav ul {
-			flex-flow: row wrap;
-		}
 		label {
 			display: none;
 		}

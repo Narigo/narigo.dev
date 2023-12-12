@@ -1,119 +1,19 @@
 <script>
 	import { base } from '$app/paths';
-
-	let isExpanded = false;
+	import BaseNavigation from './BaseNavigation.svelte';
 </script>
 
-<div class="navigation">
-	<input id="special-navigation-menu-toggle" type="checkbox" bind:checked={isExpanded} />
-	<label for="special-navigation-menu-toggle">
-		<div class="menu-icon" />
-		<span class="opened">Open Menu</span>
-		<span class="closed">Close Menu</span>
-	</label>
-	<nav>
-		<ul>
-			<li><a href="{base}/specials/crafters-vs-codewars">Crafters vs Codewars</a></li>
-			<li>
-				<a href="{base}/specials/frontend-friday-folks"
-					>Frontend Friday Folks fighting CSSBattle.dev</a
-				>
-			</li>
-			<li><a href="{base}/specials/recharge">Recharge someone</a></li>
-			<li><a href="{base}/specials/talking">Talking / Dialog</a></li>
-			<li><a href="{base}/specials/today-i-learnt">Today I learnt</a></li>
-			<li><a href="{base}/specials/weirdle">Weirdle</a></li>
-		</ul>
-	</nav>
-</div>
-
-<style>
-	.navigation {
-		display: flex;
-		flex-flow: column;
-		font-family: var(--font-family-headline);
-		margin-bottom: 1em;
-	}
-	nav {
-		display: contents;
-	}
-	nav ul {
-		align-items: stretch;
-		display: flex;
-		flex: 1;
-		flex-flow: column nowrap;
-		gap: 0 0.5em;
-		justify-content: space-between;
-		max-width: var(--max-page-width);
-		padding: 0;
-	}
-	li {
-		position: relative;
-		display: inline-flex;
-		flex: 1;
-		isolation: isolate;
-		list-style-type: none;
-	}
-	a {
-		background: rgb(var(--color-primary));
-		color: #fff;
-		flex: 1;
-		padding: 0.5em 1em;
-		margin: 0;
-		text-decoration: none;
-	}
-	li::after {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 100%;
-		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
-		z-index: -1;
-	}
-	a:hover {
-		background: rgb(var(--color-primary-light));
-	}
-	input[type='checkbox'] {
-		display: none;
-	}
-	input[type='checkbox'] ~ nav {
-		display: none;
-	}
-	input[type='checkbox']:checked ~ nav {
-		display: flex;
-		flex-flow: column;
-	}
-	input[type='checkbox'] ~ label .closed {
-		display: none;
-	}
-	input[type='checkbox'] ~ label .opened {
-		display: inline;
-	}
-	input[type='checkbox']:checked ~ label .closed {
-		display: inline;
-	}
-	input[type='checkbox']:checked ~ label .opened {
-		display: none;
-	}
-	label {
-		background: rgb(var(--color-primary));
-		cursor: pointer;
-		color: #fff;
-		display: flex;
-		flex: 1;
-		isolation: isolate;
-		padding: 0.5em 1em;
-		position: relative;
-		text-decoration: none;
-	}
-	label:hover {
-		background: rgb(var(--color-primary-light));
-	}
-	label::before {
-		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
-		content: '';
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-	}
-</style>
+<BaseNavigation
+	menuItems={[
+		{ href: `${base}/specials/crafters-vs-codewars`, label: 'Crafters vs Codewars' },
+		{
+			href: `${base}/specials/frontend-friday-folks`,
+			label: 'Frontend Friday Folks fighting CSSBattle.dev'
+		},
+		{ href: `${base}/specials/recharge`, label: 'Recharge someone' },
+		{ href: `${base}/specials/talking`, label: 'Talking / Dialog' },
+		{ href: `${base}/specials/today-i-learnt`, label: 'Today I learnt' },
+		{ href: `${base}/specials/weirdle`, label: 'Weirdle' }
+	]}
+	variant="stretch"
+/>
