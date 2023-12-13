@@ -6,7 +6,7 @@
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
 	export let menuItems: (HTMLAnchorAttributes & { href: string; label: string })[];
-	export let variant: '' | 'stretch' = '';
+	export let variant: 'stretch' | undefined = undefined;
 
 	let navigationId = ++navigationCounter;
 	let isExpanded = false;
