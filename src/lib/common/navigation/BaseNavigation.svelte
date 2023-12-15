@@ -14,7 +14,7 @@
 
 <div class="flex flex-col mb-4">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
-	<label class="uppercase" for="navigation-menu-toggle-{navigationId}">
+	<label class="bg-primary hover:bg-primary-light uppercase" for="navigation-menu-toggle-{navigationId}">
 		<div class="menu-icon" />
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
@@ -70,7 +70,6 @@
 		display: none;
 	}
 	label {
-		background: rgba(73, 153, 66, 1);
 		cursor: pointer;
 		color: #fff;
 		display: flex;
@@ -79,9 +78,6 @@
 		padding: 0.5em 1em;
 		position: relative;
 		text-decoration: none;
-	}
-	label:hover {
-		background: rgba(101, 193, 96, 1);
 	}
 	label::before {
 		box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.7);
