@@ -10,20 +10,15 @@
 	<div slot="avatar" let:mode>
 		{#if mode === 'shutup'}🤐{:else}<img
 				src={narigo}
+				class="rounded-full max-h-4 max-w-4"
 				class:shout={mode === 'shout'}
 				alt={mode === 'talk' ? 'Narigo' : 'Narigo, shouting'}
 			/>{/if}
 	</div>
 </Bubble>
 
-<style>
-	img {
-		border-radius: 50%;
-		max-height: 1em;
-		max-width: 1em;
-	}
+<style lang="postcss">
 	.shout {
-		border: 2px solid #f00;
-		scale: 1.3;
+		@apply border-2 border-red-600 scale-125;
 	}
 </style>
