@@ -8,12 +8,12 @@
 			<h2>
 				<div class="icon">
 					📢
-					<div class="mirror-x">🗣️</div>
+					<div class="-scale-x-100">🗣️</div>
 				</div>
 				<div>{title}</div>
 				<div class="icon">
 					🗣️
-					<div class="mirror-x">📢</div>
+					<div class="-scale-x-100">📢</div>
 				</div>
 			</h2>
 		{/if}
@@ -35,10 +35,6 @@
 
 	h2 div {
 		display: inline-block;
-	}
-
-	.mirror-x {
-		scale: -1 1;
 	}
 
 	@keyframes announcement {
