@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			animation: {
-				announce: 'announce 2000ms infinite ease'
+				announce: 'announce 2000ms infinite ease',
+				shake: 'shake 100ms infinite alternate'
 			},
 			colors: {
 				primary: {
@@ -26,6 +27,20 @@ export default {
 					'75%': {
 						rotate: '2deg',
 						scale: 1.05
+					}
+				},
+				shake: {
+					'0%,100%': {
+						transform: 'translate(-2px, -1px)'
+					},
+					'20%,80%': {
+						transform: 'translate(1px, 2px)'
+					},
+					'40%': {
+						transform: 'translate(2px, 1px)'
+					},
+					'60%': {
+						transform: 'translate(-1px, -1px)'
 					}
 				}
 			}
