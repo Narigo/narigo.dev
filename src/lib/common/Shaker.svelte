@@ -3,7 +3,7 @@
 </script>
 
 <div class="contents" class:shakeit={shake}>
-	<slot {...{ ...$$props, class: shake ? 'shakeit' : '' }} />
+	<slot />
 </div>
 
 <style lang="postcss">
