@@ -3,23 +3,23 @@
 	import Navigation from '../navigation/Navigation.svelte';
 </script>
 
-<div class="page">
+<div class="page font-primary">
 	<header>
-		<div class="content">
+		<div class="mx-auto max-w-[--max-page-width] p-4 pb-0">
 			<Navigation />
 		</div>
 	</header>
-	<main>
-		<div class="content">
+	<main class="flex-1">
+		<div class="mx-auto max-w-[--max-page-width] p-4">
 			<slot />
 		</div>
 	</main>
-	<footer>
-		<div class="content">
-			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
+	<footer class="px-4 py-8">
+		<div class="flex flex-row flex-wrap gap-8 justify-between mx-auto max-w-[--max-page-width] p-4">
+			<div><a class="no-underline" href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
 			<div>Statically hosted on GitHub Pages.</div>
-			<div><a href="https://github.com/Narigo/narigo.dev" rel="external">Source</a></div>
+			<div><a class="no-underline" href="https://github.com/Narigo/narigo.dev" rel="external">Source</a></div>
 		</div>
 	</footer>
 </div>
@@ -54,37 +54,5 @@
 		letter-spacing: 0.5px;
 		min-height: 100%;
 		min-width: 100%;
-	}
-
-	.content {
-		margin: 0 auto;
-		max-width: var(--max-page-width);
-		padding: 1em;
-	}
-	header .content {
-		padding-bottom: 0;
-	}
-	main {
-		flex: 1;
-	}
-	footer {
-		padding: 2em 1em;
-		position: relative;
-	}
-	footer::before {
-		inset: 0;
-		position: absolute;
-		content: '';
-		box-shadow: 0 0 200px #0002;
-		z-index: -1;
-	}
-	footer .content {
-		display: flex;
-		flex-flow: row wrap;
-		gap: 2em;
-		justify-content: space-between;
-	}
-	footer a {
-		text-decoration: none;
 	}
 </style>
