@@ -25,7 +25,7 @@ config/      (optionally)
 </script>
 
 <ArticleLayout title="Pocuter One" lastUpdateOn="2023-06-01">
-	<p class="info">
+	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
 		Be aware, I'm going to continue writing and improving on this article. Maybe the parts I release
 		are already useful for someone.
 	</p>
@@ -166,7 +166,7 @@ config/      (optionally)
 		this, the Pocuter board should be included in the "boards manager". The boards manager is the
 		second item on the left side.
 	</p>
-	<img src={boardsManager} alt="The boards manager" />
+	<img class="block max-w-full" src={boardsManager} alt="The boards manager" />
 	<p>
 		As far as I understood it, you need the various boards to be able to actually compile code for
 		them. As soon as the board is there, writing an application and compiling it should work.
@@ -268,15 +268,3 @@ config/      (optionally)
 		card approach mentioned earlier.
 	</p>
 </ArticleLayout>
-
-<style>
-	.info {
-		background: #f002;
-		border: 1px solid #f00b;
-		padding: 1em;
-	}
-	img {
-		display: block;
-		max-width: 100%;
-	}
-</style>
