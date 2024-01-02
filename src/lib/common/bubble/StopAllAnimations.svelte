@@ -10,40 +10,8 @@
 	const stopAll = stopAllAnimations ?? context.finishAllAnimations;
 </script>
 
-<button transition:fade|global={{ duration: 500 }} on:click={() => stopAll()}
-	>Fast forward animations &gt;&gt;</button
+<button
+	class="animate-pulse-fast sticky top-0 right-0 bg-none hover:bg-black hover:bg-opacity-20 border-none cursor-pointer py-2 px-4 z-10 disabled:hover:bg-none disabled:hover:cursor-not-allowed"
+	transition:fade|global={{ duration: 500 }}
+	on:click={() => stopAll()}>Fast forward animations &gt;&gt;</button
 >
-
-<style>
-	button {
-		position: sticky;
-		top: 0;
-		right: 0;
-		background: none;
-		border: none;
-		cursor: pointer;
-		font: inherit;
-		padding: 0.5em 1em;
-		z-index: 1;
-		animation: pulse 1000ms ease-in-out 500ms infinite forwards;
-	}
-	button:hover {
-		background: rgba(0, 0, 0, 0.2);
-	}
-	button:disabled:hover {
-		background: none;
-		cursor: not-allowed;
-	}
-
-	@keyframes pulse {
-		0% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.25;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-</style>

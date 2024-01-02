@@ -5,6 +5,7 @@ export default {
 		extend: {
 			animation: {
 				announce: 'announce 2000ms infinite ease',
+				'pulse-fast': 'pulse 800ms cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				shake: 'shake 100ms infinite alternate'
 			},
 			colors: {
