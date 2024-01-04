@@ -9,6 +9,9 @@ export default {
 				shake: 'shake 100ms infinite alternate'
 			},
 			colors: {
+				body: {
+					DEFAULT: 'rgb(0 0 0 / <alpha-value>)'
+				},
 				primary: {
 					light: 'rgb(var(--color-primary-light) / <alpha-value>)',
 					DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',

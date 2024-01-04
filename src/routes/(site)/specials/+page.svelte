@@ -68,14 +68,22 @@
 			There are some projects I've created that I want to highlight. I had a real need for these at
 			some point in time and I'm pretty happy I can share some of them today.
 		</Narigo>
-		<ul>
-			<li on:mouseenter={setRandomColorOnHover} style="--color-random:{getRandomColor()};">
-				<a href="https://github.com/Narigo/keepass-diff" rel="external">
+		<ul class="m-0 p-0 list-none">
+			<li
+				class="m-0 p-0 list-none"
+				on:mouseenter={setRandomColorOnHover}
+				style="--color-random:{getRandomColor()};"
+			>
+				<a
+					class="text-body no-underline after:[&&]:[background:none]"
+					href="https://github.com/Narigo/keepass-diff"
+					rel="external"
+				>
 					<Panel classes="panellink" textBgColor="#d22c">
 						<div slot="text">
 							After finding multiple binary files in my cloud storage that couldn't sync...
 						</div>
-						<div class="panel">
+						<div class="panel p-2">
 							<Bubble side="right"
 								>Shoot, my keepass database on Nextcloud created a synch file when I changed it on
 								multiple devices!</Bubble
@@ -85,11 +93,19 @@
 					</Panel>
 				</a>
 			</li>
-			<li on:mouseenter={setRandomColorOnHover} style="--color-random:{getRandomColor()};">
-				<a href="https://github.com/Narigo/reimemonster" rel="external">
+			<li
+				class="m-0 p-0 list-none"
+				on:mouseenter={setRandomColorOnHover}
+				style="--color-random:{getRandomColor()};"
+			>
+				<a
+					class="text-body no-underline after:[&&]:[background:none]"
+					href="https://github.com/Narigo/reimemonster"
+					rel="external"
+				>
 					<Panel classes="panellink" textBgColor="#dd2c" textColor="#000">
 						<div slot="text">While working on a poem for a birthday</div>
-						<div class="panel">
+						<div class="panel p-2">
 							<Bubble side="right"
 								>I want to create poems and need words that rhyme. I'd like to have hints that the
 								flow / meter works out as well. Is there a tool for this?</Bubble
@@ -102,11 +118,19 @@
 					</Panel>
 				</a>
 			</li>
-			<li on:mouseenter={setRandomColorOnHover} style="--color-random:{getRandomColor()};">
-				<a href="https://github.com/Narigo/dripping-spray" rel="external">
+			<li
+				class="m-0 p-0 list-none"
+				on:mouseenter={setRandomColorOnHover}
+				style="--color-random:{getRandomColor()};"
+			>
+				<a
+					class="text-body no-underline after:[&&]:[background:none]"
+					href="https://github.com/Narigo/dripping-spray"
+					rel="external"
+				>
 					<Panel classes="panellink">
 						<div slot="text">Frustrations with unrealistic spray cans...</div>
-						<div class="panel">
+						<div class="panel p-2">
 							<Bubble side="right"
 								>All the painting tools have an unrealistic spray can brush. It never creates drops
 								when spraying on the same spot or it generates the same one over and over again.</Bubble
@@ -123,22 +147,8 @@
 </PageLayout>
 
 <style lang="postcss">
-	ul,
-	li {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	ul > li > a {
-		color: var(--color-text);
-		text-decoration: none;
-	}
-	ul > li > a::after {
-		background: none;
-	}
 	.panel {
 		background: linear-gradient(rgba(255, 255, 255, 0), rgba(var(--color-random), 0.15));
-		padding: 0.5rem;
 	}
 	:global(.panellink):hover {
 		box-shadow: var(--nd-box-shadow);
