@@ -75,7 +75,7 @@
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
-					class="text-body no-underline after:[&&]:[background:none]"
+					class="text-body hover:text-body no-underline after:[&&]:[background:none]"
 					href="https://github.com/Narigo/keepass-diff"
 					rel="external"
 				>
@@ -99,7 +99,7 @@
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
-					class="text-body no-underline after:[&&]:[background:none]"
+					class="text-body hover:text-body no-underline after:[&&]:[background:none]"
 					href="https://github.com/Narigo/reimemonster"
 					rel="external"
 				>
@@ -124,7 +124,7 @@
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
-					class="text-body no-underline after:[&&]:[background:none]"
+					class="text-body hover:text-body no-underline after:[&&]:[background:none]"
 					href="https://github.com/Narigo/dripping-spray"
 					rel="external"
 				>
