@@ -12,7 +12,7 @@
 		whenever I find something worth to log. Most of this will be around web development, but I don't
 		want to limit myself to that. Let's see where this leads to.
 	</Narigo>
-	<ul>
+	<ul class="grid gap-4 m-0 p-0">
 		<li>
 			<h3>Drawing with linear gradients</h3>
 			<p>
@@ -130,13 +130,6 @@
 </PageLayout>
 
 <style>
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: grid;
-		gap: 1em;
-	}
 	h3 {
 		display: inline;
 		-moz-box-decoration-break: clone;
