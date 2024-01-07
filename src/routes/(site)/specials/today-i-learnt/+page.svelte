@@ -129,15 +129,11 @@
 	</ul>
 </PageLayout>
 
-<style>
+<style lang="postcss">
 	h3 {
-		display: inline;
-		-moz-box-decoration-break: clone;
-		-webkit-box-decoration-break: clone;
-		box-decoration-break: clone;
-		position: relative;
-		line-height: 1.75em;
-		padding: 0.25em 1em;
-		text-indent: 5em;
+		@apply inline box-decoration-clone relative py-1 px-4 leading-7;
+	}
+	h3 + p {
+		@apply mt-2;
 	}
 </style>
