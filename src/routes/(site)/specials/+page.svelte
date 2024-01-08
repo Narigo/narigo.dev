@@ -151,6 +151,6 @@
 		background: linear-gradient(rgba(255, 255, 255, 0), rgba(var(--color-random), 0.15));
 	}
 	:global(.panellink):hover {
-		box-shadow: var(--nd-box-shadow);
+		@apply shadow-box;
 	}
 </style>

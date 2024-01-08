@@ -18,6 +18,9 @@ export default {
 					dark: 'rgb(var(--color-primary-dark) / <alpha-value>)'
 				}
 			},
+			boxShadow: {
+				box: '0.25rem 0.25rem 0 #555'
+			},
 			keyframes: {
 				announce: {
 					'0%, 50%, 100%': {
