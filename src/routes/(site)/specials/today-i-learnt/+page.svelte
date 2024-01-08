@@ -106,15 +106,15 @@
 		<li>
 			<h3>Svelte layout resets reset server side as well</h3>
 			<p>
-				If you use a <code>+layout@.svelte</code> somewhere, it resets the
-				<code>+layout.server.ts</code> as well. Need to be aware of that, that this is done
-				implicitly and doesn't need a separate <code>+layout@.server.ts</code>.
+				If you use a <Code>+layout@.svelte</Code> somewhere, it resets the
+				<Code>+layout.server.ts</Code> as well. Need to be aware of that, that this is done
+				implicitly and doesn't need a separate <Code>+layout@.server.ts</Code>.
 			</p>
 		</li>
 		<li>
 			<h3>CSS border-radius "from" and "to" can be styled</h3>
 			<p>
-				Using <code>border-radius</code> with <code>/</code> allows setting its horizontal and vertical
+				Using <Code>border-radius</Code> with <Code>/</Code> allows setting its horizontal and vertical
 				values differently to each other. So a corner does not need to be symmetrical.
 			</p>
 		</li>
