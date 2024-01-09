@@ -11,7 +11,7 @@
 	</p>
 	<ul>
 		<li>
-			<a href="{base}/talks/static-pages-with-dynamic-content"
+			<a href="{base}/talks/static-pages-with-dynamic-content" rel="external"
 				>Static pages with "dynamic" content</a
 			>
 			-

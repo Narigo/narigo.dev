@@ -4,6 +4,7 @@
 	import Intro from './Intro.svelte';
 	import SvelteKit from './SvelteKit.svelte';
 	import Code from '$lib/common/Code.svelte';
+	import { base } from '$app/paths';
 
 	const getReveal = getContext<() => RevealJs.Api>('Reveal');
 	const Reveal = getReveal();
@@ -207,6 +208,7 @@
 	</p>
 	<p>GitHub: @Narigo</p>
 	<p>Twitter: @NarigoDF</p>
+	<p>Homepage: <a href="{base}/" rel="external">https://narigo.dev/</a></p>
 </section>
 
 <style>
