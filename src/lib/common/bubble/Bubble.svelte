@@ -36,7 +36,7 @@
 {#if $show}
 	<Shaker shake={modes[mode] === 'shout'}>
 		<div
-			class="wrap"
+			class="relative min-h-12 rotate-[--angle]"
 			class:shutup={modes[mode] === 'shutup'}
 			class:left={side === 'left'}
 			class:right={side === 'right'}
@@ -59,11 +59,6 @@
 {/if}
 
 <style>
-	.wrap {
-		position: relative;
-		min-height: 3em;
-		transform: rotate(var(--angle));
-	}
 	.bubble {
 		position: relative;
 		background: #fff;
