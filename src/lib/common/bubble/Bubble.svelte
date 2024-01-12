@@ -43,7 +43,12 @@
 			style="--angle: {angle}deg; --x: {translateX}px;"
 		>
 			{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
-				<div class="bubble" transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration }}>
+				<div
+					class="bubble relative bg-white border-2 border-black text-base leading-8 my-2 mx-auto p-2 max-w-max translate-x-[--x] rounded-lg"
+					class:ml-8={side === 'left'}
+					class:mr-8={side === 'right'}
+					transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration }}
+				>
 					<div class="content">
 						<slot />
 					</div>
@@ -59,29 +64,11 @@
 {/if}
 
 <style>
-	.bubble {
-		position: relative;
-		background: #fff;
-		border-radius: 0.5rem;
-		border: 2px solid #000;
-		font-size: 1em;
-		line-height: 2em;
-		margin: 0.5em auto;
-		max-width: max-content;
-		padding: 0.5em;
-		transform: translateX(var(--x));
-	}
 	.content :global(:first-child) {
 		margin-top: 0;
 	}
 	.content :global(:last-child) {
 		margin-bottom: 0;
-	}
-	.left .bubble {
-		margin-left: 2em;
-	}
-	.right .bubble {
-		margin-right: 2em;
 	}
 	.bubble::before {
 		position: absolute;
