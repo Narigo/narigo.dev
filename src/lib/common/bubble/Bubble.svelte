@@ -54,7 +54,10 @@
 					</div>
 				</div>
 			{/if}
-			<button class="avatar" on:click|preventDefault={toggleTalking}>
+			<button
+				class="avatar absolute bg-transparent border-none bottom-3 cursor-pointer text-base"
+				on:click|preventDefault={toggleTalking}
+			>
 				<slot name="avatar" mode={modes[mode]}>
 					{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 				</slot>
@@ -92,14 +95,6 @@
 		transform: scaleX(-1) rotate(225deg);
 		bottom: 0.8em;
 		right: -0.5em;
-	}
-	.avatar {
-		position: absolute;
-		background: transparent;
-		border: none;
-		bottom: 0.8em;
-		cursor: pointer;
-		font-size: 1em;
 	}
 	.left .avatar {
 		left: 0;
