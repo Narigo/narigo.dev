@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Ornaments from './Ornaments.svelte';
 </script>
 
 <PageLayout>
@@ -11,4 +12,5 @@
 			>Codepen hanging ornaments on a christmas tree</a
 		>.
 	</Narigo>
+	<Ornaments />
 </PageLayout>
