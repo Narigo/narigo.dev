@@ -66,6 +66,7 @@
 <div bind:this={body} class="relative">
 	<svg
 		bind:this={svg}
+		class="max-w-full"
 		version="1.1"
 		viewBox="0 0 1000 600"
 		width="1000"
