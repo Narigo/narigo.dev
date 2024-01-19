@@ -10,7 +10,7 @@
 			href: `${base}/specials/frontend-friday-folks`,
 			label: 'Frontend Friday Folks fighting CSSBattle.dev'
 		},
-		{ href: `${base}/specials/ornaments`, label: 'Hang some ornaments' },
+		{ href: `${base}/specials/ornaments`, label: 'Hang some ornaments on a tree' },
 		{ href: `${base}/specials/recharge`, label: 'Recharge someone' },
 		{ href: `${base}/specials/talking`, label: 'Talking / Dialog' },
 		{ href: `${base}/specials/today-i-learnt`, label: 'Today I learnt' },
