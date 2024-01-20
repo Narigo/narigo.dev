@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -59,8 +60,9 @@
 	<Puzzle title="Puzzle 78 solution" {solution} />
 	<Narigo>
 		There is a small overlap of the shaft to the body part. I used negative margins here to make it
-		appear bigger and had to use z-index to put the body on top of it. I think reversing the order
-		of the grid divs would have worked as well, but I didn't test it because z-index seemed like a
-		simple fix.
+		appear bigger and had to use <Code>z-index</Code> to put the body on top of it. I think reversing
+		the order of the grid divs would have worked as well, but I didn't test it because <Code
+			>z-index</Code
+		> seemed like a simple fix.
 	</Narigo>
 </PuzzlePageLayout>
