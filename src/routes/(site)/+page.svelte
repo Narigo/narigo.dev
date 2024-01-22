@@ -42,7 +42,12 @@
 					href="https://github.com/compose-us/build-in-public/"
 					rel="external noopener noreferrer"
 					target="_blank">building in public</a
-				>, so if you have feedback to our idea and implementation: Please let me know!
+				>, so if you have feedback to our idea and
+				<a
+					href="https://github.com/compose-us/flottform/"
+					rel="external noopener noreferrer"
+					target="_blank">implementation</a
+				>: Please let me know!
 			</p>
 		</Narigo>
 		<Narigo>
