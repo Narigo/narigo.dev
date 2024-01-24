@@ -2,7 +2,7 @@
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<ArticleLayout title="JSCC23" lastUpdateOn="2023-08-20">
+<ArticleLayout title="JSCC23" lastUpdateOn="2024-01-24">
 	<p>
 		It's done! The JavaScript CraftCamp 2023 is over. I'm happy I got the chance to help organizing
 		the event.
@@ -60,4 +60,11 @@
 		people to register and unregister was quite a big time investment for myself.
 	</p>
 	<p>I'd be happy to hear ideas from the community about this!</p>
+	<h3>Community building</h3>
+	<p>
+		For myself, I think being more engaged in the Discord and organize remote events after the event
+		itself would be nice. I imagine some of the new Discord members can feel lost, since there were
+		weren't a lot of community events since the JSCraftCamp. We collected some ideas but we did not
+		have someone to execute them. In the coming months, I hope I can invest more time into this.
+	</p>
 </ArticleLayout>
