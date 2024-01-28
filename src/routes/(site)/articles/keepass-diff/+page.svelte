@@ -24,7 +24,10 @@
 	</p>
 	<p>
 		As I'm a software engineer, I figured out that I should probably write something that helps me
-		with this task. And I wanted to check out the Rust programming language for a while.
+		with this task. And I wanted to check out the <a
+			href="https://www.rust-lang.org/"
+			rel="external">Rust programming language</a
+		> for a while.
 	</p>
 	<h2>How does it work?</h2>
 	<h2>Check it out</h2>
