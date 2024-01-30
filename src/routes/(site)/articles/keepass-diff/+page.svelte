@@ -32,6 +32,17 @@
 			>Rust programming language</a
 		> for a while. What a great excuse to learn something new!
 	</p>
+
 	<h2>How does it work?</h2>
+	<p></p>
+
+	<h2>Roadmap</h2>
+	<p></p>
+
 	<h2>Check it out</h2>
+	<p>
+		The source code is available on <a href="https://github.com/Narigo/keepass-diff" rel="external"
+			>github.com/Narigo/keepass-diff/</a
+		>.
+	</p>
 </ArticleLayout>
