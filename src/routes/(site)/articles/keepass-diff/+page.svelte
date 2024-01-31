@@ -37,7 +37,11 @@
 	<p></p>
 
 	<h2>Roadmap</h2>
-	<p></p>
+	<p>There are a couple of open points I want to work on.</p>
+	<ul>
+		<li>Automated releases</li>
+		<li>Improve testing</li>
+	</ul>
 
 	<h2>Check it out</h2>
 	<p>
