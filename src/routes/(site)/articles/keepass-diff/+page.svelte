@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
@@ -38,10 +39,27 @@
 
 	<h2>Roadmap</h2>
 	<p>There are a couple of open points I want to work on.</p>
-	<ul>
-		<li>Automated releases</li>
-		<li>Improve testing</li>
-	</ul>
+
+	<h3>Automated releases</h3>
+	<p>
+		In the beginning, I thought it's good to let people read the code and have to install the tool
+		manually through <Code>cargo install</Code>. I didn't want people to use this on their secrets
+		without knowing what it does. So to be able to use this, you did have to check out the code
+		first.
+	</p>
+	<p>
+		My opinion on this changed, after receiving feedback from users who desperately needed a tool
+		like this but weren't able to use it. Having to install Rust first, getting everything to run on
+		their device is not really straight forward if you have never done this. I understand that
+		people may not have time for this. And before having those rely on someone else to build a
+		version for them and let them download a binary from some other, unofficial site which may
+		contain something else... it's probably better to provide an official release for the various
+		platforms.
+	</p>
+	<p>Creating releases could be handled automatically through GitHub actions.</p>
+
+	<h3>Improve testing</h3>
+	<p></p>
 
 	<h2>Check it out</h2>
 	<p>
