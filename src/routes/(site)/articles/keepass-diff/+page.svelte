@@ -59,7 +59,16 @@
 	<p>Creating releases could be handled automatically through GitHub actions.</p>
 
 	<h3>Improve testing</h3>
-	<p></p>
+	<p>
+		Currently, there are a few end-to-end tests by checking the output of commands. The only real
+		unit tests are written for a custom Stack implementation. That implementation can probably be
+		switched out by using some built-in Rust data structure that I didn't know about.
+	</p>
+	<p>
+		I think there could be unit tests for the diff algorithm containing all relevant information
+		that shows up in the representation in the end, like intendation and whether it's left or right
+		side.
+	</p>
 
 	<h2>Check it out</h2>
 	<p>
