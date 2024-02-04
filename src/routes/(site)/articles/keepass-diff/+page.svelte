@@ -75,6 +75,17 @@
 		suspect there are test runners for Rust that may help here.
 	</p>
 
+	<h3>Overall code quality</h3>
+	<p>
+		When I started this project, there were no contributors and I didn't know anyone using Rust who
+		I could ask for reviews. I even put an invite in the README.md file to give me feedback on the
+		code. Since the inception of the project, there have been a few contributions that helped
+		improve the code and made me aware of how things could be done differently. They mainly allowed
+		everyone to better understand the intention of something and didn't hide it in weird conversions
+		because I didn't know how to implement something and tested various ways until I found one that
+		worked.
+	</p>
+
 	<h2>Check it out</h2>
 	<p>
 		The source code is available on <a href="https://github.com/Narigo/keepass-diff" rel="external"
