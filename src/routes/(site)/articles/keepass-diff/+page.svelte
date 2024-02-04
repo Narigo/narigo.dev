@@ -69,6 +69,11 @@
 		that shows up in the representation in the end, like intendation and whether it's left or right
 		side.
 	</p>
+	<p>
+		The current end-to-end tests are pretty slow as well. Using snapshot testing is always a bit
+		tricky and while the current setup works, I'm pretty sure this workflow could be improved. I
+		suspect there are test runners for Rust that may help here.
+	</p>
 
 	<h2>Check it out</h2>
 	<p>
