@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import Code from '$lib/common/Code.svelte';
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
+	import screencast from './keepass-diff-screencast.gif';
 </script>
 
 <ArticleLayout title="keepass-diff" lastUpdateOn="2024-01-25">
@@ -9,12 +10,13 @@
 			>keepass-diff, to diff two Keepass databases (.kdbx) files</a
 		>.
 	</p>
+
 	<h2>Motivation</h2>
 	<p>
 		The first real password manager I've used was <a href="https://keepass.info/" rel="external"
 			>KeePass</a
 		>. Sharing databases with others happened through
-		<a href="https://owncloud.com/" rel="external"> OwnCloud</a>
+		<a href="https://owncloud.com/" rel="external">OwnCloud</a>
 		/ <a href="https://nextcloud.com/" rel="external">NextCloud</a> instances and .kdbx files. When I
 		started using it for my own passwords, I could sync my database with multiple devices in a similar
 		fashion using NextCloud.
@@ -29,13 +31,23 @@
 	</p>
 	<p>
 		As I'm a software engineer, I wanted to write something that helps me with this task. And I
-		wanted to check out the <a href="https://www.rust-lang.org/" rel="external"
+		wanted to check out the <a href="https://www.rust-lang.org/" rel="external noopener noreferrer"
 			>Rust programming language</a
 		> for a while. What a great excuse to learn something new!
 	</p>
 
 	<h2>How does it work?</h2>
-	<p></p>
+	<p>
+		Leveraging the <a
+			href="https://github.com/sseemayer/keepass-rs/"
+			rel="external noopener noreferrer">underlying keepass-rs library</a
+		>, it reads two files and asks for their passwords. It checks for differences and shows them as
+		output. Here is a short screencast I've recorded a while ago and put on the
+		<a href="https://keepass-diff.narigo.dev/" rel="external noopener noreferrer"
+			>keepass-diff documentation page</a
+		>:
+	</p>
+	<img src={screencast} alt="Screencast of how keepass-diff is being used" />
 
 	<h2>Roadmap</h2>
 	<p>There are a couple of open points I want to work on.</p>
