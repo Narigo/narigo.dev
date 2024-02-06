@@ -15,6 +15,8 @@
 		{#if lastUpdateOn}
 			<div class="text-xs opacity-70">Last update on <span>{lastUpdateOn}</span></div>
 		{/if}
-		<slot />
+		<div class="prose prose-headings:text-white">
+			<slot />
+		</div>
 	</article>
 </PageLayout>

@@ -6,8 +6,9 @@
 <PageLayout>
 	<h2>Articles</h2>
 	<p>
-		I only have one for now: <a href="{base}/articles/pocuter-one"
-			>My experience with the pocuter one</a
-		>.
+		Read about <a href="{base}/articles/pocuter-one">my experience with the pocuter one</a>.
+	</p>
+	<p>
+		Read about <a href="{base}/articles/keepass-diff">the keepass-diff CLI tool written in Rust</a>.
 	</p>
 </PageLayout>
