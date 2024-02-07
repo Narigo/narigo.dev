@@ -13,13 +13,14 @@
 
 	<h2>Motivation</h2>
 	<p>
-		The first real password manager I've used was <a href="https://keepass.info/" rel="external"
-			>KeePass</a
+		The first real password manager I've used was <a
+			href="https://keepass.info/"
+			rel="external noopener noreferrer">KeePass</a
 		>. Sharing databases with others happened through
-		<a href="https://owncloud.com/" rel="external">OwnCloud</a>
-		/ <a href="https://nextcloud.com/" rel="external">NextCloud</a> instances and .kdbx files. When I
-		started using it for my own passwords, I could sync my database with multiple devices in a similar
-		fashion using NextCloud.
+		<a href="https://owncloud.com/" rel="external noopener noreferrer">OwnCloud</a>
+		/ <a href="https://nextcloud.com/" rel="external noopener noreferrer">NextCloud</a> instances and
+		.kdbx files. When I started using it for my own passwords, I could sync my database with multiple
+		devices in a similar fashion using NextCloud.
 	</p>
 	<p>
 		At some point in time, you may forget closing the database on one machine and still use it to
