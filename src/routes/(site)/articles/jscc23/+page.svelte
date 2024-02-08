@@ -2,7 +2,7 @@
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<ArticleLayout title="JSCC23" lastUpdateOn="2024-01-24">
+<ArticleLayout title="JavaScript CraftCamp 2023 - #JSCC23" lastUpdateOn="2024-02-08">
 	<p>
 		It's done! The JavaScript CraftCamp 2023 is over. I'm happy I got the chance to help organizing
 		the event.
@@ -14,6 +14,7 @@
 		things were organized "on the fly", like having enough BBQ grills. And some stuff just worked
 		out by chance shortly before the event - like having Friday's breakfast sponsored.
 	</p>
+
 	<h2>What went well</h2>
 	<p>
 		When organizing such an event, I'm focused more on the things that did not work out so well.
@@ -21,6 +22,7 @@
 		they'll join again next time and the community discord was very active and attracted quite a few
 		new members - even after the event!
 	</p>
+
 	<h2>Things we can improve</h2>
 	<p>
 		We have written down a couple of <a
@@ -43,6 +45,7 @@
 			the start of the day) and maybe session hosts can moderate if necessary
 		</li>
 	</ul>
+
 	<h3>Registration process</h3>
 	<p>
 		The general feedback for the PR was usually that it's too time consuming and difficult. I have
@@ -60,11 +63,18 @@
 		people to register and unregister was quite a big time investment for myself.
 	</p>
 	<p>I'd be happy to hear ideas from the community about this!</p>
+
 	<h3>Community building</h3>
 	<p>
 		For myself, I think being more engaged in the Discord and organize remote events after the event
 		itself would be nice. I imagine some of the new Discord members can feel lost, since there were
 		weren't a lot of community events since the JSCraftCamp. We collected some ideas but we did not
 		have someone to execute them. In the coming months, I hope I can invest more time into this.
+	</p>
+
+	<h2>What's next?</h2>
+	<p>
+		It's 2024 now, we recently started conducting our weekly orga calls again. Let's find a
+		location, sponsors and meet in June / July again!
 	</p>
 </ArticleLayout>
