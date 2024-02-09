@@ -11,4 +11,7 @@
 	<p>
 		Read about <a href="{base}/articles/keepass-diff">the keepass-diff CLI tool written in Rust</a>.
 	</p>
+	<p>
+		I have written <a href="{base}/articles/jscc23">some thoughts about JSCraftCamp 2023</a>.
+	</p>
 </PageLayout>
