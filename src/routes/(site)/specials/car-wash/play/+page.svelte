@@ -9,7 +9,7 @@
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
 	let image = randomImage();
 
-	let currentStep: 'start' | 'dirty' | 'cleaning' | 'drying' | 'done' = 'start';
+	let currentStep: 'start' | 'dirty' | 'cleaning' | 'shower' | 'drying' | 'done' = 'start';
 	const nextStep = () => {
 		switch (currentStep) {
 			case 'start':
@@ -20,6 +20,9 @@
 				currentStep = 'cleaning';
 				break;
 			case 'cleaning':
+				currentStep = 'shower';
+				break;
+			case 'shower':
 				currentStep = 'drying';
 				break;
 			case 'drying':
@@ -40,7 +43,7 @@
 		<div
 			class="mitter back absolute grid h-full w-full"
 			class:moving={currentStep === 'cleaning'}
-			class:rotating={['cleaning', 'drying'].includes(currentStep)}
+			class:rotating={currentStep === 'cleaning'}
 		>
 			<div class="absolute right-8 top-[5%] h-[90%] w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
@@ -54,6 +57,9 @@
 					></div>
 				{/each}
 			</div>
+		</div>
+		<div class="shower absolute h-full w-full" class:enabled={currentStep === 'shower'}>
+			<div class="absolute w-full h-4 bottom-0"></div>
 		</div>
 		<div
 			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-blue-500 [&_svg_.darker]:fill-blue-800 [&_svg_.lighter]:fill-blue-300 {[
@@ -69,7 +75,7 @@
 		<div
 			class="mitter front absolute grid h-full w-full"
 			class:moving={currentStep === 'cleaning'}
-			class:rotating={['cleaning', 'drying'].includes(currentStep)}
+			class:rotating={currentStep === 'cleaning'}
 		>
 			<div class="absolute right-4 top-0 h-full w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
@@ -94,10 +100,10 @@
 		transition: transform 2000ms;
 	}
 	.moving {
-		transform: translate(calc(-100% + 6rem + 2rem));
+		animation: moveMitterCurtains 3000ms forwards;
 	}
 	.back.moving {
-		transform: translate(calc(-100% + 6rem + 4rem));
+		--padding: 4rem;
 	}
 	.finger {
 		transform-origin: 50% 0;
@@ -108,6 +114,63 @@
 	}
 	.mitter.rotating > div {
 		animation: rotateCurtain 500ms infinite linear;
+	}
+	.shower {
+		--rain-color: hsl(199, 89%, 75%);
+		background:
+			radial-gradient(circle, gray 2px, transparent 0) 0 0 / 20px 20px repeat-x,
+			radial-gradient(circle, gray 2px, transparent 0) 10px 10px / 20px 20px repeat-x;
+	}
+	.shower.enabled > div {
+		animation: showerAnimationBottom 5000ms forwards linear;
+		background: radial-gradient(var(--rain-color) 25%, transparent 25%) 0 100% / 0 0 no-repeat;
+	}
+	.shower.enabled {
+		background:
+			radial-gradient(circle, gray 2px, transparent 0) 0 0 / 20px 20px repeat-x,
+			radial-gradient(circle, gray 2px, transparent 0) 10px 10px / 20px 20px repeat-x;
+	}
+	.shower.enabled::after {
+		animation: showerAnimation 400ms infinite linear;
+		content: '';
+		position: absolute;
+		inset: 10px 0 0 0;
+		background:
+			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 0 0 / 20px 20px,
+			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
+	}
+	@keyframes showerAnimationBottom {
+		0% {
+			background-position: 50% 50%;
+			background-size: 0 0;
+		}
+		100% {
+			background-position: 50% 50%;
+			background-size: 600% 2rem;
+		}
+	}
+	@keyframes showerAnimation {
+		0% {
+			background-position:
+				10px 0,
+				0 0;
+		}
+		100% {
+			background-position:
+				10px 80px,
+				0px 120px;
+		}
+	}
+	@keyframes moveMitterCurtains {
+		0% {
+			transform: translate(0);
+		}
+		50% {
+			transform: translate(calc(-100% + 6rem + var(--padding, 2rem)));
+		}
+		100% {
+			transform: translate(0);
+		}
 	}
 	@keyframes rotateCurtain {
 		0% {
