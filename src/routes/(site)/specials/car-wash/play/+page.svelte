@@ -124,6 +124,8 @@
 	.shower.enabled > div {
 		animation: showerAnimationBottom 5000ms forwards linear;
 		background: radial-gradient(var(--rain-color) 25%, transparent 25%) 0 100% / 0 0 no-repeat;
+		background-position: 50% 50%;
+		background-size: 0 0;
 	}
 	.shower.enabled {
 		background:
@@ -140,11 +142,7 @@
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
 	}
 	@keyframes showerAnimationBottom {
-		0% {
-			background-position: 50% 50%;
-			background-size: 0 0;
-		}
-		100% {
+		to {
 			background-position: 50% 50%;
 			background-size: 600% 2rem;
 		}
