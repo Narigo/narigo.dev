@@ -127,6 +127,10 @@
 		background-position: 50% 50%;
 		background-size: 0 0;
 	}
+	.drying .shower > div {
+		animation: showerAnimationBottomDrying 20000ms forwards linear;
+		background: radial-gradient(var(--rain-color) 25%, transparent 25%);
+	}
 	.shower.enabled {
 		background:
 			radial-gradient(circle, gray 2px, transparent 0) 0 0 / 20px 20px repeat-x,
@@ -140,6 +144,12 @@
 		background:
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 0 0 / 20px 20px,
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
+	}
+	@keyframes showerAnimationBottomDrying {
+		to {
+			background-position: 50% 50%;
+			background-size: 0 0;
+		}
 	}
 	@keyframes showerAnimationBottom {
 		to {
