@@ -1,0 +1,21 @@
+<svg width="400" height="175" viewBox="0 0 400 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="dirtGradient" transform-origin=".5 .5" gradientTransform="rotate(100)">
+            <stop offset="0%" stop-color="transparent" />
+            <stop offset="90%" stop-color="brown" />
+        </linearGradient>
+        <clipPath id="body">
+            <path d="M270 0H100L0 70V140H400V70H330Z" />
+        </clipPath>
+    </defs>
+    <g class="body">
+        <path d="M270 0H100L0 70V140H400V70H330Z" />
+    </g>
+    <g clip-path="url(#body)">
+        <rect class="dirt" x="0" y="0" width="400" height="175" fill="url(#dirtGradient)" />
+    </g>
+    <g class="wheels">
+        <circle cx="65" cy="140" r="35" fill="black" />
+        <circle cx="335" cy="140" r="35" fill="black" />
+    </g>
+</svg>
