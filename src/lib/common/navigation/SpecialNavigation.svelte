@@ -5,6 +5,7 @@
 
 <BaseNavigation
 	menuItems={[
+		{ href: `${base}/specials/car-wash`, label: 'Car Wash' },
 		{ href: `${base}/specials/crafters-vs-codewars`, label: 'Crafters vs Codewars' },
 		{
 			href: `${base}/specials/frontend-friday-folks`,
