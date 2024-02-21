@@ -12,7 +12,24 @@
 			colors.blue,
 			colors.cyan,
 			colors.emerald,
-			colors.fuchsia
+			colors.fuchsia,
+			colors.gray,
+			colors.green,
+			colors.indigo,
+			colors.lime,
+			colors.neutral,
+			colors.orange,
+			colors.pink,
+			colors.purple,
+			colors.red,
+			colors.rose,
+			colors.sky,
+			colors.slate,
+			colors.stone,
+			colors.teal,
+			colors.violet,
+			colors.yellow,
+			colors.zinc
 		];
 		const randomColor = colorsWithShades[Math.floor(Math.random() * colorsWithShades.length)];
 		return {
