@@ -1,19 +1,39 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import colors from 'tailwindcss/colors';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 	const images = data.images;
-
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
+	const setCarColors = () => {
+		const colorsWithShades = [
+			colors.amber,
+			colors.blue,
+			colors.cyan,
+			colors.emerald,
+			colors.fuchsia
+		];
+		const randomColor = colorsWithShades[Math.floor(Math.random() * colorsWithShades.length)];
+		return {
+			carColor300: randomColor[300],
+			carColor500: randomColor[500],
+			carColor800: randomColor[800]
+		};
+	};
 	let image = randomImage();
+	let { carColor300, carColor500, carColor800 } = setCarColors();
 
 	let currentStep: 'start' | 'dirty' | 'cleaning' | 'shower' | 'drying' | 'done' = 'start';
 	const nextStep = () => {
 		switch (currentStep) {
 			case 'start':
 				image = randomImage();
+				const randomColor = setCarColors();
+				console.log(randomColor);
+				carColor300 = randomColor.carColor300;
+				carColor500 = randomColor.carColor500;
+				carColor800 = randomColor.carColor800;
 				currentStep = 'dirty';
 				break;
 			case 'dirty':
@@ -39,7 +59,10 @@
 </script>
 
 <PageLayout>
-	<section class="aspect-video relative grid overflow-clip {currentStep}">
+	<section
+		class="aspect-video relative grid overflow-clip {currentStep}"
+		style="--car-color-300: {carColor300};--car-color-500: {carColor500};--car-color-800: {carColor800}"
+	>
 		<div
 			class="mitter back absolute grid h-full w-full"
 			class:moving={currentStep === 'cleaning'}
@@ -62,7 +85,7 @@
 			<div class="absolute w-full h-4 bottom-0"></div>
 		</div>
 		<div
-			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-blue-500 [&_svg_.darker]:fill-blue-800 [&_svg_.lighter]:fill-blue-300 {[
+			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
 				'start',
 				'dirty',
 				'cleaning'
