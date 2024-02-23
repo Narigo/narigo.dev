@@ -7,30 +7,17 @@
 	const images = data.images;
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
 	const setCarColors = () => {
-		const colorsWithShades = [
-			colors.amber,
-			colors.blue,
-			colors.cyan,
-			colors.emerald,
-			colors.fuchsia,
-			colors.gray,
-			colors.green,
-			colors.indigo,
-			colors.lime,
-			colors.neutral,
-			colors.orange,
-			colors.pink,
-			colors.purple,
-			colors.red,
-			colors.rose,
-			colors.sky,
-			colors.slate,
-			colors.stone,
-			colors.teal,
-			colors.violet,
-			colors.yellow,
-			colors.zinc
-		];
+		const colorsWithShades = Object.entries(colors).flatMap(([name, values]) => {
+			const isDeprecatedColor = [
+				'blueGray',
+				'coolGray',
+				'lightBlue',
+				'trueGray',
+				'warmGray'
+			].includes(name);
+			const hasNecessaryShades = values[300] && values[500] && values[800];
+			return !isDeprecatedColor && hasNecessaryShades ? [values] : [];
+		});
 		const randomColor = colorsWithShades[Math.floor(Math.random() * colorsWithShades.length)];
 		return {
 			carColor300: randomColor[300],
