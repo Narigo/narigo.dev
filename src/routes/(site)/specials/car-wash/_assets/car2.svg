@@ -11,6 +11,9 @@
     <g class="body">
         <path d="M300 0H100H0V70V140H400V70H300V0Z" />
     </g>
+    <g class="windows">
+        <path d="M290 10V60H240V10Z" fill="skyblue"/>
+    </g>
     <g clip-path="url(#body)">
         <rect class="dirt" x="0" y="0" width="400" height="175" fill="url(#dirtGradient)" />
     </g>
