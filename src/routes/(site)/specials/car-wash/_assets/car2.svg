@@ -5,14 +5,14 @@
             <stop offset="90%" stop-color="brown" />
         </linearGradient>
         <clipPath id="body">
-            <path d="M300 0H100H0V70V140H400V70H300V0Z" />
+            <path d="M300 0H0V140H400V70H320L300 0Z" />
         </clipPath>
     </defs>
     <g class="body">
-        <path d="M300 0H100H0V70V140H400V70H300V0Z" />
+        <path d="M300 0H0V140H400V70H320L300 0Z" />
     </g>
     <g class="windows">
-        <path d="M290 10V60H240V10Z" fill="skyblue"/>
+        <path d="M295 10L312 70H240V10Z" fill="skyblue" />
     </g>
     <g clip-path="url(#body)">
         <rect class="dirt" x="0" y="0" width="400" height="175" fill="url(#dirtGradient)" />
