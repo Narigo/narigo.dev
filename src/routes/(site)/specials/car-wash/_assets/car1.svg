@@ -6,12 +6,12 @@
         </linearGradient>
         <clipPath id="body">
             <rect class="darker" y="70" width="400" height="70" />
-            <rect class="lighter" x="100" width="200" height="140" />
+            <path class="lighter" d="M100 0h200l50 140l-300 0" />
         </clipPath>
     </defs>
     <g class="body">
         <rect class="darker" y="70" width="400" height="70" />
-        <rect class="lighter" x="100" width="200" height="140" />
+        <path class="lighter" d="M100 0h200l50 140l-300 0" />
     </g>
     <g clip-path="url(#body)">
         <rect class="dirt" x="0" y="0" width="400" height="175" fill="url(#dirtGradient)" />
