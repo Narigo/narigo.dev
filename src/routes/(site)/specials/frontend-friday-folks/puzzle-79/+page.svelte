@@ -1,6 +1,5 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
-	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
 	const solution = `<div id=r>
@@ -61,8 +60,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Tambourine">
-	<Puzzle title="Puzzle 79 solution" {solution} />
+<PuzzlePageLayout title="Tambourine" {solution}>
 	<Narigo>
 		Sometimes, repeating divs and moving them around seems to be the most simple solution. There may
 		be a background repeat solution for the "jingles" (or "zils" as we learned from ChatGPT).
