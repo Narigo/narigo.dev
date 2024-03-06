@@ -107,8 +107,8 @@
 			<h3>Svelte layout resets reset server side as well</h3>
 			<p>
 				If you use a <Code>+layout@.svelte</Code> somewhere, it resets the
-				<Code>+layout.server.ts</Code> as well. Need to be aware of that, that this is done
-				implicitly and doesn't need a separate <Code>+layout@.server.ts</Code>.
+				<Code>+layout.server.ts</Code> as well. Need to be aware of that, that this is done implicitly
+				and doesn't need a separate <Code>+layout@.server.ts</Code>.
 			</p>
 		</li>
 		<li>
@@ -124,6 +124,14 @@
 				I knew that pasting into GitHub uploads the image. Doing the same thing in VSCode when you
 				are editing a Markdown file was new to me: It creates the image next to the saved Markdown
 				file. An untitled / unsaved Markdown editor does NOT work - it has to be an actual file!
+			</p>
+		</li>
+		<li>
+			<h3>WebRTC sends different things depending on browser</h3>
+			<p>
+				It's been a while that I've encountered bigger differences in browser implementations. I was
+				surprised to learn that Chrome sends ArrayBuffer and Firefox sends Blobs through a WebRTC
+				data channel when you send a file.
 			</p>
 		</li>
 	</ul>
