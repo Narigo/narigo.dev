@@ -89,18 +89,24 @@
 				The <a
 					href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
 					rel="external">box-decoration-break</a
-				> property allows styling boxes on inline element breaks across multiple lines. By setting it
-				to `clone`, it will create multiple boxes, one for each line. It's necessary to add `-webkit-box-decoration-break`
+				>
+				property allows styling boxes on inline element breaks across multiple lines. By setting it to
+				<Code>clone</Code>, it will create multiple boxes, one for each line. It's necessary to add <Code
+					>-webkit-box-decoration-break</Code
+				>
 				as well to make it work on most browsers currently.
 			</p>
 		</li>
 		<li>
 			<h3>pnpm install --prod=false</h3>
 			<p>
-				This not really documented feature allows me to override the `NODE_ENV="development"`
-				setting. If `pnpm install --dev` is used, it will only install the `devDependencies`. `pnpm
-				install --prod` would only install the regular `dependencies`. To ensure both are installed,
-				`pnpm install --prod=false` helps.
+				This not really documented feature allows me to override the <Code
+					>NODE_ENV="development"</Code
+				>
+				setting. If <Code>pnpm install --dev</Code> is used, it will only install the <Code
+					>devDependencies</Code
+				>. <Code>pnpm install --prod</Code> would only install the regular <Code>dependencies</Code
+				>. To ensure both are installed, <Code>pnpm install --prod=false</Code> helps.
 			</p>
 		</li>
 		<li>
