@@ -136,8 +136,9 @@
 			<h3>WebRTC sends different things depending on browser</h3>
 			<p>
 				It's been a while that I've encountered bigger differences in browser implementations. I was
-				surprised to learn that Chrome sends ArrayBuffer and Firefox sends Blobs through a WebRTC
-				data channel when you send a file.
+				surprised to learn that Chrome sends <Code>ArrayBuffer</Code> and Firefox sends <Code
+					>Blobs</Code
+				> through a WebRTC data channel when you send a file.
 			</p>
 		</li>
 	</ul>
