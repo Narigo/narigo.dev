@@ -1,0 +1,41 @@
+import{s as d,b as h,j as b,k as $,i as g,t as x,h as _}from"../chunks/scheduler.Bz19wuGf.js";import{S as y,i as w,c as i,b as l,m as p,t as u,a as c,d as f}from"../chunks/index.D0WKZCG1.js";import{N as z}from"../chunks/Narigo.B32enYPM.js";import{P as k,a as P}from"../chunks/PuzzlePageLayout.BR4VEd8M.js";function v(s){let t;return{c(){t=x(`None of us got it to 100% (yet). The solution above is only 99.9% as well. Getting the inner
+		circle parts took a while and trying to use scale couldn't work thanks to the border. I lost my
+		best solution somewhere while trying out different approaches.`)},l(n){t=_(n,`None of us got it to 100% (yet). The solution above is only 99.9% as well. Getting the inner
+		circle parts took a while and trying to use scale couldn't work thanks to the border. I lost my
+		best solution somewhere while trying out different approaches.`)},m(n,e){$(n,t,e)},d(n){n&&g(t)}}}function N(s){let t,n,e,r;return t=new P({props:{title:"Puzzle 59 solution",solution:s[0]}}),e=new z({props:{$$slots:{default:[v]},$$scope:{ctx:s}}}),{c(){i(t.$$.fragment),n=h(),i(e.$$.fragment)},l(o){l(t.$$.fragment,o),n=b(o),l(e.$$.fragment,o)},m(o,a){p(t,o,a),$(o,n,a),p(e,o,a),r=!0},p(o,a){const m={};a&2&&(m.$$scope={dirty:a,ctx:o}),e.$set(m)},i(o){r||(u(t.$$.fragment,o),u(e.$$.fragment,o),r=!0)},o(o){c(t.$$.fragment,o),c(e.$$.fragment,o),r=!1},d(o){o&&g(n),f(t,o),f(e,o)}}}function G(s){let t,n;return t=new k({props:{title:"Earth",$$slots:{default:[N]},$$scope:{ctx:s}}}),{c(){i(t.$$.fragment)},l(e){l(t.$$.fragment,e)},m(e,r){p(t,e,r),n=!0},p(e,[r]){const o={};r&2&&(o.$$scope={dirty:r,ctx:e}),t.$set(o)},i(e){n||(u(t.$$.fragment,e),n=!0)},o(e){c(t.$$.fragment,e),n=!1},d(e){f(t,e)}}}function I(s){return[`<p><style>
+  body {
+    background: #191919;
+    display: grid;
+    place-items: center;
+  }
+  p,p:after {
+    position:relative;
+    height: 170px;
+    width: 170px;
+    background: #4f77ff;
+  }
+  p,p:before {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 10px solid #191919;
+  }
+  p:before {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    top: -30px;
+    left: -90px;
+    width: 210px;
+    height: 210px;
+    -webkit-box-reflect: right -90px;
+  }
+  p:after {
+    position: absolute;
+    content: '';
+    background:
+      repeating-linear-gradient(#0000 0 30px, #191919 0 40px),
+      linear-gradient(90deg, #0000 0 70px, #191919 0 80px, #0000 0)
+      #0000;
+  }
+</style>
+`]}class C extends y{constructor(t){super(),w(this,t,I,G,d,{})}}export{C as component};
