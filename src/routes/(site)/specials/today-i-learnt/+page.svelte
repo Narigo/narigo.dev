@@ -138,7 +138,10 @@
 				It's been a while that I've encountered bigger differences in browser implementations. I was
 				surprised to learn that Chrome sends <Code>ArrayBuffer</Code> and Firefox sends <Code
 					>Blobs</Code
-				> through a WebRTC data channel when you send a file.
+				> through a WebRTC data channel when you send a file. It's crucial to allow both and it's possible
+				to get from a <Code>Blob</Code> to an <Code>ArrayBuffer</Code> by using <Code
+					>await data.arrayBuffer()</Code
+				>.
 			</p>
 		</li>
 	</ul>
