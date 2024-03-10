@@ -110,8 +110,8 @@
 			</p>
 			<p>But I somehow started building a "real" web page...</p>
 			<p>
-				I even started <a href="{base}/articles/pocuter-one"
-					>a longer article about using and programming a Pocuter</a
+				I even started to write <a href="{base}/articles/"
+					>some articles about topics that were interesting for me</a
 				>.
 			</p>
 		</Narigo>
