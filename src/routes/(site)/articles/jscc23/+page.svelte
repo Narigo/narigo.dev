@@ -33,7 +33,7 @@
 	</p>
 	<ul>
 		<li>PR is a hurdle, takes time and is "difficult"</li>
-		<li>explain/show pacman rule to make groups of people open</li>
+		<li>explain/show pacman rule to make groups of people more welcoming</li>
 		<li>split session presentation and room finding, to speed it up</li>
 		<li>propose people to have others present their session, if wanted</li>
 		<li>
