@@ -39,9 +39,9 @@
 			</p>
 			<p>
 				We are currently experimenting with <a
-					href="https://github.com/compose-us/build-in-public/"
+					href="https://flottform.io/"
 					rel="external noopener noreferrer"
-					target="_blank">building in public</a
+					target="_blank">building Flottform in public</a
 				>, so if you have feedback to our idea and
 				<a
 					href="https://github.com/compose-us/flottform/"
