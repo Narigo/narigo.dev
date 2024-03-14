@@ -47,7 +47,7 @@
 					href="https://github.com/compose-us/flottform/"
 					rel="external noopener noreferrer"
 					target="_blank">implementation</a
-				>: Please let me know!
+				>: Please <a href="{base}/contact">let me know</a>!
 			</p>
 		</Narigo>
 		<Narigo>
