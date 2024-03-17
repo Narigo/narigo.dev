@@ -14,7 +14,7 @@
 		<li>
 			<a href="https://twitter.com/NarigoDF" rel="external noopener noreferrer" target="_blank"
 				>NarigoDF</a
-			> on Twitter
+			> on Twitter / X
 		</li>
 		<li>
 			<a
