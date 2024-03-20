@@ -85,7 +85,7 @@
 						</div>
 						<div class="panel p-2">
 							<Bubble side="right"
-								>Shoot, my keepass database on Nextcloud created a synch file when I changed it on
+								>Shoot, my keepass database on Nextcloud created a sync file when I changed it on
 								multiple devices!</Bubble
 							>
 							<Narigo>Did you try out <strong>keepass-diff</strong> yet?</Narigo>
