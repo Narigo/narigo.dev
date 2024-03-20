@@ -75,6 +75,6 @@
 	<h2>What's next?</h2>
 	<p>
 		It's 2024 now, we recently started conducting our weekly orga calls again. Let's find a
-		location, sponsors and meet in June / July again!
+		location, sponsors and meet on 7th-8th June 2024 again!
 	</p>
 </ArticleLayout>
