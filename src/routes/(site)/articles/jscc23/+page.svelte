@@ -75,6 +75,9 @@
 	<h2>What's next?</h2>
 	<p>
 		It's 2024 now, we recently started conducting our weekly orga calls again. Let's meet on 7th-8th
-		June 2024 at the Munich Kraftwerk (Maiborn-Wolff)!
+		June 2024 at the <a
+			href="https://www.maibornwolff.de/location/muenchen-kraftwerk/"
+			rel="external">Munich Kraftwerk (Maiborn-Wolff)</a
+		>!
 	</p>
 </ArticleLayout>
