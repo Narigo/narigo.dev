@@ -9,6 +9,10 @@
 		I usually share the slide deck to my talks for people who attended the
 		meetup/conference/whatever. Reach out if you have questions!
 	</p>
+	<p>
+		There are a few older ones that I didn't have anymore. If you're looking for one of them, please
+		let me know.
+	</p>
 	<ul>
 		<li>
 			<a href="{base}/talks/static-pages-with-dynamic-content" rel="external"
