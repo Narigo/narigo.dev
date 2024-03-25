@@ -19,8 +19,9 @@
 				>Static pages with "dynamic" content</a
 			>
 			-
-			<a href="https://www.meetup.com/de-DE/frankenjs/events/289645924/" rel="external"
-				>FrankenJS Meetup 2022-12-07</a
+			<a
+				href="https://www.meetup.com/de-DE/frankenjs/events/289645924/"
+				rel="external noopener noreferrer">FrankenJS Meetup 2022-12-07</a
 			>
 		</li>
 	</ul>
