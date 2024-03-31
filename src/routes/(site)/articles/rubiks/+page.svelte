@@ -15,6 +15,11 @@
 		speed-solving cubes, but if you just want a generic way to solve the cubes, this might be for
 		you. There are a lot of solutions to a lot of situations - I will try to show the ones I use.
 	</p>
+	<h2>Rubiks 3x3</h2>
+	<p>
+		This is the standard cube and it makes sense to start with this one. I may reference steps from
+		this one in the other cubes solutions.
+	</p>
 	<h2>Rubiks 4x4</h2>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
