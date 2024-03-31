@@ -20,6 +20,16 @@
 		This is the standard cube and it makes sense to start with this one. I may reference steps from
 		this one in the other cubes solutions.
 	</p>
+	<h3>Solution steps</h3>
+	<ol>
+		<li>Cross with the top color</li>
+		<li>Solve top color and corners</li>
+		<li>Sides to get the first two rows</li>
+		<li>Bottom color cross</li>
+		<li>Bottom color face complete</li>
+		<li>Bottom corners solved</li>
+		<li>Bottom sides solved / complete cube</li>
+	</ol>
 	<h2>Rubiks 4x4</h2>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
