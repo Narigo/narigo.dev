@@ -30,6 +30,21 @@
 		<li>Bottom corners solved</li>
 		<li>Bottom sides solved / complete cube</li>
 	</ol>
+	<h4>Cross with the top color</h4>
+	<p>
+		The first thing to understand with the cube is that the faces in the middle cannot change. If
+		you think of white being the top face, yellow will be bottom. On the sides, there will be red,
+		blue, orange and green in that order. Building a cross from the top side to the middle centers
+		feels quite simple to me, if I don't have to care about any other piece yet:
+	</p>
+	<p>
+		Select white and red, move it in a way that either part of it is correct on its matching color
+		face. Next, do the same with blue and white. If you have to move the upper part (white) for this
+		to succeed, move the already positioned red-white part away by rotating the red face once and
+		back, once blue-white is positioned correctly. Then do orange-white with the same approach and
+		green-white in the end. If you have to move one or more of the other parts, it should be easy to
+		put them back.
+	</p>
 	<h2>Rubiks 4x4</h2>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
