@@ -1,10 +1,9 @@
 <script>
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
-	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<PageLayout>
-	<h1>Rubiks Cubes</h1>
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-04-02">
 	<p>
 		I like solving these cubes and it always takes a while until I can do all the necessary
 		algorithms. In the past, I've seen that I tend to forget some key algorithms when I don't solve
@@ -22,7 +21,7 @@
 	</p>
 	<h3>Solution steps</h3>
 	<ol>
-		<li>Cross with the top color</li>
+		<li><a href="#cross-top-color">Cross with the top color</a></li>
 		<li>Solve top color and corners</li>
 		<li>Sides to get the first two rows</li>
 		<li>Bottom color cross</li>
@@ -30,7 +29,7 @@
 		<li>Bottom corners solved</li>
 		<li>Bottom sides solved / complete cube</li>
 	</ol>
-	<h4>Cross with the top color</h4>
+	<h4 id="cross-top-color">Cross with the top color</h4>
 	<p>
 		The first thing to understand with the cube is that the faces in the middle cannot change. If
 		you think of white being the top face, yellow will be bottom. On the sides, there will be red,
@@ -47,5 +46,7 @@
 	</p>
 	<h2>Rubiks 4x4</h2>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
-	<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
-</PageLayout>
+	<div class="not-prose">
+		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
+	</div>
+</ArticleLayout>
