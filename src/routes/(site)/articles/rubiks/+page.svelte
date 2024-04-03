@@ -45,6 +45,19 @@
 		put them back.
 	</p>
 	<h2>Rubiks 4x4</h2>
+	<ol>
+		<li>Correct center pieces</li>
+		<li>Correct pairs on every side</li>
+		<li><a href="#cross-top-color">Cross with the top color</a></li>
+		<li>Solve top color and corners</li>
+		<li>Sides to get the first two rows</li>
+		<li>Bottom color cross</li>
+		<li>Parity situation "edge not facing correctly"</li>
+		<li>Bottom color face complete</li>
+		<li>Bottom corners solved</li>
+		<li>Solving bottom sides</li>
+		<li>Parity situation "sides mirrored"</li>
+	</ol>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
