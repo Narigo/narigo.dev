@@ -44,7 +44,12 @@
 		green-white in the end. If you have to move one or more of the other parts, it should be easy to
 		put them back.
 	</p>
-	<h2>Rubiks 4x4</h2>
+    <h2>Rubiks 4x4</h2>
+	<p>
+		I like the genericness of the 4x4 cube as you can play it like a 3x3 and a 2x2, depending on how
+		you scramble it. There are two extra steps and two parity situations, which in turn made me
+		learn four more algorithms vs the 3x3.
+	</p>
 	<ol>
 		<li>Correct center pieces</li>
 		<li>Correct pairs on every side</li>
