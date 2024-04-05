@@ -22,7 +22,7 @@
 	<h3>Solution steps</h3>
 	<ol>
 		<li><a href="#cross-top-color">Cross with the top color</a></li>
-		<li>Solve top color and corners</li>
+		<li><a href="#solve-top-color-and-corners">Solve top color and corners</a></li>
 		<li>Sides to get the first two rows</li>
 		<li>Bottom color cross</li>
 		<li>Bottom color face complete</li>
@@ -44,6 +44,26 @@
 		green-white in the end. If you have to move one or more of the other parts, it should be easy to
 		put them back.
 	</p>
+
+	<h4 id="solve-top-color-and-corners">Solve top color and corners</h4>
+	<p>
+		Having the cross part done, only the corners are left to get the first row correct. As long as
+		the top color is visible on the side, you need to check the other two colors to find on which
+		corner it needs to be placed. The corners can only be on the eight corners of the cube and
+		possibly facing in the wrong directions.
+	</p>
+
+	<h5>Top color in the bottom row, facing to the side</h5>
+	<p>
+		The best direction to have is the top color being placed in the bottom row corners and facing to
+		the side. If that's the case, move it to the same spot as the corner where it needs to be
+		placed. Then, rotate the bottom row left, if it was facing to the left or right, if it was
+		facing to the right. Rotate the side of the cube that will not rotate the corner you looked at
+		so that the top color is facing in the direction how you rotated the bottom row. Then rotate the
+		bottom row back to click the top colors together and finally rotate the side back to move the
+		cross plus the corner up.
+	</p>
+
     <h2>Rubiks 4x4</h2>
 	<p>
 		I like the genericness of the 4x4 cube as you can play it like a 3x3 and a 2x2, depending on how
