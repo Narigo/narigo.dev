@@ -144,6 +144,14 @@
 				>.
 			</p>
 		</li>
+		<li>
+			<h3>Docker compose ports may send an empty response if local service is running</h3>
+			<p>
+				Took me a while today and I thought my docker setup is broken: If you have a local service
+				serving the same port, the port will send an empty result. Ensure stopping all services
+				potentially blocking the port - not just docker services.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
