@@ -63,8 +63,17 @@
 		bottom row back to click the top colors together and finally rotate the side back to move the
 		cross plus the corner up.
 	</p>
+	<h5>Top color in the bottom row, facing down</h5>
+	<p>
+		If you have some solved corners on the side, move the piece to the bottom corner where the top
+		corner isn't solved yet. The safest place is the one where the corner belongs later. Rotate one
+		of the sides so that the unsolved top corner will go to the place where the corner is that we
+		want to make face sideways. Move the corner away from the side after the rotation. Rotate the
+		side back up. This makes the corner facing to the side in the bottom row and the previous step
+		can be used to solve this situation.
+	</p>
 
-    <h2>Rubiks 4x4</h2>
+	<h2>Rubiks 4x4</h2>
 	<p>
 		I like the genericness of the 4x4 cube as you can play it like a 3x3 and a 2x2, depending on how
 		you scramble it. There are two extra steps and two parity situations, which in turn made me
