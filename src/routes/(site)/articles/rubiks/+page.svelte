@@ -76,6 +76,22 @@
 		>.
 	</p>
 
+	<h4 id="sides-to-get-the-first-two-rows">Sides to get the first two rows</h4>
+	<p>
+		The first face and row should be solved and the center pieces are correctly set up. To get the
+		second row, look at the pieces that need to go to the sides. If the upper face was white, there
+		need to be red-blue, blue-orange, orange-green and green-red pieces somewhere on the cube. If
+		they happen to be in the bottom row: Perfect! Let's say red-blue is there with red facing to the
+		side and blue to the bottom. Move it below red first, so it looks like having a red "T" on the
+		side that needs red. The algorithm to solve this is: Move it away from the blue side, rotate the
+		blue side anti-clockwise, so the white side shows on the red side. Now move the red-blue piece
+		from before back to red. Rotate the blue side clockwise again, making the corner, that needs to
+		go into the upper row again, line up with the red-blue piece from the beginning. Now move it in
+		the direction of blue, rotate the red side clockwise, the bottom piece back and the red side
+		anti-clockwise again. The red-blue piece should now sit in the correct spot. This has to be done
+		with all the sides.
+	</p>
+
 	<h2>Rubiks 4x4</h2>
 	<p>
 		I like the genericness of the 4x4 cube as you can play it like a 3x3 and a 2x2, depending on how
