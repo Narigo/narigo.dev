@@ -53,7 +53,9 @@
 		possibly facing in the wrong directions.
 	</p>
 
-	<h5>Top color in the bottom row, facing to the side</h5>
+	<h5 id="top-color-bottom-row-facing-to-the-side">
+		Top color in the bottom row, facing to the side
+	</h5>
 	<p>
 		The best direction to have is the top color being placed in the bottom row corners and facing to
 		the side. If that's the case, move it to the same spot as the corner where it needs to be
@@ -69,8 +71,9 @@
 		corner isn't solved yet. The safest place is the one where the corner belongs later. Rotate one
 		of the sides so that the unsolved top corner will go to the place where the corner is that we
 		want to make face sideways. Move the corner away from the side after the rotation. Rotate the
-		side back up. This makes the corner facing to the side in the bottom row and the previous step
-		can be used to solve this situation.
+		side back up. This makes the corner facing <a href="#top-color-bottom-row-facing-to-the-side"
+			>to the side in the bottom row and the previous step can be used to solve this situation</a
+		>.
 	</p>
 
 	<h2>Rubiks 4x4</h2>
