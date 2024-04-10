@@ -89,7 +89,10 @@
 		go into the upper row again, line up with the red-blue piece from the beginning. Now move it in
 		the direction of blue, rotate the red side clockwise, the bottom piece back and the red side
 		anti-clockwise again. The red-blue piece should now sit in the correct spot. This has to be done
-		with all the sides.
+		with all the sides. If one of the sides sits at the correct position but it facing in the wrong
+		direction, move it out by putting something from the bottom row in (one of the yellow ones).
+		This way, you can restart the algorithm of this step after moving the piece into the place where
+		it should be started from: lining up with a center piece.
 	</p>
 
 	<h2>Rubiks 4x4</h2>
