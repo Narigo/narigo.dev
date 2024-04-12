@@ -3,7 +3,7 @@
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-04-02">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-04-13">
 	<p>
 		I like solving these cubes and it always takes a while until I can do all the necessary
 		algorithms. In the past, I've seen that I tend to forget some key algorithms when I don't solve
@@ -23,7 +23,7 @@
 	<ol>
 		<li><a href="#cross-top-color">Cross with the top color</a></li>
 		<li><a href="#solve-top-color-and-corners">Solve top color and corners</a></li>
-		<li>Sides to get the first two rows</li>
+		<li><a href="#sides-to-get-the-first-two-rows">Sides to get the first two rows</a></li>
 		<li>Bottom color cross</li>
 		<li>Bottom color face complete</li>
 		<li>Bottom corners solved</li>
