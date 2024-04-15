@@ -1,5 +1,6 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
 	const solution = `<div a></div>
@@ -39,6 +40,12 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Odoo" {solution}>
-	<Narigo>I missed this one and I still need to solve this.</Narigo>
+<PuzzlePageLayout title="Odoo">
+	<Puzzle title="Odoo solution 1" solution={solution.trim()} />
+	<Narigo>
+		I have missed this one and I had to solve this on my own. I've tried doing it the way we do it
+		during the sessions: First, tell what you see - I saw four items, so I've started with four
+		divs. I've added attributes to allow changing the variations: One for the color change, another
+		one to add the line up in the 'd'.
+	</Narigo>
 </PuzzlePageLayout>
