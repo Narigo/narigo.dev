@@ -38,6 +38,18 @@
     background:#8F8F8F;
   }
 </style>`;
+
+	const solution2 = `<style>
+  body {
+    background:
+      radial-gradient(circle at 189px 112px,#8F8F8F 10px,#0000 0),
+      conic-gradient(#8F8F8F,#8F8F8F)179px 110px/20px 50px no-repeat,
+      radial-gradient(circle at 77px 162px,#191919 20px,#714B67 0 40px,#0000 0),
+      radial-gradient(circle at 159px 162px,#191919 20px,#8F8F8F 0 40px,#0000 0),
+      radial-gradient(circle at 241px 162px,#191919 20px,#8F8F8F 0 40px,#0000 0),
+      radial-gradient(circle at 323px 162px,#191919 20px,#8F8F8F 0 40px,#191919 0);
+  }
+</style>`;
 </script>
 
 <PuzzlePageLayout title="Odoo">
@@ -48,4 +60,7 @@
 		divs. I've added attributes to allow changing the variations: One for the color change, another
 		one to add the line up in the 'd'.
 	</Narigo>
+
+	<Puzzle title="Odoo solution 2" solution={solution2.trim()} />
+	<Narigo>Ok, another try now, using gradients.</Narigo>
 </PuzzlePageLayout>
