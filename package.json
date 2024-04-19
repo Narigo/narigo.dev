@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "pnpm run build:page && pnpm run build:talks && mkdir -p ./build/talks/webrtc-use-cases && cp -r ./talks/webrtc-use-cases/dist/ build/talks/webrtc-use-cases",
+		"build:page": "vite build",
+		"build:talks": "pnpm --filter \"./talks/*\" build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

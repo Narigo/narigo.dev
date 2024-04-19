@@ -26,7 +26,7 @@ mdc: true
 
 ```yaml
 layout: image-right
-image: /pages/images/joern_big.jpg
+image: /images/joern_big.jpg
 transition:
   name: story-start-small-transition
 ```
@@ -57,7 +57,7 @@ When I was little!
 
 ```yaml
 layout: image-right
-image: /pages/images/joern_big.jpg
+image: /images/joern_big.jpg
 class: scaled-down-image
 transition: scale-image-right
 ```
@@ -87,7 +87,7 @@ When I was little...
 
 ```yaml
 layout: image-right
-image: /pages/images/joern_growing.png
+image: /images/joern_growing.png
 class: scaled-down-image-2
 ```
 
@@ -106,7 +106,7 @@ Growing up, networks and the internet became a thing.
 
 ```yaml
 layout: image-right
-image: /pages/images/joern_teen.png
+image: /images/joern_teen.png
 ```
 
 # Early 2000s
@@ -124,7 +124,7 @@ Finally flatrates 🤩
 
 ```yaml
 layout: image-right
-image: /pages/images/potential_sibling.webp
+image: /images/potential_sibling.webp
 ```
 
 # Mid 2000s
@@ -147,7 +147,7 @@ Anonymity, direct connections, peer-to-peer?
 
 ```yaml
 layout: image-right
-image: /pages/images/late_2000s.webp
+image: /images/late_2000s.webp
 ```
 
 # Late 2000s
@@ -287,7 +287,7 @@ Negative aspects 😬
 
 ```yaml
 layout: image-right
-image: /pages/images/stompenberg_fx.png
+image: /images/stompenberg_fx.png
 ```
 
 # Use-Cases: Performance
@@ -317,7 +317,7 @@ Let's explore some use cases ⚡️
 
 ```yaml
 layout: image-right
-image: /pages/images/dog_desk.jpg
+image: /images/dog_desk.jpg
 ```
 
 # Use-Cases: Privacy
@@ -370,7 +370,7 @@ Let's explore some use cases 📲
 
 ```yaml
 layout: image-right
-image: /pages/images/joern_big.jpg
+image: /images/joern_big.jpg
 ```
 
 # Thank you!
@@ -387,7 +387,7 @@ Jörn Bernhardt
 
 </div>
 
-![Flottform.io](/pages/images/flottform_qr.png)
+![Flottform.io](/images/flottform_qr.png)
 
 </div>
 
