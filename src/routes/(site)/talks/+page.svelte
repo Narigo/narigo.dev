@@ -24,5 +24,11 @@
 				rel="external noopener noreferrer">FrankenJS Meetup 2022-12-07</a
 			>
 		</li>
+		<li>
+			<a href="{base}/talks/webrtc-use-cases" rel="external"
+				>Beyond Calls - Inspiring Use-Cases for WebRTC</a
+			>
+			- MunichJS Meetup 2024-04-18
+		</li>
 	</ul>
 </PageLayout>
