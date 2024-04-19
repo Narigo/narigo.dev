@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "pnpm run build:page && pnpm run build:talks && mkdir -p ./build/talks/webrtc-use-cases && cp -r ./talks/webrtc-use-cases/dist/ build/talks/webrtc-use-cases",
+		"build": "pnpm run build:page && pnpm run build:talks && mkdir -p ./build/talks/webrtc-use-cases && cp -r ./talks/webrtc-use-cases/dist/ ./build/talks/webrtc-use-cases",
 		"build:page": "vite build",
 		"build:talks": "pnpm --filter \"./talks/*\" build",
 		"preview": "vite preview",
