@@ -28,7 +28,11 @@
 			<a href="{base}/talks/webrtc-use-cases" rel="external"
 				>Beyond Calls - Inspiring Use-Cases for WebRTC</a
 			>
-			- MunichJS Meetup 2024-04-18
+			-
+			<a
+				href="https://www.meetup.com/de-DE/munichjs-user-group/events/299867927/"
+				rel="external noopener noreferrer">MunichJS Meetup 2024-04-18</a
+			>
 		</li>
 	</ul>
 </PageLayout>
