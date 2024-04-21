@@ -59,7 +59,7 @@
 				>, which is a two-day Barcamp / Open Space in Munich. You can attend it for free thanks to
 				lots of sponsors. Every time I attend this event, I leave with new friends, professional
 				contacts and much more knowledge than before. It will take place on 07.-08. June 2024 at the
-				Munich Kraftwerk!
+				Munich Kraftwerk and registration opens on April 22nd, 2024!
 			</p>
 			<p>
 				For <a href="https://virtualcoffee.io" rel="external noopener noreferrer" target="_blank"
