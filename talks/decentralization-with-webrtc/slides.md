@@ -20,7 +20,7 @@ mdc: true
 
 # Decentralization with WebRTC
 
-## Inspiring use cases of WebRTC
+## Inspiring use cases
 
 ---
 
@@ -35,31 +35,23 @@ transition:
 
 Let me introduce myself 🙋
 
-I'm Jörn.
-
-Working at [compose.us](https://compose.us) and creating web applications.
-
-Organizing [JSCraftCamp(.org)](https://jscraftcamp.org) happening on June 7th-8th in Munich.
-
 <br />
 
-<v-click>
-
-Disclaimer: We are currently building [flottform.io](https://flottform.io) in public.
-
-</v-click>
+I'm Jörn.
 
 <!--
-When I was little!
+Next: When I was little!
 -->
 
 ---
 
 ```yaml
-layout: image-right
+layout: scale-image-right
+from: 1
+current: 0.25
+to: 0.5
 image: /images/joern_big.jpg
-class: scaled-down-image
-transition: scale-image-right
+transition: none
 ```
 
 # Born in the '80s 👶
@@ -86,9 +78,12 @@ When I was little...
 ---
 
 ```yaml
-layout: image-right
+layout: scale-image-right
+from: 0.25
+current: 0.5
+to: 0.75
 image: /images/joern_growing.png
-class: scaled-down-image-2
+transition: none
 ```
 
 # Late '90s
@@ -99,14 +94,17 @@ Growing up, networks and the internet became a thing.
   '⌨️ IRC',
   '🔌 LAN parties',
   '🗣️ Direct Messengers',
-  '👯 Sharing &quot;data&quot;',
 ]" />
 
 ---
 
 ```yaml
-layout: image-right
+layout: scale-image-right
+from: 0.5
+current: 0.75
+to: 1
 image: /images/joern_teen.png
+transition: none
 ```
 
 # Early 2000s
@@ -117,7 +115,6 @@ Finally flatrates 🤩
   '😬 Downloads',
   '🕹️ Multiplayer games',
   '🌍 DynDNS',
-  '🔍 File sharing tools',
 ]" />
 
 ---
@@ -155,10 +152,10 @@ image: /images/late_2000s.webp
 Centralized services and platforms again 😕
 
 <ClickList :items="[
-  '📈 Social networks grow',
   '💻 Computers become smaller',
   '😖 Browsers not yet useful enough',
   '⚡️ Phones kill Flash',
+  '📈 Social networks become popular',
 ]" />
 
 <div class="pos-absolute pos-bottom-sm pos-left-sm max-w-50% text-xs">ChatGPT imagining the late 2000s</div>
@@ -202,7 +199,7 @@ Would it be useful? 🤷
 
 At least we CAN! 💪
 
-<div class="flex flex-row flex-justify-between flex-items-end">
+<div class="flex flex-row flex-wrap flex-justify-between flex-items-end">
 
 <v-click>
 
@@ -231,57 +228,46 @@ graph LR;
 
 </v-click>
 </div>
+<div class="flex flex-row flex-wrap flex-justify-between flex-items-end">
+<v-click>
 
-<ClickList :items="[
-  '✅ Available in all major browsers',
-  '✅ Open standard for connecting peers',
-  '✅ Real-Time-Communication possible',
-  '✅ Provides a solution for different network types',
-]" />
+```mermaid
+graph LR;
+    A <--> B & C
+    B <--> C;
+```
 
----
+</v-click>
+<v-click>
 
-# Glossary
+```mermaid
+graph LR;
+    A <--> B & C & D;
+    B <--> C & D;
+    C <--> D;
+```
 
-Some terms to get familiar 🗃️
+</v-click>
+<v-click>
 
-<ClickList :items="[
-  '🚰 Real-Time-Communication: Stream data with low latency',
-  '🚅 ICE (Interactive Connectivity Establishment): How traffic can be routed',
-  '🕵️ STUN Server: Find out public IP, create NAT mapping',
-  '🤸 TURN Server: If STUN doesn\'t suffice, TURN is a relay for traffic',
-  '⏩ Selective Forwarding Unit / Middlebox (SFU / SFM): Route streams in a server',
-]" />
+```mermaid
+graph LR;
+    A <--> B & C & D & E;
+    B <--> C & D & E;
+    C <--> D & E;
+    D <--> E
+```
+
+</v-click>
+</div>
 
 <!--
-The SFU should still have all traffic E2E encrypted, it only forwards the streams.
+- open standard
+- implementation effort
+- scaling issues
+
+May not be the best for all situations, but great for specific use cases!
 -->
-
----
-
-# WebRTC Pros
-
-Positive aspects 😁
-
-<ClickList :items="[
-  '➕ Low latency between peers',
-  '➕ Secure and encrypted data transfer',
-  '➕ Mostly anonymous',
-  '➕ Open standard, many implementations',
-]" />
-
----
-
-# WebRTC Cons
-
-Negative aspects 😬
-
-<ClickList :items="[
-  '➖ Implementation effort',
-  '➖ Initial handshake / signaling',
-  '➖ Server for solving &quot;problematic&quot; scenarios necessary',
-  '➖ Scaling group calls or live streaming'
-]" />
 
 ---
 
@@ -294,22 +280,19 @@ image: /images/stompenberg_fx.png
 
 Let's explore some use cases ⚡️
 
-<ClickList :items="[
-  '📞 Audio & Video streaming',
-  '🗣️ Conference calls (group calls with SFU)',
-  '🎮 Games',
-  '🏟️ Live-Broadcasting',
-]" />
+📞 Audio & Video streaming
+
+🗣️ Conference calls (group calls with SFU)
+
+🎮 Games
+
+🏟️ Live-Broadcasting
 
 <br />
-
-<v-clicks>
 
 - Example: [Google Meet](https://meet.google.com/)
 - Example: [Discord](https://discord.com/category/engineering)
 - Example: [Stompenberg FX](https://www.thomannmusic.com/stompenberg_devices.html)
-
-</v-clicks>
 
 <div class="pos-absolute pos-bottom-sm pos-left-sm max-w-50% text-xs">Screenshot of Stompenberg FX website created by <a href="https://feinarbyte.de/" rel="external noreferrer noopener">Feinarbyte</a></div>
 
@@ -324,21 +307,13 @@ image: /images/dog_desk.jpg
 
 Let's explore some use cases 🥸
 
-<ClickList :items="[
-  '🧑‍⚕️ Telehealth applications',
-  '🪪 Identification',
-  '🧑‍⚖️ Legal consultations',
-  '💁 Virtual Helpdesk',
-]" />
+🧑‍⚕️ Telehealth applications
 
-<br />
+🪪 Identification
 
-<v-clicks>
+🧑‍⚖️ Legal consultations
 
-- Example: Postident
-- Example: WebID
-
-</v-clicks>
+💁 Virtual Helpdesk
 
 <div class="pos-absolute pos-bottom-sm pos-left-sm max-w-50% text-xs">Photo by <a href="https://unsplash.com/@jamie452?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jamie Street</a> on <a href="https://unsplash.com/photos/dog-sitting-in-front-of-book-Zqy-x7K5Qcg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></div>
 
@@ -352,19 +327,32 @@ layout: flott-right
 
 Let's explore some use cases 📲
 
-<ClickList :items="[
-  '💿 Data transfer',
-  '🤝 Device handover',
-]" />
+💿 Data transfer
+
+🤝 Device handover
 
 <br />
 
-<v-clicks>
-
 - Example: [WebWormhole](https://webwormhole.io)
-- Example: [Flottform](https://demo.flottform.io)
+- Example: [Flottform.io](https://demo.flottform.io)
 
-</v-clicks>
+---
+
+```yaml
+layout: flottform-iframe
+```
+
+# Flottform
+
+Enhance forms!
+
+<br />
+
+Try it out:
+
+[demo.flottform.io](https://demo.flottform.io/)
+
+Adds a WebRTC channel to existing forms instead of server side implementations.
 
 ---
 
@@ -375,19 +363,29 @@ image: /images/joern_big.jpg
 
 # Thank you!
 
+Contact info
+
 Jörn Bernhardt
 
-<div class="flex flex-row gap-8">
+<div class="grid grid-cols-3 gap-4">
 
-<div>
+<div class="grid-col-span-2">
 
-- Side projects: https://narigo.dev/
-- Work: https://compose.us/
-- Build-in-public: https://flottform.io/
+🧑‍💻 [compose.us](https://compose.us)
+
+🛠️ [flottform.io](https://flottform.io)
+
+🗃️ [JSCraftCamp.org](https://jscraftcamp.org)
+
+🤪 [narigo.dev](https://narigo.dev/)
 
 </div>
 
+<div>
+
 ![Flottform.io](/images/flottform_qr.png)
+
+</div>
 
 </div>
 
