@@ -120,8 +120,13 @@ Finally flatrates 🤩
 ---
 
 ```yaml
-layout: image-right
-image: /images/potential_sibling.webp
+layout: scale-and-fade-image-right
+from: 0.75
+current: 1
+to: 1
+imageStart: /images/joern_big.jpg
+imageEnd: /images/potential_sibling.webp
+transition: none
 ```
 
 # Mid 2000s
