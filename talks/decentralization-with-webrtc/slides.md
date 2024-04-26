@@ -280,9 +280,7 @@ image: /images/stompenberg_fx.png
 
 Let's explore some use cases ⚡️
 
-📞 Audio & Video streaming
-
-🗣️ Conference calls (group calls with SFU)
+📞 Audio & Video streaming / Calls
 
 🎮 Games
 

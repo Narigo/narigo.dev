@@ -14,5 +14,8 @@
     "@vueuse/core": "^10.9.0",
     "@vueuse/shared": "^10.9.0",
     "vue": "^3.4.22"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.43.1"
   }
 }
