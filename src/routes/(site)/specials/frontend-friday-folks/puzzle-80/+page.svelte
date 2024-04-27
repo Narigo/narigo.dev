@@ -71,8 +71,10 @@
 
 <PuzzlePageLayout title="Piano" {solution}>
 	<Narigo>
-		This was special! We've tested Eddie's collaborative CSSBattle.dev script and it worked out
-		well! You connect through a websocket server and this script syncs the slider and the text for
-		all browsers. Really nice to see it working!
+		This was special! We've tested Eddie's collaborative <a
+			href="https://cssbattle.dev"
+			rel="external noopener noreferrer">CSSBattle.dev</a
+		> script and it worked out well! You connect through a websocket server and this script syncs the
+		slider and the text for all browsers. Really nice to see it working!
 	</Narigo>
 </PuzzlePageLayout>
