@@ -75,6 +75,8 @@
 			href="https://cssbattle.dev"
 			rel="external noopener noreferrer">CSSBattle.dev</a
 		> script and it worked out well! You connect through a websocket server and this script syncs the
-		slider and the text for all browsers. Really nice to see it working!
+		slider and the text for all browsers. Really nice to see it working! There are a few issues with
+		this, but the idea looks promising. Let's see how it goes and when we can share a working version
+		of it.
 	</Narigo>
 </PuzzlePageLayout>
