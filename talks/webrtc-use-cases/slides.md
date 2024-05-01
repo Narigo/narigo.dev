@@ -16,6 +16,7 @@ defaults:
   transition: fade-out
 # enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
+routerMode: hash
 ---
 
 # Beyond Calls
