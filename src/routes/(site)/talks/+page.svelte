@@ -34,5 +34,11 @@
 				rel="external noopener noreferrer">MunichJS Meetup 2024-04-18</a
 			>
 		</li>
+		<li>
+			<a href="{base}/talks/webrtc-use-cases" rel="external"
+				>Decentralization with WebRTC - Inspiring Use-Cases</a
+			>
+			- VirtualCoffee.io Lightning Talks April 2024
+		</li>
 	</ul>
 </PageLayout>
