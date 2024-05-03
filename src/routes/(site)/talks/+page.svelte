@@ -38,7 +38,11 @@
 			<a href="{base}/talks/webrtc-use-cases" rel="external"
 				>Decentralization with WebRTC - Inspiring Use-Cases</a
 			>
-			- VirtualCoffee.io Lightning Talks April 2024
+			-
+			<a
+				href="https://www.youtube.com/watch?v=pzLXQYZpOPU&t=1528s"
+				rel="external noopener noreferrer">VirtualCoffee.io Lightning Talks April 2024</a
+			>
 		</li>
 	</ul>
 </PageLayout>
