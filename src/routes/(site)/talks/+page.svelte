@@ -39,10 +39,13 @@
 				>Decentralization with WebRTC - Inspiring Use-Cases</a
 			>
 			-
-			<a
-				href="https://www.youtube.com/watch?v=pzLXQYZpOPU&t=1528s"
-				rel="external noopener noreferrer">VirtualCoffee.io Lightning Talks April 2024</a
+			<a href="https://www.youtube.com/watch?v=pzLXQYZpOPU" rel="external noopener noreferrer"
+				>VirtualCoffee.io Lightning Talks April 2024</a
 			>
+			(<a
+				href="https://www.youtube.com/watch?v=pzLXQYZpOPU&t=1528s"
+				rel="external noopener noreferrer">video of my talk</a
+			>)
 		</li>
 	</ul>
 </PageLayout>
