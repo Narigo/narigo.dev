@@ -37,7 +37,7 @@
 				>
 				-
 				<a
-					href="https://www.meetup.com/de-DE/munichjs-user-group/events/299867927/"
+					href="https://www.meetup.com/munichjs-user-group/events/299867927/"
 					rel="external noopener noreferrer">MunichJS Meetup 2024-04-18</a
 				>
 			</div>
