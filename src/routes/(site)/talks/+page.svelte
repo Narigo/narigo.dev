@@ -14,7 +14,7 @@
 		There are a few older ones that I didn't have anymore. If you're looking for one of them, please
 		let me know.
 	</p>
-	<ul class="grid gap-4">
+	<ul class="mt-12 grid gap-12">
 		<li>
 			<div>
 				<a href="{base}/talks/static-pages-with-dynamic-content" rel="external"
