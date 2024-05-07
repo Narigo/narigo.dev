@@ -15,7 +15,7 @@
 
 		const div = document.createElement('div');
 		div.classList.add('ornament');
-		div.setAttribute('style', `position:absolute;top:${y}px;left:${x}px;`);
+		div.setAttribute('style', `position:absolute;top:${y}%;left:${x}%;`);
 		div.innerHTML = `<div style="position:absolute;top:0;left:0;">
       <svg version="1.1"
          style="position:absolute;top:0;left:${Math.round((size - 10) / 2)}px;"
@@ -48,8 +48,8 @@
 			const size = Math.round(Math.random() * 50) + 20;
 			const newOrnament = templateSvg({
 				size,
-				x: event.offsetX - size / 2,
-				y: event.offsetY
+				x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
+				y: (event.offsetY / body.offsetHeight) * 100
 			});
 			body.appendChild(newOrnament);
 		});
