@@ -18,16 +18,9 @@
 		div.setAttribute('style', `position:absolute;top:${y}%;left:${x}%;`);
 		div.innerHTML = `<div style="position:absolute;top:0;left:0;">
       <svg version="1.1"
-         style="position:absolute;top:0;left:${Math.round((size - 10) / 2)}px;"
-         viewBox="0 0 10 20"
-         width="10" height="20"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 0l0 20" stroke="gold" stroke-width="2" />
-      </svg>
-      <svg version="1.1"
-         style="position:absolute;top:20px;left:0;"
-         viewBox="0 0 100 100"
-         width="${size}" height="${size}"
+         style="width:${size}px"
+         viewBox="0 -20 100 100"
+         width="100" height="120"
          xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="ornament-${ornamentCount}" gradientTransform="rotate(70)">
@@ -35,6 +28,7 @@
           <stop offset="100%" stop-color="hsl(${h}deg ${s}% ${Math.round(l / 5)}%)" />
         </linearGradient>
       </defs>
+	  <path d="M50 -20L50 0" stroke="gold" stroke-width="2" />
       ${circleOrStar}
     </svg>
     </div>`;
