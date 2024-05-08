@@ -15,10 +15,13 @@
 
 		const div = document.createElement('div');
 		div.classList.add('ornament');
-		div.setAttribute('style', `position:absolute;top:${y}%;left:${x}%;`);
-		div.innerHTML = `<div style="position:absolute;top:0;left:0;">
+		div.setAttribute(
+			'style',
+			`position:absolute;top:${y}%;left:${x}%;width:${size}%;aspect-ratio:100/120;`
+		);
+		div.innerHTML = `<div style="position:absolute;inset:0;">
       <svg version="1.1"
-         style="width:${size}px"
+         style="width:100%"
          viewBox="0 -20 100 100"
          width="100" height="120"
          xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +44,7 @@
 		svg.addEventListener('click', (event) => {
 			const size = Math.round(Math.random() * 50) + 20;
 			const newOrnament = templateSvg({
-				size,
+				size: (size / body.offsetWidth) * 100,
 				x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
 				y: (event.offsetY / body.offsetHeight) * 100
 			});
