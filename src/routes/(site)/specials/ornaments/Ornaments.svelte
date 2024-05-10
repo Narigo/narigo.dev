@@ -17,7 +17,7 @@
 		div.classList.add('ornament');
 		div.setAttribute(
 			'style',
-			`position:absolute;top:${y}%;left:${x}%;width:${size}%;aspect-ratio:100/120;`
+			`position:absolute;top:${y}px;left:${x}%;width:${size}%;aspect-ratio:100/120;`
 		);
 		div.innerHTML = `<div style="position:absolute;inset:0;">
       <svg version="1.1"
@@ -46,7 +46,7 @@
 			const newOrnament = templateSvg({
 				size: (size / body.offsetWidth) * 100,
 				x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
-				y: (event.offsetY / body.offsetHeight) * 100
+				y: event.offsetY - 20
 			});
 			body.appendChild(newOrnament);
 		});
