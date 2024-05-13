@@ -14,5 +14,8 @@
 		done... Looks like Meg knows how to save a character here though...!</Narigo
 	>
 	<Puzzle title="Smallest solution" solution={smallestSolution} />
-	<Narigo>Finally got a smaller solution!</Narigo>
+	<Narigo
+		>Finally got a smaller solution! The trick is to use height to get the body larger than usual
+		and move the center of the conic gradient down.</Narigo
+	>
 </PuzzlePageLayout>
