@@ -68,6 +68,30 @@
   }
 </style>
 `;
+	const gridSolution = `<div>
+  <hr/>
+  <hr/>
+  <hr a b/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr a/>
+  <hr/>
+  <hr a/>
+  <hr/>
+</div>
+<style>
+  body{background:#62306D;margin:25 -50}
+  div {
+    display:grid;
+    grid-template-columns:repeat(5,100px);
+    gap:0;
+  }
+  hr{width:100;height:100;border:0}
+  [a]{background:#F7EC7D;border-radius:0 0 50%50%}
+  [b]{rotate:180deg;margin:25+0-8}
+</style>
+`;
 </script>
 
 <PuzzlePageLayout title="Ups n Downs">
@@ -84,4 +108,6 @@
 		but it looks like it can only mirror on the X or the Y axis - not both at the same time. So I resorted
 		to the <Code>scale(-1)</Code> trick. For this to work, the boxes needed to be duplicated.</Narigo
 	>
+	<Puzzle title="Grid solution for puzzle 4" solution={gridSolution} />
+	<Narigo>Ok, the latest solution was using existing elements in a grid.</Narigo>
 </PuzzlePageLayout>
