@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -15,7 +16,7 @@
 	>
 	<Puzzle title="Smallest solution" solution={smallestSolution} />
 	<Narigo
-		>Finally got a smaller solution! The trick is to use height to get the body larger than usual
-		and move the center of the conic gradient down.</Narigo
+		>Finally got a smaller solution! The trick is to use <Code>height</Code> to get the body larger than
+		usual and move the center of the <Code>conic-gradient</Code> down.</Narigo
 	>
 </PuzzlePageLayout>
