@@ -11,9 +11,9 @@
 	<Puzzle title="Gradient solution" solution={gradient} />
 	<Narigo>First solution is regular gradients. Didn't see a good way to make this smaller.</Narigo>
 	<Puzzle title="Nested solution" solution={nested} />
-	<Narigo
-		>In the old solution I had, there was no rule nesting, resulting in 2 more chars. Using CSS
-		nesting allowed to have 2 chars less. Still remarkable how using background twice is necessary
-		but makes it smaller than the first solution!</Narigo
-	>
+	<Narigo>
+		Using CSS nesting allowed to have 2 chars less than the previous solution that Dan provided.
+		Still remarkable how using background twice is necessary but makes it smaller than the first
+		solution!
+	</Narigo>
 </PuzzlePageLayout>
