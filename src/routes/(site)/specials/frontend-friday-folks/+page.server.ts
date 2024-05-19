@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	const puzzleFiles = Object.entries(
-		import.meta.glob(['./puzzle-*/+page.svelte'], { as: 'raw', eager: true })
+		import.meta.glob(['./puzzle-*/+page.svelte'], { query: '?raw', import: 'default', eager: true })
 	);
 	const puzzles = [];
 	for (const [path, content] of puzzleFiles) {

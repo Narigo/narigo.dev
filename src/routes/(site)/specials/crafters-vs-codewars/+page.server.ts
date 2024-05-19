@@ -5,7 +5,7 @@ const kataRegex = /Kata(?:Layout)?\s+(?:id="[^"]*?"\s+)?name="(.*?)"/gm;
 
 export const load: PageServerLoad = async () => {
 	const eventFiles = Object.entries(
-		import.meta.glob(['./event-*/+page.svelte'], { as: 'raw', eager: true })
+		import.meta.glob(['./event-*/+page.svelte'], { query: '?raw', import: 'default', eager: true })
 	);
 	const events = [];
 	for (const [path, content] of eventFiles) {
