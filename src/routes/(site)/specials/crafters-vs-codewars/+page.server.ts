@@ -4,7 +4,7 @@ import type { PageServerLoad } from './$types';
 const kataRegex = /Kata(?:Layout)?\s+(?:id="[^"]*?"\s+)?name="(.*?)"/gm;
 
 export const load: PageServerLoad = async () => {
-	const eventFiles = Object.entries(
+	const eventFiles = Object.entries<string>(
 		import.meta.glob(['./event-*/+page.svelte'], { query: '?raw', import: 'default', eager: true })
 	);
 	const events = [];
