@@ -9,7 +9,7 @@
 	let showSolutions = false;
 </script>
 
-<div>
+<div class="grid gap-8">
 	<section>
 		<h3>{name}</h3>
 		<Narigo>
@@ -22,22 +22,9 @@
 		{#if solution}<CodeBlock code={solution} />{/if}
 		<slot />
 	{:else}
-		<button on:click={() => (showSolutions = true)}>Show solutions</button>
+		<button
+			class="self-center bg-primary border-0 cursor-pointer text-white p-4"
+			on:click={() => (showSolutions = true)}>Show solutions</button
+		>
 	{/if}
 </div>
-
-<style>
-	div {
-		display: grid;
-		gap: 2em;
-	}
-	button {
-		align-self: center;
-		background: var(--color-primary);
-		border: 0;
-		color: #fff;
-		cursor: pointer;
-		font: inherit;
-		padding: 1em;
-	}
-</style>
