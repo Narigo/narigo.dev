@@ -6,7 +6,7 @@
 	export let name: string;
 	export let solution: string | undefined = undefined;
 
-	let showSolutions = false;
+	let showSolution = false;
 </script>
 
 <div class="grid gap-8">
@@ -18,13 +18,13 @@
 			>.
 		</Narigo>
 	</section>
-	{#if showSolutions}
+	{#if showSolution}
 		{#if solution}<CodeBlock code={solution} />{/if}
 		<slot />
 	{:else}
 		<button
-			class="self-center bg-primary border-0 cursor-pointer text-white p-4"
-			on:click={() => (showSolutions = true)}>Show solutions</button
+			class="self-center bg-primary border-0 cursor-pointer text-white p-4 mb-8"
+			on:click={() => (showSolution = true)}>Show solution</button
 		>
 	{/if}
 </div>
