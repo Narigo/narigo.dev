@@ -13,7 +13,7 @@
 			<slot />
 		</Kata>
 	{:else}
-		<div>
+		<div class="grid gap-8">
 			<slot />
 		</div>
 	{/if}
@@ -22,10 +22,3 @@
 		<a href="{base}/specials/crafters-vs-codewars/">the list of Crafters vs CodeWars events</a>.
 	</Narigo>
 </PageLayout>
-
-<style>
-	div {
-		display: grid;
-		gap: 2em;
-	}
-</style>
