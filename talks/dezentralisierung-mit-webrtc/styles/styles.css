@@ -1,0 +1,11 @@
+.slidev-layout + div {
+	transform: scale(1);
+}
+.slidev-layout.scaled-down-image + div {
+	transition: all 2500ms ease-in-out;
+	transform: scale(0.25);
+}
+.slidev-layout.scaled-down-image-2 + div {
+	transition: all 2500ms ease-in-out;
+	transform: scale(0.75);
+}

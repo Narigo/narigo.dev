@@ -1,0 +1,21 @@
+{
+  "name": "dezentralisierung-mit-webrtc",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /talks/dezentralisierung-mit-webrtc/ --out ../../build/talks/dezentralisierung-mit-webrtc",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.0-beta.4",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/shared": "^10.9.0",
+    "vue": "^3.4.22"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.43.1"
+  }
+}
