@@ -2,6 +2,7 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import colors from 'tailwindcss/colors';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 	const images = data.images;
@@ -25,19 +26,113 @@
 			carColor800: randomColor[800]
 		};
 	};
-	let image = randomImage();
-	let { carColor300, carColor500, carColor800 } = setCarColors();
-
 	let currentStep: 'start' | 'dirty' | 'cleaning' | 'shower' | 'drying' | 'done' = 'start';
+	let image: string,
+		carColor300: string,
+		carColor500: string,
+		carColor800: string,
+		bubblesOverlay: SVGElement;
+
+	const createBubbleOverlay = (image: string) => {
+		const MIN_RADIUS = 10;
+		const MAX_RADIUS = 20;
+		const overlay = document.createElement('div');
+		const bubblesSvg = document.createElement('svg');
+		overlay.innerHTML = image;
+		const overlaySvg = overlay.querySelector('svg')!;
+		const bodyClip = overlaySvg.querySelector('#body');
+		if (!bodyClip) {
+			return overlaySvg;
+		}
+
+		const pathData: Array<string> = [];
+		for (const child of bodyClip.children) {
+			try {
+				switch (child.tagName) {
+					case 'rect':
+						const x = parseFloat(child.getAttribute('x') ?? '0');
+						const y = parseFloat(child.getAttribute('y') ?? '0');
+						const width = parseFloat(child.getAttribute('width') ?? '0');
+						const height = parseFloat(child.getAttribute('height') ?? '0');
+						pathData.push(`M${x},${y}h${width}v${height}h${-width}z`);
+						break;
+					case 'circle':
+						const cx = parseFloat(child.getAttribute('cx')!);
+						const cy = parseFloat(child.getAttribute('cy')!);
+						const r = parseFloat(child.getAttribute('r')!);
+						pathData.push(
+							`M${cx - r},${cy}a${r},${r} 0 1,0 ${2 * r},0a${r},${r} 0 1,0 ${-2 * r},0`
+						);
+						break;
+					case 'path':
+						pathData.push(child.getAttribute('d')!);
+						break;
+					// Handle other shapes as needed
+				}
+			} catch {}
+		}
+		const pathString = pathData.join(' ');
+
+		const svgNS = 'http://www.w3.org/2000/svg';
+		const { x, y, width, height } = overlaySvg.viewBox.baseVal;
+		const actualHeight = overlaySvg.height.baseVal.value;
+		const actualWidth = overlaySvg.width.baseVal.value;
+		const scaleFactorWidth = actualWidth / width;
+		const scaleFactorHeight = actualHeight / height;
+		const scaleFactor = Math.max(scaleFactorHeight, scaleFactorWidth);
+		bubblesSvg.setAttribute(
+			'viewBox',
+			`${x - MAX_RADIUS} ${y - MAX_RADIUS} ${width + 2 * MAX_RADIUS} ${height + 2 * MAX_RADIUS}`
+		);
+		bubblesSvg.setAttribute('width', `${actualWidth + 2 * MAX_RADIUS * scaleFactor}`);
+		bubblesSvg.setAttribute('height', `${actualHeight + 2 * MAX_RADIUS * scaleFactor}`);
+		const tempSvg = document.createElementNS(svgNS, 'svg');
+		const tempPath = document.createElementNS(svgNS, 'path');
+		tempPath.setAttribute('d', pathString);
+		tempSvg.appendChild(tempPath);
+		document.body.appendChild(tempSvg);
+
+		const bubbles: Array<string> = [];
+		for (let coordinateX = x + width; coordinateX >= x; coordinateX = coordinateX - MIN_RADIUS) {
+			for (let coordinateY = y + height; coordinateY >= y; coordinateY = coordinateY - MIN_RADIUS) {
+				const point = tempSvg.createSVGPoint();
+				point.x = coordinateX;
+				point.y = coordinateY;
+				const isInside = tempPath.isPointInFill(point);
+				if (isInside) {
+					const radius = Math.floor(Math.random() * (MAX_RADIUS - MIN_RADIUS)) + MIN_RADIUS;
+					const circleAtPoint = `<circle cx="${point.x}" cy="${point.y}" r="${radius}" fill="url(#bubbleGradient)" />`;
+					bubbles.push(circleAtPoint);
+				}
+			}
+		}
+		const bubblesGroup = document.createElementNS(svgNS, 'g');
+		bubblesGroup.innerHTML = `<defs>
+	<linearGradient id="bubbleGradient" transform-origin=".5 .5" gradientTransform="rotate(60)">
+        <stop offset="0%" stop-color="transparent"></stop>
+        <stop offset="90%" stop-color="transparent"></stop>
+    </linearGradient>
+</defs>
+${bubbles.join('')}`;
+		bubblesSvg.appendChild(bubblesGroup);
+
+		document.body.removeChild(tempSvg); // Clean up
+
+		return bubblesSvg;
+	};
+	const resetToNewCar = () => {
+		image = randomImage();
+		const randomColor = setCarColors();
+		carColor300 = randomColor.carColor300;
+		carColor500 = randomColor.carColor500;
+		carColor800 = randomColor.carColor800;
+		bubblesOverlay = createBubbleOverlay(image);
+	};
+
 	const nextStep = () => {
 		switch (currentStep) {
 			case 'start':
-				image = randomImage();
-				const randomColor = setCarColors();
-				console.log(randomColor);
-				carColor300 = randomColor.carColor300;
-				carColor500 = randomColor.carColor500;
-				carColor800 = randomColor.carColor800;
+				resetToNewCar();
 				currentStep = 'dirty';
 				break;
 			case 'dirty':
@@ -60,6 +155,10 @@
 
 	const AMOUNT_OF_FINGERS = 20;
 	const AMOUNT_OF_ROWS = 5;
+
+	onMount(() => {
+		resetToNewCar();
+	});
 </script>
 
 <PageLayout>
@@ -98,6 +197,9 @@
 				: '[&_svg_.dirt]:fill-none'}"
 		>
 			{@html image}
+			<div class="absolute">
+				{@html bubblesOverlay?.outerHTML}
+			</div>
 		</div>
 		<div
 			class="mitter front absolute grid h-full w-full"
