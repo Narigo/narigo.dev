@@ -108,10 +108,11 @@
 		}
 		const bubblesGroup = document.createElementNS(svgNS, 'g');
 		bubblesGroup.innerHTML = `<defs>
-	<linearGradient id="bubbleGradient" transform-origin=".5 .5" gradientTransform="rotate(60)">
-        <stop offset="0%" stop-color="transparent"></stop>
-        <stop offset="90%" stop-color="transparent"></stop>
-    </linearGradient>
+	<radialGradient id="bubbleGradient" transform-origin=".5 .5" gradientTransform="rotate(60)">
+        <stop offset="0%" stop-color="#fff"></stop>
+        <stop offset="80%" stop-color="#fffc"></stop>
+        <stop offset="100%" stop-color="transparent"></stop>
+    </radialGradient>
 </defs>
 ${bubbles.join('')}`;
 		bubblesSvg.appendChild(bubblesGroup);
