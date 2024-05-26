@@ -37,7 +37,7 @@
 		const MIN_RADIUS = 10;
 		const MAX_RADIUS = 20;
 		const overlay = document.createElement('div');
-		const bubblesSvg = document.createElement('svg');
+		const bubblesSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		overlay.innerHTML = image;
 		const overlaySvg = overlay.querySelector('svg')!;
 		const bodyClip = overlaySvg.querySelector('#body');
