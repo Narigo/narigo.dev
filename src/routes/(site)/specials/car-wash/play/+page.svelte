@@ -276,11 +276,17 @@ ${bubbles.join('')}`;
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
 	}
 	.bubbles {
-		transition: opacity 1500ms;
+		transition: opacity 1500ms, clip-path 1500ms;
+		clip-path: inset(0 0 0 100%);
 		opacity: 0;
 	}
 	.bubbles.enabled {
+		transition: opacity 1500ms, clip-path 1500ms;
+		clip-path: inset(0 0 0 0);
 		opacity: 1;
+	}
+	section:global(.shower) .bubbles {
+		clip-path: inset(100% 0 0 0);
 	}
 	@keyframes showerAnimationBottomDrying {
 		to {
