@@ -198,7 +198,7 @@ ${bubbles.join('')}`;
 				: '[&_svg_.dirt]:fill-none'}"
 		>
 			{@html image}
-			<div class="absolute">
+			<div class="absolute bubbles" class:enabled={currentStep === 'cleaning'}>
 				{@html bubblesOverlay?.outerHTML}
 			</div>
 		</div>
@@ -274,6 +274,13 @@ ${bubbles.join('')}`;
 		background:
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 0 0 / 20px 20px,
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
+	}
+	.bubbles {
+		transition: opacity 1500ms;
+		opacity: 0;
+	}
+	.bubbles.enabled {
+		opacity: 1;
 	}
 	@keyframes showerAnimationBottomDrying {
 		to {
