@@ -50,7 +50,7 @@
 		</li>
 		<li>
 			<div>
-				<a href="{base}/talks/webrtc-use-cases" rel="external"
+				<a href="{base}/talks/decentralization-with-webrtc" rel="external"
 					>Decentralization with WebRTC - Inspiring Use-Cases</a
 				>
 				-
@@ -64,6 +64,21 @@
 			</div>
 			<Narigo>
 				<p>This was a shorter version of the one held at MunichJS Meetup.</p>
+			</Narigo>
+		</li>
+		<li>
+			<div>
+				<a href="{base}/talks/dezentralisierung-mit-webrtc" rel="external"
+					>Dezentralisierung mit WebRTC - Inspirierende Use-Cases</a
+				>
+				- German version of the lightning talk at the Bayerwald Hackathon.
+			</div>
+			<Narigo>
+				<p>
+					This is the German version of the lightning talk at VirtualCoffee. Sounded like there were
+					quite a few people feeling nostalgic when I mentioned different peer to peer software
+					tools... 😅
+				</p>
 			</Narigo>
 		</li>
 	</ul>
