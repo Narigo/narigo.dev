@@ -5,6 +5,12 @@
 	import { onMount } from 'svelte';
 
 	export let data: PageData;
+
+	const AMOUNT_OF_FINGERS = 20;
+	const AMOUNT_OF_ROWS = 5;
+	const MIN_BUBBLE_RADIUS = 10;
+	const MAX_BUBBLE_RADIUS = 20;
+
 	const images = data.images;
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
 	const setCarColors = () => {
@@ -34,8 +40,6 @@
 		bubblesOverlay: SVGElement;
 
 	const createBubbleOverlay = (image: string) => {
-		const MIN_RADIUS = 10;
-		const MAX_RADIUS = 20;
 		const overlay = document.createElement('div');
 		const bubblesSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		overlay.innerHTML = image;
@@ -67,7 +71,6 @@
 					case 'path':
 						pathData.push(child.getAttribute('d')!);
 						break;
-					// Handle other shapes as needed
 				}
 			} catch {}
 		}
@@ -82,10 +85,10 @@
 		const scaleFactor = Math.max(scaleFactorHeight, scaleFactorWidth);
 		bubblesSvg.setAttribute(
 			'viewBox',
-			`${x - MAX_RADIUS} ${y - MAX_RADIUS} ${width + 2 * MAX_RADIUS} ${height + 2 * MAX_RADIUS}`
+			`${x - MAX_BUBBLE_RADIUS} ${y - MAX_BUBBLE_RADIUS} ${width + 2 * MAX_BUBBLE_RADIUS} ${height + 2 * MAX_BUBBLE_RADIUS}`
 		);
-		bubblesSvg.setAttribute('width', `${actualWidth + 2 * MAX_RADIUS * scaleFactor}`);
-		bubblesSvg.setAttribute('height', `${actualHeight + 2 * MAX_RADIUS * scaleFactor}`);
+		bubblesSvg.setAttribute('width', `${actualWidth + 2 * MAX_BUBBLE_RADIUS * scaleFactor}`);
+		bubblesSvg.setAttribute('height', `${actualHeight + 2 * MAX_BUBBLE_RADIUS * scaleFactor}`);
 		const tempSvg = document.createElementNS(svgNS, 'svg');
 		const tempPath = document.createElementNS(svgNS, 'path');
 		tempPath.setAttribute('d', pathString);
@@ -93,14 +96,23 @@
 		document.body.appendChild(tempSvg);
 
 		const bubbles: Array<string> = [];
-		for (let coordinateX = x + width; coordinateX >= x; coordinateX = coordinateX - MIN_RADIUS) {
-			for (let coordinateY = y + height; coordinateY >= y; coordinateY = coordinateY - MIN_RADIUS) {
+		for (
+			let coordinateX = x + width;
+			coordinateX >= x;
+			coordinateX = coordinateX - MIN_BUBBLE_RADIUS
+		) {
+			for (
+				let coordinateY = y + height;
+				coordinateY >= y;
+				coordinateY = coordinateY - MIN_BUBBLE_RADIUS
+			) {
 				const point = tempSvg.createSVGPoint();
 				point.x = coordinateX;
 				point.y = coordinateY;
 				const isInside = tempPath.isPointInFill(point);
 				if (isInside) {
-					const radius = Math.floor(Math.random() * (MAX_RADIUS - MIN_RADIUS)) + MIN_RADIUS;
+					const radius =
+						Math.floor(Math.random() * (MAX_BUBBLE_RADIUS - MIN_BUBBLE_RADIUS)) + MIN_BUBBLE_RADIUS;
 					const circleAtPoint = `<circle cx="${point.x}" cy="${point.y}" r="${radius}" fill="url(#bubbleGradient)" />`;
 					bubbles.push(circleAtPoint);
 				}
@@ -154,9 +166,6 @@ ${bubbles.join('')}`;
 		}
 	};
 
-	const AMOUNT_OF_FINGERS = 20;
-	const AMOUNT_OF_ROWS = 5;
-
 	onMount(() => {
 		resetToNewCar();
 	});
@@ -176,8 +185,8 @@ ${bubbles.join('')}`;
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
 						class="finger rounded absolute w-1 bg-gradient-to-b {index % 2 === 0
-							? 'from-blue-600 to-blue-800'
-							: 'from-blue-800 to-blue-900'}"
+							? 'from-blue-500 to-blue-400'
+							: 'from-blue-600 to-blue-700'}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
 							AMOUNT_OF_FINGERS) *
 							100}%;top:{(Math.floor(index / AMOUNT_OF_FINGERS) * 100) / AMOUNT_OF_ROWS}%"
@@ -235,6 +244,11 @@ ${bubbles.join('')}`;
 	.back.moving {
 		--padding: 4rem;
 	}
+	.back .finger {
+		@apply bg-blend-color;
+		background-image: linear-gradient(to bottom, var(--tw-gradient-stops)),
+			linear-gradient(#0003, #0003);
+	}
 	.finger {
 		transform-origin: 50% 0;
 		transition: transform 2000ms;
@@ -256,7 +270,9 @@ ${bubbles.join('')}`;
 		background-size: 0 0;
 		background-repeat: no-repeat;
 		opacity: 1;
-		transition: background-size 5000ms, opacity 10000ms;
+		transition:
+			background-size 5000ms,
+			opacity 10000ms;
 	}
 	.shower.enabled > .puddle {
 		background-image: radial-gradient(var(--rain-color) 25%, transparent 25%);
@@ -287,12 +303,16 @@ ${bubbles.join('')}`;
 			radial-gradient(circle, var(--rain-color) 1px, transparent 3px) 10px 10px / 20px 20px;
 	}
 	.bubbles {
-		transition: opacity 1500ms, clip-path 1500ms;
+		transition:
+			opacity 1500ms,
+			clip-path 1500ms;
 		clip-path: inset(0 0 0 100%);
 		opacity: 0;
 	}
 	.bubbles.enabled {
-		transition: opacity 1500ms, clip-path 1500ms;
+		transition:
+			opacity 1500ms,
+			clip-path 1500ms;
 		clip-path: inset(0 0 0 0);
 		opacity: 1;
 	}
