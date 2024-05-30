@@ -26,7 +26,7 @@
 			carColor800: randomColor[800]
 		};
 	};
-	let currentStep: 'start' | 'dirty' | 'cleaning' | 'shower' | 'drying' | 'done' = 'start';
+	let currentStep: 'start' | 'dirty' | 'cleaning' | 'showering' | 'drying' | 'done' = 'start';
 	let image: string,
 		carColor300: string,
 		carColor500: string,
@@ -140,9 +140,9 @@ ${bubbles.join('')}`;
 				currentStep = 'cleaning';
 				break;
 			case 'cleaning':
-				currentStep = 'shower';
+				currentStep = 'showering';
 				break;
-			case 'shower':
+			case 'showering':
 				currentStep = 'drying';
 				break;
 			case 'drying':
@@ -185,8 +185,8 @@ ${bubbles.join('')}`;
 				{/each}
 			</div>
 		</div>
-		<div class="shower absolute h-full w-full" class:enabled={currentStep === 'shower'}>
-			<div class="absolute w-full h-4 bottom-0"></div>
+		<div class="shower absolute h-full w-full" class:enabled={currentStep === 'showering'}>
+			<div class="puddle absolute w-full h-4 bottom-0"></div>
 		</div>
 		<div
 			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
@@ -251,15 +251,26 @@ ${bubbles.join('')}`;
 			radial-gradient(circle, gray 2px, transparent 0) 0 0 / 20px 20px repeat-x,
 			radial-gradient(circle, gray 2px, transparent 0) 10px 10px / 20px 20px repeat-x;
 	}
-	.shower.enabled > div {
-		animation: showerAnimationBottom 5000ms forwards linear;
-		background: radial-gradient(var(--rain-color) 25%, transparent 25%) 0 100% / 0 0 no-repeat;
+	.shower > .puddle {
 		background-position: 50% 50%;
 		background-size: 0 0;
+		background-repeat: no-repeat;
+		opacity: 1;
+		transition: background-size 5000ms, opacity 10000ms;
 	}
-	.drying .shower > div {
-		animation: showerAnimationBottomDrying 20000ms forwards linear;
-		background: radial-gradient(var(--rain-color) 25%, transparent 25%);
+	.shower.enabled > .puddle {
+		background-image: radial-gradient(var(--rain-color) 25%, transparent 25%);
+		background-position: 50% 50%;
+		background-size: 600% 2rem;
+		background-repeat: no-repeat;
+		opacity: 1;
+	}
+	.drying .shower > .puddle {
+		background-image: radial-gradient(var(--rain-color) 25%, transparent 25%);
+		background-position: 50% 50%;
+		background-size: 100% 1rem;
+		background-repeat: no-repeat;
+		opacity: 0;
 	}
 	.shower.enabled {
 		background:
@@ -285,7 +296,7 @@ ${bubbles.join('')}`;
 		clip-path: inset(0 0 0 0);
 		opacity: 1;
 	}
-	section:global(.shower) .bubbles {
+	section:global(.showering) .bubbles {
 		clip-path: inset(100% 0 0 0);
 	}
 	@keyframes showerAnimationBottomDrying {
