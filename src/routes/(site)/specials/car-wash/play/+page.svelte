@@ -10,6 +10,8 @@
 	const AMOUNT_OF_ROWS = 5;
 	const MIN_BUBBLE_RADIUS = 10;
 	const MAX_BUBBLE_RADIUS = 20;
+	const MITTER_COLORS_1 = 'from-red-700 to-red-600';
+	const MITTER_COLORS_2 = 'from-red-900 to-red-800';
 
 	const images = data.images;
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
@@ -185,8 +187,8 @@ ${bubbles.join('')}`;
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
 						class="finger rounded absolute w-1 bg-gradient-to-b {index % 2 === 0
-							? 'from-blue-500 to-blue-400'
-							: 'from-blue-600 to-blue-700'}"
+							? MITTER_COLORS_1
+							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
 							AMOUNT_OF_FINGERS) *
 							100}%;top:{(Math.floor(index / AMOUNT_OF_FINGERS) * 100) / AMOUNT_OF_ROWS}%"
@@ -220,8 +222,8 @@ ${bubbles.join('')}`;
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
 						class="finger rounded absolute w-1 bg-gradient-to-b {index % 2 === 0
-							? 'from-blue-500 to-blue-400'
-							: 'from-blue-600 to-blue-700'}"
+							? MITTER_COLORS_1
+							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
 							AMOUNT_OF_FINGERS) *
 							100}%;top:{(Math.floor(index / AMOUNT_OF_FINGERS) * 100) / AMOUNT_OF_ROWS}%"
