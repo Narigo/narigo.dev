@@ -97,16 +97,18 @@
 		tempSvg.appendChild(tempPath);
 		document.body.appendChild(tempSvg);
 
+		const minBubbleRadius = MIN_BUBBLE_RADIUS / scaleFactor;
+		const maxBubbleRadius = MAX_BUBBLE_RADIUS / scaleFactor;
 		const bubbles: Array<string> = [];
 		for (
 			let coordinateX = x + width;
 			coordinateX >= x;
-			coordinateX = coordinateX - MIN_BUBBLE_RADIUS
+			coordinateX = coordinateX - minBubbleRadius
 		) {
 			for (
 				let coordinateY = y + height;
 				coordinateY >= y;
-				coordinateY = coordinateY - MIN_BUBBLE_RADIUS
+				coordinateY = coordinateY - minBubbleRadius
 			) {
 				const point = tempSvg.createSVGPoint();
 				point.x = coordinateX;
@@ -114,7 +116,7 @@
 				const isInside = tempPath.isPointInFill(point);
 				if (isInside) {
 					const radius =
-						Math.floor(Math.random() * (MAX_BUBBLE_RADIUS - MIN_BUBBLE_RADIUS)) + MIN_BUBBLE_RADIUS;
+						Math.floor(Math.random() * (maxBubbleRadius - minBubbleRadius)) + minBubbleRadius;
 					const circleAtPoint = `<circle cx="${point.x}" cy="${point.y}" r="${radius}" fill="url(#bubbleGradient)" />`;
 					bubbles.push(circleAtPoint);
 				}

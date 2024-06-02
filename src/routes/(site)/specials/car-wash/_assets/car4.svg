@@ -6,9 +6,6 @@
         </linearGradient>
         <clipPath id="body">
             <path d="M0 30L90 30L90 0L130 0L150 30L150 60L0 60L0 30Z" />
-            <circle cx="130" cy="60" r="15" fill="black" />
-            <circle cx="20" cy="60" r="15" fill="black" />
-            <circle cx="55" cy="60" r="15" fill="black" />
         </clipPath>
     </defs>
     <g class="body">
