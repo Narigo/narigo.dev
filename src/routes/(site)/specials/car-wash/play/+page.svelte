@@ -146,26 +146,36 @@ ${bubbles.join('')}`;
 		bubblesOverlay = createBubbleOverlay(image);
 	};
 
+	let nextStepTimer: ReturnType<typeof setTimeout> | null = null;
 	const nextStep = () => {
+		if (nextStepTimer) {
+			clearTimeout(nextStepTimer);
+		}
 		switch (currentStep) {
 			case 'start':
 				resetToNewCar();
 				currentStep = 'dirty';
+				nextStepTimer = setTimeout(nextStep, 2000);
 				break;
 			case 'dirty':
 				currentStep = 'cleaning';
+				nextStepTimer = setTimeout(nextStep, 4000);
 				break;
 			case 'cleaning':
 				currentStep = 'showering';
+				nextStepTimer = setTimeout(nextStep, 6000);
 				break;
 			case 'showering':
 				currentStep = 'drying';
+				nextStepTimer = setTimeout(nextStep, 10000);
 				break;
 			case 'drying':
 				currentStep = 'done';
+				nextStepTimer = setTimeout(nextStep, 5000);
 				break;
 			case 'done':
 				currentStep = 'start';
+				nextStepTimer = setTimeout(nextStep, 2000);
 				break;
 		}
 	};
