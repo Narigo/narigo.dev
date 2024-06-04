@@ -175,7 +175,6 @@ ${bubbles.join('')}`;
 				break;
 			case 'done':
 				currentStep = 'start';
-				nextStepTimer = setTimeout(nextStep, 2000);
 				break;
 		}
 	};
