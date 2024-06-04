@@ -243,7 +243,7 @@ ${bubbles.join('')}`;
 			</div>
 		</div>
 	</section>
-	<button class="" on:click={() => nextStep()}>{currentStep}</button>
+	<button class="block m-auto border rounded px-4 py-2 bg-primary text-white" on:click={() => nextStep()}>{currentStep}</button>
 </PageLayout>
 
 <style lang="postcss">
