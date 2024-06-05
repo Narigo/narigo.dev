@@ -147,6 +147,14 @@ ${bubbles.join('')}`;
 	};
 
 	let nextStepTimer: ReturnType<typeof setTimeout> | null = null;
+	const startStopAnim = () => {
+		if (nextStepTimer) {
+			clearTimeout(nextStepTimer);
+			nextStepTimer = null;
+			return;
+		}
+		nextStep();
+	};
 	const nextStep = () => {
 		if (nextStepTimer) {
 			clearTimeout(nextStepTimer);
@@ -208,7 +216,7 @@ ${bubbles.join('')}`;
 			</div>
 		</div>
 		<div class="shower absolute h-full w-full" class:enabled={currentStep === 'showering'}>
-			<div class="puddle absolute w-full h-4 bottom-0"></div>
+			<div class="puddle absolute w-full h-4 -bottom-2"></div>
 		</div>
 		<div
 			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
@@ -243,7 +251,10 @@ ${bubbles.join('')}`;
 			</div>
 		</div>
 	</section>
-	<button class="block m-auto border rounded px-4 py-2 bg-primary text-white" on:click={() => nextStep()}>{currentStep}</button>
+	<button
+		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
+		on:click={() => startStopAnim()}>{currentStep}</button
+	>
 </PageLayout>
 
 <style lang="postcss">
