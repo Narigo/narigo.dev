@@ -126,7 +126,7 @@
 		bubblesGroup.innerHTML = `<defs>
 	<radialGradient id="bubbleGradient" transform-origin=".47 .47">
         <stop offset="0%" stop-color="#fff"></stop>
-        <stop offset="80%" stop-color="#fffc"></stop>
+        <stop offset="85%" stop-color="#fffc"></stop>
         <stop offset="100%" stop-color="transparent"></stop>
     </radialGradient>
 </defs>
