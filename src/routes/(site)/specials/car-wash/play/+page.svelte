@@ -6,6 +6,7 @@
 
 	export let data: PageData;
 
+	const USE_TIMER = false;
 	const AMOUNT_OF_FINGERS = 20;
 	const AMOUNT_OF_ROWS = 5;
 	const MIN_BUBBLE_RADIUS = 10;
@@ -163,23 +164,23 @@ ${bubbles.join('')}`;
 			case 'start':
 				resetToNewCar();
 				currentStep = 'dirty';
-				nextStepTimer = setTimeout(nextStep, 2000);
+				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 2000) : null;
 				break;
 			case 'dirty':
 				currentStep = 'cleaning';
-				nextStepTimer = setTimeout(nextStep, 4000);
+				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 4000) : null;
 				break;
 			case 'cleaning':
 				currentStep = 'showering';
-				nextStepTimer = setTimeout(nextStep, 6000);
+				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 6000) : null;
 				break;
 			case 'showering':
 				currentStep = 'drying';
-				nextStepTimer = setTimeout(nextStep, 10000);
+				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 10000) : null;
 				break;
 			case 'drying':
 				currentStep = 'done';
-				nextStepTimer = setTimeout(nextStep, 5000);
+				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 5000) : null;
 				break;
 			case 'done':
 				currentStep = 'start';
