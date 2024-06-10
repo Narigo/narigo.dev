@@ -261,7 +261,8 @@ ${bubbles.join('')}`;
 	>
 	<button
 		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
-		on:click={() => toggleTimer()}>{useTimer}</button
+		on:click={() => toggleTimer()}
+		>Continue {#if useTimer}automatically{:else}manually{/if}</button
 	>
 </PageLayout>
 
