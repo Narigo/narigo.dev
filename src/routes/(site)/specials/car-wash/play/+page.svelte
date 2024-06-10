@@ -6,7 +6,7 @@
 
 	export let data: PageData;
 
-	const USE_TIMER = false;
+	let useTimer = false;
 	const AMOUNT_OF_FINGERS = 20;
 	const AMOUNT_OF_ROWS = 5;
 	const MIN_BUBBLE_RADIUS = 10;
@@ -147,6 +147,9 @@ ${bubbles.join('')}`;
 		bubblesOverlay = createBubbleOverlay(image);
 	};
 
+	const toggleTimer = () => {
+		useTimer = !useTimer;
+	};
 	let nextStepTimer: ReturnType<typeof setTimeout> | null = null;
 	const startStopAnim = () => {
 		if (nextStepTimer) {
@@ -164,23 +167,23 @@ ${bubbles.join('')}`;
 			case 'start':
 				resetToNewCar();
 				currentStep = 'dirty';
-				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 2000) : null;
+				nextStepTimer = useTimer ? setTimeout(nextStep, 2000) : null;
 				break;
 			case 'dirty':
 				currentStep = 'cleaning';
-				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 4000) : null;
+				nextStepTimer = useTimer ? setTimeout(nextStep, 4000) : null;
 				break;
 			case 'cleaning':
 				currentStep = 'showering';
-				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 6000) : null;
+				nextStepTimer = useTimer ? setTimeout(nextStep, 6000) : null;
 				break;
 			case 'showering':
 				currentStep = 'drying';
-				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 10000) : null;
+				nextStepTimer = useTimer ? setTimeout(nextStep, 10000) : null;
 				break;
 			case 'drying':
 				currentStep = 'done';
-				nextStepTimer = USE_TIMER ? setTimeout(nextStep, 5000) : null;
+				nextStepTimer = useTimer ? setTimeout(nextStep, 5000) : null;
 				break;
 			case 'done':
 				currentStep = 'start';
@@ -255,6 +258,10 @@ ${bubbles.join('')}`;
 	<button
 		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
 		on:click={() => startStopAnim()}>{currentStep}</button
+	>
+	<button
+		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
+		on:click={() => toggleTimer()}>{useTimer}</button
 	>
 </PageLayout>
 
