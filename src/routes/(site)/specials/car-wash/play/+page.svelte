@@ -147,10 +147,13 @@ ${bubbles.join('')}`;
 		bubblesOverlay = createBubbleOverlay(image);
 	};
 
+	let nextStepTimer: ReturnType<typeof setTimeout> | null = null;
 	const toggleTimer = () => {
+		if (nextStepTimer) {
+			clearTimeout(nextStepTimer);
+		}
 		useTimer = !useTimer;
 	};
-	let nextStepTimer: ReturnType<typeof setTimeout> | null = null;
 	const startStopAnim = () => {
 		if (nextStepTimer) {
 			clearTimeout(nextStepTimer);
