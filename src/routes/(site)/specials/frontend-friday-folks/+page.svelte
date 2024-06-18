@@ -23,17 +23,14 @@
 			solutions I've done here, but I'm open to share others as well, if someone wants to submit
 			anything.
 		</p>
-	</Narigo>
-	<Narigo>
 		<p>Here are solutions to puzzles we completed:</p>
-		<ul>
-			{#each puzzles as { number, title }}
-				<li>
-					<a href="{base}/specials/frontend-friday-folks/puzzle-{number}"
-						>Puzzle {number} - {title}</a
-					>
-				</li>
-			{/each}
-		</ul>
 	</Narigo>
+	<ul>
+		{#each puzzles as { number, title }}
+			<li class="ml-4 list-disc">
+				<a href="{base}/specials/frontend-friday-folks/puzzle-{number}">Puzzle {number} - {title}</a
+				>
+			</li>
+		{/each}
+	</ul>
 </PageLayout>

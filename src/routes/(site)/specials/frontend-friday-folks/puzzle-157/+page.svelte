@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -58,6 +59,6 @@
 	<Puzzle title="Puzzle 157 solution" {solution} />
 	<Narigo>
 		The last puzzle we did at JSCraftCamp 2024. Right at the end of the hour, we finalized the
-		mustache by using webkit-box-reflect.
+		mustache by using <Code>-webkit-box-reflect</Code>.
 	</Narigo>
 </PuzzlePageLayout>
