@@ -21,7 +21,10 @@
 		<p>
 			There was enough interest to actually start a second session per week now. I'm sharing
 			solutions I've done here, but I'm open to share others as well, if someone wants to submit
-			anything.
+			anything. You can also check out <a
+				href="https://github.com/orgs/Virtual-Coffee/discussions/categories/css-battles"
+				rel="external">the solutions collected in the VirtualCoffee.io community</a
+			>.
 		</p>
 		<p>Here are solutions to puzzles we completed:</p>
 	</Narigo>
