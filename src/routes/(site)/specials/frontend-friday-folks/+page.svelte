@@ -26,7 +26,7 @@
 				rel="external">the solutions collected in the VirtualCoffee.io community</a
 			>.
 		</p>
-		<p>Here are solutions to puzzles we completed:</p>
+		<p>Here are solutions to the puzzles I did:</p>
 	</Narigo>
 	<ul>
 		{#each puzzles as { number, title }}
