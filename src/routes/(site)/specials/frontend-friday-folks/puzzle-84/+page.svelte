@@ -18,5 +18,7 @@
 </script>
 
 <PuzzlePageLayout title="Junction" {solution}>
-	<Narigo>Ah, lovely gradients!</Narigo>
+	<Narigo
+		>Ah, lovely gradients! One thing that I found lately is using &amp; as a way to style the body.</Narigo
+	>
 </PuzzlePageLayout>
