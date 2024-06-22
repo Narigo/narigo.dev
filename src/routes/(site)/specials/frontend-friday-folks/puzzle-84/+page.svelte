@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
@@ -19,6 +20,7 @@
 
 <PuzzlePageLayout title="Junction" {solution}>
 	<Narigo
-		>Ah, lovely gradients! One thing that I found lately is using &amp; as a way to style the body.</Narigo
+		>Ah, lovely gradients! One thing that I found lately is using <Code>&amp;</Code> as a way to style
+		the body.</Narigo
 	>
 </PuzzlePageLayout>
