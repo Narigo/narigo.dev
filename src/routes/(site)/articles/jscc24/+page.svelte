@@ -61,8 +61,9 @@
 		community members than seats from sponsors.
 	</p>
 	<p>
-		There will probably be more points to add after we've done the "official" retro with the orga
-		team.
+		There was some feedback from the location that something wasn't done correctly with the
+		beverages. We should improve our checklist for the end of the event to make everybody happy
+		after the event is over. Basically, the cleanup could have been done better.
 	</p>
 	<h2>Personal Conclusion</h2>
 	<p>
