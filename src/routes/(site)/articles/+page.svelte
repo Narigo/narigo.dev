@@ -7,7 +7,8 @@
 	<h2>Articles</h2>
 	<ul>
 		<li>
-			I have written <a href="{base}/articles/jscc24">some thoughts about JSCraftCamp 2024</a>.
+			You can read <a href="{base}/articles/jscc24">my personal retrospective of JSCraftCamp 2024</a
+			>.
 		</li>
 		<li>
 			I have written <a href="{base}/articles/jscc23">some thoughts about JSCraftCamp 2023</a>.
