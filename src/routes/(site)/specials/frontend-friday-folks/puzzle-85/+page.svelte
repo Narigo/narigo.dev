@@ -22,8 +22,15 @@
 </script>
 
 <PuzzlePageLayout title="Pythagoras" {solution}>
-	<Narigo
-		>This is the first time we did this in the JSCraftCamp Discord and we had Michi and Meg checking
-		in with me. I should really do more marketing for it 😅</Narigo
-	>
+	<Narigo>
+		<p>
+			This is the first time we did this in the JSCraftCamp Discord and we had Michi and Meg
+			checking in with me. I should really do more marketing for it 😅
+		</p>
+		<p>
+			Anyways - I'm sure everybody thought the solution would be three divs and a bit of rotations,
+			right? But could you do it with a conic gradient and a clip-path? Check the solution of how we
+			did it!
+		</p>
+	</Narigo>
 </PuzzlePageLayout>
