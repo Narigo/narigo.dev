@@ -29,8 +29,8 @@
 		</p>
 		<p>
 			Anyways - I'm sure everybody thought the solution would be three divs and a bit of rotations,
-			right? But could you do it with a conic gradient and a clip-path? Check the solution of how we
-			did it!
+			right? But could you do it with a <Code>conic-gradient</Code> and a <Code>clip-path</Code>?
+			Check the solution of how we did it!
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
