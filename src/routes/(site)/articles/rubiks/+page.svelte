@@ -117,7 +117,7 @@
 		<li>Solving bottom sides</li>
 		<li>Parity situation "sides mirrored"</li>
 	</ol>
-	<h3>Correct center pieces</h3>
+	<h3 id="correct-center-pieces">Correct center pieces</h3>
 	<p>
 		White is top, yellow is bottom, on the sides I remember red, then blue, then orange, then green
 		(RBOG). Since the edges and corners are not really to necessary to look at yet, getting a color
@@ -126,6 +126,28 @@
 		correctly colored piece from the current center, the center can be turned before moving the
 		color from somewhere else into it.
 	</p>
+	<h3 id="correct-pairs-on-every-side">Correct pairs on every side</h3>
+	<p>
+		This makes all edges on the sides be of the same colors. As long as there are still broken
+		sides, the algorithm is to move the same colors on the same face but in different directions.
+		For example, you can put red-green on the right of the face you're looking at (red on the face,
+		green on the side). Let's say it's on the upper right of the two possible center pieces. On the
+		left, get red-green to the lower left, with red on the side and green on the face. Turning the
+		lower half of the cube to the right should give you a working red-green side. Now move this away
+		by turning the face. As an example, turning it counter-clockwise will move it to the top. Then
+		turn the top face to move it away, saving the solved part. Then a broken part should be where
+		the red-green was before. Turn the face clockwise again and now turn the lower body of the cube
+		back again. The center pieces should be correct again and the red-green side should be solved
+		"somewhere". It's not necessary that these side pieces are in the correct places yet. They only
+		need to be solved so we can continue with the 4x4 like a 3x3 later.
+	</p>
+	<p>
+		When all sides are solved, there is a chance to a parity situation. Two sides are left broken
+		with the same colors and they basically need to be switched. For me, I usually break one of the
+		other sides intentionally then by using the same algorithm to solve them. When I have three
+		broken parts, they can be moved in a way to solve all three.
+	</p>
+	<hr />
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
