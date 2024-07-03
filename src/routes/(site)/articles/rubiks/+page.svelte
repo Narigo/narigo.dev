@@ -3,7 +3,10 @@
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-04-13">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-07-03">
+	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
+		This is still a work in progress. I had to save two algorithms so I won't forget them.
+	</p>
 	<p>
 		I like solving these cubes and it always takes a while until I can do all the necessary
 		algorithms. In the past, I've seen that I tend to forget some key algorithms when I don't solve
@@ -114,6 +117,15 @@
 		<li>Solving bottom sides</li>
 		<li>Parity situation "sides mirrored"</li>
 	</ol>
+	<h3>Correct center pieces</h3>
+	<p>
+		White is top, yellow is bottom, on the sides I remember red, then blue, then orange, then green
+		(RBOG). Since the edges and corners are not really to necessary to look at yet, getting a color
+		next to its center is usually one move towards it, then "save" it by turning the color and then
+		do a backwards move to keep the previously solved centers intact. To not move an already
+		correctly colored piece from the current center, the center can be turned before moving the
+		color from somewhere else into it.
+	</p>
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
