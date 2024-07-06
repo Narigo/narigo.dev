@@ -106,7 +106,7 @@
 	</p>
 	<ol>
 		<li><a href="#correct-center-pieces">Correct center pieces</a></li>
-		<li>Correct pairs on every side</li>
+		<li><a href="#correct-pairs-on-every-side">Correct pairs on every side</a></li>
 		<li><a href="#cross-top-color">Cross with the top color</a></li>
 		<li>Solve top color and corners</li>
 		<li>Sides to get the first two rows</li>
