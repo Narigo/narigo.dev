@@ -147,6 +147,7 @@
 		other sides intentionally then by using the same algorithm to solve them. When I have three
 		broken parts, they can be moved in a way to solve all three.
 	</p>
+	<p>TODO: Write down the algorithm to do three at the same time 😅</p>
 	<hr />
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
