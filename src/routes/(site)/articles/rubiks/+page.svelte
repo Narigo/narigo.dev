@@ -107,9 +107,7 @@
 	<ol>
 		<li><a href="#correct-center-pieces">Correct center pieces</a></li>
 		<li><a href="#correct-pairs-on-every-side">Correct pairs on every side</a></li>
-		<li><a href="#cross-top-color">Cross with the top color</a></li>
-		<li>Solve top color and corners</li>
-		<li>Sides to get the first two rows</li>
+		<li><a href="#solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</a></li>
 		<li>Bottom color cross</li>
 		<li>Parity situation "edge not facing correctly"</li>
 		<li>Bottom color face complete</li>
@@ -148,6 +146,18 @@
 		broken parts, they can be moved in a way to solve all three.
 	</p>
 	<p>TODO: Write down the algorithm to do three at the same time 😅</p>
+	<h3 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h3>
+	<p>
+		There are a few steps now that feel like solving the 3x3 again. In essence, the top color gets a
+		cross with the center pieces on the side, the top face corners get solved and then the side
+		edges get put in correctly.
+	</p>
+	<p>
+		As soon as those are done and the bottom face needs to be solved. It may look a bit different
+		than the 3x3, mainly you feel like you cannot solve the bottom cross, for example. This may
+		happen if you experience one of the parity situations. You can still solve most of the cube like
+		a 3x3, but you will see that some sides have switched places with each other.
+	</p>
 	<hr />
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
