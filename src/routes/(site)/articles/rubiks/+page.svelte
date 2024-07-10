@@ -27,10 +27,10 @@
 		<li><a href="#cross-top-color">Cross with the top color</a></li>
 		<li><a href="#solve-top-color-and-corners">Solve top color and corners</a></li>
 		<li><a href="#sides-to-get-the-first-two-rows">Sides to get the first two rows</a></li>
-		<li><a href="bottom-color-cross">Bottom color cross</a></li>
-		<li><a href="bottom-color-face-complete">Bottom color face complete</a></li>
-		<li><a href="bottom-corners-solved">Bottom corners solved</a></li>
-		<li><a href="bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</a></li>
+		<li><a href="#bottom-color-cross">Bottom color cross</a></li>
+		<li><a href="#bottom-color-face-complete">Bottom color face complete</a></li>
+		<li><a href="#bottom-corners-solved">Bottom corners solved</a></li>
+		<li><a href="#bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</a></li>
 	</ol>
 	<h4 id="cross-top-color">Cross with the top color</h4>
 	<p>
@@ -116,6 +116,7 @@
 		you scramble it. There are two extra steps and two parity situations, which in turn made me
 		learn four more algorithms vs the 3x3.
 	</p>
+
 	<h3>Solution steps</h3>
 	<ol>
 		<li><a href="#correct-center-pieces">Correct center pieces</a></li>
@@ -128,6 +129,7 @@
 		<li>Solving bottom sides</li>
 		<li>Parity situation "sides mirrored"</li>
 	</ol>
+
 	<h4 id="correct-center-pieces">Correct center pieces</h4>
 	<p>
 		White is top, yellow is bottom, on the sides I remember red, then blue, then orange, then green
@@ -137,6 +139,7 @@
 		correctly colored piece from the current center, the center can be turned before moving the
 		color from somewhere else into it.
 	</p>
+
 	<h4 id="correct-pairs-on-every-side">Correct pairs on every side</h4>
 	<p>
 		This makes all edges on the sides be of the same colors. As long as there are still broken
@@ -159,6 +162,7 @@
 		broken parts, they can be moved in a way to solve all three.
 	</p>
 	<p>TODO: Write down the algorithm to do three at the same time 😅</p>
+
 	<h4 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h4>
 	<p>
 		There are a few steps now that feel like solving the 3x3 again. In essence, the top color gets a
@@ -171,7 +175,9 @@
 		happen if you experience one of the parity situations. You can still solve most of the cube like
 		a 3x3, but you will see that some sides have switched places with each other.
 	</p>
+
 	<hr />
+
 	<p>I need some place where I can put the note for the "degde" parity.</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
