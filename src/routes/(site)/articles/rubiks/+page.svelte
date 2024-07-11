@@ -17,11 +17,13 @@
 		speed-solving cubes, but if you just want a generic way to solve the cubes, this might be for
 		you. There are a lot of solutions to a lot of situations - I will try to show the ones I use.
 	</p>
+
 	<h2>Rubiks 3x3</h2>
 	<p>
 		This is the standard cube and it makes sense to start with this one. I may reference steps from
 		this one in the other cubes solutions.
 	</p>
+
 	<h3>Solution steps</h3>
 	<ol>
 		<li><a href="#cross-top-color">Cross with the top color</a></li>
@@ -107,13 +109,14 @@
 		right now, you don't have to care about the sides matching the center pieces of the sides. There
 		is also no need to care about the corners yet.
 	</p>
+
 	<p>The first step is getting a cross on the bottom. There are a few possibilities now:</p>
 	<ol>
 		<li>There is a cross already</li>
 		<li>There is no sides matching the center</li>
-		<li>There is one side matching the center</li>
+		<li>(4x4 only!) There is one side matching the center</li>
 		<li>There are two sides matching the center</li>
-		<li>There are three sides matching the center</li>
+		<li>(4x4 only!) There are three sides matching the center</li>
 	</ol>
 
 	<p>You can only solve a few of them into a real cross, using the following algorithm:</p>
