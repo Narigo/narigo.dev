@@ -92,14 +92,67 @@
 		go into the upper row again, line up with the red-blue piece from the beginning. Now move it in
 		the direction of blue, rotate the red side clockwise, the bottom piece back and the red side
 		anti-clockwise again. The red-blue piece should now sit in the correct spot. This has to be done
-		with all the sides. If one of the sides sits at the correct position but it facing in the wrong
-		direction, move it out by putting something from the bottom row in (one of the yellow ones).
-		This way, you can restart the algorithm of this step after moving the piece into the place where
-		it should be started from: lining up with a center piece.
+		with all the sides. If one of the sides sits at the correct position but it's facing in the
+		wrong direction, move it out by putting something from the bottom row in (one of the yellow
+		ones). This way, you can restart the algorithm of this step after moving the piece into the
+		place where it should be started from: lining up with a center piece.
 	</p>
 
 	<h4 id="bottom-color-cross">Bottom color cross</h4>
-	<p>TODO: Add necessary steps</p>
+	<p>
+		When all upper colors are solved and only the last layer needs to be solved, I turn the cube
+		around. So the solved layers are on the bottom and I can see the unsolved face at the bottom.
+		This is also the time where the harder to remember algorithms come into play. The bottom face
+		should be a yellow cross, similar of how solving the cube started with the white cross. But
+		right now, you don't have to care about the sides matching the center pieces of the sides. There
+		is also no need to care about the corners yet.
+	</p>
+	<p>The first step is getting a cross on the bottom. There are a few possibilities now:</p>
+	<ol>
+		<li>There is a cross already</li>
+		<li>There is no sides matching the center</li>
+		<li>There is one side matching the center</li>
+		<li>There are two sides matching the center</li>
+		<li>There are three sides matching the center</li>
+	</ol>
+
+	<p>You can only solve a few of them into a real cross, using the following algorithm:</p>
+	<div class="not-prose">
+		<CodeBlock code="F U R U' R' F'" />
+	</div>
+
+	<h5>There is a cross already</h5>
+	<p>
+		Well, congratulations, this step is done. You can continue with <a
+			href="#bottom-color-face-complete">completing the bottom face part</a
+		>.
+	</p>
+	<h5>There is no side matching the center</h5>
+	<p>
+		Try the algorithm mentioned above a couple of times - maybe turn the cube in some way after
+		doing an iteration. You should be able to end with a cross (TODO: Verify this!)
+	</p>
+
+	<h5>There is one side matching the center</h5>
+	<p>
+		If there is only one part of yellow next to the yellow center piece. I use the above algorithm
+		to get at least to three parts of yellow next to the center. It makes it easier for me to solve
+		the parity situation later.
+	</p>
+
+	<h5>There are two sides matching the center</h5>
+	<p>
+		In case of having two parts to the center in the correct direction, you don't have a harder to
+		solve parity situation. I always forget where to start and how to solve it. But it's easy to do
+		this algorithm above a couple of times, so I don't really care about remembering this too well.
+		If it doesn't work out, turn the cube around the Y-axis, keeping the yellow center in its place.
+	</p>
+
+	<h5>There are three sides matching the center</h5>
+	<p>
+		This hints to a parity situation again. The parity can be solved here or later. I tend to do it
+		at the very end of solving the cube.
+	</p>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
 	<p>TODO: Add necessary steps</p>
