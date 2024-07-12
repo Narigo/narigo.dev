@@ -158,7 +158,14 @@
 	</p>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
-	<p>TODO: Add necessary steps</p>
+	<p>
+		There are multiple ways the corners may look like. Using the following algorithm means putting
+		the front face of the front-right corner to the top face of the back-right corner. There are
+		three corners moving whih the algorithm. It won't touch the front lest stack..
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="R U R' U R U2 R'" />
+	</div>
 
 	<h4 id="bottom-corners-solved">Bottom corners solved</h4>
 	<p>TODO: Add necessary steps</p>
