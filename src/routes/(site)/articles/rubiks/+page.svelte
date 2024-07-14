@@ -1,6 +1,7 @@
 <script>
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
+	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
 <ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-07-09">
@@ -125,6 +126,33 @@
 	</div>
 
 	<h5>There is a cross already</h5>
+	<RubiksTopLayer
+		back={[
+			['_', 'r', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['_', 'y', '_'],
+			['y', 'y', 'y'],
+			['_', 'y', '_']
+		]}
+		left={[
+			['_', 'b', '_'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		right={[
+			['_', 'g', '_'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['_', 'o', '_'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+	/>
 	<p>
 		Well, congratulations, this step is done. You can continue with <a
 			href="#bottom-color-face-complete">completing the bottom face part</a
