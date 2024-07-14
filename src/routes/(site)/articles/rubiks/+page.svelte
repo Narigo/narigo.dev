@@ -159,6 +159,33 @@
 		>.
 	</p>
 	<h5>There is no side matching the center</h5>
+	<RubiksTopLayer
+		back={[
+			['_', 'y', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['_', '_', '_'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		left={[
+			['_', 'y', '_'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		right={[
+			['_', 'y', '_'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['_', 'y', '_'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+	/>
 	<p>
 		Try the algorithm mentioned above a couple of times - maybe turn the cube in some way after
 		doing an iteration. You should be able to end with a cross (TODO: Verify this!)
