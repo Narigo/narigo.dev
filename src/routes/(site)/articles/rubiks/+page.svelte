@@ -192,6 +192,33 @@
 	</p>
 
 	<h5>There is one side matching the center</h5>
+	<RubiksTopLayer
+		back={[
+			['_', 'y', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['_', '_', '_'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		left={[
+			['_', 'b', '_'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		right={[
+			['_', 'y', '_'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['_', 'y', '_'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+	/>
 	<p>
 		If there is only one part of yellow next to the yellow center piece. I use the above algorithm
 		to get at least to three parts of yellow next to the center. It makes it easier for me to solve
