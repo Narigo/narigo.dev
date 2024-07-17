@@ -200,7 +200,7 @@
 		]}
 		top={[
 			['_', '_', '_'],
-			['_', 'y', '_'],
+			['y', 'y', '_'],
 			['_', '_', '_']
 		]}
 		left={[
@@ -226,6 +226,63 @@
 	</p>
 
 	<h5>There are two sides matching the center</h5>
+	<div class="flex flex-row place-items-center">
+		<RubiksTopLayer
+			back={[
+				['_', '_', '_'],
+				['r', 'r', 'r'],
+				['r', 'r', 'r']
+			]}
+			top={[
+				['_', 'y', '_'],
+				['y', 'y', '_'],
+				['_', '_', '_']
+			]}
+			left={[
+				['_', '_', '_'],
+				['b', 'b', 'b'],
+				['b', 'b', 'b']
+			]}
+			right={[
+				['_', '_', '_'],
+				['g', 'g', 'g'],
+				['g', 'g', 'g']
+			]}
+			front={[
+				['_', '_', '_'],
+				['o', 'o', 'o'],
+				['o', 'o', 'o']
+			]}
+		/>
+		<div>or</div>
+		<RubiksTopLayer
+			back={[
+				['_', '_', '_'],
+				['r', 'r', 'r'],
+				['r', 'r', 'r']
+			]}
+			top={[
+				['_', '_', '_'],
+				['y', 'y', 'y'],
+				['_', '_', '_']
+			]}
+			left={[
+				['_', '_', '_'],
+				['b', 'b', 'b'],
+				['b', 'b', 'b']
+			]}
+			right={[
+				['_', '_', '_'],
+				['g', 'g', 'g'],
+				['g', 'g', 'g']
+			]}
+			front={[
+				['_', '_', '_'],
+				['o', 'o', 'o'],
+				['o', 'o', 'o']
+			]}
+		/>
+	</div>
 	<p>
 		In case of having two parts to the center in the correct direction, you don't have a harder to
 		solve parity situation. I always forget where to start and how to solve it. But it's easy to do
@@ -234,6 +291,33 @@
 	</p>
 
 	<h5>There are three sides matching the center</h5>
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['_', 'y', '_'],
+			['y', 'y', 'y'],
+			['_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		right={[
+			['_', '_', '_'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['_', '_', '_'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+	/>
 	<p>
 		This hints to a parity situation again. The parity can be solved here or later. I tend to do it
 		at the very end of solving the cube.
