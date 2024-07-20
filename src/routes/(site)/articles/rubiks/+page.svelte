@@ -4,7 +4,7 @@
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-07-09">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-07-18">
 	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
 		This is still a work in progress. I had to save two algorithms so I won't forget them.
 	</p>
@@ -36,6 +36,33 @@
 		<li><a href="#bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</a></li>
 	</ol>
 	<h4 id="cross-top-color">Cross with the top color</h4>
+	<RubiksTopLayer
+		top={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+		left={[
+			['_', 'r', '_'],
+			['_', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', 'o', '_'],
+			['_', 'o', '_'],
+			['_', '_', '_']
+		]}
+		front={[
+			['_', 'b', '_'],
+			['_', 'b', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'g', '_'],
+			['_', 'g', '_'],
+			['_', '_', '_']
+		]}
+	/>
 	<p>
 		The first thing to understand with the cube is that the faces in the middle cannot change. If
 		you think of white being the top face, yellow will be bottom. On the sides, there will be red,
@@ -52,6 +79,33 @@
 	</p>
 
 	<h4 id="solve-top-color-and-corners">Solve top color and corners</h4>
+	<RubiksTopLayer
+		top={[
+			['w', 'w', 'w'],
+			['w', 'w', 'w'],
+			['w', 'w', 'w']
+		]}
+		left={[
+			['r', 'r', 'r'],
+			['_', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['o', 'o', 'o'],
+			['_', 'o', '_'],
+			['_', '_', '_']
+		]}
+		front={[
+			['b', 'b', 'b'],
+			['_', 'b', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['g', 'g', 'g'],
+			['_', 'g', '_'],
+			['_', '_', '_']
+		]}
+	/>
 	<p>
 		Having the cross part done, only the corners are left to get the first row correct. As long as
 		the top color is visible on the side, you need to check the other two colors to find on which
@@ -192,31 +246,40 @@
 	</p>
 
 	<h5>There is one side matching the center</h5>
+	<p>
+		This should not happen on a 3x3 Rubiks cube! This can only happen on a 4x4 in a special parity
+		situation. If you see something like the image below on a 3x3, the cube's likely wrong.
+	</p>
 	<RubiksTopLayer
 		back={[
-			['_', 'y', '_'],
-			['r', 'r', 'r'],
-			['r', 'r', 'r']
+			['_', 'y', 'y', '_'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
 		]}
 		top={[
-			['_', '_', '_'],
-			['y', 'y', '_'],
-			['_', '_', '_']
+			['_', '_', '_', '_'],
+			['y', 'y', 'y', '_'],
+			['y', 'y', 'y', '_'],
+			['_', '_', '_', '_']
 		]}
 		left={[
-			['_', 'b', '_'],
-			['b', 'b', 'b'],
-			['b', 'b', 'b']
+			['_', 'b', 'b', '_'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
 		]}
 		right={[
-			['_', 'y', '_'],
-			['g', 'g', 'g'],
-			['g', 'g', 'g']
+			['_', 'y', 'y', '_'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
 		]}
 		front={[
-			['_', 'y', '_'],
-			['o', 'o', 'o'],
-			['o', 'o', 'o']
+			['_', 'y', 'y', '_'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
 		]}
 	/>
 	<p>
@@ -291,36 +354,45 @@
 	</p>
 
 	<h5>There are three sides matching the center</h5>
+	<p>
+		This should not be possible with a 3x3 Rubiks cube. A 4x4 can get to something like the below
+		image, but if you're facing this on a 3x3 cube, there's likely something off.
+	</p>
 	<RubiksTopLayer
 		back={[
-			['_', '_', '_'],
-			['r', 'r', 'r'],
-			['r', 'r', 'r']
+			['_', '_', '_', '_'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
 		]}
 		top={[
-			['_', 'y', '_'],
-			['y', 'y', 'y'],
-			['_', '_', '_']
+			['_', 'y', 'y', '_'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['_', '_', '_', '_']
 		]}
 		left={[
-			['_', '_', '_'],
-			['b', 'b', 'b'],
-			['b', 'b', 'b']
+			['_', '_', '_', '_'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
 		]}
 		right={[
-			['_', '_', '_'],
-			['g', 'g', 'g'],
-			['g', 'g', 'g']
+			['_', '_', '_', '_'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
 		]}
 		front={[
-			['_', '_', '_'],
-			['o', 'o', 'o'],
-			['o', 'o', 'o']
+			['_', '_', '_', '_'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
 		]}
 	/>
 	<p>
-		This hints to a parity situation again. The parity can be solved here or later. I tend to do it
-		at the very end of solving the cube.
+		For a 4x4, this hints to a parity situation again. The parity can be solved here or later. I
+		tend to do it at the very end of solving the cube.
 	</p>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
