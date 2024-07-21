@@ -28,10 +28,10 @@
 
 	const f: Record<Color, string> = {
 		w: 'bg-white',
-		r: 'bg-red-300',
-		b: 'bg-blue-300',
-		o: 'bg-orange-300',
-		g: 'bg-green-300',
+		r: 'bg-red-400',
+		b: 'bg-blue-400',
+		o: 'bg-orange-400',
+		g: 'bg-green-400',
 		y: 'bg-yellow-300',
 		_: 'bg-gray-600'
 	};
@@ -50,7 +50,7 @@
 			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] z-10"
 		>
 			{#each back as [c1, c2, c3, c4]}
-				<div class="grid {is3x3 ? 'grid-cols-3' : 'grid-cols-4'} gap-[2em]">
+				<div class="grid grid-flow-col gap-[2em]">
 					<div class="rounded aspect-square {f[c1]}"></div>
 					<div class="rounded aspect-square {f[c2]}"></div>
 					<div class="rounded aspect-square {f[c3]}"></div>
@@ -63,7 +63,7 @@
 			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
 		>
 			{#each left as [c1, c2, c3, c4]}
-				<div class="grid {is3x3 ? 'grid-cols-3' : 'grid-cols-4'} gap-[2em]">
+				<div class="grid grid-flow-col gap-[2em]">
 					<div class="rounded aspect-square {f[c1]}"></div>
 					<div class="rounded aspect-square {f[c2]}"></div>
 					<div class="rounded aspect-square {f[c3]}"></div>
@@ -74,7 +74,7 @@
 
 		<div class="absolute inset-0 bg-black grid gap-[2em] p-[1em]">
 			{#each top as [c1, c2, c3, c4]}
-				<div class="grid {is3x3 ? 'grid-cols-3' : 'grid-cols-4'} gap-[2em]">
+				<div class="grid grid-flow-col gap-[2em]">
 					<div class="rounded aspect-square {f[c1]}"></div>
 					<div class="rounded aspect-square {f[c2]}"></div>
 					<div class="rounded aspect-square {f[c3]}"></div>
@@ -87,7 +87,7 @@
 			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
 		>
 			{#each right as [c1, c2, c3, c4]}
-				<div class="grid {is3x3 ? 'grid-cols-3' : 'grid-cols-4'} gap-[2em]">
+				<div class="grid grid-flow-col gap-[2em]">
 					<div class="rounded aspect-square {f[c1]}"></div>
 					<div class="rounded aspect-square {f[c2]}"></div>
 					<div class="rounded aspect-square {f[c3]}"></div>
@@ -100,7 +100,7 @@
 			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)]"
 		>
 			{#each front as [c1, c2, c3, c4]}
-				<div class="grid {is3x3 ? 'grid-cols-3' : 'grid-cols-4'} gap-[2em]">
+				<div class="grid grid-flow-col gap-[2em]">
 					<div class="rounded aspect-square {f[c1]}"></div>
 					<div class="rounded aspect-square {f[c2]}"></div>
 					<div class="rounded aspect-square {f[c3]}"></div>
