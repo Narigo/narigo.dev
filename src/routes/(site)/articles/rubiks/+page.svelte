@@ -250,38 +250,6 @@
 		This should not happen on a 3x3 Rubiks cube! This can only happen on a 4x4 in a special parity
 		situation. If you see something like the image below on a 3x3, the cube's likely wrong.
 	</p>
-	<RubiksTopLayer
-		back={[
-			['_', 'y', 'y', '_'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r']
-		]}
-		top={[
-			['_', '_', '_', '_'],
-			['y', 'y', 'y', '_'],
-			['y', 'y', 'y', '_'],
-			['_', '_', '_', '_']
-		]}
-		left={[
-			['_', 'b', 'b', '_'],
-			['b', 'b', 'b', 'b'],
-			['b', 'b', 'b', 'b'],
-			['b', 'b', 'b', 'b']
-		]}
-		right={[
-			['_', 'y', 'y', '_'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g']
-		]}
-		front={[
-			['_', 'y', 'y', '_'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o']
-		]}
-	/>
 	<p>
 		If there is only one part of yellow next to the yellow center piece. I use the above algorithm
 		to get at least to three parts of yellow next to the center. It makes it easier for me to solve
@@ -358,38 +326,6 @@
 		This should not be possible with a 3x3 Rubiks cube. A 4x4 can get to something like the below
 		image, but if you're facing this on a 3x3 cube, there's likely something off.
 	</p>
-	<RubiksTopLayer
-		back={[
-			['_', '_', '_', '_'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r']
-		]}
-		top={[
-			['_', 'y', 'y', '_'],
-			['y', 'y', 'y', 'y'],
-			['y', 'y', 'y', 'y'],
-			['_', '_', '_', '_']
-		]}
-		left={[
-			['_', '_', '_', '_'],
-			['b', 'b', 'b', 'b'],
-			['b', 'b', 'b', 'b'],
-			['b', 'b', 'b', 'b']
-		]}
-		right={[
-			['_', '_', '_', '_'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g']
-		]}
-		front={[
-			['_', '_', '_', '_'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o']
-		]}
-	/>
 	<p>
 		For a 4x4, this hints to a parity situation again. The parity can be solved here or later. I
 		tend to do it at the very end of solving the cube.
@@ -468,18 +404,109 @@
 	<p>
 		There are a few steps now that feel like solving the 3x3 again. In essence, the top color gets a
 		cross with the center pieces on the side, the top face corners get solved and then the side
-		edges get put in correctly.
+		edges get put in correctly. There can be a special case for the 4x4 though: If there happens to
+		be only one or three parts of the bottom color showing from the center to the sides, there is a
+		parity situation.
 	</p>
 	<p>
-		As soon as those are done and the bottom face needs to be solved. It may look a bit different
-		than the 3x3, mainly you feel like you cannot solve the bottom cross, for example. This may
-		happen if you experience one of the parity situations. You can still solve most of the cube like
-		a 3x3, but you will see that some sides have switched places with each other.
+		In this situation, you cannot solve the bottom cross. I usually solve the cube as far as I can
+		before solving this parity situation at the very end. From a cube with only one side connected,
+		you can get to the one with three sides by using the same algorithm to get to the cross on the
+		3x3:
 	</p>
+
+	<div class="not-prose">
+		<CodeBlock code="F U R U' R' F'" />
+	</div>
+
+	<p>To get from this:</p>
+	<RubiksTopLayer
+		back={[
+			['_', 'y', 'y', '_'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
+		]}
+		top={[
+			['_', '_', '_', '_'],
+			['y', 'y', 'y', '_'],
+			['y', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
+		]}
+		right={[
+			['_', 'y', 'y', '_'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		front={[
+			['_', 'y', 'y', '_'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+	/>
+
+	<p>To this:</p>
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_', '_'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
+		]}
+		top={[
+			['_', 'y', 'y', '_'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['_', '_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
+		]}
+		right={[
+			['_', '_', '_', '_'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		front={[
+			['_', 'y', 'y', '_'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+	/>
+
+	<p>
+		You can solve the yellow part with the following algorithm right away, but I try to get
+		everything else solved first and pretend that it's solved usually. Since the algorithm to solve
+		this parity situation is - at least for me - hard to remember, I try to remember the patterns
+		during the steps. This allows me to recognize potential mistakes on my end easier. Doing a
+		mistake during this algorithm can end up having to solve the whole cube again, so I'm trying my
+		best to avoid them.
+	</p>
+
+	<div class="not-prose">
+		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
+	</div>
 
 	<hr />
 
-	<p>I need some place where I can put the note for the "degde" parity.</p>
+	<p>solve switched sides dedges</p>
+	<div class="not-prose">
+		<CodeBlock code="r2 U2 r2 Uw2 r2 u2" />
+	</div>
+	<p>solve incorrect dedge</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
 	</div>
