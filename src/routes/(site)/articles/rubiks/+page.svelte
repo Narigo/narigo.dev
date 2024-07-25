@@ -500,12 +500,49 @@
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
 	</div>
 
-	<hr />
+	<h5>Parity situation: Mirrored side colors</h5>
 
-	<p>solve switched sides dedges</p>
+	<p>To mirror the two sides in a situation like the following:</p>
+
+	<RubiksTopLayer
+		back={[
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
+		]}
+		top={[
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y']
+		]}
+		left={[
+			['b', 'g', 'g', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
+		]}
+		right={[
+			['g', 'b', 'b', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		front={[
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+	/>
+	<p>You can solve it by using this algorithm:</p>
 	<div class="not-prose">
 		<CodeBlock code="r2 U2 r2 Uw2 r2 u2" />
 	</div>
+
+	<hr />
+
 	<p>solve incorrect dedge</p>
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
