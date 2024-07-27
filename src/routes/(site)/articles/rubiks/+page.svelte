@@ -540,11 +540,4 @@
 	<div class="not-prose">
 		<CodeBlock code="r2 U2 r2 Uw2 r2 u2" />
 	</div>
-
-	<hr />
-
-	<p>solve incorrect dedge</p>
-	<div class="not-prose">
-		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
-	</div>
 </ArticleLayout>
