@@ -37,80 +37,84 @@
 	};
 </script>
 
-<div
-	class="grid grid-cols-3 aspect-square w-full [font-size:clamp(1px,calc(calc(-360px*5/504+1px)_+_calc(5/504*100vw)),6px)]"
->
-	<div></div>
-	<div></div>
-	<div></div>
+{#if isValid}
+	<div
+		class="grid grid-cols-3 aspect-square w-full [font-size:clamp(1px,calc(calc(-360px*5/504+1px)_+_calc(5/504*100vw)),6px)]"
+	>
+		<div></div>
+		<div></div>
+		<div></div>
 
-	<div></div>
-	<div class="relative [perspective-origin:50%_50%] [perspective:300px]">
-		<div
-			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] z-10"
-		>
-			{#each back as [c1, c2, c3, c4]}
-				<div class="grid grid-flow-col gap-[2em]">
-					<div class="rounded aspect-square {f[c1]}"></div>
-					<div class="rounded aspect-square {f[c2]}"></div>
-					<div class="rounded aspect-square {f[c3]}"></div>
-					{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
-				</div>
-			{/each}
+		<div></div>
+		<div class="relative [perspective-origin:50%_50%] [perspective:300px]">
+			<div
+				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] z-10"
+			>
+				{#each back as [c1, c2, c3, c4]}
+					<div class="grid grid-flow-col gap-[2em]">
+						<div class="rounded aspect-square {f[c1]}"></div>
+						<div class="rounded aspect-square {f[c2]}"></div>
+						<div class="rounded aspect-square {f[c3]}"></div>
+						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+					</div>
+				{/each}
+			</div>
+
+			<div
+				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+			>
+				{#each left as [c1, c2, c3, c4]}
+					<div class="grid grid-flow-col gap-[2em]">
+						<div class="rounded aspect-square {f[c1]}"></div>
+						<div class="rounded aspect-square {f[c2]}"></div>
+						<div class="rounded aspect-square {f[c3]}"></div>
+						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+					</div>
+				{/each}
+			</div>
+
+			<div class="absolute inset-0 bg-black grid gap-[2em] p-[1em]">
+				{#each top as [c1, c2, c3, c4]}
+					<div class="grid grid-flow-col gap-[2em]">
+						<div class="rounded aspect-square {f[c1]}"></div>
+						<div class="rounded aspect-square {f[c2]}"></div>
+						<div class="rounded aspect-square {f[c3]}"></div>
+						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+					</div>
+				{/each}
+			</div>
+
+			<div
+				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+			>
+				{#each right as [c1, c2, c3, c4]}
+					<div class="grid grid-flow-col gap-[2em]">
+						<div class="rounded aspect-square {f[c1]}"></div>
+						<div class="rounded aspect-square {f[c2]}"></div>
+						<div class="rounded aspect-square {f[c3]}"></div>
+						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+					</div>
+				{/each}
+			</div>
+
+			<div
+				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+			>
+				{#each front as [c1, c2, c3, c4]}
+					<div class="grid grid-flow-col gap-[2em]">
+						<div class="rounded aspect-square {f[c1]}"></div>
+						<div class="rounded aspect-square {f[c2]}"></div>
+						<div class="rounded aspect-square {f[c3]}"></div>
+						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+					</div>
+				{/each}
+			</div>
 		</div>
 
-		<div
-			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
-		>
-			{#each left as [c1, c2, c3, c4]}
-				<div class="grid grid-flow-col gap-[2em]">
-					<div class="rounded aspect-square {f[c1]}"></div>
-					<div class="rounded aspect-square {f[c2]}"></div>
-					<div class="rounded aspect-square {f[c3]}"></div>
-					{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
-				</div>
-			{/each}
-		</div>
-
-		<div class="absolute inset-0 bg-black grid gap-[2em] p-[1em]">
-			{#each top as [c1, c2, c3, c4]}
-				<div class="grid grid-flow-col gap-[2em]">
-					<div class="rounded aspect-square {f[c1]}"></div>
-					<div class="rounded aspect-square {f[c2]}"></div>
-					<div class="rounded aspect-square {f[c3]}"></div>
-					{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
-				</div>
-			{/each}
-		</div>
-
-		<div
-			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
-		>
-			{#each right as [c1, c2, c3, c4]}
-				<div class="grid grid-flow-col gap-[2em]">
-					<div class="rounded aspect-square {f[c1]}"></div>
-					<div class="rounded aspect-square {f[c2]}"></div>
-					<div class="rounded aspect-square {f[c3]}"></div>
-					{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
-				</div>
-			{/each}
-		</div>
-
-		<div
-			class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)]"
-		>
-			{#each front as [c1, c2, c3, c4]}
-				<div class="grid grid-flow-col gap-[2em]">
-					<div class="rounded aspect-square {f[c1]}"></div>
-					<div class="rounded aspect-square {f[c2]}"></div>
-					<div class="rounded aspect-square {f[c3]}"></div>
-					{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
-				</div>
-			{/each}
-		</div>
+		<div></div>
+		<div></div>
+		<div></div>
 	</div>
-
-	<div></div>
-	<div></div>
-	<div></div>
-</div>
+{:else}
+	<div>Invalid cube...!</div>
+{/if}
