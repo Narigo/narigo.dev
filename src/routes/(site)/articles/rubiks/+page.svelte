@@ -167,10 +167,18 @@
 
 	<p>The first step is getting a cross on the bottom. There are a few possibilities now:</p>
 	<ol>
-		<li>There is a cross already</li>
-		<li>There is no sides matching the center</li>
+		<li><a href="#there-is-a-cross-already-3x3">There is a cross already</a></li>
+		<li>
+			<a href="#there-are-no-sides-matching-the-center-3x3"
+				>There are no sides matching the center</a
+			>
+		</li>
 		<li>(4x4 only!) There is one side matching the center</li>
-		<li>There are two sides matching the center</li>
+		<li>
+			<a href="#there-are-two-sides-matching-the-center-3x3"
+				>There are two sides matching the center</a
+			>
+		</li>
 		<li>(4x4 only!) There are three sides matching the center</li>
 	</ol>
 
@@ -179,7 +187,7 @@
 		<CodeBlock code="F U R U' R' F'" />
 	</div>
 
-	<h5>There is a cross already</h5>
+	<h5 id="there-is-a-cross-already-3x3">There is a cross already</h5>
 	<RubiksTopLayer
 		back={[
 			['_', 'r', '_'],
@@ -212,7 +220,7 @@
 			href="#bottom-color-face-complete">completing the bottom face part</a
 		>.
 	</p>
-	<h5>There is no side matching the center</h5>
+	<h5 id="there-are-no-sides-matching-the-center-3x3">There are no sides matching the center</h5>
 	<RubiksTopLayer
 		back={[
 			['_', 'y', '_'],
@@ -256,7 +264,7 @@
 		the parity situation later.
 	</p>
 
-	<h5>There are two sides matching the center</h5>
+	<h5 id="there-are-two-sides-matching-the-center-3x3">There are two sides matching the center</h5>
 	<div class="flex flex-row place-items-center">
 		<RubiksTopLayer
 			back={[
