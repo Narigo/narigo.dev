@@ -367,7 +367,7 @@
 		<li><a href="#correct-center-pieces">Correct center pieces</a></li>
 		<li><a href="#correct-pairs-on-every-side">Correct pairs on every side</a></li>
 		<li><a href="#solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</a></li>
-		<li>Bottom color cross</li>
+		<li><a href="#bottom-color-cross-4x4">Bottom color cross</a></li>
 		<li>Parity situation "edge not facing correctly"</li>
 		<li>Bottom color face complete</li>
 		<li>Bottom corners solved</li>
@@ -416,6 +416,8 @@
 		be only one or three parts of the bottom color showing from the center to the sides, there is a
 		parity situation.
 	</p>
+
+	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
 		In this situation, you cannot solve the bottom cross. I usually solve the cube as far as I can
 		before solving this parity situation at the very end. From a cube with only one side connected,
