@@ -328,6 +328,9 @@
 		this algorithm above a couple of times, so I don't really care about remembering this too well.
 		If it doesn't work out, turn the cube around the Y-axis, keeping the yellow center in its place.
 	</p>
+	<div class="not-prose">
+		<CodeBlock code="F U R U' R' F'" />
+	</div>
 
 	<h5>There are three sides matching the center</h5>
 	<p>
@@ -343,11 +346,69 @@
 	<p>
 		There are multiple ways the corners may look like. Using the following algorithm means putting
 		the front face of the front-right corner to the top face of the back-right corner. There are
-		three corners moving whih the algorithm. It won't touch the front lest stack..
+		three corners moving whih the algorithm. It won't touch the front left corner. The corners that
+		are touched are being rotated clockwise.
 	</p>
 	<div class="not-prose">
 		<CodeBlock code="R U R' U R U2 R'" />
 	</div>
+	<p>As an example, this will make a cube like this:</p>
+	<RubiksTopLayer
+		back={[
+			['_', '_', 'y'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['_', '_', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['_', 'y', '_'],
+			['y', 'y', 'y'],
+			['y', 'y', '_']
+		]}
+		right={[
+			['_', '_', 'y'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['_', '_', 'y'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
+
+	<p>...turn into this:</p>
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['_', '_', '_'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['_', '_', '_'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['_', '_', '_'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
 
 	<h4 id="bottom-corners-solved">Bottom corners solved</h4>
 	<p>TODO: Add necessary steps</p>
@@ -418,14 +479,10 @@
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
 		There can be a special case for the 4x4 though: If there happens to be only one or three parts
-		of the bottom color showing from the center to the sides, there is a parity situation.
-	</p>
-
-	<p>
-		In this situation, you cannot solve the bottom cross. I usually solve the cube as far as I can
-		before solving this parity situation at the very end. From a cube with only one side connected,
-		you can get to the one with three sides by using the same algorithm to get to the cross on the
-		3x3:
+		of the bottom color showing from the center to the sides, there is a parity situation. In this
+		situation, you cannot solve the bottom cross. I usually solve the cube as far as I can before
+		solving this parity situation at the very end. From a cube with only one side connected, you can
+		get to the one with three sides by using the same algorithm to get to the cross on the 3x3:
 	</p>
 
 	<div class="not-prose">
