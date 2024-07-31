@@ -412,12 +412,15 @@
 	<p>
 		There are a few steps now that feel like solving the 3x3 again. In essence, the top color gets a
 		cross with the center pieces on the side, the top face corners get solved and then the side
-		edges get put in correctly. There can be a special case for the 4x4 though: If there happens to
-		be only one or three parts of the bottom color showing from the center to the sides, there is a
-		parity situation.
+		edges get put in correctly.
 	</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
+	<p>
+		There can be a special case for the 4x4 though: If there happens to be only one or three parts
+		of the bottom color showing from the center to the sides, there is a parity situation.
+	</p>
+
 	<p>
 		In this situation, you cannot solve the bottom cross. I usually solve the cube as far as I can
 		before solving this parity situation at the very end. From a cube with only one side connected,
