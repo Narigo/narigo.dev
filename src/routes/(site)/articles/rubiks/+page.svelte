@@ -4,7 +4,7 @@
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-07-18">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-08-02">
 	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
 		This is still a work in progress. I had to save two algorithms so I won't forget them.
 	</p>
@@ -125,6 +125,7 @@
 		bottom row back to click the top colors together and finally rotate the side back to move the
 		cross plus the corner up.
 	</p>
+
 	<h5>Top color in the bottom row, facing down</h5>
 	<p>
 		If you have some solved corners on the side, move the piece to the bottom corner where the top
@@ -352,7 +353,8 @@
 	<div class="not-prose">
 		<CodeBlock code="R U R' U R U2 R'" />
 	</div>
-	<p>As an example, this will make a cube like this:</p>
+
+	<p>In essence, this will make a cube like this:</p>
 	<RubiksTopLayer
 		back={[
 			['_', '_', 'y'],
@@ -409,6 +411,19 @@
 			['g', 'g', 'g']
 		]}
 	/>
+
+	<p>
+		If the starting point is not 3 corners needing a rotation, apply the algorithm multiple times
+		and turn the cube as necessary to get into a position that changes it to the 3 corners needing
+		to be solved with a clockwise rotation. There is a mirrored version of the algorithm as well,
+		essentially starting from the front-left, not touching the front-right corner and changing
+		front-left, back-left and back-right corners counter clockwise:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="L U L' U L U2 L'" />
+	</div>
+
+	<p>With these two algorithms, all corner situations should be resolvable.</p>
 
 	<h4 id="bottom-corners-solved">Bottom corners solved</h4>
 	<p>TODO: Add necessary steps</p>
