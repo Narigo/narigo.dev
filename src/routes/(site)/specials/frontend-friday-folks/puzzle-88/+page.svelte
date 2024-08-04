@@ -56,6 +56,62 @@
     rotate:180deg;
   }
 </style>`;
+
+	const teeth = `<x>
+<r>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</r>
+</x>
+<style>
+  body{background:#4c4;margin:0;display:grid;place-items:center}
+  x{animation:lip 1s infinite alternate;display:grid;height:80px;width:100%;overflow:hidden;place-items:center;align-content:center}
+  r{display:flex;justify-content:center;align-items:center;height:80px;width:100%;overflow:hidden;background:#F7F3DA}
+  div {
+    flex-grow:1;
+    position:relative;
+    border-radius:10px;
+    background:#d25b70;
+    height:100%;
+  }
+  div:before {
+    inset:50% 0 -20px;
+    content:'';
+    position:absolute;
+    border-radius:20px;
+    background:#F7F3DA;
+    animation: teeth 1s infinite alternate;
+  }
+  div:nth-child(even){
+    transform-origin:50% 50%;
+    rotate:180deg;
+  }
+  @keyframes lip {
+    from {
+      height:80px;
+    }
+    to {
+      height:0px;
+    }
+  }
+  @keyframes teeth {
+    from {
+      inset:50% 0 -20px;
+    }
+    to {
+      inset:30% 0 -20px;
+    }
+  }
+</style>`;
 </script>
 
 <PuzzlePageLayout title="Tight Corner">
@@ -67,9 +123,15 @@
 		the div.
 	</Narigo>
 
-  <Puzzle title="Second solution" solution={solution2} />
+	<Puzzle title="Second solution" solution={solution2} />
 	<Narigo>
 		As mentioned above, the second one was a cleaner version based on the idea that B Suraj had. I
 		think this could be used to make a fun animation as well...! 🤔
+	</Narigo>
+
+	<Puzzle title="Teeth" solution={teeth} />
+	<Narigo>
+		Well, here is an animation that came to my mind when working on the solution for the puzzle. I
+		guess this should go into some kind of animal. 😅
 	</Narigo>
 </PuzzlePageLayout>
