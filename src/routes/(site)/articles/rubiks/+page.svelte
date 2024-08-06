@@ -174,14 +174,18 @@
 				>There are no sides matching the center</a
 			>
 		</li>
-		<li>(4x4 only!) There is one side matching the center</li>
+		<li>(4x4 only!)</li>
 		<li>
 			<a href="#there-are-two-sides-matching-the-center-3x3"
 				>There are two sides matching the center</a
 			>
 		</li>
-		<li>(4x4 only!) There are three sides matching the center</li>
 	</ol>
+	<p>
+		If you're missing the cases "There is one side matching the center" or "There are three sides
+		matching the center", these can only happen on larger cubes, not the 3x3. See the solution for
+		4x4, if you're trying to solve this.
+	</p>
 
 	<p>You can only solve a few of them into a real cross, using the following algorithm:</p>
 	<div class="not-prose">
@@ -254,17 +258,6 @@
 		doing an iteration. You should be able to end with a cross (TODO: Verify this!)
 	</p>
 
-	<h5>There is one side matching the center</h5>
-	<p>
-		This should not happen on a 3x3 Rubiks cube! This can only happen on a 4x4 in a special parity
-		situation. If you see something like the image below on a 3x3, the cube's likely wrong.
-	</p>
-	<p>
-		If there is only one part of yellow next to the yellow center piece. I use the above algorithm
-		to get at least to three parts of yellow next to the center. It makes it easier for me to solve
-		the parity situation later.
-	</p>
-
 	<h5 id="there-are-two-sides-matching-the-center-3x3">There are two sides matching the center</h5>
 	<div class="flex flex-row place-items-center">
 		<RubiksTopLayer
@@ -324,24 +317,26 @@
 		/>
 	</div>
 	<p>
-		In case of having two parts to the center in the correct direction, you don't have a harder to
-		solve parity situation. I always forget where to start and how to solve it. But it's easy to do
-		this algorithm above a couple of times, so I don't really care about remembering this too well.
-		If it doesn't work out, turn the cube around the Y-axis, keeping the yellow center in its place.
+		I always forgot where to start and how to solve it with which of the two algorithms. If you
+		happen to remember just one of the following algorithms, it's fine: Apply it multiple times and
+		it will end up correctly eventually. Both are very similar and I was happy to find out that I
+		couldn't really destroy my progress using the wrong one.
+	</p>
+	<p>
+		To solve the first situation (top and left sides are correct, right and bottom sides are not
+		yellow), use this algorithm:
 	</p>
 	<div class="not-prose">
 		<CodeBlock code="F U R U' R' F'" />
 	</div>
 
-	<h5>There are three sides matching the center</h5>
 	<p>
-		This should not be possible with a 3x3 Rubiks cube. A 4x4 can get to something like the below
-		image, but if you're facing this on a 3x3 cube, there's likely something off.
+		For the horizontal bar (left and right sides are correct, top and bottom sides are not yellow),
+		use this one:
 	</p>
-	<p>
-		For a 4x4, this hints to a parity situation again. The parity can be solved here or later. I
-		tend to do it at the very end of solving the cube.
-	</p>
+	<div class="not-prose">
+		<CodeBlock code="F R U R' U' F'" />
+	</div>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
 	<p>
@@ -578,7 +573,7 @@
 		this parity situation is - at least for me - hard to remember, I try to remember the patterns
 		during the steps. This allows me to recognize potential mistakes on my end easier. Doing a
 		mistake during this algorithm can end up having to solve the whole cube again, so I'm trying my
-		best to avoid them.
+		best to avoid them by solving everything else first.
 	</p>
 
 	<div class="not-prose">
