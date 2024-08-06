@@ -75,7 +75,7 @@
 <style>
   body{background:#4c4;margin:0;display:grid;place-items:center}
   x{animation:lip 1s infinite alternate;display:grid;height:80px;width:100%;overflow:hidden;place-items:center;align-content:center}
-  r{display:flex;justify-content:center;align-items:center;height:80px;width:100%;overflow:hidden;background:#F7F3DA}
+  r{display:flex;justify-content:center;align-items:center;height:80px;width:100%;overflow:hidden;background:linear-gradient(#F7F3DA 10px,#d25b70 0 calc(100% - 10px),#F7F3DA 0)}
   div {
     flex-grow:1;
     position:relative;
