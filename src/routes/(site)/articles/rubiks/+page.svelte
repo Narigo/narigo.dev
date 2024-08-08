@@ -576,9 +576,50 @@
 		best to avoid them by solving everything else first.
 	</p>
 
+	<p>
+		Anyways, even though I'm usually not solving this situation right now, it's easier to do it now
+		to be able to solve the rest like the 3x3 again. So put the side to the front where the yellow
+		part is incorrect and follow the following algorithm:
+	</p>
+
 	<div class="not-prose">
 		<CodeBlock code="r U2 r U2 r' U2 r U2 l' U2 r U2 r' U2 l r2 U2 r'" />
 	</div>
+
+	<p>This should create the full bottom cross again:</p>
+
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_', '_'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
+		]}
+		top={[
+			['_', 'y', 'y', '_'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['_', 'y', 'y', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
+		]}
+		right={[
+			['_', '_', '_', '_'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		front={[
+			['_', '_', '_', '_'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+	/>
 
 	<h5>Parity situation: Mirrored side colors</h5>
 
