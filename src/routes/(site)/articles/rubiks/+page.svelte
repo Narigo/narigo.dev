@@ -174,7 +174,6 @@
 				>There are no sides matching the center</a
 			>
 		</li>
-		<li>(4x4 only!)</li>
 		<li>
 			<a href="#there-are-two-sides-matching-the-center-3x3"
 				>There are two sides matching the center</a
@@ -421,7 +420,72 @@
 	<p>With these two algorithms, all corner situations should be resolvable.</p>
 
 	<h4 id="bottom-corners-solved">Bottom corners solved</h4>
-	<p>TODO: Add necessary steps</p>
+	<p>
+		If you can find two corners which are solved (two corners on the same side have the same color),
+		move them to the side where they should be. This solved side should be in the opposite direction
+		of you looking at the cube. That means they should be on the back side of the cube. For example:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['b', '_', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['r', '_', 'g'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['g', '_', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['o', '_', 'r'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
+
+	<p>The algorithm to solve the corners then is this:</p>
+
+	<div class="not-prose">
+		<CodeBlock code="L F' L B2 L' F L B2 L2 U" />
+	</div>
+	<p>This should let the cube end up with solved corners like this:</p>
+	<RubiksTopLayer
+		back={[
+			['b', '_', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['r', '_', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['o', '_', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['g', '_', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
 
 	<h4 id="bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</h4>
 	<p>TODO: Add necessary steps</p>
@@ -620,6 +684,13 @@
 			['o', 'o', 'o', 'o']
 		]}
 	/>
+
+	<h4 id="bottom-color-face-complete-4x4">Completing the bottom color face (4x4)</h4>
+
+	<p>This is very similar to the 3x3 solution. Use the same algorithms do solve the corners.</p>
+
+	<h4>Last layer corner correction</h4>
+	<p>This is the same as for the 3x3. Use the algorithm to exchange two corners.</p>
 
 	<h5>Parity situation: Mirrored side colors</h5>
 
