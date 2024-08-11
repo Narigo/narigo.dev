@@ -541,7 +541,82 @@
 		other sides intentionally then by using the same algorithm to solve them. When I have three
 		broken parts, they can be moved in a way to solve all three.
 	</p>
-	<p>TODO: Write down the algorithm to do three at the same time 😅</p>
+
+	<RubiksTopLayer
+		back={[
+			['_', 'y', 'b', '_'],
+			['_', 'w', 'w', '_'],
+			['_', 'w', 'w', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', 'r', 'o', '_'],
+			['o', 'b', 'b', '_'],
+			['b', 'b', 'b', '_'],
+			['_', 'y', 'o', '_']
+		]}
+		left={[
+			['_', 'g', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_', '_'],
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', 'o', 'g', '_'],
+			['_', 'y', 'y', '_'],
+			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+
+	<p>
+		When having a situation like the above example, this algorithm should solve all three parts:
+	</p>
+
+	<div class="not-prose">
+		<CodeBlock code="l' B L' B' l" />
+	</div>
+
+	<p>This ends up in this:</p>
+
+	<RubiksTopLayer
+		back={[
+			['_', 'b', 'b', '_'],
+			['_', 'w', 'w', '_'],
+			['_', 'w', 'w', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', 'r', 'r', '_'],
+			['y', 'b', 'b', '_'],
+			['y', 'b', 'b', '_'],
+			['_', 'o', 'o', '_']
+		]}
+		left={[
+			['_', 'g', 'g', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_', '_'],
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', 'g', 'g', '_'],
+			['_', 'y', 'y', '_'],
+			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
 
 	<h4 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h4>
 	<p>
