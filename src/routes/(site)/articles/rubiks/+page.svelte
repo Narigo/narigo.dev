@@ -4,9 +4,9 @@
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-08-02">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-08-12">
 	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
-		This is still a work in progress. I had to save two algorithms so I won't forget them.
+		This is still a work in progress.
 	</p>
 	<p>
 		I like solving these cubes and it always takes a while until I can do all the necessary
@@ -803,8 +803,47 @@
 			['b', 'b', 'b', 'b']
 		]}
 	/>
+
 	<p>You can solve it by using this algorithm:</p>
+
 	<div class="not-prose">
 		<CodeBlock code="r2 U2 r2 Uw2 r2 u2" />
 	</div>
+
+	<h5>Parity situation: Side colors mirrored over corner</h5>
+
+	<p>Similar to the one before, the parity situation could happen around a corner, like this:</p>
+
+	<RubiksTopLayer
+		back={[
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		top={[
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y']
+		]}
+		left={[
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
+		]}
+		right={[
+			['o', 'b', 'b', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+		front={[
+			['b', 'o', 'o', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b']
+		]}
+	/>
 </ArticleLayout>
