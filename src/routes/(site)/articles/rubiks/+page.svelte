@@ -580,7 +580,7 @@
 	</p>
 
 	<div class="not-prose">
-		<CodeBlock code="l' U L' U' l" />
+		<CodeBlock code="l' B L' B' l" />
 	</div>
 
 	<p>This ends up in this:</p>
@@ -629,12 +629,12 @@
 		]}
 		top={[
 			['_', 'r', 'o', '_'],
-			['o', 'b', 'b', '_'],
 			['b', 'b', 'b', '_'],
+			['o', 'b', 'b', '_'],
 			['_', 'y', 'o', '_']
 		]}
 		left={[
-			['_', 'g', 'r', '_'],
+			['_', 'r', 'g', '_'],
 			['_', 'r', 'r', '_'],
 			['_', 'r', 'r', '_'],
 			['_', '_', '_', '_']
@@ -652,6 +652,12 @@
 			['_', '_', '_', '_']
 		]}
 	/>
+
+	<p>Solving this situation is very similar to the one before.</p>
+
+	<div class="not-prose">
+		<CodeBlock code="Lw' U' L U l" />
+	</div>
 
 	<h4 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h4>
 	<p>
