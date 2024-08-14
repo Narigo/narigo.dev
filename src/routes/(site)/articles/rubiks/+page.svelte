@@ -496,6 +496,7 @@
 		you scramble it. There are two extra steps and two parity situations, which in turn made me
 		learn four more algorithms vs the 3x3.
 	</p>
+	<p>Parity situations will be explained in the steps where they can occur.</p>
 
 	<h3>Solution steps</h3>
 	<ol>
@@ -503,11 +504,7 @@
 		<li><a href="#correct-pairs-on-every-side">Correct pairs on every side</a></li>
 		<li><a href="#solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</a></li>
 		<li><a href="#bottom-color-cross-4x4">Bottom color cross</a></li>
-		<li>Parity situation "edge not facing correctly"</li>
-		<li>Bottom color face complete</li>
-		<li>Bottom corners solved</li>
-		<li>Solving bottom sides</li>
-		<li>Parity situation "sides mirrored"</li>
+		<li><a href="#bottom-color-face-complete-4x4">Bottom color face complete</a></li>
 	</ol>
 
 	<h4 id="correct-center-pieces">Correct center pieces</h4>
