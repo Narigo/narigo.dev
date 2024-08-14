@@ -183,10 +183,23 @@
 	<p>
 		If you're missing the cases "There is one side matching the center" or "There are three sides
 		matching the center", these can only happen on larger cubes, not the 3x3. See the solution for
-		4x4, if you're trying to solve this.
+		4x4, if you need to solve those.
 	</p>
 
-	<p>You can only solve a few of them into a real cross, using the following algorithm:</p>
+	<p>
+		If there are two sides solved and they are on the opposite sides, it looks like a line. Turn the
+		cube in a way that the line goes from the left to the right side. Then, you should get to the
+		cross by using this algorithm:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="F R U R' U' F'" />
+	</div>
+
+	<p>
+		If there are two sides solved and they are around a corner. Turn the cube in a way that the left
+		and the one to the top are in the bottom face color. In this situation, you can get to the cross
+		by using this algorithm:
+	</p>
 	<div class="not-prose">
 		<CodeBlock code="F U R U' R' F'" />
 	</div>
@@ -254,7 +267,7 @@
 	/>
 	<p>
 		Try the algorithm mentioned above a couple of times - maybe turn the cube in some way after
-		doing an iteration. You should be able to end with a cross (TODO: Verify this!)
+		doing an iteration. You should be able to end with a cross.
 	</p>
 
 	<h5 id="there-are-two-sides-matching-the-center-3x3">There are two sides matching the center</h5>
