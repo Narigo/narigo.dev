@@ -170,39 +170,49 @@
 	<ol>
 		<li><a href="#there-is-a-cross-already-3x3">There is a cross already</a></li>
 		<li>
-			<a href="#there-are-no-sides-matching-the-center-3x3"
-				>There are no sides matching the center</a
+			<a href="#there-are-two-sides-matching-the-center-3x3"
+				>There are two sides matching the center</a
 			>
 		</li>
 		<li>
-			<a href="#there-are-two-sides-matching-the-center-3x3"
-				>There are two sides matching the center</a
+			<a href="#there-are-no-sides-matching-the-center-3x3"
+				>There are no sides matching the center</a
 			>
 		</li>
 	</ol>
 	<p>
 		If you're missing the cases "There is one side matching the center" or "There are three sides
 		matching the center", these can only happen on larger cubes, not the 3x3. See the solution for
-		4x4, if you need to solve those.
+		4x4, if you need to solve those. Let's look into the possible cases:
 	</p>
 
-	<p>
-		If there are two sides solved and they are on the opposite sides, it looks like a line. Turn the
-		cube in a way that the line goes from the left to the right side. Then, you should get to the
-		cross by using this algorithm:
-	</p>
-	<div class="not-prose">
-		<CodeBlock code="F R U R' U' F'" />
-	</div>
+	<section id="there-are-two-sides-matching-the-center-3x3">
+		<p>
+			If there are two sides solved and they are on the opposite sides, it looks like a line. Turn
+			the cube in a way that the line goes from the left to the right side. Then, you should get to
+			the cross by using this algorithm:
+		</p>
+		<div class="not-prose">
+			<CodeBlock code="F R U R' U' F'" />
+		</div>
 
-	<p>
-		If there are two sides solved and they are around a corner. Turn the cube in a way that the left
-		and the one to the top are in the bottom face color. In this situation, you can get to the cross
-		by using this algorithm:
-	</p>
-	<div class="not-prose">
-		<CodeBlock code="F U R U' R' F'" />
-	</div>
+		<p>
+			If there are two sides solved and they are around a corner. Turn the cube in a way that the
+			left and the one to the top are in the bottom face color. In this situation, you can get to
+			the cross by using this algorithm:
+		</p>
+		<div class="not-prose">
+			<CodeBlock code="F U R U' R' F'" />
+		</div>
+	</section>
+
+	<section id="there-are-no-sides-matching-the-center-3x3">
+		<p>
+			If all sides are in a different color than the bottom face, select one of the two algorithms
+			for either the line or the corner situation and apply it once. You should end up with a corner
+			or a line situation and then apply the appropriate one from the solutions above.
+		</p>
+	</section>
 
 	<h5 id="there-is-a-cross-already-3x3">There is a cross already</h5>
 	<RubiksTopLayer
