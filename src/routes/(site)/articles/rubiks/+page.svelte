@@ -187,6 +187,34 @@
 	</p>
 
 	<section id="there-are-two-sides-matching-the-center-3x3">
+		<h5>Two sides matching, opposite ones are solved</h5>
+		<RubiksTopLayer
+			back={[
+				['_', 'y', '_'],
+				['r', 'r', 'r'],
+				['r', 'r', 'r']
+			]}
+			top={[
+				['_', '_', '_'],
+				['y', 'y', 'y'],
+				['_', '_', '_']
+			]}
+			left={[
+				['_', '_', '_'],
+				['b', 'b', 'b'],
+				['b', 'b', 'b']
+			]}
+			right={[
+				['_', '_', '_'],
+				['g', 'g', 'g'],
+				['g', 'g', 'g']
+			]}
+			front={[
+				['_', 'y', '_'],
+				['o', 'o', 'o'],
+				['o', 'o', 'o']
+			]}
+		/>
 		<p>
 			If there are two sides solved and they are on the opposite sides, it looks like a line. Turn
 			the cube in a way that the line goes from the left to the right side. Then, you should get to
@@ -197,10 +225,44 @@
 		</div>
 
 		<p>
-			If there are two sides solved and they are around a corner. Turn the cube in a way that the
-			left and the one to the top are in the bottom face color. In this situation, you can get to
-			the cross by using this algorithm:
+			If you faced above situation, you can continue with solving from the bottom face cross and
+			skip the following section.
 		</p>
+
+		<h5>Two sides matching, solved around a corner</h5>
+		<p>
+			Another variation could be that the two solved sides are around a corner. If there are two
+			sides solved and they are around a corner. Turn the cube in a way that the left and the one to
+			the top are in the bottom face color.
+		</p>
+		<RubiksTopLayer
+			back={[
+				['_', '_', '_'],
+				['r', 'r', 'r'],
+				['r', 'r', 'r']
+			]}
+			top={[
+				['_', 'y', '_'],
+				['y', 'y', '_'],
+				['_', '_', '_']
+			]}
+			left={[
+				['_', '_', '_'],
+				['b', 'b', 'b'],
+				['b', 'b', 'b']
+			]}
+			right={[
+				['_', 'y', '_'],
+				['g', 'g', 'g'],
+				['g', 'g', 'g']
+			]}
+			front={[
+				['_', 'y', '_'],
+				['o', 'o', 'o'],
+				['o', 'o', 'o']
+			]}
+		/>
+		<p>In this situation, you can get to the cross by using this algorithm:</p>
 		<div class="not-prose">
 			<CodeBlock code="F U R U' R' F'" />
 		</div>
@@ -279,86 +341,6 @@
 		Try the algorithm mentioned above a couple of times - maybe turn the cube in some way after
 		doing an iteration. You should be able to end with a cross.
 	</p>
-
-	<h5 id="there-are-two-sides-matching-the-center-3x3">There are two sides matching the center</h5>
-	<div class="flex flex-row place-items-center">
-		<RubiksTopLayer
-			back={[
-				['_', '_', '_'],
-				['r', 'r', 'r'],
-				['r', 'r', 'r']
-			]}
-			top={[
-				['_', 'y', '_'],
-				['y', 'y', '_'],
-				['_', '_', '_']
-			]}
-			left={[
-				['_', '_', '_'],
-				['b', 'b', 'b'],
-				['b', 'b', 'b']
-			]}
-			right={[
-				['_', 'y', '_'],
-				['g', 'g', 'g'],
-				['g', 'g', 'g']
-			]}
-			front={[
-				['_', 'y', '_'],
-				['o', 'o', 'o'],
-				['o', 'o', 'o']
-			]}
-		/>
-		<div>or</div>
-		<RubiksTopLayer
-			back={[
-				['_', 'y', '_'],
-				['r', 'r', 'r'],
-				['r', 'r', 'r']
-			]}
-			top={[
-				['_', '_', '_'],
-				['y', 'y', 'y'],
-				['_', '_', '_']
-			]}
-			left={[
-				['_', '_', '_'],
-				['b', 'b', 'b'],
-				['b', 'b', 'b']
-			]}
-			right={[
-				['_', '_', '_'],
-				['g', 'g', 'g'],
-				['g', 'g', 'g']
-			]}
-			front={[
-				['_', 'y', '_'],
-				['o', 'o', 'o'],
-				['o', 'o', 'o']
-			]}
-		/>
-	</div>
-	<p>
-		I always forgot where to start and how to solve it with which of the two algorithms. If you
-		happen to remember just one of the following algorithms, it's fine: Apply it multiple times and
-		it will end up correctly eventually. Both are very similar and I was happy to find out that I
-		couldn't really destroy my progress using the wrong one.
-	</p>
-	<p>
-		To solve the first situation (top and left sides are correct, right and bottom sides are not
-		yellow), use this algorithm:
-	</p>
-	<div class="not-prose">
-		<CodeBlock code="F U R U' R' F'" />
-	</div>
-
-	<p>
-		For the horizontal bar (left and right sides are correct, top and bottom sides are not yellow),
-		use this one:
-	</p>
-	<div class="not-prose">
-		<CodeBlock code="F R U R' U' F'" />
-	</div>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
 	<p>
