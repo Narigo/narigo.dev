@@ -529,9 +529,9 @@
 			['o', 'o', 'o']
 		]}
 		left={[
-			['g', 'r', 'g'],
-			['g', 'g', 'g'],
-			['g', 'g', 'g']
+			['b', 'r', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
 		]}
 		top={[
 			['y', 'y', 'y'],
@@ -539,9 +539,9 @@
 			['y', 'y', 'y']
 		]}
 		right={[
-			['b', 'g', 'b'],
-			['b', 'b', 'b'],
-			['b', 'b', 'b']
+			['g', 'b', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
 		]}
 		front={[
 			['r', 'b', 'r'],
@@ -549,7 +549,78 @@
 			['r', 'r', 'r']
 		]}
 	/>
-	<p>TODO: Add solution for counter-clockwise</p>
+	<p>
+		To solve this situation, three steps are necessary, but the used algorithms could be familiar to
+		you as you may have used them previously already. Use the counter-clockwise "three corner solve"
+		algorithm first, then turn the cube and then use the clockwise three corner solve. So step one:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="L' U' L U' L' U2 L" />
+	</div>
+	<p>After this, you see the cube like this:</p>
+	<RubiksTopLayer
+		back={[
+			['b', 'r', 'r'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['g', 'b', 'y'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		top={[
+			['y', 'y', 'r'],
+			['y', 'y', 'y'],
+			['o', 'y', 'b']
+		]}
+		right={[
+			['o', 'o', 'y'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['g', 'g', 'y'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<p>
+		Turn the whole cube counter-clockwise (step 2), to be in this situation and solve it by using
+		the clockwise algorithm:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['o', 'o', 'y'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		left={[
+			['b', 'r', 'r'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		top={[
+			['r', 'y', 'b'],
+			['y', 'y', 'y'],
+			['y', 'y', 'o']
+		]}
+		right={[
+			['g', 'g', 'y'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		front={[
+			['g', 'b', 'y'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+	/>
+	<p>To solve it, use the clockwise three corner solve algorithm again:</p>
+	<div class="not-prose">
+		<CodeBlock code="R U R' U R U2 R'" />
+	</div>
+	<p>Congratulations, the cube should be solved now!</p>
 
 	<h2>Rubiks 4x4</h2>
 	<p>
