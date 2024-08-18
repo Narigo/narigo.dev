@@ -493,7 +493,63 @@
 	/>
 
 	<h4 id="bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</h4>
-	<p>TODO: Add necessary steps</p>
+	<p>
+		Now that all the corners and the bottom face is solved, there are only a few possibilities left:
+	</p>
+	<ul>
+		<li>The cube is solved</li>
+		<li>All sides are mixed up</li>
+		<li>Three sides are mixed up</li>
+	</ul>
+	<h5 id="solve-three-sides-3x3">Three sides are mixed up</h5>
+	<p>
+		The cube may have one color solved, all others are mixed up. When they are mixed up, they can be
+		in two ways: Clockwise or counter-clockwise.
+	</p>
+	<p>
+		These situations can be solved by using the same algorithm to fix the three corners of the
+		bottom face. Put the solved color to the back, then look at the front and see where the side
+		needs to go. If it needs to go left (= clockwise), use the algorithm that starts from the right
+		and moves the top layer clockwise in the second step. If it needs to go to the right (=
+		counter-clockwise), use the other one.
+	</p>
+	<p>
+		Let's put it into examples. The orange side is solved, the others are unsolved in the clockwise
+		way:
+	</p>
+	<p>TODO: Add example and solution for clockwise</p>
+	<p>
+		Now another example for the counter-clockwise. The orange side is solved, the others are
+		unsolved in the counter-clockwise way:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['o', 'o', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['g', 'r', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['b', 'g', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		front={[
+			['r', 'b', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<p>TODO: Add solution for counter-clockwise</p>
 
 	<h2>Rubiks 4x4</h2>
 	<p>
