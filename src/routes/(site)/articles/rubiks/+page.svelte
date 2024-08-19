@@ -339,8 +339,11 @@
 	/>
 	<p>
 		Try the algorithm mentioned above a couple of times - maybe turn the cube in some way after
-		doing an iteration. You should be able to end with a cross.
+		doing an iteration. You should be able to end with a cross:
 	</p>
+	<div class="not-prose">
+		<CodeBlock code="F U R U' R' F'" />
+	</div>
 
 	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
 	<p>
@@ -517,6 +520,66 @@
 		Let's put it into examples. The orange side is solved, the others are unsolved in the clockwise
 		way:
 	</p>
+	<RubiksTopLayer
+		back={[
+			['o', 'o', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['b', 'g', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['g', 'r', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['r', 'b', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<div class="not-prose">
+		<CodeBlock code="R U R' U R U2 R'" />
+	</div>
+	<RubiksTopLayer
+		back={[
+			['o', 'o', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['b', 'g', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['g', 'r', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['r', 'b', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<div class="not-prose">
+		<CodeBlock code="R U R' U R U2 R'" />
+	</div>
 	<p>TODO: Add example and solution for clockwise</p>
 	<p>
 		Now another example for the counter-clockwise. The orange side is solved, the others are
@@ -544,7 +607,7 @@
 			['g', 'g', 'g']
 		]}
 		front={[
-			['r', 'b', 'r'],
+			['r', 'g', 'r'],
 			['r', 'r', 'r'],
 			['r', 'r', 'r']
 		]}
