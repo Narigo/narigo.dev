@@ -504,7 +504,173 @@
 		<li>All sides are mixed up</li>
 		<li>Three sides are mixed up</li>
 	</ul>
-	<h5 id="solve-three-sides-3x3">Three sides are mixed up</h5>
+	<p>
+		If the cube is already solved: Congratulations, you're lucky! Usually one of the next steps is
+		necessary though.
+	</p>
+
+	<h5 id="solve-all-sides-bottom-3x3">All sides are mixed up</h5>
+	<p>
+		Sometimes, all sides are mixed up. It doesn't really matter if you start with a clockwise or
+		counter-clockwise algorithm then.
+	</p>
+
+	<RubiksTopLayer
+		back={[
+			['o', 'b', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['b', 'o', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['g', 'r', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['r', 'g', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<p>
+		As mentioned, the solution is going to use the three corner clockwise or counter-clockwise
+		algorithm multiple times. It doesn't really matter which one is going to be used, so let's use
+		the clockwise algorithm:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="R U R' U R U2 R'" />
+	</div>
+	<p>It should result in this:</p>
+	<RubiksTopLayer
+		back={[
+			['r', 'r', 'g'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		left={[
+			['y', 'b', 'o'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		top={[
+			['r', 'y', 'y'],
+			['y', 'y', 'y'],
+			['g', 'y', 'o']
+		]}
+		right={[
+			['y', 'o', 'b'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		front={[
+			['y', 'g', 'b'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+	/>
+	<p>
+		Turn the cube clockwise to get to something that can be solved with the counter-clockwise three
+		corner solution algorithm:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['y', 'b', 'o'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['y', 'g', 'b'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['g', 'y', 'r'],
+			['y', 'y', 'y'],
+			['o', 'y', 'y']
+		]}
+		right={[
+			['r', 'r', 'g'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['y', 'o', 'b'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
+	<p>Use the mentioned algorithm:</p>
+	<div class="not-prose">
+		<CodeBlock code="L U' L' U' L U2 L'" />
+	</div>
+	<RubiksTopLayer
+		back={[
+			['b', 'g', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['r', 'r', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['o', 'b', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['g', 'o', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
+	<p>Turn the cube again, so that the fully solved side (red in this example) is at the back:</p>
+	<RubiksTopLayer
+		back={[
+			['r', 'r', 'r'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		left={[
+			['g', 'o', 'g'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+		top={[
+			['y', 'y', 'y'],
+			['y', 'y', 'y'],
+			['y', 'y', 'y']
+		]}
+		right={[
+			['b', 'g', 'b'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		front={[
+			['o', 'b', 'o'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+	/>
+	<p>Now it can be solved as described in the next chapter, solving the three remaining sides.</p>
+
+	<h5 id="solve-three-sides-bottom-3x3">Three sides are mixed up</h5>
 	<p>
 		The cube may have one color solved, all others are mixed up. When they are mixed up, they can be
 		in two ways: Clockwise or counter-clockwise.
@@ -547,43 +713,78 @@
 			['r', 'r', 'r']
 		]}
 	/>
+	<p>
+		From this situation, I think of where I want to move the middle part in the front to. The blue
+		at the top of the front (= red) face needs to go to the left side. Therefore I need to turn the
+		upper part clockwise. Use the three corner clockwise algorithm step here first then:
+	</p>
 	<div class="not-prose">
 		<CodeBlock code="R U R' U R U2 R'" />
 	</div>
+	<p>You should see:</p>
 	<RubiksTopLayer
 		back={[
-			['o', 'o', 'o'],
+			['r', 'r', 'g'],
 			['o', 'o', 'o'],
 			['o', 'o', 'o']
 		]}
 		left={[
-			['b', 'g', 'b'],
+			['y', 'o', 'o'],
 			['b', 'b', 'b'],
 			['b', 'b', 'b']
 		]}
 		top={[
+			['r', 'y', 'y'],
 			['y', 'y', 'y'],
-			['y', 'y', 'y'],
-			['y', 'y', 'y']
+			['g', 'y', 'o']
 		]}
 		right={[
-			['g', 'r', 'g'],
+			['y', 'g', 'b'],
 			['g', 'g', 'g'],
 			['g', 'g', 'g']
 		]}
 		front={[
-			['r', 'b', 'r'],
+			['y', 'b', 'b'],
 			['r', 'r', 'r'],
 			['r', 'r', 'r']
 		]}
 	/>
+	<p>Turn the cube clockwise, so you see it like this:</p>
+	<RubiksTopLayer
+		back={[
+			['y', 'o', 'o'],
+			['b', 'b', 'b'],
+			['b', 'b', 'b']
+		]}
+		left={[
+			['y', 'b', 'b'],
+			['r', 'r', 'r'],
+			['r', 'r', 'r']
+		]}
+		top={[
+			['g', 'y', 'r'],
+			['y', 'y', 'y'],
+			['o', 'y', 'y']
+		]}
+		right={[
+			['r', 'r', 'g'],
+			['o', 'o', 'o'],
+			['o', 'o', 'o']
+		]}
+		front={[
+			['y', 'g', 'b'],
+			['g', 'g', 'g'],
+			['g', 'g', 'g']
+		]}
+	/>
+	<p>To solve the cube completely, use the three corner counter-clockwise algorithm:</p>
 	<div class="not-prose">
-		<CodeBlock code="R U R' U R U2 R'" />
+		<CodeBlock code="L U' L' U' L U2 L'" />
 	</div>
-	<p>TODO: Add example and solution for clockwise</p>
+
 	<p>
-		Now another example for the counter-clockwise. The orange side is solved, the others are
-		unsolved in the counter-clockwise way:
+		If the situation above didn't fit, it's probably the counter-clockwise variant. The orange side
+		is solved, the others are unsolved in the counter-clockwise way:
 	</p>
 	<RubiksTopLayer
 		back={[
