@@ -1058,6 +1058,7 @@
 		cross with the center pieces on the side, the top face corners get solved and then the side
 		edges get put in correctly.
 	</p>
+	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
@@ -1196,7 +1197,11 @@
 
 	<h4 id="bottom-color-face-complete-4x4">Completing the bottom color face (4x4)</h4>
 
-	<p>This is very similar to the 3x3 solution. Use the same algorithms do solve the corners.</p>
+	<p>
+		This is very similar to the 3x3 solution. Use the same algorithms to solve the corners first,
+		then check if there is an additional parity situation (mirrored side colors).
+	</p>
+	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
 
 	<h4>Last layer corner correction</h4>
 	<p>This is the same as for the 3x3. Use the algorithm to exchange two corners.</p>
@@ -1250,10 +1255,10 @@
 
 	<RubiksTopLayer
 		back={[
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g'],
-			['g', 'g', 'g', 'g']
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r']
 		]}
 		top={[
 			['y', 'y', 'y', 'y'],
@@ -1262,22 +1267,23 @@
 			['y', 'y', 'y', 'y']
 		]}
 		left={[
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r'],
-			['r', 'r', 'r', 'r']
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
 		]}
 		right={[
-			['o', 'b', 'b', 'o'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o'],
-			['o', 'o', 'o', 'o']
-		]}
-		front={[
 			['b', 'o', 'o', 'b'],
 			['b', 'b', 'b', 'b'],
 			['b', 'b', 'b', 'b'],
 			['b', 'b', 'b', 'b']
 		]}
+		front={[
+			['o', 'b', 'b', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
 	/>
+	<p>TODO Algorithm for solving this</p>
 </ArticleLayout>
