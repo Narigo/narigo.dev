@@ -1285,5 +1285,48 @@
 			['o', 'o', 'o', 'o']
 		]}
 	/>
-	<p>TODO Algorithm for solving this</p>
+	<p>
+		In this case, I first roll the cube so that the top goes to the back. The cube should look like
+		this then:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y'],
+			['y', 'y', 'y', 'y']
+		]}
+		top={[
+			['o', 'b', 'b', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o']
+		]}
+		left={[
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g']
+		]}
+		right={[
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'o'],
+			['b', 'b', 'b', 'o'],
+			['b', 'b', 'b', 'b']
+		]}
+		front={[
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w']
+		]}
+	/>
+	<p>
+		Now it's two extra steps before and after the algorithm for the opposing sides: Move the face on
+		the right to the top at the side facing to you, do the algorithm, then move it back. The full
+		algorithm is then:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="r2 f' r2 U2 r2 Uw2 r2 u2 f r2" />
+	</div>
 </ArticleLayout>
