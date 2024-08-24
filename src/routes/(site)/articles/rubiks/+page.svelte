@@ -1058,6 +1058,49 @@
 		cross with the center pieces on the side, the top face corners get solved and then the side
 		edges get put in correctly.
 	</p>
+	<p>
+		As mentioned before, the center piece on the top of the cube should be White. The center pieces
+		on the sides are in this order: Red, Blue, Orange, Green. On the bottom, the center piece is
+		Yellow.
+	</p>
+	<h5>Top cross</h5>
+	<p>
+		Look for the white side pieces. Move them to the side that matches the other color and make sure
+		it fits together. For example like this:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_', '_'],
+			['_', 'w', 'w', '_'],
+			['_', 'w', 'w', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', '_', '_', '_'],
+			['_', 'b', 'b', 'b'],
+			['_', 'b', 'b', 'b'],
+			['_', '_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', 'w', 'w', '_'],
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', '_', '_', '_'],
+			['_', 'y', 'y', '_'],
+			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+
 	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
