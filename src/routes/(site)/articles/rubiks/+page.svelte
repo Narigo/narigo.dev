@@ -1066,7 +1066,7 @@
 	<h5>Top cross</h5>
 	<p>
 		Look for the white side pieces. Move them to the side that matches the other color and make sure
-		it fits together. For example like this:
+		they fits together. For example like this:
 	</p>
 	<RubiksTopLayer
 		back={[
@@ -1097,6 +1097,132 @@
 			['_', '_', '_', '_'],
 			['_', 'y', 'y', '_'],
 			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+	<p>
+		You can see, that rotating only the blue face now would lead to a solve. This won't mix up any
+		other part of the cube - or at least none of the things we care about for now. One situation
+		that could happen though is that the side is mixed up like the following, and have the one side
+		solved already:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['_', '_', '_', '_'],
+			['w', 'w', 'w', '_'],
+			['w', 'w', 'w', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', '_', '_', '_'],
+			['_', 'b', 'b', 'w'],
+			['_', 'b', 'b', 'w'],
+			['_', '_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', 'b', 'b', '_'],
+			['_', 'o', 'o', 'o'],
+			['_', 'o', 'o', 'o'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', '_', '_', '_'],
+			['_', 'y', 'y', '_'],
+			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+	<p>
+		Instead of using a very complicated and long algorithm that you will learn later to solve a
+		special parity situation, there is an easier way to solve this situation. You need the help of
+		the other side and use the bottom face to move it. The bottom face is something we don't yet
+		care about. But rotating a side could lead to a solved part getting unsolved. So we need to turn
+		that one back after moving our blue side in the bottom:
+	</p>
+	<div class="not-prose">
+		<CodeBlock code="r' b' r" />
+	</div>
+	<p>
+		This should result in two solved sides - solving blue and keeping the other part (orange-white
+		in this example) intact:
+	</p>
+	<RubiksTopLayer
+		back={[
+			['_', 'w', 'w', '_'],
+			['w', 'w', 'w', '_'],
+			['w', 'w', 'w', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', 'b', 'b', '_'],
+			['_', 'b', 'b', '_'],
+			['_', 'b', 'b', '_'],
+			['_', '_', '_', '_']
+		]}
+		left={[
+			['_', '_', '_', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_', '_'],
+			['_', 'o', 'o', 'o'],
+			['_', 'o', 'o', 'o'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', '_', '_', '_'],
+			['_', 'y', 'y', '_'],
+			['_', 'y', 'y', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+
+	<p>
+		If you see white with a color on the side next to the yellow face, move it to the face you're
+		trying to solve (blue, in the examples above). Then, a single rotation of that face will either
+		move it correctly to white or you can move it to the side as per above example and solve it in
+		the same way.
+	</p>
+
+	<p>Do these steps for all sides until you see the cross like this:</p>
+
+	<RubiksTopLayer
+		back={[
+			['_', 'g', 'g', '_'],
+			['_', 'g', 'g', '_'],
+			['_', 'g', 'g', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['_', 'w', 'w', '_'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['_', 'w', 'w', '_']
+		]}
+		left={[
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['_', 'b', 'b', '_'],
+			['_', 'b', 'b', '_'],
+			['_', 'b', 'b', '_'],
 			['_', '_', '_', '_']
 		]}
 	/>
