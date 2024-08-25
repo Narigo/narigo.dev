@@ -79,6 +79,149 @@
 	</p>
 
 	<h4 id="solve-top-color-and-corners">Solve top color and corners</h4>
+	<p>
+		Having the cross part done, only the corners are left to get the first row correct. As long as
+		the top color is visible on the side, you need to check the other two colors to find on which
+		corner it needs to be placed. The corners can only be on the eight corners of the cube and
+		possibly facing in the wrong directions.
+	</p>
+
+	<p>
+		If it's in the top row, rotate it a side down that moves it to the bottom, move the part away,
+		rotate the face from before back. Here is an example:
+	</p>
+	<RubiksTopLayer
+		top={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['b', 'w', '_']
+		]}
+		left={[
+			['_', 'r', 'w'],
+			['_', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', 'o', '_'],
+			['_', 'o', '_'],
+			['_', '_', '_']
+		]}
+		front={[
+			['r', 'b', '_'],
+			['_', 'b', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'g', '_'],
+			['_', 'g', '_'],
+			['_', '_', '_']
+		]}
+	/>
+
+	<p>Let's turn the cube so blue gets to the front.</p>
+	<RubiksTopLayer
+		top={[
+			['r', 'b', '_'],
+			['_', 'b', '_'],
+			['_', '_', '_']
+		]}
+		left={[
+			['w', '_', '_'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['_', '_', '_'],
+			['_', '_', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', 'b'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
+
+	<p>Follow this algorithm to move the corner into the bottom row:</p>
+
+	<div class="not-prose">
+		<CodeBlock code="f' b f" />
+	</div>
+
+	<RubiksTopLayer
+		top={[
+			['_', 'b', '_'],
+			['_', 'b', '_'],
+			['b', '_', '_']
+		]}
+		left={[
+			['_', '_', 'w'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['r', '_', '_'],
+			['_', '_', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
+
+	<p>Now, the part seems to be "gone". There are only two possible situations now.</p>
+
+	<p>Once it's in the bottom, there are two possible situations:</p>
+	<ul>
+		<li>
+			<a href="top-color-bottom-row-facing-to-the-side"
+				>Top color in the bottom row, facing to the side</a
+			>
+		</li>
+		<li><a href="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</a></li>
+	</ul>
+
+	<h5 id="top-color-bottom-row-facing-to-the-side">
+		Top color in the bottom row, facing to the side
+	</h5>
+	<p>
+		The best direction to have is the top color being placed in the bottom row corners and facing to
+		the side. If that's the case, move it to the same spot as the corner where it needs to be
+		placed. Then, rotate the bottom row left, if it was facing to the left or right, if it was
+		facing to the right. Rotate the side of the cube that will not rotate the corner you looked at
+		so that the top color is facing in the direction how you rotated the bottom row. Then rotate the
+		bottom row back to click the top colors together and finally rotate the side back to move the
+		cross plus the corner up.
+	</p>
+
+	<h5 id="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</h5>
+	<p>
+		If you have some solved corners on the side, move the piece to the bottom corner where the top
+		corner isn't solved yet. The safest place is the one where the corner belongs later. Rotate one
+		of the sides so that the unsolved top corner will go to the place where the corner is that we
+		want to make face sideways. Move the corner away from the side after the rotation. Rotate the
+		side back up. This makes the corner facing <a href="#top-color-bottom-row-facing-to-the-side"
+			>to the side in the bottom row and the previous step can be used to solve this situation</a
+		>.
+	</p>
+
+	<p>
+		After all corners are put up correctly to the top, you should see a cube like the one below and
+		be able to continue with the sides.
+	</p>
+
 	<RubiksTopLayer
 		top={[
 			['w', 'w', 'w'],
@@ -106,36 +249,6 @@
 			['_', '_', '_']
 		]}
 	/>
-	<p>
-		Having the cross part done, only the corners are left to get the first row correct. As long as
-		the top color is visible on the side, you need to check the other two colors to find on which
-		corner it needs to be placed. The corners can only be on the eight corners of the cube and
-		possibly facing in the wrong directions.
-	</p>
-
-	<h5 id="top-color-bottom-row-facing-to-the-side">
-		Top color in the bottom row, facing to the side
-	</h5>
-	<p>
-		The best direction to have is the top color being placed in the bottom row corners and facing to
-		the side. If that's the case, move it to the same spot as the corner where it needs to be
-		placed. Then, rotate the bottom row left, if it was facing to the left or right, if it was
-		facing to the right. Rotate the side of the cube that will not rotate the corner you looked at
-		so that the top color is facing in the direction how you rotated the bottom row. Then rotate the
-		bottom row back to click the top colors together and finally rotate the side back to move the
-		cross plus the corner up.
-	</p>
-
-	<h5>Top color in the bottom row, facing down</h5>
-	<p>
-		If you have some solved corners on the side, move the piece to the bottom corner where the top
-		corner isn't solved yet. The safest place is the one where the corner belongs later. Rotate one
-		of the sides so that the unsolved top corner will go to the place where the corner is that we
-		want to make face sideways. Move the corner away from the side after the rotation. Rotate the
-		side back up. This makes the corner facing <a href="#top-color-bottom-row-facing-to-the-side"
-			>to the side in the bottom row and the previous step can be used to solve this situation</a
-		>.
-	</p>
 
 	<h4 id="sides-to-get-the-first-two-rows">Sides to get the first two rows</h4>
 	<p>
@@ -1227,6 +1340,7 @@
 		]}
 	/>
 
+	<h5>Solve top corners</h5>
 	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
