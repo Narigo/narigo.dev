@@ -205,6 +205,7 @@
 		bottom row back to click the top colors together and finally rotate the side back to move the
 		cross plus the corner up.
 	</p>
+	<p>TODO example cube + algorithm solve</p>
 
 	<h5 id="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</h5>
 	<p>
@@ -216,6 +217,7 @@
 			>to the side in the bottom row and the previous step can be used to solve this situation</a
 		>.
 	</p>
+	<p>TODO example cube + algorithm solve</p>
 
 	<p>
 		After all corners are put up correctly to the top, you should see a cube like the one below and
