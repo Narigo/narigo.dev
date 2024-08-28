@@ -137,7 +137,7 @@
 		]}
 		front={[
 			['_', '_', '_'],
-			['_', '_', '_'],
+			['_', 'y', '_'],
 			['_', '_', '_']
 		]}
 		back={[
@@ -171,7 +171,7 @@
 		]}
 		front={[
 			['r', '_', '_'],
-			['_', '_', '_'],
+			['_', 'y', '_'],
 			['_', '_', '_']
 		]}
 		back={[
@@ -205,7 +205,64 @@
 		bottom row back to click the top colors together and finally rotate the side back to move the
 		cross plus the corner up.
 	</p>
-	<p>TODO example cube + algorithm solve</p>
+
+	<RubiksTopLayer
+		top={[
+			['_', 'b', '_'],
+			['_', 'b', '_'],
+			['b', '_', '_']
+		]}
+		left={[
+			['_', '_', 'w'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['r', '_', '_'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
+	<div class="not-prose">
+		<CodeBlock code="b' f' b f" />
+	</div>
+	<RubiksTopLayer
+		top={[
+			['b', 'b', '_'],
+			['_', 'b', '_'],
+			['_', '_', '_']
+		]}
+		left={[
+			['r', '_', '_'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['_', '_', '_'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', 'w'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
 
 	<h5 id="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</h5>
 	<p>
