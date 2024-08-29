@@ -186,11 +186,13 @@
 	<p>Once it's in the bottom, there are two possible situations:</p>
 	<ul>
 		<li>
-			<a href="top-color-bottom-row-facing-to-the-side"
+			<a href="#top-color-bottom-row-facing-to-the-side"
 				>Top color in the bottom row, facing to the side</a
 			>
 		</li>
-		<li><a href="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</a></li>
+		<li>
+			<a href="#top-color-bottom-row-facing-down">Top color in the bottom row, facing down</a>
+		</li>
 	</ul>
 
 	<h5 id="top-color-bottom-row-facing-to-the-side">
