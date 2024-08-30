@@ -276,7 +276,9 @@
 			>to the side in the bottom row and the previous step can be used to solve this situation</a
 		>.
 	</p>
-	<p>TODO example cube + algorithm solve</p>
+	<p>TODO example cube top color facing down</p>
+	<p>TODO algorithm solve</p>
+	<p>TODO example cube solved</p>
 
 	<p>
 		After all corners are put up correctly to the top, you should see a cube like the one below and
