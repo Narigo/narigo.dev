@@ -276,7 +276,34 @@
 			>to the side in the bottom row and the previous step can be used to solve this situation</a
 		>.
 	</p>
-	<p>TODO example cube top color facing down</p>
+	<RubiksTopLayer
+		top={[
+			['_', 'b', '_'],
+			['_', 'b', '_'],
+			['_', '_', 'b']
+		]}
+		left={[
+			['_', '_', '_'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['r', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['_', '_', 'w'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
+	<p>We want to get it to the one facing to the side first, then solve it like it was before.</p>
 	<p>TODO algorithm solve</p>
 	<p>TODO example cube solved</p>
 
