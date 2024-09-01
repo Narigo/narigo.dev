@@ -303,7 +303,10 @@
 			['_', 'w', '_']
 		]}
 	/>
-	<p>We want to get it to the one facing to the side first, then solve it like it was before.</p>
+	<p>
+		We want to get it to the one facing to the side first, then solve it with the algorithm from
+		above.
+	</p>
 	<p>TODO algorithm solve</p>
 	<p>TODO example cube solved</p>
 
