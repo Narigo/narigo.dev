@@ -305,8 +305,40 @@
 	/>
 	<p>
 		We want to get it to the one facing to the side first, then solve it with the algorithm from
-		above.
+		above:
 	</p>
+	<div class="not-prose">
+		<CodeBlock code="f b' f' b" />
+	</div>
+	<p>This will get to this again:</p>
+	<RubiksTopLayer
+		top={[
+			['_', 'b', '_'],
+			['_', 'b', '_'],
+			['b', '_', '_']
+		]}
+		left={[
+			['_', '_', 'w'],
+			['r', 'r', '_'],
+			['_', '_', '_']
+		]}
+		right={[
+			['_', '_', '_'],
+			['_', 'o', 'o'],
+			['_', '_', '_']
+		]}
+		front={[
+			['r', '_', '_'],
+			['_', 'y', '_'],
+			['_', '_', '_']
+		]}
+		back={[
+			['_', 'w', '_'],
+			['w', 'w', 'w'],
+			['_', 'w', '_']
+		]}
+	/>
+
 	<p>TODO algorithm solve</p>
 	<p>TODO example cube solved</p>
 
