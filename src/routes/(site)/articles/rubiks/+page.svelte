@@ -338,9 +338,11 @@
 			['_', 'w', '_']
 		]}
 	/>
-
-	<p>TODO algorithm solve</p>
-	<p>TODO example cube solved</p>
+	<p>
+		See <a href="#top-color-bottom-row-facing-to-the-side"
+			>above solution for the top face, where the top color faces to the side in the bottom row</a
+		>.
+	</p>
 
 	<p>
 		After all corners are put up correctly to the top, you should see a cube like the one below and
