@@ -303,6 +303,7 @@
 			['_', 'w', '_']
 		]}
 	/>
+
 	<p>
 		We want to get it to the one facing to the side first, then solve it with the algorithm from
 		above:
@@ -310,6 +311,7 @@
 	<div class="not-prose">
 		<CodeBlock code="f b' f' b" />
 	</div>
+
 	<p>This will get to this again:</p>
 	<RubiksTopLayer
 		top={[
@@ -341,8 +343,11 @@
 	<p>
 		See <a href="#top-color-bottom-row-facing-to-the-side"
 			>above solution for the top face, where the top color faces to the side in the bottom row</a
-		>.
+		>. The solution was to continue with this:
 	</p>
+	<div class="not-prose">
+		<CodeBlock code="b' f' b f" />
+	</div>
 
 	<p>
 		After all corners are put up correctly to the top, you should see a cube like the one below and
