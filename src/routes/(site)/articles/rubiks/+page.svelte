@@ -150,7 +150,7 @@
 	<p>Follow this algorithm to move the corner into the bottom row:</p>
 
 	<div class="not-prose">
-		<CodeBlock code="f' b f" />
+		<CodeBlock code="F' B F" />
 	</div>
 
 	<RubiksTopLayer
@@ -236,7 +236,7 @@
 		]}
 	/>
 	<div class="not-prose">
-		<CodeBlock code="b' f' b f" />
+		<CodeBlock code="B' F' B F" />
 	</div>
 	<RubiksTopLayer
 		top={[
@@ -309,7 +309,7 @@
 		above:
 	</p>
 	<div class="not-prose">
-		<CodeBlock code="f b' f' b" />
+		<CodeBlock code="F B' F' B" />
 	</div>
 
 	<p>This will get to this again:</p>
@@ -346,7 +346,7 @@
 		>. The solution was to continue with this:
 	</p>
 	<div class="not-prose">
-		<CodeBlock code="b' f' b f" />
+		<CodeBlock code="B' F' B F" />
 	</div>
 
 	<p>
