@@ -1472,8 +1472,14 @@
 		]}
 	/>
 
-	<h5>Solve top corners</h5>
-	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
+	<h5>Solve top layer corners</h5>
+	<p>
+		This is exactly like <a href="#solve-top-color-and-corners"
+			>the 3x3 solution for the top corners</a
+		>. If you have a white corner in the top layer but facing to a side instead of the top, move it
+		down to the bottom layer, move it away, restore the cross. Afterwards, there are two options:
+		White on the bottom or white on the side.
+	</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
