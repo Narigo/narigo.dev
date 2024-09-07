@@ -1480,6 +1480,17 @@
 		down to the bottom layer, move it away, restore the cross. Afterwards, there are two options:
 		White on the bottom or white on the side.
 	</p>
+	<p>
+		If white faces towards the bottom: Turn the front so that white stays on the front part, move it
+		away from the front face, turn the front face back. The white part should then be on the side.
+	</p>
+	<p>
+		When white is on the side, move it where it needs to go. Move it away from the part to turn,
+		move the front, move the white part back to the front, move the front back. See the 3x3 solution
+		for examples.
+	</p>
+
+	<p>TODO solve second and third layer</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
