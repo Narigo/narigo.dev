@@ -10,5 +10,10 @@
 		(screen turns off and sound doesn't play). So I'm trying to recreate this, to make it work on
 		all of my devices.
 	</p>
-	<p>The page started with some settings, to customize the workout for yourself.</p>
+	<p>
+		The page started with some settings, to customize the workout for yourself. When you press
+		start, it gives you a few seconds to see an image of someone doing the exercise and text
+		explaining what to do. After that, you should do the exercise for some seconds before it jumps
+		to the next one.
+	</p>
 </PageLayout>
