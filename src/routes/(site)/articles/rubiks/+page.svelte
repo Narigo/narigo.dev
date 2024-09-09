@@ -1490,6 +1490,41 @@
 		for examples.
 	</p>
 
+	<h5>Solve second and third layer</h5>
+	<p>After finishing the top layer corners, the cube should look like this:</p>
+	<RubiksTopLayer
+		back={[
+			['g', 'g', 'g', 'g'],
+			['_', 'g', 'g', '_'],
+			['_', 'g', 'g', '_'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w']
+		]}
+		left={[
+			['r', 'r', 'r', 'r'],
+			['_', 'r', 'r', '_'],
+			['_', 'r', 'r', '_'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['o', 'o', 'o', 'o'],
+			['_', 'o', 'o', '_'],
+			['_', 'o', 'o', '_'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['b', 'b', 'b', 'b'],
+			['_', 'b', 'b', '_'],
+			['_', 'b', 'b', '_'],
+			['_', '_', '_', '_']
+		]}
+	/>
+
 	<p>TODO solve second and third layer</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
