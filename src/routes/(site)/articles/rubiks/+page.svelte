@@ -4,7 +4,7 @@
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-08-12">
+<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-09-10">
 	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
 		This is still a work in progress.
 	</p>
