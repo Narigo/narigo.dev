@@ -18,5 +18,8 @@
 		<li>
 			<a href="{base}/articles/pocuter-one">My experiences with the pocuter one</a>
 		</li>
+		<li>
+			<a href="{base}/articles/rubiks">How I solve the Rubiks cube</a>
+		</li>
 	</ul>
 </PageLayout>
