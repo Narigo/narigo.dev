@@ -1,4 +1,5 @@
 <script>
+	import Code from '$lib/common/Code.svelte';
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
@@ -18,6 +19,33 @@
 		speed-solving cubes, but if you just want a generic way to solve the cubes, this might be for
 		you. There are a lot of solutions to a lot of situations - I will try to show the ones I use.
 	</p>
+
+	<aside>
+		<details>
+			<summary>Notation</summary>
+
+			<section>
+				<p>
+					For some algorithms, multiple turns are necessary. Using a notation allows me to write
+					them down and remember them more easily.
+				</p>
+				<dl>
+					<dt><Code>F</Code></dt>
+					<dd>Rotate the front face first layer 90 degrees clockwise</dd>
+					<dt><Code>R</Code></dt>
+					<dd>Rotate the right face first layer 90 degrees clockwise</dd>
+					<dt><Code>L</Code></dt>
+					<dd>Rotate the left face 90 degrees clockwise</dd>
+					<dt><Code>U</Code></dt>
+					<dd>Rotate the top (= upper) face 90 degrees clockwise</dd>
+					<dt><Code>D</Code></dt>
+					<dd>Rotate the bottom (= down) face 90 degrees clockwise</dd>
+					<dt><Code>B</Code></dt>
+					<dd>Rotate the back face 90 degrees clockwise (the one, that you can't see)</dd>
+				</dl>
+			</section>
+		</details>
+	</aside>
 
 	<h2>Rubiks 3x3</h2>
 	<p>
