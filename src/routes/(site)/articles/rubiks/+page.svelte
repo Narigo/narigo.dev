@@ -43,6 +43,14 @@
 					<dt><Code>B</Code></dt>
 					<dd>Rotate the back face 90 degrees clockwise (the one, that you can't see)</dd>
 				</dl>
+				<p>
+					Adding a <Code>'</Code> to one of the letters means to turn it counter-clockwise. Using a <Code
+						>2</Code
+					> behind the letter means to turn it for 180 degrees. For a 4x4, there is adding a <Code
+						>w</Code
+					>, meaning "wide", i.e. two, instead of just the outermost layer. Using a lowercase letter
+					means turning the inner part of the cube instead of the outer part.
+				</p>
 			</section>
 		</details>
 	</aside>
