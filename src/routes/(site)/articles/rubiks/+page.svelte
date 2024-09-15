@@ -41,7 +41,7 @@
 					<dt><Code>D</Code></dt>
 					<dd>Rotate the bottom (= down) face 90 degrees clockwise</dd>
 					<dt><Code>B</Code></dt>
-					<dd>Rotate the back face 90 degrees clockwise (the one, that you can't see)</dd>
+					<dd>Rotate the back face (the one, that you can't see) 90 degrees clockwise</dd>
 				</dl>
 				<p>
 					Adding a <Code>'</Code> to one of the letters means to turn it counter-clockwise. Using a <Code
