@@ -1561,7 +1561,44 @@
 		]}
 	/>
 
-	<p>TODO solve second and third layer</p>
+	<p>
+		The second and third layer is to be solved exactly like the middle / second layer of the 3x3.
+		Imagine the two edges in the middle being the same as the single middle part in a 3x3. All
+		algorithms are the same then and can be used to get to this solution:
+	</p>
+
+	<RubiksTopLayer
+		back={[
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['g', 'g', 'g', 'g'],
+			['_', '_', '_', '_']
+		]}
+		top={[
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w']
+		]}
+		left={[
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['r', 'r', 'r', 'r'],
+			['_', '_', '_', '_']
+		]}
+		right={[
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['o', 'o', 'o', 'o'],
+			['_', '_', '_', '_']
+		]}
+		front={[
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['b', 'b', 'b', 'b'],
+			['_', '_', '_', '_']
+		]}
+	/>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
