@@ -19,7 +19,7 @@
 			<a href="{base}/articles/pocuter-one">My experiences with the pocuter one</a>
 		</li>
 		<li>
-			<a href="{base}/articles/rubiks">How I solve the Rubiks cube</a>
+			<a href="{base}/articles/rubiks">How I solve the Rubiks cube (3x3 and 4x4)</a>
 		</li>
 	</ul>
 </PageLayout>
