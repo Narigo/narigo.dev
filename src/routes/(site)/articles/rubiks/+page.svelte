@@ -1600,6 +1600,10 @@
 		]}
 	/>
 
+	<p>
+		See <a href="#sides-to-get-the-first-two-rows">the 3x3 solution for layer two</a> for how to get there.
+	</p>
+
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
 	<p>
 		There can be a special case for the 4x4 though: If there happens to be only one or three parts
