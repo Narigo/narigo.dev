@@ -36,5 +36,9 @@
 			twice, since both "golden" half circles match and touch each other (below the teal one). This
 			allowed the use of a variable (<Code>--b</Code>) with and without background repeat.
 		</p>
+		<p>
+			Oh, and Meg taught me that instead of writing <Code>radial-gradient(circle, ...)</Code>, I can
+			write <Code>radial-gradient(1q, ...)</Code>! This could shave off quite a few characters... 😅
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
