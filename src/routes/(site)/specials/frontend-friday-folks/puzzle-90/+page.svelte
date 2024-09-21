@@ -31,5 +31,10 @@
 				>our solutions on the VC discussion board</a
 			> as well!
 		</p>
+		<p>
+			For the solution, I've exploited the background pattern to have the same radial gradient
+			twice, since both "golden" half circles match and touch each other (below the teal one). This
+			allowed the use of a variable (<Code>--b</Code>) with and without background repeat.
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
