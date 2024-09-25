@@ -4,7 +4,10 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Imprint for Jörn's page"
+	description="This is where you can find imprint information for narigo.dev"
+>
 	<h2>Imprint</h2>
 	<Narigo>
 		<p>

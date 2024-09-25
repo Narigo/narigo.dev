@@ -4,7 +4,10 @@
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Slides for my talks"
+	description="Here I share the slides to my talks that I held in front of different audiences."
+>
 	<h2>Slides for my talks</h2>
 	<p>
 		I usually share the slide deck to my talks for people who attended the

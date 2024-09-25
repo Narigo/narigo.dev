@@ -20,7 +20,10 @@
 	};
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Special projects"
+	description="Jörn likes to experiment and create small things. Here you can explore some of these."
+>
 	<h2>Specials</h2>
 	<SpecialNavigation />
 	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>

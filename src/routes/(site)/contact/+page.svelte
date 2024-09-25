@@ -2,7 +2,10 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Contact Narigo"
+	description="There are a couple of possibilities to contact me. Check them out and reach out if you want to talk to me."
+>
 	<h2>Contact me</h2>
 	<p>There are multiple ways to contact me through social media:</p>
 	<ul>
