@@ -9,7 +9,10 @@
 	const { puzzles } = data;
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Frontend Friday Folks fighting CSSBattle.dev"
+	description="At VirtualCoffee.io, we're regularly hijacking the co-working-room to do CSS puzzles together. This page collects my solutions and includes my experiments with animations."
+>
 	<h2>Frontend Friday Folks</h2>
 	<Narigo>
 		<p>
