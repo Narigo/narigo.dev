@@ -3,7 +3,7 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
-<PageLayout>
+<PageLayout title="Weirdle" description="Create your own Wordle and share it with your friends.">
 	<h2>Weirdle</h2>
 	<p>
 		I like to play <a
