@@ -5,7 +5,10 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Today I learnt"
+	description="It helps to write down the little things I didn't know for a long time but I probably should have."
+>
 	<h2>Today I learnt</h2>
 	<Narigo>
 		To remember more of the little things I learn, I want to write them down. I'll update this page
