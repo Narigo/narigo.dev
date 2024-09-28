@@ -7,7 +7,7 @@
 
 <PageLayout
 	title="Today I learnt"
-	description="It helps to write down the little things I didn't know for a long time but I probably should have."
+	description="It helps to write down the little things I didn't know. This page collects the small bits that were surprising to learn for me."
 >
 	<h2>Today I learnt</h2>
 	<Narigo>
