@@ -26,7 +26,10 @@
 	}
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Recharger"
+	description="A little experiment I've created to try and cheer someone up."
+>
 	{#if encrypted === null}
 		<p>Do you want to <a href="{base}/specials/recharge/create">create your own</a>?</p>
 	{:else}
