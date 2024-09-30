@@ -35,7 +35,10 @@
 	}
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Talking animation"
+	description="This experiment allows you to create some cartoon animation with Gravatar images and custom text bubbles without saving it to a server."
+>
 	{#if encrypted === null}
 		<p>Do you want to <a href="{base}/specials/talking/create">create your own</a>?</p>
 	{:else}
