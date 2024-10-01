@@ -7,7 +7,10 @@
 	export let data: PageData;
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Crafters vs CodeWars"
+	description="Similar to the Frontend Friday Folks, we did some CodeWars puzzles together while waiting for the JSCraftCamp to begin. Here are the solutions we've collected."
+>
 	<h2>Crafters vs CodeWars</h2>
 	<Narigo
 		>At JSCraftCamp 2022, a lot of participants complained about the lack of events until the next
