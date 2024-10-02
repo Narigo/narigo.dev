@@ -4,7 +4,10 @@
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Car Wash"
+	description="My kid liked to play a car wash simulator on the iPad. It was just manually clicking on the screen to let it continue cleaning a car. That game looked so easy to replicate, so I've used mostly CSS to recreate it."
+>
 	<h2>Car Wash</h2>
 	<Narigo>
 		This is going to be something for my kids. They like cars. They like dirty cars getting cleaned.
