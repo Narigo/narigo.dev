@@ -10,11 +10,12 @@
 >
 	<h2>Car Wash</h2>
 	<Narigo>
-		This is going to be something for my kids. They like cars. They like dirty cars getting cleaned.
-		I believe this <a href="https://retne-games.itch.io/car-wash" rel="external noopener noreferrer"
+		This is something for my kids. They like cars. They like dirty cars getting cleaned. I thought
+		this <a href="https://retne-games.itch.io/car-wash" rel="external noopener noreferrer"
 			>Car Wash (for Toddlers) game by retne_games</a
 		>
-		can be done with CSS and little JavaScript.
-		<a href="{base}/specials/car-wash/play">Let's try it!</a>
+		could be done with CSS and little JavaScript. And as you can see, it worked:
+		<a href="{base}/specials/car-wash/play">Try it out here!</a>
 	</Narigo>
+	<Narigo>Oh and one of the cars was drawn by my nephew!</Narigo>
 </PageLayout>
