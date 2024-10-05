@@ -4,7 +4,10 @@
 	import Ornaments from './Ornaments.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Ornaments"
+	description="A little demo to hang ornaments on a christmas tree. This was inspired by the Frontend Friday Folks."
+>
 	<h1>Ornaments</h1>
 	<Narigo>
 		In the first of the Frontend Friday Folks event of 2024, we did something different: A codepen
