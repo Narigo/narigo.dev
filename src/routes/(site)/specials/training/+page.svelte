@@ -1,6 +1,21 @@
 <script lang="ts">
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import { writable } from 'svelte/store';
+
+	type WorkoutTypes = 'short' | 'regular' | 'long';
+	let typeOfWorkout: WorkoutTypes = 'regular';
+	let timePerWorkout: number = 45;
+
+	const calculateTrainingDuration = (typeOfWorkout: WorkoutTypes, timePerWorkout: number) => {
+		const amountOfWorkouts: Record<WorkoutTypes, number> = {
+			short: 6,
+			regular: 11,
+			long: 15
+		};
+		const timeInSeconds = timePerWorkout * amountOfWorkouts[typeOfWorkout];
+		return `${Math.floor(timeInSeconds / 60)} minutes and ${timeInSeconds % 60} seconds`;
+	};
 </script>
 
 <PageLayout>
@@ -20,7 +35,7 @@
 		</p>
 	</Narigo>
 	<form class="grid">
-		<p>Work in progress, you won't be able to submit yet!</p>
+		<p class="border-l-2 border-yellow-300 bg-yellow-100 rounded p-4 my-4">Work in progress, you won't be able to submit yet!</p>
 		<h2>Select your training mode to start training</h2>
 		<label>
 			<span>Time per workout:</span>
@@ -35,23 +50,24 @@
 						`width:calc(1ch * ${(e.currentTarget.value.length || 1) + 2});`
 					);
 				}}
-				value="45"
+				bind:value={timePerWorkout}
 			/>
 			<span>seconds</span>
 		</label>
 		<p>Please select the type of the workout:</p>
 		<label>
-			<input name="typeOfWorkout" type="radio" value="short" />
+			<input name="typeOfWorkout" bind:group={typeOfWorkout} type="radio" value="short" />
 			<span>Short workout</span>
 		</label>
 		<label>
-			<input name="typeOfWorkout" type="radio" value="regular" checked />
+			<input name="typeOfWorkout" bind:group={typeOfWorkout} type="radio" value="regular" />
 			<span>Regular workout</span>
 		</label>
 		<label>
-			<input name="typeOfWorkout" type="radio" value="long" />
+			<input name="typeOfWorkout" bind:group={typeOfWorkout} type="radio" value="long" />
 			<span>Long workout</span>
 		</label>
-		<button disabled>Start training</button>
+		<p>Training duration: {calculateTrainingDuration(typeOfWorkout, timePerWorkout)}</p>
+		<button class="disabled:bg-gray-300" disabled>Start training</button>
 	</form>
 </PageLayout>
