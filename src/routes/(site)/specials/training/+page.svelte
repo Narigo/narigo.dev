@@ -34,8 +34,9 @@
 			to the next one.
 		</p>
 	</Narigo>
+
 	<form class="grid">
-		<p class="border-l-2 border-yellow-300 bg-yellow-100 rounded p-4 my-4">Work in progress, you won't be able to submit yet!</p>
+		<p class="border-l-4 border-l-yellow-300 bg-yellow-100 rounded p-4 my-4">Work in progress, you won't be able to submit yet!</p>
 		<h2>Select your training mode to start training</h2>
 		<label>
 			<span>Time per workout:</span>
