@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
-	import { writable } from 'svelte/store';
 
 	type WorkoutTypes = 'short' | 'regular' | 'long';
 	let typeOfWorkout: WorkoutTypes = 'regular';
