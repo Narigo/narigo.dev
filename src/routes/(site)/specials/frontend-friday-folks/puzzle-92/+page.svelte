@@ -3,7 +3,12 @@
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
-	const solution = ``;
+	const solution = `<style>
+  &{
+    background:
+      radial-gradient(1q, #6592CF 16px,#0000 0)-26px -54px/226px 51px,
+      radial-gradient(1q, #243D83 100px,#0000 0)-139px/226px,
+      linear-gradient(#6592CF 125px,#243D83 0 175px,#6592CF 0);`;
 </script>
 
 <PuzzlePageLayout title="?">
