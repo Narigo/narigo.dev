@@ -4,7 +4,11 @@
 	import screencast from './keepass-diff-screencast.gif';
 </script>
 
-<ArticleLayout title="keepass-diff" lastUpdateOn="2024-01-25">
+<ArticleLayout
+	title="keepass-diff"
+	description="A tool to compare keypass databases with each other."
+	lastUpdateOn="2024-01-25"
+>
 	<p>
 		TL;DR: I've created a tool called <a href="https://keepass-diff.narigo.dev/" rel="external"
 			>keepass-diff, to diff two Keepass databases (.kdbx) files</a
