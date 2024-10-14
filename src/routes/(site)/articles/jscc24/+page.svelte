@@ -2,7 +2,11 @@
 	import ArticleLayout from '$lib/common/PageLayout/ArticleLayout.svelte';
 </script>
 
-<ArticleLayout title="JavaScript CraftCamp 2024 - #JSCC24" lastUpdateOn="2024-06-24">
+<ArticleLayout
+	title="JavaScript CraftCamp 2024 - #JSCC24"
+	description="This is my retrospective of the JSCC24."
+	lastUpdateOn="2024-06-24"
+>
 	<p>
 		It's done! The JavaScript CraftCamp 2024 is over! Due to a lot of other commitments before the
 		event, it has been really exhausting for me this time.

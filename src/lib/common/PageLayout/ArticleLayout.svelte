@@ -2,14 +2,11 @@
 	import PageLayout from './PageLayout.svelte';
 
 	export let title: string;
+	export let description: string | undefined = undefined;
 	export let lastUpdateOn: string | undefined = undefined;
 </script>
 
-<svelte:head>
-	<title>{title}</title>
-</svelte:head>
-
-<PageLayout>
+<PageLayout {title} {description}>
 	<article>
 		<h1>{title}</h1>
 		{#if lastUpdateOn}
