@@ -3,7 +3,10 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
-<PageLayout>
+<PageLayout
+	title="Articles I've written"
+	description="From time to time, I like to publish thoughts or things I've been working on."
+>
 	<h2>Articles</h2>
 	<ul>
 		<li>
