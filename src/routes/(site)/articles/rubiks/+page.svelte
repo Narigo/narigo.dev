@@ -5,7 +5,11 @@
 	import RubiksTopLayer from './RubiksTopLayer.svelte';
 </script>
 
-<ArticleLayout title="Rubiks Cubes" lastUpdateOn="2024-09-10">
+<ArticleLayout
+	title="Rubiks Cubes"
+	description="How I solve the Rubiks Cube (3x3 and 4x4)"
+	lastUpdateOn="2024-09-10"
+>
 	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
 		This is still a work in progress.
 	</p>
@@ -1601,7 +1605,8 @@
 	/>
 
 	<p>
-		See <a href="#sides-to-get-the-first-two-rows">the 3x3 solution for layer two</a> for how to get there.
+		See <a href="#sides-to-get-the-first-two-rows">the 3x3 solution for layer two</a> for how to get
+		there.
 	</p>
 
 	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
