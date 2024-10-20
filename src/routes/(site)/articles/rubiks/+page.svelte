@@ -1748,9 +1748,8 @@
 
 	<p>
 		This is very similar to the 3x3 solution. Use the same algorithms to solve the corners first,
-		then check if there is an additional parity situation (mirrored side colors).
+		then check if there is an additional parity situation (see "Mirrored side colors" below).
 	</p>
-	<p>TODO show same algorithms and examples as with the 3x3 with the 4x4</p>
 
 	<h4>Last layer corner correction</h4>
 	<p>This is the same as for the 3x3. Use the algorithm to exchange two corners.</p>
