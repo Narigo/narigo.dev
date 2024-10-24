@@ -3,18 +3,23 @@
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Kata from './Kata.svelte';
-	export let id: string | undefined = undefined;
-	export let name: string | undefined = undefined;
+	interface Props {
+		id?: string | undefined;
+		name?: string | undefined;
+		children?: import('svelte').Snippet;
+	}
+
+	let { id = undefined, name = undefined, children }: Props = $props();
 </script>
 
 <PageLayout>
 	{#if id && name}
 		<Kata {id} {name}>
-			<slot />
+			{@render children?.()}
 		</Kata>
 	{:else}
 		<div class="grid gap-8">
-			<slot />
+			{@render children?.()}
 		</div>
 	{/if}
 	<Narigo>

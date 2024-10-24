@@ -6,12 +6,12 @@
 	import { onMount } from 'svelte';
 	import Recharge from './Recharge.svelte';
 
-	let encrypted: string | null;
-	let data: { person: string; emojis: string; message: string } = {
+	let encrypted: string | null = $state();
+	let data: { person: string; emojis: string; message: string } = $state({
 		person: '',
 		emojis: '',
 		message: ''
-	};
+	});
 
 	onMount(() => {
 		encrypted = $page.url.searchParams.get('e');

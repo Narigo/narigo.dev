@@ -3,16 +3,33 @@
 	import Navigation from '../navigation/Navigation.svelte';
 	import defaultPreviewImage from './preview-image.png';
 
-	export let title: string = 'Thoughts, Talks and Trials by Narigo';
-	export let description: string | undefined = undefined;
-	export let author: string | undefined = undefined;
-	export let publishDate: string | undefined = undefined;
-	export let og_title: string | undefined = undefined;
-	export let og_description: string | undefined = undefined;
-	export let og_image: string | undefined = undefined;
-	export let twitter_title: string | undefined = undefined;
-	export let twitter_description: string | undefined = undefined;
-	export let twitter_image: string | undefined = undefined;
+	interface Props {
+		title?: string;
+		description?: string | undefined;
+		author?: string | undefined;
+		publishDate?: string | undefined;
+		og_title?: string | undefined;
+		og_description?: string | undefined;
+		og_image?: string | undefined;
+		twitter_title?: string | undefined;
+		twitter_description?: string | undefined;
+		twitter_image?: string | undefined;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title = 'Thoughts, Talks and Trials by Narigo',
+		description = undefined,
+		author = undefined,
+		publishDate = undefined,
+		og_title = undefined,
+		og_description = undefined,
+		og_image = undefined,
+		twitter_title = undefined,
+		twitter_description = undefined,
+		twitter_image = undefined,
+		children
+	}: Props = $props();
 
 	const defaultAuthor = 'Jörn Bernhardt';
 	const defaultDescription =
@@ -93,7 +110,7 @@
 	</header>
 	<main class="flex-1">
 		<div class="mx-auto max-w-[--max-page-width] p-4">
-			<slot />
+			{@render children?.()}
 		</div>
 	</main>
 	<footer class="px-4 py-8">

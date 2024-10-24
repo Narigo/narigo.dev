@@ -38,8 +38,8 @@
 		return div;
 	};
 
-	let body: HTMLDivElement;
-	let svg: SVGElement;
+	let body: HTMLDivElement = $state();
+	let svg: SVGElement = $state();
 	onMount(() => {
 		svg.addEventListener('click', (event) => {
 			const size = Math.round(Math.random() * 50) + 20;
@@ -54,7 +54,7 @@
 </script>
 
 <button
-	on:click={() => {
+	onclick={() => {
 		for (const div of document.querySelectorAll('.ornament')) {
 			body.removeChild(div);
 		}

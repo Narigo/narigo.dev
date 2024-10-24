@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import { writable } from 'svelte/store';
 
 	let idCounter = 0;
@@ -8,6 +8,11 @@
 
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	let me = idCounter++;
 
@@ -26,6 +31,6 @@
 
 <svelte:head>
 	{#if $whoShowsHead === me}
-		<slot />
+		{@render children?.()}
 	{/if}
 </svelte:head>

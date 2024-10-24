@@ -1,18 +1,32 @@
 <script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { getContext, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { fly } from 'svelte/transition';
 	import Shaker from '../Shaker.svelte';
 	import type { AnimationContext } from './AnimationContext.svelte';
 
-	export let side: 'left' | 'right' = 'left';
-	export let delay: number | undefined = undefined;
-	export let duration: number = 1000;
+	interface Props {
+		side?: 'left' | 'right';
+		delay?: number | undefined;
+		duration?: number;
+		children?: import('svelte').Snippet;
+		avatar?: import('svelte').Snippet<[any]>;
+	}
+
+	let {
+		side = 'left',
+		delay = undefined,
+		duration = 1000,
+		children,
+		avatar
+	}: Props = $props();
 
 	const animationContext = getContext<AnimationContext>('AnimationContext');
 
-	let angle = Math.random() * 1.5 - 1.5 / 2;
-	let translateX = Math.random() * 5 - 5 / 2;
+	let angle = $state(Math.random() * 1.5 - 1.5 / 2);
+	let translateX = $state(Math.random() * 5 - 5 / 2);
 	const show = writable<boolean>(delay === 0 || animationContext === undefined);
 
 	onMount(() => {
@@ -22,7 +36,7 @@
 	});
 
 	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
-	let mode = 0;
+	let mode = $state(0);
 
 	const toggleTalking = () => {
 		mode = (mode + 1) % modes.length;
@@ -50,17 +64,17 @@
 					transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration }}
 				>
 					<div class="content">
-						<slot />
+						{@render children?.()}
 					</div>
 				</div>
 			{/if}
 			<button
 				class="avatar absolute bg-transparent border-none bottom-3 cursor-pointer text-base"
-				on:click|preventDefault={toggleTalking}
+				onclick={preventDefault(toggleTalking)}
 			>
-				<slot name="avatar" mode={modes[mode]}>
+				{#if avatar}{@render avatar({ mode: modes[mode], })}{:else}
 					{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
-				</slot>
+				{/if}
 			</button>
 		</div>
 	</Shaker>

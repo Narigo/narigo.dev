@@ -1,24 +1,24 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with afterUpdate. Please migrate by hand. -->
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
-	import { afterUpdate } from 'svelte';
 	import Game from './Game.svelte';
+	import type { FiveLetterString } from './gameTypes';
 
-	let encryptedWord: string | null;
-	let hint: string | null;
-	let timeNeeded = 0;
-
-	afterUpdate(() => {
-		encryptedWord = $page.url.searchParams.get('enc');
-		hint = $page.url.searchParams.get('hint');
-	});
+	let timeNeeded = $state(0);
+	let encryptedWord = $derived($page.url.searchParams.get('enc'));
+	let gameWord = $derived(
+		encryptedWord ? (window.atob(encryptedWord) as FiveLetterString) : undefined
+	);
+	let hint = $derived($page.url.searchParams.get('hint'));
+	let gameHint = $derived(hint ? window.atob(hint) : undefined);
 
 	async function getRandomWord(): Promise<string> {
-		timeNeeded = Date.now();
+		const startedAt = Date.now();
 		const { possibleWords } = await import('$lib/weirdle/words2');
 		const randomWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-		timeNeeded = Date.now() - timeNeeded;
+		timeNeeded = Date.now() - startedAt;
 		return randomWord;
 	}
 </script>
@@ -44,6 +44,6 @@
 	{:else if !browser}
 		<p>This game needs to be played in a browser with JavaScript enabled.</p>
 	{:else}
-		<Game word={window.atob(encryptedWord)} hint={hint ? window.atob(hint) : undefined} />
+		<Game word={gameWord} hint={gameHint} />
 	{/if}
 </PageLayout>

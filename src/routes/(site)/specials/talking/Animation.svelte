@@ -2,7 +2,11 @@
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 
-	export let lines: { side: 'left' | 'right'; avatar?: string; line: string }[];
+	interface Props {
+		lines: { side: 'left' | 'right'; avatar?: string; line: string }[];
+	}
+
+	let { lines }: Props = $props();
 </script>
 
 <AnimationContext name="dialog">
@@ -10,17 +14,19 @@
 		{#if avatar?.trim() !== ''}
 			<Bubble delayNext={500 + line.length * 30} {side}>
 				{line}
-				<div slot="avatar" let:mode>
-					{#if mode === 'shutup'}
-						🤐
-					{:else}
-						<img
-							src="https://www.gravatar.com/avatar/{avatar}"
-							class:shout={mode === 'shout'}
-							alt={mode === 'talk' ? 'Person' : 'Person, shouting'}
-						/>
-					{/if}
-				</div>
+				{#snippet avatar({ mode })}
+								<div  >
+						{#if mode === 'shutup'}
+							🤐
+						{:else}
+							<img
+								src="https://www.gravatar.com/avatar/{avatar}"
+								class:shout={mode === 'shout'}
+								alt={mode === 'talk' ? 'Person' : 'Person, shouting'}
+							/>
+						{/if}
+					</div>
+							{/snippet}
 			</Bubble>
 		{:else}
 			<Bubble delayNext={500 + line.length * 30} {side}>

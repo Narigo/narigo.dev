@@ -1,9 +1,19 @@
 <script lang="ts">
 	import PageLayout from './PageLayout.svelte';
 
-	export let title: string;
-	export let description: string | undefined = undefined;
-	export let lastUpdateOn: string | undefined = undefined;
+	interface Props {
+		title: string;
+		description?: string | undefined;
+		lastUpdateOn?: string | undefined;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title,
+		description = undefined,
+		lastUpdateOn = undefined,
+		children
+	}: Props = $props();
 </script>
 
 <PageLayout {title} {description}>
@@ -13,7 +23,7 @@
 			<div class="text-xs opacity-70">Last update on <span>{lastUpdateOn}</span></div>
 		{/if}
 		<div class="prose prose-headings:text-white">
-			<slot />
+			{@render children?.()}
 		</div>
 	</article>
 </PageLayout>

@@ -8,11 +8,21 @@
 		[Color, Color, Color, Color]
 	];
 
-	export let top: Face3x3 | Face4x4;
-	export let left: Face3x3 | Face4x4;
-	export let right: Face3x3 | Face4x4;
-	export let front: Face3x3 | Face4x4;
-	export let back: Face3x3 | Face4x4;
+	interface Props {
+		top: Face3x3 | Face4x4;
+		left: Face3x3 | Face4x4;
+		right: Face3x3 | Face4x4;
+		front: Face3x3 | Face4x4;
+		back: Face3x3 | Face4x4;
+	}
+
+	let {
+		top,
+		left,
+		right,
+		front,
+		back
+	}: Props = $props();
 
 	const is3x3 = [top, left, right, front, back].every(
 		(faceRows) => faceRows.length === 3 && faceRows.every((column) => column.length === 3)

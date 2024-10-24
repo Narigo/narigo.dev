@@ -1,11 +1,17 @@
 <script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { base } from '$app/paths';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import { writable } from 'svelte/store';
 	import type { FiveLetterWord, GameState, Letter, LetterInfo } from './gameTypes';
 
-	export let word: `${Letter}${Letter}${Letter}${Letter}${Letter}`;
-	export let hint: string | undefined;
+	interface Props {
+		word: `${Letter}${Letter}${Letter}${Letter}${Letter}`;
+		hint: string | undefined;
+	}
+
+	let { word, hint }: Props = $props();
 
 	let solution: FiveLetterWord = word.split('').map((l: Letter) => l.toLocaleLowerCase());
 	let gameState = writable<GameState>('playing');
@@ -62,9 +68,9 @@
 	{/each}
 </div>
 {#if $guesses.length < 6 && $gameState === 'playing'}
-	<form on:submit={guess}>
+	<form onsubmit={guess}>
 		<input bind:value={$nextGuess} minlength={solution.length} maxlength={solution.length} />
-		<button disabled={$nextGuess.length !== solution.length} on:click|preventDefault={guess}
+		<button disabled={$nextGuess.length !== solution.length} onclick={preventDefault(guess)}
 			>Guess</button
 		>
 	</form>

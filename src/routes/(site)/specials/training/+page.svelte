@@ -3,8 +3,8 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 
 	type WorkoutTypes = 'short' | 'regular' | 'long';
-	let typeOfWorkout: WorkoutTypes = 'regular';
-	let timePerWorkout: number = 45;
+	let typeOfWorkout: WorkoutTypes = $state('regular');
+	let timePerWorkout: number = $state(45);
 
 	const calculateTrainingDuration = (typeOfWorkout: WorkoutTypes, timePerWorkout: number) => {
 		const amountOfWorkouts: Record<WorkoutTypes, number> = {
@@ -49,7 +49,7 @@
 				type="number"
 				class="border-b-2 border-black text-center w-fit"
 				style="width:calc(1ch * 4)"
-				on:input={(e) => {
+				oninput={(e) => {
 					e.currentTarget.setAttribute(
 						'style',
 						`width:calc(1ch * ${(e.currentTarget.value.length || 1) + 2});`

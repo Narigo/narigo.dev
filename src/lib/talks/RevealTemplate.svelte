@@ -6,8 +6,13 @@
 	import { onMount, tick } from 'svelte';
 	import { browser } from '$app/environment';
 	import { setContext } from 'svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
 
-	let deck: Reveal.Api | null = null;
+	let { children }: Props = $props();
+
+	let deck: Reveal.Api | null = $state(null);
 	setContext('Reveal', () => deck);
 
 	onMount(async () => {
@@ -24,6 +29,6 @@
 
 <div class="reveal">
 	<div class="slides">
-		{#if deck}<slot />{/if}
+		{#if deck}{@render children?.()}{/if}
 	</div>
 </div>

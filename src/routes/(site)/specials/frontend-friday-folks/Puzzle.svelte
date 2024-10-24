@@ -2,12 +2,16 @@
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import { onMount } from 'svelte';
 
-	export let solution: string;
-	export let title: string;
+	interface Props {
+		solution: string;
+		title: string;
+	}
+
+	let { solution, title }: Props = $props();
 
 	const trimmedSolution = solution.trim();
 
-	let iframe: HTMLIFrameElement;
+	let iframe: HTMLIFrameElement = $state();
 	onMount(() => {
 		const processedCode = `<style>body{overflow:hidden}</style>${trimmedSolution}`;
 		iframe.contentDocument?.open();
@@ -21,7 +25,7 @@
 		bind:this={iframe}
 		{title}
 		style="background: white; width: 400px; height: 300px; border: 0px; outline: 0px;"
-	/>
+	></iframe>
 </div>
 <div>Highlighted solution ({solution.length} characters)</div>
 <CodeBlock code={solution} />

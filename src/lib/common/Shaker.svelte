@@ -1,9 +1,14 @@
 <script lang="ts">
-	export let shake: boolean = true;
+	interface Props {
+		shake?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let { shake = true, children }: Props = $props();
 </script>
 
 <div class="contents" class:shakeit={shake}>
-	<slot />
+	{@render children?.()}
 </div>
 
 <style lang="postcss">

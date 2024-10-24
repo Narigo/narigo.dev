@@ -21,7 +21,7 @@
 
 <PageLayout>
 	<h2>Recharge someone</h2>
-	<form on:submit={submitForm}>
+	<form onsubmit={submitForm}>
 		<label for="person">Who do you want to recharge?</label>
 		<input id="person" type="text" bind:value={$person} />
 		<label for="emojis">With what do you want to recharge them?</label>

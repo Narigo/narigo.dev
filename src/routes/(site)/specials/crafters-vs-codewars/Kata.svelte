@@ -2,11 +2,21 @@
 	import CodeBlock from '$lib/common/CodeBlock.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 
-	export let id: string;
-	export let name: string;
-	export let solution: string | undefined = undefined;
+	interface Props {
+		id: string;
+		name: string;
+		solution?: string | undefined;
+		children?: import('svelte').Snippet;
+	}
 
-	let showSolution = false;
+	let {
+		id,
+		name,
+		solution = undefined,
+		children
+	}: Props = $props();
+
+	let showSolution = $state(false);
 </script>
 
 <div class="grid gap-8">
@@ -20,11 +30,11 @@
 	</section>
 	{#if showSolution}
 		{#if solution}<CodeBlock code={solution} />{/if}
-		<slot />
+		{@render children?.()}
 	{:else}
 		<button
 			class="self-center bg-primary border-0 cursor-pointer text-white p-4 mb-8"
-			on:click={() => (showSolution = true)}>Show solution</button
+			onclick={() => (showSolution = true)}>Show solution</button
 		>
 	{/if}
 </div>

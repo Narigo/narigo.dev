@@ -2,7 +2,7 @@
 	import { fade, type TransitionConfig } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 
-	let visible = false;
+	let visible = $state(false);
 
 	const spin = (node: HTMLElement, { duration }: { duration: number }): TransitionConfig => {
 		return {
@@ -24,10 +24,10 @@
 
 <section
 	role="presentation"
-	on:click={() => {
+	onclick={() => {
 		visible = !visible;
 	}}
-	on:keydown={() => {
+	onkeydown={() => {
 		visible = !visible;
 	}}
 >

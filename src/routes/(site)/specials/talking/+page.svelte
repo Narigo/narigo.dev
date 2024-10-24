@@ -6,8 +6,8 @@
 	import { onMount } from 'svelte';
 	import Animation from './Animation.svelte';
 
-	let encrypted: string | null;
-	let lines: { side: 'left' | 'right'; avatar?: string; line: string }[] = [];
+	let encrypted: string | null = $state();
+	let lines: { side: 'left' | 'right'; avatar?: string; line: string }[] = $state([]);
 
 	onMount(() => {
 		encrypted = $page.url.searchParams.get('e');

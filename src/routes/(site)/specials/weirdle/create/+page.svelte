@@ -4,9 +4,9 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
 
-	let word: string = '';
-	let hint: string = '';
-	let wordList: string = '';
+	let word: string = $state('');
+	let hint: string = $state('');
+	let wordList: string = $state('');
 	let link = writable<string>('');
 
 	function submitForm(e: Event) {
@@ -21,7 +21,7 @@
 <PageLayout>
 	<h2>Weirdle</h2>
 	<Bubble>Please configure your game!</Bubble>
-	<form on:submit={submitForm}>
+	<form onsubmit={submitForm}>
 		<div>
 			<Bubble side="right">The word that is the solution to the puzzle.</Bubble>
 		</div>

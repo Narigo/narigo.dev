@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export type AnimationData = {
 		current: number;
 		started: boolean;
@@ -21,8 +21,13 @@
 	import { onDestroy, onMount, setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
-	export let name: string;
-	export let defaultDelay: number = 0;
+	interface Props {
+		name: string;
+		defaultDelay?: number;
+		children?: import('svelte').Snippet<[any]>;
+	}
+
+	let { name, defaultDelay = 0, children }: Props = $props();
 
 	animations[name] = {
 		current: 0,
@@ -111,8 +116,4 @@
 	});
 </script>
 
-<slot
-	isDone={$animationsDone}
-	fastForwardNextAnimation={clickHandler}
-	stopAllAnimations={finishAllAnimations}
-/>
+{@render children?.({ isDone: $animationsDone, fastForwardNextAnimation: clickHandler, stopAllAnimations: finishAllAnimations, })}

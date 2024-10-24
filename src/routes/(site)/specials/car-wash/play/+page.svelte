@@ -4,9 +4,13 @@
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
 
-	let useTimer = false;
+	let { data }: Props = $props();
+
+	let useTimer = $state(false);
 	const AMOUNT_OF_FINGERS = 20;
 	const AMOUNT_OF_ROWS = 5;
 	const MIN_BUBBLE_RADIUS = 10;
@@ -35,12 +39,12 @@
 			carColor800: randomColor[800]
 		};
 	};
-	let currentStep: 'start' | 'dirty' | 'cleaning' | 'showering' | 'drying' | 'done' = 'start';
-	let image: string,
-		carColor300: string,
-		carColor500: string,
-		carColor800: string,
-		bubblesOverlay: SVGElement;
+	let currentStep: 'start' | 'dirty' | 'cleaning' | 'showering' | 'drying' | 'done' = $state('start');
+	let image: string = $state(),
+		carColor300: string = $state(),
+		carColor500: string = $state(),
+		carColor800: string = $state(),
+		bubblesOverlay: SVGElement = $state();
 
 	const createBubbleOverlay = (image: string) => {
 		const overlay = document.createElement('div');
@@ -260,11 +264,11 @@ ${bubbles.join('')}`;
 	</section>
 	<button
 		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
-		on:click={() => startStopAnim()}>{currentStep}</button
+		onclick={() => startStopAnim()}>{currentStep}</button
 	>
 	<button
 		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
-		on:click={() => toggleTimer()}
+		onclick={() => toggleTimer()}
 		>Continue {#if useTimer}automatically{:else}manually{/if}</button
 	>
 </PageLayout>

@@ -17,8 +17,8 @@
 
 	let lines = writable<string[]>(['']);
 	let link = writable<string>('');
-	let characterA: string = '';
-	let characterB: string = '';
+	let characterA: string = $state('');
+	let characterB: string = $state('');
 
 	function encode(str: string): string {
 		return window.btoa(encodeURIComponent(str));
@@ -35,7 +35,7 @@
 
 <PageLayout>
 	<h2>Talking</h2>
-	<form on:submit={submitForm}>
+	<form onsubmit={submitForm}>
 		<label for="talking-create-face-a"
 			>Gravatar hash of character A:<br />(leave empty for no Gravatar)</label
 		>
@@ -48,8 +48,8 @@
 			<label for="talking-create-line-{index}">Character {index % 2 === 0 ? 'A' : 'B'}:</label>
 			<input id="talking-create-line-{index}" type="text" bind:value={line} />
 		{/each}
-		<button type="button" on:click={() => ($lines = $lines.slice(0, -1))}>Remove last line</button>
-		<button type="button" on:click={() => ($lines = [...$lines, ''])}>Add a line</button>
+		<button type="button" onclick={() => ($lines = $lines.slice(0, -1))}>Remove last line</button>
+		<button type="button" onclick={() => ($lines = [...$lines, ''])}>Add a line</button>
 		<button type="submit">Create a link</button>
 	</form>
 	{#if $link}<p>Here is your link: <a href={$link} rel="external">{$link}</a></p>{/if}

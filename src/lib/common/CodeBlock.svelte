@@ -2,11 +2,17 @@
 	import { HighlightSvelte, LineNumbers } from 'svelte-highlight';
 	import 'svelte-highlight/styles/darcula.css';
 
-	export let code: string;
+	interface Props {
+		code: string;
+	}
+
+	let { code }: Props = $props();
 </script>
 
 <div class="text-xs">
-	<HighlightSvelte {code} let:highlighted>
-		<LineNumbers {highlighted} wrapLines />
-	</HighlightSvelte>
+	<HighlightSvelte {code} >
+		{#snippet children({ highlighted })}
+				<LineNumbers {highlighted} wrapLines />
+					{/snippet}
+		</HighlightSvelte>
 </div>

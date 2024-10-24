@@ -4,12 +4,16 @@
 	import type { TransitionConfig } from 'svelte/transition';
 	import { bounceOut } from 'svelte/easing';
 
-	export let person: string;
-	export let emojis: string;
-	export let message: string;
+	interface Props {
+		person: string;
+		emojis: string;
+		message: string;
+	}
 
-	let active = false;
-	let done = false;
+	let { person, emojis, message }: Props = $props();
+
+	let active = $state(false);
+	let done = $state(false);
 	let currentEmojis = writable<string[]>([]);
 
 	const floatUp: (node: Element, params: { index: number }) => TransitionConfig = (
@@ -65,7 +69,7 @@
 <Bubble>Feeling low on energy? Press the battery to recharge, {person}!</Bubble>
 <section>
 	{#if !active}
-		<button class="battery" on:click={() => (active = true)} />
+		<button class="battery" onclick={() => (active = true)}></button>
 	{:else}
 		<div class="battery" in:recharge>
 			{#each $currentEmojis as currentEmoji, index}
@@ -78,7 +82,7 @@
 	{#if done}
 		{#if message !== ''}<div>{message}</div>{/if}
 		<button
-			on:click={() => {
+			onclick={() => {
 				active = done = false;
 				$currentEmojis = [];
 			}}>reset</button

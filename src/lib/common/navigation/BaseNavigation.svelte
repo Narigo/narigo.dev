@@ -1,21 +1,25 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	let navigationCounter = 0;
 </script>
 
 <script lang="ts">
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-	export let menuItems: (HTMLAnchorAttributes & { href: string; label: string })[];
-	export let variant: 'stretch' | undefined = undefined;
+	interface Props {
+		menuItems: (HTMLAnchorAttributes & { href: string; label: string })[];
+		variant?: 'stretch' | undefined;
+	}
+
+	let { menuItems, variant = undefined }: Props = $props();
 
 	let navigationId = ++navigationCounter;
-	let isExpanded = false;
+	let isExpanded = $state(false);
 </script>
 
 <div class="flex flex-col mb-4">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
 	<label class="bg-primary hover:bg-primary-light cursor-pointer text-white flex flex-1 isolate px-4 py-2 relative uppercase lg:hidden" for="navigation-menu-toggle-{navigationId}">
-		<div class="menu-icon" />
+		<div class="menu-icon"></div>
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
 	</label>

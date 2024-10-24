@@ -26,45 +26,47 @@
 >
 	<h2>Specials</h2>
 	<SpecialNavigation />
-	<AnimationContext name="dialog" defaultDelay={1000} let:isDone let:stopAllAnimations>
-		{#if !isDone}
-			<div style="position:relative;height:2em">
-				<div style="position:absolute;top:0;right:0;">
-					<StopAllAnimations {stopAllAnimations} />
+	<AnimationContext name="dialog" defaultDelay={1000}  >
+		{#snippet children({ isDone, stopAllAnimations })}
+				{#if !isDone}
+				<div style="position:relative;height:2em">
+					<div style="position:absolute;top:0;right:0;">
+						<StopAllAnimations {stopAllAnimations} />
+					</div>
 				</div>
-			</div>
-		{/if}
+			{/if}
 
-		<Bubble>Hey, what's up with this page?</Bubble>
-		<Narigo side="right">I thought I may want to write some code here.</Narigo>
-		<Bubble>Okay, but ...</Bubble>
-		<Bubble delay={1500}>What?!</Bubble>
-		<Narigo side="right">For example an animation for this "exchange" here.</Narigo>
-		<Narigo side="right"
-			>You can <a href="{base}/specials/talking/create">create your own</a>, if you want.</Narigo
-		>
-		<Narigo delay={1000} side="right"
-			>Or a clone of a word game where you can provide your own word: <a
-				href="{base}/specials/weirdle">Weirdle</a
-			></Narigo
-		>
-		<Narigo delay={600} side="right"
-			>Or <a href="{base}/specials/recharge">Recharge</a> someone.</Narigo
-		>
-		<Narigo delay={800} side="right"
-			>Or look up solutions from <a href="{base}/specials/frontend-friday-folks"
-				>Frontend Friday Folks</a
-			>.</Narigo
-		>
-		<Narigo delay={900} side="right"
-			>Or check previous events from <a href="{base}/specials/crafters-vs-codewars"
-				>Crafters vs CodeWars</a
-			>.</Narigo
-		>
-		<Narigo delay={600} side="right"
-			>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
-		>
-	</AnimationContext>
+			<Bubble>Hey, what's up with this page?</Bubble>
+			<Narigo side="right">I thought I may want to write some code here.</Narigo>
+			<Bubble>Okay, but ...</Bubble>
+			<Bubble delay={1500}>What?!</Bubble>
+			<Narigo side="right">For example an animation for this "exchange" here.</Narigo>
+			<Narigo side="right"
+				>You can <a href="{base}/specials/talking/create">create your own</a>, if you want.</Narigo
+			>
+			<Narigo delay={1000} side="right"
+				>Or a clone of a word game where you can provide your own word: <a
+					href="{base}/specials/weirdle">Weirdle</a
+				></Narigo
+			>
+			<Narigo delay={600} side="right"
+				>Or <a href="{base}/specials/recharge">Recharge</a> someone.</Narigo
+			>
+			<Narigo delay={800} side="right"
+				>Or look up solutions from <a href="{base}/specials/frontend-friday-folks"
+					>Frontend Friday Folks</a
+				>.</Narigo
+			>
+			<Narigo delay={900} side="right"
+				>Or check previous events from <a href="{base}/specials/crafters-vs-codewars"
+					>Crafters vs CodeWars</a
+				>.</Narigo
+			>
+			<Narigo delay={600} side="right"
+				>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
+			>
+					{/snippet}
+		</AnimationContext>
 	<section>
 		<h3>Some projects / links</h3>
 		<Narigo>
@@ -74,7 +76,7 @@
 		<ul class="m-0 p-0 list-none">
 			<li
 				class="m-0 p-0 list-none"
-				on:mouseenter={setRandomColorOnHover}
+				onmouseenter={setRandomColorOnHover}
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
@@ -83,9 +85,11 @@
 					rel="external"
 				>
 					<Panel classes="panellink" textBgColor="#d22c">
-						<div slot="text">
-							After finding multiple binary files in my cloud storage that couldn't sync...
-						</div>
+						{#snippet text()}
+												<div >
+								After finding multiple binary files in my cloud storage that couldn't sync...
+							</div>
+											{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>Shoot, my keepass database on Nextcloud created a sync file when I changed it on
@@ -98,7 +102,7 @@
 			</li>
 			<li
 				class="m-0 p-0 list-none"
-				on:mouseenter={setRandomColorOnHover}
+				onmouseenter={setRandomColorOnHover}
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
@@ -107,7 +111,9 @@
 					rel="external"
 				>
 					<Panel classes="panellink" textBgColor="#dd2c" textColor="#000">
-						<div slot="text">While working on a poem for a birthday</div>
+						{#snippet text()}
+												<div >While working on a poem for a birthday</div>
+											{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>I want to create poems and need words that rhyme. I'd like to have hints that the
@@ -123,7 +129,7 @@
 			</li>
 			<li
 				class="m-0 p-0 list-none"
-				on:mouseenter={setRandomColorOnHover}
+				onmouseenter={setRandomColorOnHover}
 				style="--color-random:{getRandomColor()};"
 			>
 				<a
@@ -132,7 +138,9 @@
 					rel="external"
 				>
 					<Panel classes="panellink">
-						<div slot="text">Frustrations with unrealistic spray cans...</div>
+						{#snippet text()}
+												<div >Frustrations with unrealistic spray cans...</div>
+											{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>All the painting tools have an unrealistic spray can brush. It never creates drops
