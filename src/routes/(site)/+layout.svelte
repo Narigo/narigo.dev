@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
+	import type { Snippet } from 'svelte';
 	import '../../app.postcss';
-	/**
-	 * @typedef {Object} Props
-	 * @property {import('svelte').Snippet} [children]
-	 */
 
-	/** @type {Props} */
-	let { children } = $props();
+	interface Props {
+		children?: Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 {@render children?.()}

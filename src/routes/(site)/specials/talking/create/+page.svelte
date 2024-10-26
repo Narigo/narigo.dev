@@ -46,7 +46,7 @@
 		<input id="talking-create-face-b" type="text" bind:value={characterB} />
 		{#each $lines as line, index}
 			<label for="talking-create-line-{index}">Character {index % 2 === 0 ? 'A' : 'B'}:</label>
-			<input id="talking-create-line-{index}" type="text" bind:value={line} />
+			<input id="talking-create-line-{index}" type="text" bind:value={$lines[index]} />
 		{/each}
 		<button type="button" onclick={() => ($lines = $lines.slice(0, -1))}>Remove last line</button>
 		<button type="button" onclick={() => ($lines = [...$lines, ''])}>Add a line</button>

@@ -3,16 +3,22 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import { onMount } from 'svelte';
 	import Game from './Game.svelte';
 	import type { FiveLetterString } from './gameTypes';
 
 	let timeNeeded = $state(0);
-	let encryptedWord = $derived($page.url.searchParams.get('enc'));
+	let encryptedWord = $state('');
+	let hint = $state('');
 	let gameWord = $derived(
 		encryptedWord ? (window.atob(encryptedWord) as FiveLetterString) : undefined
 	);
-	let hint = $derived($page.url.searchParams.get('hint'));
 	let gameHint = $derived(hint ? window.atob(hint) : undefined);
+
+	onMount(() => {
+		encryptedWord = $page.url.searchParams.get('enc');
+		hint = $page.url.searchParams.get('hint');
+	});
 
 	async function getRandomWord(): Promise<string> {
 		const startedAt = Date.now();
