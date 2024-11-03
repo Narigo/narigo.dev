@@ -69,7 +69,7 @@
 <Bubble>Feeling low on energy? Press the battery to recharge, {person}!</Bubble>
 <section>
 	{#if !active}
-		<button class="battery" onclick={() => (active = true)}></button>
+		<button class="battery" onclick={() => (active = true)} aria-label="battery"></button>
 	{:else}
 		<div class="battery" in:recharge>
 			{#each $currentEmojis as currentEmoji, index}
