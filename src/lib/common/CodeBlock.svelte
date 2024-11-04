@@ -9,10 +9,8 @@
 	let { code }: Props = $props();
 </script>
 
-<div class="text-xs">
-	<HighlightSvelte {code} >
-		{#snippet children({ highlighted })}
-				<LineNumbers {highlighted} wrapLines />
-					{/snippet}
-		</HighlightSvelte>
+<div class="text-xs prose-code:before:content-none prose-code:after:content-none">
+	<HighlightSvelte {code} let:highlighted>
+		<LineNumbers {highlighted} wrapLines />
+	</HighlightSvelte>
 </div>
