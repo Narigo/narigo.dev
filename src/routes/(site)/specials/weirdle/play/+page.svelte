@@ -9,15 +9,13 @@
 
 	let timeNeeded = $state(0);
 	let encryptedWord = $state('');
-	let hint = $state('');
-	let gameWord = $derived(
-		encryptedWord ? (window.atob(encryptedWord) as FiveLetterString) : undefined
-	);
+	let hint: string | undefined = $state();
+	let gameWord = $derived(encryptedWord ? window.atob(encryptedWord) : undefined);
 	let gameHint = $derived(hint ? window.atob(hint) : undefined);
 
 	onMount(() => {
-		encryptedWord = $page.url.searchParams.get('enc');
-		hint = $page.url.searchParams.get('hint');
+		encryptedWord = $page.url.searchParams.get('enc') ?? '';
+		hint = $page.url.searchParams.get('hint') ?? undefined;
 	});
 
 	async function getRandomWord(): Promise<string> {
@@ -31,7 +29,7 @@
 
 <PageLayout>
 	<h2>Weirdle</h2>
-	{#if !encryptedWord}
+	{#if !encryptedWord || !gameWord}
 		<p>Please use a proper link with an 'enc' parameter attached to it!</p>
 		{#if browser}
 			{#await getRandomWord()}

@@ -39,12 +39,13 @@
 			carColor800: randomColor[800]
 		};
 	};
-	let currentStep: 'start' | 'dirty' | 'cleaning' | 'showering' | 'drying' | 'done' = $state('start');
-	let image: string = $state(),
-		carColor300: string = $state(),
-		carColor500: string = $state(),
-		carColor800: string = $state(),
-		bubblesOverlay: SVGElement = $state();
+	let currentStep: 'start' | 'dirty' | 'cleaning' | 'showering' | 'drying' | 'done' =
+		$state('start');
+	let image: string | undefined = $state();
+	let carColor300: string | undefined = $state();
+	let carColor500: string | undefined = $state();
+	let carColor800: string | undefined = $state();
+	let bubblesOverlay: SVGElement | undefined = $state();
 
 	const createBubbleOverlay = (image: string) => {
 		const overlay = document.createElement('div');

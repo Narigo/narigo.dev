@@ -6,11 +6,11 @@
 	import { onMount } from 'svelte';
 	import Animation from './Animation.svelte';
 
-	let encrypted: string | null = $state();
+	let encrypted: string | undefined = $state();
 	let lines: { side: 'left' | 'right'; avatar?: string; line: string }[] = $state([]);
 
 	onMount(() => {
-		encrypted = $page.url.searchParams.get('e');
+		encrypted = $page.url.searchParams.get('e') ?? undefined;
 		if (!(browser && encrypted)) {
 			return;
 		}
@@ -39,7 +39,7 @@
 	title="Talking animation"
 	description="This experiment allows you to create some cartoon animation with Gravatar images and custom text bubbles without saving it to a server."
 >
-	{#if encrypted === null}
+	{#if encrypted === undefined}
 		<p>Do you want to <a href="{base}/specials/talking/create">create your own</a>?</p>
 	{:else}
 		<Animation {lines} />

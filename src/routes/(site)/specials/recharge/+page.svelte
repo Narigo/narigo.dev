@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import Recharge from './Recharge.svelte';
 
-	let encrypted: string | null = $state();
+	let encrypted: string | undefined = $state();
 	let data: { person: string; emojis: string; message: string } = $state({
 		person: '',
 		emojis: '',
@@ -14,7 +14,7 @@
 	});
 
 	onMount(() => {
-		encrypted = $page.url.searchParams.get('e');
+		encrypted = $page.url.searchParams.get('e') ?? undefined;
 		if (browser && encrypted) {
 			data = JSON.parse(decode(encrypted));
 		}
@@ -30,7 +30,7 @@
 	title="Recharger"
 	description="A little experiment I've created to try and cheer someone up."
 >
-	{#if encrypted === null}
+	{#if encrypted === undefined}
 		<p>Do you want to <a href="{base}/specials/recharge/create">create your own</a>?</p>
 	{:else}
 		<Recharge person={data.person} emojis={data.emojis} message={data.message} />

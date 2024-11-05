@@ -7,13 +7,13 @@
 	import type { FiveLetterWord, GameState, Letter, LetterInfo } from './gameTypes';
 
 	interface Props {
-		word: `${Letter}${Letter}${Letter}${Letter}${Letter}`;
+		word: string;
 		hint: string | undefined;
 	}
 
 	let { word, hint }: Props = $props();
 
-	let solution: FiveLetterWord = word.split('').map((l: Letter) => l.toLocaleLowerCase());
+	let solution = word.split('').map((l) => l.toLocaleLowerCase()) as FiveLetterWord;
 	let gameState = writable<GameState>('playing');
 	let guesses = writable<LetterInfo[][]>([]);
 	let nextGuess = writable('');
@@ -38,8 +38,8 @@
 				correctnessInGuess: isLetterAtPosition
 					? 'green'
 					: hasThisAmountOfLetters
-					  ? 'yellow'
-					  : 'black'
+						? 'yellow'
+						: 'black'
 			};
 			return [...acc, letterInfo];
 		}, []);

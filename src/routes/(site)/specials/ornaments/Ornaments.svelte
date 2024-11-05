@@ -38,8 +38,9 @@
 		return div;
 	};
 
-	let body: HTMLDivElement = $state();
-	let svg: SVGElement = $state();
+	let body: HTMLDivElement;
+	let svg: SVGElement;
+
 	onMount(() => {
 		svg.addEventListener('click', (event) => {
 			const size = Math.round(Math.random() * 50) + 20;

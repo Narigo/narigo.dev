@@ -11,7 +11,7 @@
 
 	const trimmedSolution = solution.trim();
 
-	let iframe: HTMLIFrameElement = $state();
+	let iframe: HTMLIFrameElement;
 	onMount(() => {
 		const processedCode = `<style>body{overflow:hidden}</style>${trimmedSolution}`;
 		iframe.contentDocument?.open();
