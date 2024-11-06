@@ -1,3 +1,7 @@
+<script lang="ts" module>
+	export type TalkMode = 'talk' | 'shutup' | 'shout';
+</script>
+
 <script lang="ts">
 	import { preventDefault } from 'svelte/legacy';
 
@@ -12,16 +16,10 @@
 		delay?: number | undefined;
 		duration?: number;
 		children?: import('svelte').Snippet;
-		avatar?: import('svelte').Snippet<[any]>;
+		avatar?: import('svelte').Snippet<[{ mode: TalkMode }]>;
 	}
 
-	let {
-		side = 'left',
-		delay = undefined,
-		duration = 1000,
-		children,
-		avatar
-	}: Props = $props();
+	let { side = 'left', delay = undefined, duration = 1000, children, avatar }: Props = $props();
 
 	const animationContext = getContext<AnimationContext>('AnimationContext');
 
@@ -35,7 +33,16 @@
 		}
 	});
 
-	const modes = ['talk', 'shutup', 'talk', 'shutup', 'talk', 'shout', 'talk', 'shutup'];
+	const modes: Array<TalkMode> = [
+		'talk',
+		'shutup',
+		'talk',
+		'shutup',
+		'talk',
+		'shout',
+		'talk',
+		'shutup'
+	];
 	let mode = $state(0);
 
 	const toggleTalking = () => {
@@ -72,9 +79,9 @@
 				class="avatar absolute bg-transparent border-none bottom-3 cursor-pointer text-base"
 				onclick={preventDefault(toggleTalking)}
 			>
-				{#if avatar}{@render avatar({ mode: modes[mode], })}{:else}
-					{#if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
-				{/if}
+				{#if avatar}{@render avatar({
+						mode: modes[mode]
+					})}{:else if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
 			</button>
 		</div>
 	</Shaker>
