@@ -5,7 +5,7 @@
 	interface Props {
 		side?: 'left' | 'right';
 		children?: import('svelte').Snippet;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let { side = 'left', children, ...rest }: Props = $props();
@@ -13,8 +13,8 @@
 
 <Bubble {...rest} {side}>
 	{@render children?.()}
-	{#snippet avatar({ mode })}
-		<div  >
+	{#snippet avatar(mode)}
+		<div>
 			{#if mode === 'shutup'}🤐{:else}<img
 					src={narigo}
 					class="rounded-full max-h-4 max-w-4"

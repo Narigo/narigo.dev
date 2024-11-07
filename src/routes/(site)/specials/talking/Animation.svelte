@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble, { type TalkMode } from '$lib/common/bubble/Bubble.svelte';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		lines: { side: 'left' | 'right'; avatar?: string; line: string }[];
@@ -12,7 +13,7 @@
 <AnimationContext name="dialog">
 	{#each lines as { avatar, line, side }}
 		{#if avatar?.trim() !== ''}
-			{#snippet avatarSnippet({ mode }: { mode: TalkMode })}
+			{#snippet avatarSnippet(mode: TalkMode)}
 				<div>
 					{#if mode === 'shutup'}
 						🤐
@@ -25,7 +26,10 @@
 					{/if}
 				</div>
 			{/snippet}
-			<Bubble delay={500 + line.length * 30} {side} avatar={avatarSnippet}>
+			<Bubble delay={500 + line.length * 30} {side}>
+				{#snippet avatar(mode: TalkMode)}
+					{@render avatarSnippet(mode)}
+				{/snippet}
 				{line}
 			</Bubble>
 		{:else}

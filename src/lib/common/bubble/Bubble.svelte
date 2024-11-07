@@ -3,9 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { preventDefault } from 'svelte/legacy';
-
-	import { getContext, onMount } from 'svelte';
+	import { getContext, onMount, type Snippet } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { fly } from 'svelte/transition';
 	import Shaker from '../Shaker.svelte';
@@ -15,8 +13,8 @@
 		side?: 'left' | 'right';
 		delay?: number | undefined;
 		duration?: number;
-		children?: import('svelte').Snippet;
-		avatar?: import('svelte').Snippet<[{ mode: TalkMode }]>;
+		children?: Snippet;
+		avatar?: Snippet<[TalkMode]>;
 	}
 
 	let { side = 'left', delay = undefined, duration = 1000, children, avatar }: Props = $props();
@@ -77,11 +75,20 @@
 			{/if}
 			<button
 				class="avatar absolute bg-transparent border-none bottom-3 cursor-pointer text-base"
-				onclick={preventDefault(toggleTalking)}
+				onclick={(e) => {
+					e.preventDefault();
+					toggleTalking();
+				}}
 			>
-				{#if avatar}{@render avatar({
-						mode: modes[mode]
-					})}{:else if modes[mode] === 'talk'}🗣️{:else if modes[mode] === 'shout'}😱{:else}🤐{/if}
+				{#if avatar}
+					{@render avatar(modes[mode])}
+				{:else if modes[mode] === 'talk'}
+					🗣️
+				{:else if modes[mode] === 'shout'}
+					😱
+				{:else}
+					🤐
+				{/if}
 			</button>
 		</div>
 	</Shaker>
