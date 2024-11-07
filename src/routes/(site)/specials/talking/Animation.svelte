@@ -11,7 +11,7 @@
 </script>
 
 <AnimationContext name="dialog">
-	{#each lines as { avatar, line, side }}
+	{#each lines as { avatar, line, side }, index}
 		{#if avatar?.trim() !== ''}
 			{#snippet avatarSnippet(mode: TalkMode)}
 				<div>
@@ -26,14 +26,14 @@
 					{/if}
 				</div>
 			{/snippet}
-			<Bubble delay={500 + line.length * 30} {side}>
+			<Bubble delay={500 + (lines[index - 1]?.line.length ?? 0) * 30} {side}>
 				{#snippet avatar(mode: TalkMode)}
 					{@render avatarSnippet(mode)}
 				{/snippet}
 				{line}
 			</Bubble>
 		{:else}
-			<Bubble delay={500 + line.length * 30} {side}>
+			<Bubble delay={500 + (lines[index - 1]?.line.length ?? 0) * 30} {side}>
 				{line}
 			</Bubble>
 		{/if}
