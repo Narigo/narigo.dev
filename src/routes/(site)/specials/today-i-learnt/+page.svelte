@@ -155,6 +155,14 @@
 				potentially blocking the port - not just docker services.
 			</p>
 		</li>
+		<li>
+			<h3>Radial gradient shortcut to "circle" is "1q"</h3>
+			<p>
+				When using a radial-gradient, we're often using a circle instead of an ellipse. A shorthand
+				for this is using 1q instead of the circle keyword, to make the radial-gradient with a
+				1:1 aspect ratio - a.k.a. a circle.
+			</p>
+		</li>
 	</ul>
 </PageLayout>
 
