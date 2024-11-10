@@ -13,7 +13,8 @@
 	<Narigo>
 		To remember more of the little things I learn, I want to write them down. I'll update this page
 		whenever I find something worth to log. Most of this will be around web development, but I don't
-		want to limit myself to that. Let's see where this leads to.
+		want to limit myself to that. Let's see where this leads to. I think I should add sections for
+		these tips...
 	</Narigo>
 	<ul class="grid gap-4 m-0 p-0">
 		<li>
@@ -159,8 +160,8 @@
 			<h3>Radial gradient shortcut to "circle" is "1q"</h3>
 			<p>
 				When using a radial-gradient, we're often using a circle instead of an ellipse. A shorthand
-				for this is using 1q instead of the circle keyword, to make the radial-gradient with a
-				1:1 aspect ratio - a.k.a. a circle.
+				for this is using 1q instead of the circle keyword, to make the radial-gradient with a 1:1
+				aspect ratio - a.k.a. a circle.
 			</p>
 		</li>
 	</ul>
