@@ -1,5 +1,6 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Code from '$lib/common/Code.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
@@ -23,6 +24,11 @@
 			I've done this puzzle in the official CSSBattle Discord to help people understand how
 			gradients work. I've tried not to code golf, but I've mentioned a couple of tricks they may
 			see when people are using gradients in the top solutions.
+		</p>
+		<p>
+			One of them being the <Code>0</Code> as the first number behind the colors, essentially meaning
+			"directly at the latest color stop, start this". Or the <Code>&amp;</Code> sign in the beginning
+			referencing the implicitly generated html tag.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
