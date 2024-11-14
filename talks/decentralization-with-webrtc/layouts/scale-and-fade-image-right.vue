@@ -32,8 +32,7 @@ const styleEnd = computed(() => handleBackground(props.imageEnd, false));
 		<div class="slidev-layout default" :class="props.class">
 			<slot />
 		</div>
-		<div
-			class="grid grid-place-items-center">
+		<div class="grid grid-place-items-center">
 			<div
 				class="pos-absolute inset-0"
 				v-motion

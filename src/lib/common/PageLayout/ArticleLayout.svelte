@@ -8,12 +8,7 @@
 		children?: import('svelte').Snippet;
 	}
 
-	let {
-		title,
-		description = undefined,
-		lastUpdateOn = undefined,
-		children
-	}: Props = $props();
+	let { title, description = undefined, lastUpdateOn = undefined, children }: Props = $props();
 </script>
 
 <PageLayout {title} {description}>

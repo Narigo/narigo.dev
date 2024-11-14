@@ -116,4 +116,8 @@
 	});
 </script>
 
-{@render children?.({ isDone: $animationsDone, fastForwardNextAnimation: clickHandler, stopAllAnimations: finishAllAnimations, })}
+{@render children?.({
+	isDone: $animationsDone,
+	fastForwardNextAnimation: clickHandler,
+	stopAllAnimations: finishAllAnimations
+})}

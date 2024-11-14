@@ -18,14 +18,18 @@
 
 <div class="flex flex-col mb-4">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
-	<label class="bg-primary hover:bg-primary-light cursor-pointer text-white flex flex-1 isolate px-4 py-2 relative uppercase lg:hidden" for="navigation-menu-toggle-{navigationId}">
+	<label
+		class="bg-primary hover:bg-primary-light cursor-pointer text-white flex flex-1 isolate px-4 py-2 relative uppercase lg:hidden"
+		for="navigation-menu-toggle-{navigationId}"
+	>
 		<div class="menu-icon"></div>
 		<span class="opened">Open Menu</span>
 		<span class="closed">Close Menu</span>
 	</label>
 	<nav class="contents">
 		<ul
-			class="flex flex-1 flex-col flex-nowrap items-stretch gap-x-2 justify-between p-0 {variant === 'stretch'
+			class="flex flex-1 flex-col flex-nowrap items-stretch gap-x-2 justify-between p-0 {variant ===
+			'stretch'
 				? ''
 				: 'lg:flex-row lg:flex-wrap'}"
 		>

@@ -16,13 +16,7 @@
 		back: Face3x3 | Face4x4;
 	}
 
-	let {
-		top,
-		left,
-		right,
-		front,
-		back
-	}: Props = $props();
+	let { top, left, right, front, back }: Props = $props();
 
 	const is3x3 = [top, left, right, front, back].every(
 		(faceRows) => faceRows.length === 3 && faceRows.every((column) => column.length === 3)

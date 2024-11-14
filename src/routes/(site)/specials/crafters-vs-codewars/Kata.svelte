@@ -9,12 +9,7 @@
 		children?: import('svelte').Snippet;
 	}
 
-	let {
-		id,
-		name,
-		solution = undefined,
-		children
-	}: Props = $props();
+	let { id, name, solution = undefined, children }: Props = $props();
 
 	let showSolution = $state(false);
 </script>

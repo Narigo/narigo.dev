@@ -4,7 +4,12 @@
 			<slot />
 		</div>
 		<div class="grid-col-span-3 h-full w-full">
-			<iframe class="h-full w-full" width="900" src="https://demo.flottform.io" title="Flottform demo"></iframe>
+			<iframe
+				class="h-full w-full"
+				width="900"
+				src="https://demo.flottform.io"
+				title="Flottform demo"
+			></iframe>
 		</div>
 	</div>
 </template>

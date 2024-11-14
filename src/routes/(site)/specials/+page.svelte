@@ -26,9 +26,9 @@
 >
 	<h2>Specials</h2>
 	<SpecialNavigation />
-	<AnimationContext name="dialog" defaultDelay={1000}  >
+	<AnimationContext name="dialog" defaultDelay={1000}>
 		{#snippet children({ isDone, stopAllAnimations })}
-				{#if !isDone}
+			{#if !isDone}
 				<div style="position:relative;height:2em">
 					<div style="position:absolute;top:0;right:0;">
 						<StopAllAnimations {stopAllAnimations} />
@@ -65,8 +65,8 @@
 			<Narigo delay={600} side="right"
 				>Or read about things I learnt in small <a href="{base}/specials/today-i-learnt">TIL</a> posts.</Narigo
 			>
-					{/snippet}
-		</AnimationContext>
+		{/snippet}
+	</AnimationContext>
 	<section>
 		<h3>Some projects / links</h3>
 		<Narigo>
@@ -86,10 +86,10 @@
 				>
 					<Panel classes="panellink" textBgColor="#d22c">
 						{#snippet text()}
-												<div >
+							<div>
 								After finding multiple binary files in my cloud storage that couldn't sync...
 							</div>
-											{/snippet}
+						{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>Shoot, my keepass database on Nextcloud created a sync file when I changed it on
@@ -112,8 +112,8 @@
 				>
 					<Panel classes="panellink" textBgColor="#dd2c" textColor="#000">
 						{#snippet text()}
-												<div >While working on a poem for a birthday</div>
-											{/snippet}
+							<div>While working on a poem for a birthday</div>
+						{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>I want to create poems and need words that rhyme. I'd like to have hints that the
@@ -139,8 +139,8 @@
 				>
 					<Panel classes="panellink">
 						{#snippet text()}
-												<div >Frustrations with unrealistic spray cans...</div>
-											{/snippet}
+							<div>Frustrations with unrealistic spray cans...</div>
+						{/snippet}
 						<div class="panel p-2">
 							<Bubble side="right"
 								>All the painting tools have an unrealistic spray can brush. It never creates drops
