@@ -24,7 +24,15 @@
 	interface Props {
 		name: string;
 		defaultDelay?: number;
-		children?: import('svelte').Snippet<[any]>;
+		children?: import('svelte').Snippet<
+			[
+				{
+					isDone: boolean;
+					fastForwardNextAnimation: (this: Document, ev: MouseEvent) => void;
+					stopAllAnimations: () => void;
+				}
+			]
+		>;
 	}
 
 	let { name, defaultDelay = 0, children }: Props = $props();

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble, { type TalkMode } from '$lib/common/bubble/Bubble.svelte';
-	import type { Snippet } from 'svelte';
 
 	interface Props {
 		lines: { side: 'left' | 'right'; avatar?: string; line: string }[];

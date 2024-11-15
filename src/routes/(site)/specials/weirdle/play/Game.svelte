@@ -4,7 +4,7 @@
 	import { base } from '$app/paths';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import { writable } from 'svelte/store';
-	import type { FiveLetterWord, GameState, Letter, LetterInfo } from './gameTypes';
+	import type { FiveLetterWord, GameState, LetterInfo } from './gameTypes';
 
 	interface Props {
 		word: string;

@@ -61,14 +61,15 @@
 		for (const child of bodyClip.children) {
 			try {
 				switch (child.tagName) {
-					case 'rect':
+					case 'rect': {
 						const x = parseFloat(child.getAttribute('x') ?? '0');
 						const y = parseFloat(child.getAttribute('y') ?? '0');
 						const width = parseFloat(child.getAttribute('width') ?? '0');
 						const height = parseFloat(child.getAttribute('height') ?? '0');
 						pathData.push(`M${x},${y}h${width}v${height}h${-width}z`);
 						break;
-					case 'circle':
+					}
+					case 'circle': {
 						const cx = parseFloat(child.getAttribute('cx')!);
 						const cy = parseFloat(child.getAttribute('cy')!);
 						const r = parseFloat(child.getAttribute('r')!);
@@ -76,11 +77,14 @@
 							`M${cx - r},${cy}a${r},${r} 0 1,0 ${2 * r},0a${r},${r} 0 1,0 ${-2 * r},0`
 						);
 						break;
+					}
 					case 'path':
 						pathData.push(child.getAttribute('d')!);
 						break;
 				}
-			} catch {}
+			} catch {
+				console.warn('Wrong tag or arguments for tag');
+			}
 		}
 		const pathString = pathData.join(' ');
 

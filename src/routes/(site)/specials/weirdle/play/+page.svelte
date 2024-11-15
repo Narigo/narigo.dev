@@ -5,7 +5,6 @@
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { onMount } from 'svelte';
 	import Game from './Game.svelte';
-	import type { FiveLetterString } from './gameTypes';
 
 	let timeNeeded = $state(0);
 	let encryptedWord = $state('');
