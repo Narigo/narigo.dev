@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
@@ -19,9 +20,10 @@
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>
-			This is a puzzle we did the hour before <a href="../puzzle-95">puzzle 95</a>, which I wanted
-			to use as example for different gradients. In here, we used gradients and repeating the
-			pattern to get to the desired result.
+			This is a puzzle we did the hour before <a
+				href="{base}/specials/frontend-friday-folks/puzzle-95">puzzle 95</a
+			>, which I wanted to use as example for different gradients. In here, we used gradients and
+			repeating the pattern to get to the desired result.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
