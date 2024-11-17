@@ -40,12 +40,14 @@
   }
 </style>`;
 </script>
-
+m
 <PuzzlePageLayout title="React India">
 	<Puzzle title="Puzzle 167 solution" {solution} />
 	<Narigo
 		>An in-person session we did at the <a href="https://www.bayerwald-hackathon.de/" rel="external"
 			>B4Y3RW4LD Hackathon</a
-		>.</Narigo
+		>. I didn't manage to use radial gradients live, as the ellipse won't have the same sizes
+		everywhere on the sides. I think you can approximate by doing multiple radial gradients with
+		different sizes, but the rotation is something I didn't know how to do as well...</Narigo
 	>
 </PuzzlePageLayout>
