@@ -6,7 +6,7 @@
 
 <ArticleLayout
 	title="keepass-diff"
-	description="A tool to compare keypass databases with each other."
+	description="A tool to compare keepass databases with each other."
 	lastUpdateOn="2024-01-25"
 >
 	<p>
