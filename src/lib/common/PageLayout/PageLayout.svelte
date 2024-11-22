@@ -1,19 +1,22 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Navigation from '../navigation/Navigation.svelte';
+	import ContentSection from './ContentSection.svelte';
+	import FullWidthSection from './FullWidthSection.svelte';
 	import defaultPreviewImage from './preview-image.png';
 
 	interface Props {
 		title?: string;
-		description?: string | undefined;
-		author?: string | undefined;
-		publishDate?: string | undefined;
-		og_title?: string | undefined;
-		og_description?: string | undefined;
-		og_image?: string | undefined;
-		twitter_title?: string | undefined;
-		twitter_description?: string | undefined;
-		twitter_image?: string | undefined;
+		description?: string;
+		author?: string;
+		publishDate?: string;
+		og_title?: string;
+		og_description?: string;
+		og_image?: string;
+		twitter_title?: string;
+		twitter_description?: string;
+		twitter_image?: string;
+		allowSections?: boolean;
 		children?: import('svelte').Snippet;
 	}
 
@@ -28,6 +31,7 @@
 		twitter_title = undefined,
 		twitter_description = undefined,
 		twitter_image = undefined,
+		allowSections = false,
 		children
 	}: Props = $props();
 
@@ -102,19 +106,23 @@
 	{/if}
 </svelte:head>
 
-<div class="page font-primary">
-	<header>
-		<div class="mx-auto max-w-[--max-page-width] p-4 pb-0">
+<div class="page relative min-h-full flex flex-col">
+	<header class="content-grid">
+		<FullWidthSection>
 			<Navigation />
-		</div>
+		</FullWidthSection>
 	</header>
-	<main class="flex-1">
-		<div class="mx-auto max-w-[--max-page-width] p-4">
+	<main class="content-grid flex-grow auto-rows-max">
+		{#if allowSections}
 			{@render children?.()}
-		</div>
+		{:else}
+			<ContentSection>
+				{@render children?.()}
+			</ContentSection>
+		{/if}
 	</main>
-	<footer class="px-4 py-8">
-		<div class="flex flex-row flex-wrap gap-8 justify-between mx-auto max-w-[--max-page-width] p-4">
+	<footer class="content-grid">
+		<FullWidthSection>
 			<div><a class="no-underline" href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
 			<div>
@@ -124,17 +132,15 @@
 					rel="external">Source</a
 				>
 			</div>
-		</div>
+		</FullWidthSection>
 	</footer>
 </div>
 
 <style>
 	.page {
-		--max-page-width: 38rem;
 		--rgbv-background-color: 255, 255, 255;
 		--rgbv-background-inverted-color: 0, 0, 0;
 
-		display: flex;
 		background:
 			linear-gradient(
 					to top right,
@@ -152,11 +158,27 @@
 				center / cover no-repeat,
 			rgba(var(--rgbv-background-color), 1);
 		background-size: cover;
-		flex: 1;
-		flex-direction: column;
 		font-family: var(--font-family-primary);
 		letter-spacing: 0.5px;
-		min-height: 100%;
-		min-width: 100%;
+	}
+	.content-grid {
+		--max-page-width: 38rem;
+		--max-page-size: 72ch;
+
+		--page-padding: 1rem;
+
+		display: grid;
+		grid-template-columns:
+			[full-width-start]
+			minmax(var(--page-padding), 1fr)
+			[breakout-start]
+			minmax(0, calc(var(--page-padding) * 4))
+			[content-start]
+			min(100% - (var(--page-padding) * 2), var(--max-page-size))
+			[content-end]
+			minmax(0, calc(var(--page-padding) * 4))
+			[breakout-end]
+			minmax(var(--page-padding), 1fr)
+			[full-width-end];
 	}
 </style>
