@@ -4,12 +4,13 @@
 	interface Props {
 		id?: string;
 		children: Snippet;
+		class?: string;
 	}
 
-	let { id, children }: Props = $props();
+	let { id, children, class: clazz }: Props = $props();
 </script>
 
-<section {id} class="full-width">
+<section {id} class="full-width {clazz ?? ''}">
 	{@render children?.()}
 </section>
 

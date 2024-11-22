@@ -55,7 +55,7 @@
 {#if $show}
 	<Shaker shake={modes[mode] === 'shout'}>
 		<div
-			class="relative min-h-12 rotate-[--angle]"
+			class="relative min-h-min rotate-[--angle]"
 			class:shutup={modes[mode] === 'shutup'}
 			class:left={side === 'left'}
 			class:right={side === 'right'}
@@ -74,7 +74,7 @@
 				</div>
 			{/if}
 			<button
-				class="avatar absolute bg-transparent border-none bottom-3 cursor-pointer text-base"
+				class="avatar absolute bg-transparent border-none bottom-2 cursor-pointer text-base"
 				onclick={(e) => {
 					e.preventDefault();
 					toggleTalking();
@@ -104,8 +104,8 @@
 	.bubble::before {
 		position: absolute;
 		box-sizing: border-box;
-		width: 1em;
-		height: 1em;
+		width: 1rem;
+		height: 1rem;
 		content: '';
 		border-top: 2px solid #000;
 		border-right: 2px solid #000;
@@ -116,13 +116,13 @@
 	}
 	.left .bubble::before {
 		transform: rotate(225deg);
-		bottom: 0.8em;
-		left: -0.5em;
+		bottom: 0.5rem;
+		left: -0.5rem;
 	}
 	.right .bubble::before {
 		transform: scaleX(-1) rotate(225deg);
-		bottom: 0.8em;
-		right: -0.5em;
+		bottom: 0.5rem;
+		right: -0.5rem;
 	}
 	.left .avatar {
 		left: 0;
