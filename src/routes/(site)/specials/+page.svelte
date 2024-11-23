@@ -28,7 +28,14 @@
 	allowSections
 >
 	<FullWidthSection class="py-12">
-		<h1>Specials</h1>
+		<Panel>
+			{#snippet text()}
+				Meanwhile...
+			{/snippet}
+			<Narigo side="left">
+				<h1>Specials</h1>
+			</Narigo>
+		</Panel>
 	</FullWidthSection>
 	<ContentSection>
 		<SpecialNavigation />
