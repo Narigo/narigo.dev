@@ -160,4 +160,12 @@
 	<Narigo>
 		<p>Another solution, this time with gradients only. Didn't make it to 100% as well.</p>
 	</Narigo>
+	<Narigo>
+		<p>
+			I got a tip from Tsaeko in the official Discord: "the only issue for me was a border-radius
+			with a 4/5 ratio for the eyes (4in/5in or 20px/25px) with 62° or 63° rotation". I could make
+			the eyes look better, but still only 99.9%. Probably the bones on the sides are missing
+			something. I need to try it again at some point...!
+		</p>
+	</Narigo>
 </PuzzlePageLayout>
