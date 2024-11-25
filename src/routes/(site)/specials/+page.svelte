@@ -10,6 +10,7 @@
 	import SpecialNavigation from '../../../lib/common/navigation/SpecialNavigation.svelte';
 	import ContentSection from '$lib/common/PageLayout/ContentSection.svelte';
 	import FullWidthSection from '$lib/common/PageLayout/FullWidthSection.svelte';
+	import ContentTwoColumns from '$lib/common/PageLayout/ContentTwoColumns.svelte';
 
 	function getRandomColor() {
 		return `${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(
@@ -28,14 +29,23 @@
 	allowSections
 >
 	<FullWidthSection class="py-12">
-		<Panel>
-			{#snippet text()}
-				Meanwhile...
+		<ContentTwoColumns>
+			{#snippet left()}
+				<Panel class="p-4">
+					{#snippet text()}
+						<h1 class="shadow-none">Specials</h1>
+					{/snippet}
+					<Narigo side="left"
+						>Here are some strange experiments I've built, just to play around a bit.</Narigo
+					>
+				</Panel>
 			{/snippet}
-			<Narigo side="left">
-				<h1>Specials</h1>
-			</Narigo>
-		</Panel>
+			{#snippet right()}
+				<Panel class="p-4" outerClass="h-full">
+					<Narigo side="left">...and I couldn't come up with a better name for this page.</Narigo>
+				</Panel>
+			{/snippet}
+		</ContentTwoColumns>
 	</FullWidthSection>
 	<ContentSection>
 		<SpecialNavigation />
