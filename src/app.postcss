@@ -11,6 +11,7 @@
 	:root {
 		--color-primary-rgb: 64 154 69;
 		--color-text: #000;
+		--color-primary-text: 255 255 255;
 		--font-family-primary: 'Gochi Hand', cursive;
 		--font-family-headline: 'Permanent Marker', 'Gochi Hand', cursive;
 		--font-size-primary: 24px;
@@ -40,7 +41,7 @@
 		@apply shadow-box;
 		background: rgb(var(--color-primary));
 		clear: both;
-		color: #fff;
+		color: rgb(var(--color-primary-text));
 		display: flex;
 		flex-wrap: wrap;
 		font-family: var(--font-family-headline);

@@ -107,7 +107,7 @@
 </svelte:head>
 
 <div class="page relative min-h-full flex flex-col">
-	<header class="content-grid">
+	<header class="content-grid pt-4">
 		<FullWidthSection>
 			<Navigation />
 		</FullWidthSection>
@@ -121,7 +121,7 @@
 			</ContentSection>
 		{/if}
 	</main>
-	<footer class="content-grid">
+	<footer class="content-grid py-4 primary">
 		<FullWidthSection>
 			<div><a class="no-underline" href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
@@ -136,7 +136,7 @@
 	</footer>
 </div>
 
-<style>
+<style lang="postcss">
 	.page {
 		--rgbv-background-color: 255, 255, 255;
 		--rgbv-background-inverted-color: 0, 0, 0;
@@ -180,5 +180,33 @@
 			[breakout-end]
 			minmax(var(--page-padding), 1fr)
 			[full-width-end];
+	}
+
+	footer {
+		margin-top: 1rem;
+		background: rgb(var(--color-primary));
+		color: rgb(var(--color-primary-text));
+		position: relative;
+		&::after {
+			position: absolute;
+			top: -1rem;
+			background:
+				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem calc(
+						-1rem + 3px
+					) / calc(2rem) calc(2rem),
+				linear-gradient(to bottom left, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem calc(
+						-1rem + 3px
+					) / calc(2rem) calc(2rem),
+				conic-gradient(#0000 135deg, rgb(var(--color-primary)) 0 225deg, #0000 0)-1rem -1rem / 2rem calc(2rem +
+							2px);
+			mask:
+				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50% + 2px)) calc(-1rem)
+					calc(-1rem + 3px) / calc(2rem) calc(2rem) intersect,
+				linear-gradient(to bottom left, #0000 calc(50% - 2px), #000 0 calc(50% + 2px)) calc(-1rem)
+					calc(-1rem + 3px) / calc(2rem) calc(2rem) intersect;
+			content: '';
+			height: calc(1rem + 4px);
+			width: 100%;
+		}
 	}
 </style>
