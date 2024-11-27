@@ -123,11 +123,10 @@
 	</main>
 	<footer class="content-grid py-4 primary">
 		<FullWidthSection>
-			<div><a class="no-underline" href="{base}/imprint">ℹ️ Imprint</a></div>
+			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
 			<div>
 				Statically hosted on GitHub Pages. <a
-					class="no-underline"
 					href="https://github.com/Narigo/narigo.dev"
 					rel="external">Source</a
 				>
