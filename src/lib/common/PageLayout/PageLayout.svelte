@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { base } from '$app/paths';
 	import Navigation from '../navigation/Navigation.svelte';
 	import ContentSection from './ContentSection.svelte';
@@ -17,7 +18,7 @@
 		twitter_description?: string;
 		twitter_image?: string;
 		allowSections?: boolean;
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let {
