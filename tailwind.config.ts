@@ -1,6 +1,6 @@
 import typographyPlugin from '@tailwindcss/typography';
+import { Config } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
@@ -27,15 +27,15 @@ export default {
 				announce: {
 					'0%, 50%, 100%': {
 						rotate: '0deg',
-						scale: 1
+						scale: '1'
 					},
 					'25%': {
 						rotate: '-2deg',
-						scale: 1.05
+						scale: '1.05'
 					},
 					'75%': {
 						rotate: '2deg',
-						scale: 1.05
+						scale: '1.05'
 					}
 				},
 				shake: {
@@ -56,4 +56,4 @@ export default {
 		}
 	},
 	plugins: [typographyPlugin]
-};
+} satisfies Config;

@@ -1,5 +1,15 @@
 <script lang="ts">
-	const search = window.location.search;
+	import { onMount } from 'svelte';
+
+	const workouts = {
+		short: [],
+		regular: [],
+		long: []
+	};
+	let search = $state<string>('');
+	onMount(() => {
+		search = window.location.search;
+	});
 </script>
 
 <pre>Search: {search}</pre>
