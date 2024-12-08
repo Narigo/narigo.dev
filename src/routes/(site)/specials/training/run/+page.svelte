@@ -78,12 +78,6 @@
 	}
 </script>
 
-<pre>
-    timePerWorkout: {timePerWorkout}
-     typeOfWorkout: {typeOfWorkout}
-       currentStep: {currentStep}
-</pre>
-
 {#if currentExercise}
 	<Workout title={currentExercise.title} description={currentExercise.description} />
 {/if}
