@@ -8,6 +8,7 @@
 		title: string;
 		description: Array<string>;
 		image?: string;
+		video?: string;
 	};
 	type ExerciseName = keyof typeof exercises;
 
@@ -60,7 +61,9 @@
 	const currentExerciseName = $derived(
 		typeOfWorkout ? workoutSessions[typeOfWorkout]?.[currentStep] : null
 	);
-	const currentExercise = $derived(currentExerciseName ? exercises[currentExerciseName] : null);
+	const currentExercise: Exercise | null = $derived(
+		currentExerciseName ? exercises[currentExerciseName] : null
+	);
 
 	setTimeout(async () => {
 		await next();
@@ -79,5 +82,10 @@
 </script>
 
 {#if currentExercise}
-	<Workout title={currentExercise.title} description={currentExercise.description} />
+	<Workout
+		title={currentExercise.title}
+		description={currentExercise.description}
+		image={currentExercise.image}
+		video={currentExercise.video}
+	/>
 {/if}
