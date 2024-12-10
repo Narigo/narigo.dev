@@ -11,7 +11,7 @@
 	let { title, description, image, video }: WorkoutProps = $props();
 </script>
 
-<div class="grid grid-cols-1" class:md:grid-cols-2={image || video}>
+<div class="grid grid-cols-1 gap-4" class:md:grid-cols-2={image || video}>
 	{#if image || video}
 		<div>
 			{#if image}

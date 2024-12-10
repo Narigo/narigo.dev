@@ -5,9 +5,9 @@
 
 	type WorkoutTypes = 'short' | 'regular' | 'long';
 	let typeOfWorkout: WorkoutTypes = $state('regular');
-	let timePerWorkout: number = $state(45);
+	let timePerExercise: number = $state(45);
 
-	const calculateTrainingDuration = (typeOfWorkout: WorkoutTypes, timePerWorkout: number) => {
+	const calculateTrainingDuration = (typeOfWorkout: WorkoutTypes, timePerExercise: number) => {
 		const amountOfWorkouts: Record<WorkoutTypes, number> = {
 			short: 6,
 			regular: 11,
@@ -15,7 +15,7 @@
 		};
 		const timeToPauseInSeconds = 10;
 		const timeInSeconds =
-			timePerWorkout * amountOfWorkouts[typeOfWorkout] +
+			timePerExercise * amountOfWorkouts[typeOfWorkout] +
 			timeToPauseInSeconds * (amountOfWorkouts[typeOfWorkout] - 1);
 		return `${Math.floor(timeInSeconds / 60)} minutes and ${timeInSeconds % 60} seconds`;
 	};
@@ -46,7 +46,7 @@
 		<label>
 			<span>Time per workout:</span>
 			<input
-				name="timePerWorkout"
+				name="timePerExercise"
 				type="number"
 				class="border-b-2 border-black text-center w-fit"
 				style="width:calc(1ch * 4)"
@@ -56,7 +56,7 @@
 						`width:calc(1ch * ${(e.currentTarget.value.length || 1) + 2});`
 					);
 				}}
-				bind:value={timePerWorkout}
+				bind:value={timePerExercise}
 			/>
 			<span>seconds</span>
 		</label>
@@ -73,7 +73,7 @@
 			<input name="typeOfWorkout" bind:group={typeOfWorkout} type="radio" value="long" />
 			<span>Long workout</span>
 		</label>
-		<p>Training duration: {calculateTrainingDuration(typeOfWorkout, timePerWorkout)}</p>
+		<p>Training duration: {calculateTrainingDuration(typeOfWorkout, timePerExercise)}</p>
 		<button class="disabled:bg-gray-300">Start training</button>
 	</form>
 </PageLayout>

@@ -2,9 +2,11 @@
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import Workout from './Workout.svelte';
+	import Exercise from './Exercise.svelte';
+	import ExerciseProgress from './ExerciseProgress.svelte';
+	import first from './image-1.png';
 
-	type Exercise = {
+	type ExerciseWorkout = {
 		title: string;
 		description: Array<string>;
 		image?: string;
@@ -14,6 +16,7 @@
 
 	const exercises = {
 		first: {
+			image: first,
 			title: 'Doing A',
 			description: [
 				'This is the setup.',
@@ -30,7 +33,7 @@
 			]
 		},
 		third: {
-			title: 'C Workout',
+			title: 'C Exercise',
 			description: [
 				'This is the setup.',
 				'Change sides at half time.',
@@ -45,7 +48,7 @@
 				'Keeping the feet higher, makes it harder.'
 			]
 		}
-	} satisfies Record<string, Exercise>;
+	} satisfies Record<string, ExerciseWorkout>;
 
 	const workoutSessions: Record<string, Array<ExerciseName>> = {
 		short: ['first', 'third'],
@@ -53,7 +56,7 @@
 		long: ['first', 'second', 'third', 'fourth']
 	};
 
-	const timePerWorkout = parseInt($page.url.searchParams.get('timePerWorkout') ?? '45', 10);
+	const timePerExercise = parseInt($page.url.searchParams.get('timePerExercise') ?? '45', 10);
 	const typeOfWorkout = $page.url.searchParams.get('typeOfWorkout');
 	const workoutSession = (typeOfWorkout && workoutSessions[typeOfWorkout]) || [];
 
@@ -61,31 +64,37 @@
 	const currentExerciseName = $derived(
 		typeOfWorkout ? workoutSessions[typeOfWorkout]?.[currentStep] : null
 	);
-	const currentExercise: Exercise | null = $derived(
+	const currentExercise: ExerciseWorkout | null = $derived(
 		currentExerciseName ? exercises[currentExerciseName] : null
 	);
 
-	setTimeout(async () => {
-		await next();
-	}, timePerWorkout * 1000);
+	let startedAt = $state(Date.now());
+	let currentTime = $state(Date.now());
+	run();
 
-	async function next() {
+	async function run() {
 		currentStep = currentStep + 1;
 		if (!currentExercise) {
 			return goto(`${base}/specials/training/done`);
 		}
 
-		setTimeout(async () => {
-			await next();
-		}, timePerWorkout * 1000);
+		do {
+			await new Promise((r) =>
+				setTimeout(r, Math.min(startedAt + timePerExercise * 1000 - currentTime, 1000))
+			);
+			currentTime = Date.now();
+		} while (currentTime < startedAt + timePerExercise * 1000);
+
+		run();
 	}
 </script>
 
 {#if currentExercise}
-	<Workout
+	<Exercise
 		title={currentExercise.title}
 		description={currentExercise.description}
 		image={currentExercise.image}
 		video={currentExercise.video}
 	/>
+	<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
 {/if}
