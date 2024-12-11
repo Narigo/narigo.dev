@@ -11,6 +11,9 @@
 	let { at, timeForExercise }: ExerciseProgressProps = $props();
 </script>
 
-<progress class="border border-gray-400" max={timeForExercise} value={at}>
-	{Math.floor((at / timeForExercise) * 100)}%
-</progress>
+<label>
+	<div class="text-3xl">{Math.floor(timeForExercise - at)}s</div>
+	<progress class="border w-full border-gray-400 bg-gray-200 h-8" max={timeForExercise} value={at}>
+		{Math.floor((at / timeForExercise) * 100)}%
+	</progress>
+</label>

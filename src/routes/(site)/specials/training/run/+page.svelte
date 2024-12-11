@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { supportsScreenLock, requestScreenLock } from '$lib/screenlock/screenlock';
+	import { onMount } from 'svelte';
 	import Exercise from './Exercise.svelte';
 	import ExerciseProgress from './ExerciseProgress.svelte';
 	import first from './image-1.png';
@@ -17,11 +19,11 @@
 	const exercises = {
 		first: {
 			image: first,
-			title: 'Doing A',
+			title: 'Beetle crunch',
 			description: [
-				'This is the setup.',
-				'Change sides at half time.',
-				'Keeping the feet higher, makes it harder.'
+				'Lie on your back, keep the shoulders above the ground. One leg is pulled up, the other one hovers stretched out above the floor. Arms push forward towards the feet.',
+				'Switch the pulled up and stretched out legs about every 10 seconds.',
+				''
 			]
 		},
 		second: {
@@ -58,7 +60,6 @@
 
 	const timePerExercise = parseInt($page.url.searchParams.get('timePerExercise') ?? '45', 10);
 	const typeOfWorkout = $page.url.searchParams.get('typeOfWorkout');
-	const workoutSession = (typeOfWorkout && workoutSessions[typeOfWorkout]) || [];
 
 	let currentStep = $state(parseInt($page.url.searchParams.get('currentStep') ?? '0', 10));
 	const currentExerciseName = $derived(
@@ -70,12 +71,26 @@
 
 	let startedAt = $state(Date.now());
 	let currentTime = $state(Date.now());
-	run();
+
+	onMount(() => {
+		const lockPromise = supportsScreenLock() ? requestScreenLock() : null;
+		console.log('requested screen lock', lockPromise);
+
+		run();
+
+		if (lockPromise) {
+			return async () => {
+				const lock = await lockPromise;
+				console.log('releasing lock');
+				lock.release();
+			};
+		}
+	});
 
 	async function run() {
-		currentStep = currentStep + 1;
+		console.log({ currentStep, currentExercise });
 		if (!currentExercise) {
-			return goto(`${base}/specials/training/done`);
+			return await goto(`${base}/specials/training/done`);
 		}
 
 		do {
@@ -85,7 +100,10 @@
 			currentTime = Date.now();
 		} while (currentTime < startedAt + timePerExercise * 1000);
 
-		run();
+		currentStep = currentStep + 1;
+		startedAt = Date.now();
+
+		await run();
 	}
 </script>
 
