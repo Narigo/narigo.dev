@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import Exercise from './Exercise.svelte';
 	import ExerciseProgress from './ExerciseProgress.svelte';
-	import first from './image-1.png';
+	import beetleCrunch from './beetle-crunch.png';
 
 	type ExerciseWorkout = {
 		title: string;
@@ -17,8 +17,8 @@
 	type ExerciseName = keyof typeof exercises;
 
 	const exercises = {
-		first: {
-			image: first,
+		beetleCrunch: {
+			image: beetleCrunch,
 			title: 'Beetle crunch',
 			description: [
 				'Lie on your back, keep the shoulders above the ground. One leg is pulled up, the other one hovers stretched out above the floor. Arms push forward towards the feet.',
@@ -53,9 +53,9 @@
 	} satisfies Record<string, ExerciseWorkout>;
 
 	const workoutSessions: Record<string, Array<ExerciseName>> = {
-		short: ['first', 'third'],
-		regular: ['first', 'second', 'third'],
-		long: ['first', 'second', 'third', 'fourth']
+		short: ['beetleCrunch', 'third'],
+		regular: ['beetleCrunch', 'second', 'third'],
+		long: ['beetleCrunch', 'second', 'third', 'fourth']
 	};
 
 	const timePerExercise = parseInt($page.url.searchParams.get('timePerExercise') ?? '45', 10);
