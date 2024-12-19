@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import Exercise from './Exercise.svelte';
 	import ExerciseProgress from './ExerciseProgress.svelte';
-	import beetleCrunch from './beetle-crunch.png';
+	import Human from './Human.svelte';
 
 	type ExerciseWorkout = {
 		title: string;
@@ -18,7 +18,6 @@
 
 	const exercises = {
 		beetleCrunch: {
-			image: beetleCrunch,
 			title: 'Beetle crunch',
 			description: [
 				'Lie on your back, keep the shoulders above the ground. One leg is pulled up, the other one hovers stretched out above the floor. Arms push forward towards the feet.',
@@ -115,4 +114,5 @@
 		video={currentExercise.video}
 	/>
 	<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
+	<Human side="facing"></Human>
 {/if}
