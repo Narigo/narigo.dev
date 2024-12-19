@@ -7,6 +7,8 @@
 	import Exercise from './Exercise.svelte';
 	import ExerciseProgress from './ExerciseProgress.svelte';
 	import Human from './Human.svelte';
+	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
+	import FullWidthSection from '$lib/common/PageLayout/FullWidthSection.svelte';
 
 	type ExerciseWorkout = {
 		title: string;
@@ -106,13 +108,19 @@
 	}
 </script>
 
-{#if currentExercise}
-	<Exercise
-		title={currentExercise.title}
-		description={currentExercise.description}
-		image={currentExercise.image}
-		video={currentExercise.video}
-	/>
-	<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
-	<Human side="facing"></Human>
-{/if}
+<PageLayout allowSections mainClasses="auto-rows-auto">
+	<FullWidthSection class="h-full">
+		{#if currentExercise}
+			<Exercise
+				title={currentExercise.title}
+				description={currentExercise.description}
+				image={currentExercise.image}
+				video={currentExercise.video}
+			/>
+			<div class="grid place-items-center">
+				<Human body="right"></Human>
+			</div>
+			<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
+		{/if}
+	</FullWidthSection>
+</PageLayout>

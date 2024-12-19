@@ -1,12 +1,24 @@
 <script lang="ts">
 	export interface HumanProps {
-		side: 'facing' | 'back' | 'belly';
+		body: 'left' | 'right' | 'standing';
+		
 	}
-	const { side }: HumanProps = $props();
+	const { body }: HumanProps = $props();
+
+	let bodyRotation = $state(0);
+	if (body === 'left') {
+		bodyRotation = 90;
+	}
+	if (body === 'right') {
+		bodyRotation = -90;
+	}
 </script>
 
-<section class="human relative">
-	<section class="torso relative top-7 h-16 w-14 rounded bg-green-400">
+<section class="human relative h-48 w-48">
+	<section
+		class="torso relative top-7 h-16 w-14 rounded bg-green-400"
+		style="transform: rotate({bodyRotation}deg);"
+	>
 		<section
 			class="head absolute -top-7 left-1/2 h-6 w-6 -translate-x-1/2 rounded-md bg-orange-200"
 		>

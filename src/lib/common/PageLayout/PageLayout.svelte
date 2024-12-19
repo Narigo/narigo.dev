@@ -18,6 +18,7 @@
 		twitter_description?: string;
 		twitter_image?: string;
 		allowSections?: boolean;
+		mainClasses?: string;
 		children?: Snippet;
 	}
 
@@ -33,6 +34,7 @@
 		twitter_description = undefined,
 		twitter_image = undefined,
 		allowSections = false,
+		mainClasses = '',
 		children
 	}: Props = $props();
 
@@ -107,13 +109,13 @@
 	{/if}
 </svelte:head>
 
-<div class="page relative min-h-full flex flex-col">
+<div class="page relative flex min-h-full flex-col">
 	<header class="content-grid pt-4">
 		<FullWidthSection>
 			<Navigation />
 		</FullWidthSection>
 	</header>
-	<main class="content-grid flex-grow auto-rows-max">
+	<main class="content-grid flex-grow auto-rows-max {mainClasses}">
 		{#if allowSections}
 			{@render children?.()}
 		{:else}
@@ -122,7 +124,7 @@
 			</ContentSection>
 		{/if}
 	</main>
-	<footer class="content-grid py-4 primary">
+	<footer class="content-grid primary py-4">
 		<FullWidthSection>
 			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
@@ -191,14 +193,12 @@
 			position: absolute;
 			top: -1rem;
 			background:
-				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem calc(
-						-1rem + 3px
-					) / calc(2rem) calc(2rem),
-				linear-gradient(to bottom left, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem calc(
-						-1rem + 3px
-					) / calc(2rem) calc(2rem),
-				conic-gradient(#0000 135deg, rgb(var(--color-primary)) 0 225deg, #0000 0)-1rem -1rem / 2rem calc(2rem +
-							2px);
+				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem
+					calc(-1rem + 3px) / calc(2rem) calc(2rem),
+				linear-gradient(to bottom left, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem
+					calc(-1rem + 3px) / calc(2rem) calc(2rem),
+				conic-gradient(#0000 135deg, rgb(var(--color-primary)) 0 225deg, #0000 0)-1rem -1rem / 2rem
+					calc(2rem + 2px);
 			mask:
 				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50% + 2px)) calc(-1rem)
 					calc(-1rem + 3px) / calc(2rem) calc(2rem) intersect,
