@@ -118,7 +118,13 @@
 				video={currentExercise.video}
 			/>
 			<div class="grid place-items-center">
-				<Human body="right"></Human>
+				<Human
+					body="right"
+					upperArmLeft="halfUp"
+					upperArmRight="side"
+					forearmLeft="straight"
+					forearmRight="bendedX"
+				></Human>
 			</div>
 			<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
 		{/if}

@@ -1,16 +1,53 @@
 <script lang="ts">
 	export interface HumanProps {
 		body: 'left' | 'right' | 'standing';
-		
+		upperArmLeft: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
+		upperArmRight: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
+		forearmLeft: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
+		forearmRight: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
 	}
-	const { body }: HumanProps = $props();
+	const { body, forearmLeft, forearmRight, upperArmLeft, upperArmRight }: HumanProps = $props();
 
 	let bodyRotation = $state(0);
+	let upperArmLeftClasses = $state('h-9');
+	let upperArmRightClasses = $state('h-9');
+	let forearmLeftClasses = $state('h-9');
+	let forearmRightClasses = $state('h-9');
 	if (body === 'left') {
 		bodyRotation = 90;
 	}
 	if (body === 'right') {
 		bodyRotation = -90;
+	}
+	if (forearmLeft === 'bendedX') {
+		forearmLeftClasses = 'h-3';
+	}
+	if (forearmRight === 'bendedX') {
+		forearmRightClasses = 'h-3';
+	}
+	if (upperArmLeft === 'straight') {
+		upperArmLeftClasses = 'h-9';
+	}
+	if (upperArmRight === 'straight') {
+		upperArmRightClasses = 'h-9';
+	}
+	if (upperArmLeft === 'halfUp') {
+		upperArmLeftClasses = 'rotate-[225deg] h-9';
+	}
+	if (upperArmRight === 'halfUp') {
+		upperArmRightClasses = 'rotate-[135deg] h-9';
+	}
+	if (upperArmLeft === 'up') {
+		upperArmLeftClasses = 'rotate-[180deg] h-9';
+	}
+	if (upperArmRight === 'up') {
+		upperArmRightClasses = 'rotate-[180deg] h-9';
+	}
+	if (upperArmLeft === 'side') {
+		upperArmLeftClasses = 'rotate-[90deg] h-9';
+	}
+	if (upperArmRight === 'side') {
+		upperArmRightClasses = 'rotate-[90deg] h-9';
 	}
 </script>
 
@@ -38,18 +75,22 @@
 				<div class="leg-ur absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
-		<section class="arm-l absolute left-0 top-1 origin-top">
+		<section class="arm-r absolute left-0 top-1 origin-top">
 			<div
-				class="arm-ol h-9 w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-25% to-orange-200"
+				class="upperArm-r w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-25% to-orange-200 {upperArmRightClasses}"
 			>
-				<div class="arm-ul absolute top-full h-9 w-3 origin-top bg-orange-200"></div>
+				<div
+					class="forearm-r absolute top-full w-3 origin-top bg-orange-200 {forearmRightClasses}"
+				></div>
 			</div>
 		</section>
-		<section class="arm-r absolute right-3 top-1 origin-top">
+		<section class="arm-l absolute right-3 top-1 origin-top">
 			<div
-				class="arm-or absolute top-0 h-9 w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200"
+				class="upperArm-l absolute top-0 w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperArmLeftClasses}"
 			>
-				<div class="arm-ur absolute top-full h-9 w-3 origin-top bg-orange-200"></div>
+				<div
+					class="forearm-l absolute top-full w-3 origin-top bg-orange-200 {forearmLeftClasses}"
+				></div>
 			</div>
 		</section>
 	</section>
