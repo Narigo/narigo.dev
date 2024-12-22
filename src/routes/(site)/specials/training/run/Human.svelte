@@ -1,23 +1,29 @@
 <script lang="ts">
 	export interface HumanProps {
-		body: 'left' | 'right' | 'standing';
-		upperArmLeft: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
+		body: 'left' | 'left-80' | 'right' | 'right-80' | 'standing';
+		upperArmLeft: 'straight' | 'front' | 'side' | 'halfUp' | '8p';
 		upperArmRight: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
 		forearmLeft: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
 		forearmRight: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
 	}
 	const { body, forearmLeft, forearmRight, upperArmLeft, upperArmRight }: HumanProps = $props();
 
-	let bodyRotation = $state(0);
+	let bodyClasses = $state('');
 	let upperArmLeftClasses = $state('h-9');
 	let upperArmRightClasses = $state('h-9');
 	let forearmLeftClasses = $state('h-9');
 	let forearmRightClasses = $state('h-9');
 	if (body === 'left') {
-		bodyRotation = 90;
+		bodyClasses = 'rotate-[90deg]';
+	}
+	if (body === 'left-80') {
+		bodyClasses = 'rotate-[80deg]';
 	}
 	if (body === 'right') {
-		bodyRotation = -90;
+		bodyClasses = 'rotate-[-90deg]';
+	}
+	if (body === 'right-80') {
+		bodyClasses = 'rotate-[-80deg]';
 	}
 	if (forearmLeft === 'bendedX') {
 		forearmLeftClasses = 'h-3';
@@ -52,10 +58,7 @@
 </script>
 
 <section class="human relative h-48 w-48">
-	<section
-		class="torso relative top-7 h-16 w-14 rounded bg-green-400"
-		style="transform: rotate({bodyRotation}deg);"
-	>
+	<section class="torso relative top-7 h-16 w-14 rounded bg-green-400 {bodyClasses}">
 		<section
 			class="head absolute -top-7 left-1/2 h-6 w-6 -translate-x-1/2 rounded-md bg-orange-200"
 		>

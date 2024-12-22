@@ -119,7 +119,7 @@
 			/>
 			<div class="grid place-items-center">
 				<Human
-					body="right"
+					body="right-80"
 					upperArmLeft="halfUp"
 					upperArmRight="side"
 					forearmLeft="straight"
