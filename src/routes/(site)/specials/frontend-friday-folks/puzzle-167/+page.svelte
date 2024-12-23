@@ -40,7 +40,7 @@
   }
 </style>`;
 </script>
-m
+
 <PuzzlePageLayout title="React India">
 	<Puzzle title="Puzzle 167 solution" {solution} />
 	<Narigo
