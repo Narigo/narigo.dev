@@ -119,11 +119,13 @@
 			/>
 			<div class="grid place-items-center">
 				<Human
-					body="right-80"
+					body="right-70"
 					upperArmLeft="halfUp"
 					upperArmRight="side"
 					forearmLeft="straight"
 					forearmRight="bendedX"
+					upperLegLeft="halfOut"
+					upperLegRight="straight"
 				></Human>
 			</div>
 			<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
