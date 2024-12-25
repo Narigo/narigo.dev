@@ -15,6 +15,36 @@ export function getBodyClasses(value: BodyProps): string {
 	}
 }
 
+export type UpperArmProps = 'straight' | 'front' | 'side' | 'halfUp' | 'up';
+export function getUpperArmLeftClasses(value: UpperArmProps): string {
+	switch (value) {
+		case 'straight':
+			return 'h-9';
+		case 'front':
+			return 'h-3';
+		case 'side':
+			return 'h-9 -rotate-[90deg]';
+		case 'halfUp':
+			return 'h-9 rotate-[225deg]';
+		case 'up':
+			return 'h-9 rotate-[180deg]';
+	}
+}
+export function getUpperArmRightClasses(value: UpperArmProps): string {
+	switch (value) {
+		case 'straight':
+			return 'h-9';
+		case 'front':
+			return 'h-3';
+		case 'side':
+			return 'h-9 rotate-[90deg]';
+		case 'halfUp':
+			return 'h-9 rotate-[135deg]';
+		case 'up':
+			return 'h-9 rotate-[180deg]';
+	}
+}
+
 export type UpperLegProps = 'straight' | 'halfOut' | 'front' | 'frontHalf';
 
 export function getUpperLegLeftClasses(value: UpperLegProps): string {

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import {
 		getBodyClasses,
+		getUpperArmLeftClasses,
+		getUpperArmRightClasses,
 		getUpperLegLeftClasses,
 		getUpperLegRightClasses,
 		type BodyProps
@@ -26,8 +28,8 @@
 	}: HumanProps = $props();
 
 	let bodyClasses = $state(getBodyClasses(body));
-	let upperArmLeftClasses = $state('h-9');
-	let upperArmRightClasses = $state('h-9');
+	let upperArmLeftClasses = $state(getUpperArmLeftClasses(upperArmLeft));
+	let upperArmRightClasses = $state(getUpperArmRightClasses(upperArmRight));
 	let forearmLeftClasses = $state('h-9');
 	let forearmRightClasses = $state('h-9');
 	let upperLegLeftClasses = $state(getUpperLegLeftClasses(upperLegLeft));
@@ -39,30 +41,7 @@
 	if (forearmRight === 'bendedX') {
 		forearmRightClasses = 'h-3';
 	}
-	if (upperArmLeft === 'straight') {
-		upperArmLeftClasses = 'h-9';
-	}
-	if (upperArmRight === 'straight') {
-		upperArmRightClasses = 'h-9';
-	}
-	if (upperArmLeft === 'halfUp') {
-		upperArmLeftClasses = 'rotate-[225deg] h-9';
-	}
-	if (upperArmRight === 'halfUp') {
-		upperArmRightClasses = 'rotate-[135deg] h-9';
-	}
-	if (upperArmLeft === 'up') {
-		upperArmLeftClasses = 'rotate-[180deg] h-9';
-	}
-	if (upperArmRight === 'up') {
-		upperArmRightClasses = 'rotate-[180deg] h-9';
-	}
-	if (upperArmLeft === 'side') {
-		upperArmLeftClasses = 'rotate-[90deg] h-9';
-	}
-	if (upperArmRight === 'side') {
-		upperArmRightClasses = 'rotate-[90deg] h-9';
-	}
+
 </script>
 
 <section class="human relative h-48 w-48">
