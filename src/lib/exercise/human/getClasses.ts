@@ -45,6 +45,20 @@ export function getUpperArmRightClasses(value: UpperArmProps): string {
 	}
 }
 
+export type ForearmProps = 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
+export function getForearmClasses(value: ForearmProps): string {
+	switch (value) {
+		case 'straight':
+			return 'h-9';
+		case 'bendedX':
+			return 'h-3';
+		case 'bendedLeft':
+			return 'h-9 -rotate-[90deg]';
+		case 'bendedRight':
+			return 'h-9 rotate-[90deg]';
+	}
+}
+
 export type UpperLegProps = 'straight' | 'halfOut' | 'front' | 'frontHalf';
 
 export function getUpperLegLeftClasses(value: UpperLegProps): string {

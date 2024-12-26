@@ -6,13 +6,14 @@
 	import { onMount } from 'svelte';
 	import Exercise from './Exercise.svelte';
 	import ExerciseProgress from './ExerciseProgress.svelte';
-	import Human from './Human.svelte';
+	import Human, { type HumanProps } from '$lib/exercise/human/Human.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import FullWidthSection from '$lib/common/PageLayout/FullWidthSection.svelte';
 
 	type ExerciseWorkout = {
 		title: string;
 		description: Array<string>;
+		human?: HumanProps;
 		image?: string;
 		video?: string;
 	};
@@ -27,13 +28,39 @@
 				''
 			]
 		},
-		second: {
-			title: 'Exercise B',
+		lateralForearmSupportLeft: {
+			title: 'Lateral forearm support (left)',
 			description: [
-				'This is the setup.',
-				'Change sides at half time.',
-				'Keeping the feet higher, makes it harder.'
-			]
+				'The body rests on the left forearm and the lower left leg. The free leg should be pulled up as much as possible and held in position.',
+				'The hip must not bend downwards. It is better to lower the leg then.',
+				'The exercise will be repeated for the other side.'
+			],
+			human: {
+				body: 'left-70',
+				upperArmLeft: 'side',
+				upperArmRight: 'halfUp',
+				forearmLeft: 'bendedX',
+				forearmRight: 'straight',
+				upperLegLeft: 'straight',
+				upperLegRight: 'halfOut'
+			}
+		},
+		lateralForearmSupportRight: {
+			title: 'Lateral forearm support (right)',
+			description: [
+				'The body rests on the right forearm and the lower right leg. The free leg should be pulled up as much as possible and held in position.',
+				'The hip must not bend downwards. It is better to lower the leg then.',
+				''
+			],
+			human: {
+				body: 'right-70',
+				upperArmLeft: 'halfUp',
+				upperArmRight: 'side',
+				forearmLeft: 'straight',
+				forearmRight: 'bendedX',
+				upperLegLeft: 'halfOut',
+				upperLegRight: 'straight'
+			}
 		},
 		third: {
 			title: 'C Exercise',
@@ -55,8 +82,14 @@
 
 	const workoutSessions: Record<string, Array<ExerciseName>> = {
 		short: ['beetleCrunch', 'third'],
-		regular: ['beetleCrunch', 'second', 'third'],
-		long: ['beetleCrunch', 'second', 'third', 'fourth']
+		regular: ['lateralForearmSupportLeft', 'lateralForearmSupportRight', 'beetleCrunch', 'third'],
+		long: [
+			'lateralForearmSupportLeft',
+			'lateralForearmSupportRight',
+			'beetleCrunch',
+			'third',
+			'fourth'
+		]
 	};
 
 	const timePerExercise = parseInt($page.url.searchParams.get('timePerExercise') ?? '45', 10);
@@ -118,15 +151,9 @@
 				video={currentExercise.video}
 			/>
 			<div class="grid place-items-center">
-				<Human
-					body="right-70"
-					upperArmLeft="halfUp"
-					upperArmRight="side"
-					forearmLeft="straight"
-					forearmRight="bendedX"
-					upperLegLeft="halfOut"
-					upperLegRight="straight"
-				></Human>
+				{#if currentExercise.human}
+					<Human {...currentExercise.human} />
+				{/if}
 			</div>
 			<ExerciseProgress at={(currentTime - startedAt) / 1000} timeForExercise={timePerExercise} />
 		{/if}

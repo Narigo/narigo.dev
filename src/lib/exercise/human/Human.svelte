@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		getBodyClasses,
+		getForearmClasses,
 		getUpperArmLeftClasses,
 		getUpperArmRightClasses,
 		getUpperLegLeftClasses,
@@ -30,18 +31,10 @@
 	let bodyClasses = $state(getBodyClasses(body));
 	let upperArmLeftClasses = $state(getUpperArmLeftClasses(upperArmLeft));
 	let upperArmRightClasses = $state(getUpperArmRightClasses(upperArmRight));
-	let forearmLeftClasses = $state('h-9');
-	let forearmRightClasses = $state('h-9');
+	let forearmLeftClasses = $state(getForearmClasses(forearmLeft));
+	let forearmRightClasses = $state(getForearmClasses(forearmRight));
 	let upperLegLeftClasses = $state(getUpperLegLeftClasses(upperLegLeft));
 	let upperLegRightClasses = $state(getUpperLegRightClasses(upperLegRight));
-
-	if (forearmLeft === 'bendedX') {
-		forearmLeftClasses = 'h-3';
-	}
-	if (forearmRight === 'bendedX') {
-		forearmRightClasses = 'h-3';
-	}
-
 </script>
 
 <section class="human relative h-48 w-48">
