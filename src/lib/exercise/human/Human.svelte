@@ -4,19 +4,28 @@
 		getForearmClasses,
 		getUpperArmLeftClasses,
 		getUpperArmRightClasses,
-		getUpperLegLeftClasses,
-		getUpperLegRightClasses,
-		type BodyProps
+		getThighLeftClasses,
+		getThighRightClasses,
+		type BodyProps,
+
+		type ThighProps,
+
+		type ForearmProps,
+
+		type UpperArmProps
+
+
+
 	} from '$lib/exercise/human/getClasses';
 
 	export interface HumanProps {
 		body: BodyProps;
-		upperArmLeft: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
-		upperArmRight: 'straight' | 'front' | 'side' | 'halfUp' | 'up';
-		forearmLeft: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
-		forearmRight: 'straight' | 'bendedX' | 'bendedLeft' | 'bendedRight';
-		upperLegLeft: 'straight' | 'halfOut' | 'front' | 'frontHalf';
-		upperLegRight: 'straight' | 'halfOut' | 'front' | 'frontHalf';
+		upperArmLeft: UpperArmProps;
+		upperArmRight: UpperArmProps;
+		forearmLeft: ForearmProps;
+		forearmRight: ForearmProps;
+		thighLeft: ThighProps;
+		thighRight: ThighProps;
 	}
 	const {
 		body,
@@ -24,8 +33,8 @@
 		forearmRight,
 		upperArmLeft,
 		upperArmRight,
-		upperLegLeft,
-		upperLegRight
+		thighLeft,
+		thighRight
 	}: HumanProps = $props();
 
 	let bodyClasses = $state(getBodyClasses(body));
@@ -33,8 +42,8 @@
 	let upperArmRightClasses = $state(getUpperArmRightClasses(upperArmRight));
 	let forearmLeftClasses = $state(getForearmClasses(forearmLeft));
 	let forearmRightClasses = $state(getForearmClasses(forearmRight));
-	let upperLegLeftClasses = $state(getUpperLegLeftClasses(upperLegLeft));
-	let upperLegRightClasses = $state(getUpperLegRightClasses(upperLegRight));
+	let thighLeftClasses = $state(getThighLeftClasses(thighLeft));
+	let thighRightClasses = $state(getThighRightClasses(thighRight));
 </script>
 
 <section class="human relative h-48 w-48">
@@ -46,14 +55,14 @@
 		</section>
 		<section class="leg-l absolute right-6 top-full origin-top">
 			<div
-				class="upperLegLeft absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperLegLeftClasses}"
+				class="thighLeft absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighLeftClasses}"
 			>
 				<div class="leg-ul absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
 		<section class="leg-r absolute left-2 top-full origin-top">
 			<div
-				class="upperLegRight absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperLegRightClasses}"
+				class="thighRight absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighRightClasses}"
 			>
 				<div class="leg-ur absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>

@@ -59,9 +59,9 @@ export function getForearmClasses(value: ForearmProps): string {
 	}
 }
 
-export type UpperLegProps = 'straight' | 'halfOut' | 'front' | 'frontHalf';
+export type ThighProps = 'straight' | 'halfOut' | 'front' | 'frontHalf';
 
-export function getUpperLegLeftClasses(value: UpperLegProps): string {
+export function getThighLeftClasses(value: ThighProps): string {
 	switch (value) {
 		case 'straight':
 			return 'h-11';
@@ -74,7 +74,7 @@ export function getUpperLegLeftClasses(value: UpperLegProps): string {
 	}
 }
 
-export function getUpperLegRightClasses(value: UpperLegProps): string {
+export function getThighRightClasses(value: ThighProps): string {
 	switch (value) {
 		case 'straight':
 			return 'h-11';

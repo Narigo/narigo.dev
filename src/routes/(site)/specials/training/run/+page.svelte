@@ -41,8 +41,8 @@
 				upperArmRight: 'halfUp',
 				forearmLeft: 'bendedX',
 				forearmRight: 'straight',
-				upperLegLeft: 'straight',
-				upperLegRight: 'halfOut'
+				thighLeft: 'straight',
+				thighRight: 'halfOut'
 			}
 		},
 		lateralForearmSupportRight: {
@@ -58,8 +58,8 @@
 				upperArmRight: 'side',
 				forearmLeft: 'straight',
 				forearmRight: 'bendedX',
-				upperLegLeft: 'halfOut',
-				upperLegRight: 'straight'
+				thighLeft: 'halfOut',
+				thighRight: 'straight'
 			}
 		},
 		third: {
