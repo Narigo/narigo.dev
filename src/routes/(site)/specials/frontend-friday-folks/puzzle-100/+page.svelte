@@ -70,6 +70,92 @@
     border-radius: 10px;
   }
 </style>`;
+
+const solutionDivs99 = `<div class="inner-parens"></div>
+<div class="sword-bg"></div>
+<div class="sword">
+  <div class="hilt"></div>
+  <div class="crossguard"></div>
+  <div class="blade"></div>
+  <div class="tip"></div>
+</div>
+<div class="sword top">
+  <div class="hilt"></div>
+  <div class="crossguard"></div>
+  <div class="blade"></div>
+  <div class="tip"></div>
+</div>
+
+<style>
+  &{
+    background:#14313E;
+  }
+  .sword.top {
+    transform: translate(-7px,2px) rotate(-90deg);
+  }
+  .sword {
+    position: fixed;
+    box-sizing: border-box;
+    left:100;
+    top:100;
+    rotate:-45deg;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    transform: translate(-9q,-1px);
+    & .hilt {
+      background: #FFDF00;
+      height: 20px;
+      width: 40px;
+      border-radius: 5px 0 0 5px;
+    }
+    & .crossguard {
+      background: #FFDF00;
+      height: 80px;
+      width: 21q;
+    }
+    & .blade {
+      background: #FFDF00;
+      border-block: 11q solid #14313E;
+      height: 30q;
+      width: 145q;
+    }
+    & .tip {
+      border: 15px solid #14313E;
+      border-left-color: #FFDF00;
+      border-right-width: 0;
+    }
+  }
+  .sword-bg {
+    position:fixed;
+    inset:60px 103px;
+    background:#14313E;
+  }
+  .inner-parens {
+    position: fixed;
+    inset:75px 63px;
+    background: #FFDF00;
+    border-radius: 20px;
+    &:before,&:after{
+      position:absolute;
+      top:25;
+      left:25;
+      width:224;
+      height:100;
+      background:#14313E;
+      border-radius:10px;
+      content:'';
+    }
+    &:before{
+      width:294;
+      height:40px;
+      left:-10px;
+      top:55;
+      background:#FFDF00;
+      border-radius:5px;
+    }
+  }
+</style>`
 </script>
 
 <PuzzlePageLayout title="CSSBattle">
@@ -78,6 +164,13 @@
 		<p>
 			We did this puzzle multiple times, because we only got 99.9% for it on the first try. This is
 			the first try, mostly using gradients, but having the parenthesis on the sides with divs.
+		</p>
+	</Narigo>
+	<Puzzle title="Solution" solution={solutionDivs99} />
+	<Narigo>
+		<p>
+			The second try was using divs for the swords. Since rotating them lead to some strange spaces
+			between the divs, I suspect this to be the main source of achieving even less match: 99.5%.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
