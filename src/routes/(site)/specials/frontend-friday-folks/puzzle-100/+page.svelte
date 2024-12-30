@@ -71,7 +71,7 @@
   }
 </style>`;
 
-const solutionDivs99 = `<div class="inner-parens"></div>
+	const solutionDivs99 = `<div class="inner-parens"></div>
 <div class="sword-bg"></div>
 <div class="sword">
   <div class="hilt"></div>
@@ -155,22 +155,117 @@ const solutionDivs99 = `<div class="inner-parens"></div>
       border-radius:5px;
     }
   }
-</style>`
+</style>`;
+
+	const solution = `<div class="inner-parens"></div>
+<div class="sword-bg"></div>
+<div class="sword"></div>
+<div class="sword r"></div>
+<div class="tip"></div>
+<div class="tip r"></div>
+
+<style>
+  &{
+    background:#14313E;
+  }
+  .tip.r {
+    translate:245px 63px;
+  }
+  .tip {
+    position: fixed;
+    background:#FFDF00;
+    translate:119px 63px;
+    width:21;
+    height:21;
+  }
+  .sword.r {
+    rotate:-45deg;
+    translate:187px 43px;
+    outline:15px solid #14313E;
+    &:after {
+      translate:-30px -1.5px;
+    }
+  }
+  .sword {
+    position: fixed;
+    translate:177px 42px;
+    box-sizing: border-box;
+    rotate:45deg;
+    background: #FFDF00;
+    width:20;
+    height:198;
+    border-radius: 8px;
+    &:before{
+      content:'';
+      display:block;
+      background:#FFDF00;
+      translate: -5px 3px;
+      width:30;
+      height:140;
+    }
+    &:after{
+      content:'';
+      display:block;
+      background:#FFDF00;
+      translate: -30px -0.75px;
+      width:80;
+      height:19;
+    }
+  }
+  .sword-bg {
+    position:fixed;
+    inset:60px 103px;
+    background:#14313E;
+  }
+  .inner-parens {
+    position: fixed;
+    inset:75px 63px;
+    background: #FFDF00;
+    border-radius: 20px;
+    &:before,&:after{
+      position:absolute;
+      top:25;
+      left:25;
+      width:224;
+      height:100;
+      background:#14313E;
+      border-radius:10px;
+      content:'';
+    }
+    &:before{
+      width:294;
+      height:40px;
+      left:-10px;
+      top:55;
+      background:#FFDF00;
+      border-radius:5px;
+    }
+  }
+</style>`;
 </script>
 
 <PuzzlePageLayout title="CSSBattle">
-	<Puzzle title="Solution" solution={solutionGradients99} />
+	<Puzzle title="Solution with gradients" solution={solutionGradients99} />
 	<Narigo>
 		<p>
 			We did this puzzle multiple times, because we only got 99.9% for it on the first try. This is
 			the first try, mostly using gradients, but having the parenthesis on the sides with divs.
 		</p>
 	</Narigo>
-	<Puzzle title="Solution" solution={solutionDivs99} />
+	<Puzzle title="Solution with divs" solution={solutionDivs99} />
 	<Narigo>
 		<p>
 			The second try was using divs for the swords. Since rotating them lead to some strange spaces
 			between the divs, I suspect this to be the main source of achieving even less match: 99.5%.
+		</p>
+	</Narigo>
+	<Puzzle title="Final Solution" {solution} />
+	<Narigo>
+		<p>
+			I found a solution online that worked without being completely weird and using Unicode quirks
+			or similar things. This made me challenge it a final time, getting to a 100% solution. There
+			is a .75px value for me, so it's not completely free from strange numbers, but well - it
+			finally worked.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
