@@ -1,9 +1,6 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import AnimationContext from '$lib/common/bubble/AnimationContext.svelte';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
-	import StopAllAnimations from '$lib/common/bubble/StopAllAnimations.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Panel from '$lib/common/Panel.svelte';
 	import type { MouseEventHandler } from 'svelte/elements';

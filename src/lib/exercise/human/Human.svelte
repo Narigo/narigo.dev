@@ -7,15 +7,9 @@
 		getThighLeftClasses,
 		getThighRightClasses,
 		type BodyProps,
-
 		type ThighProps,
-
 		type ForearmProps,
-
 		type UpperArmProps
-
-
-
 	} from '$lib/exercise/human/getClasses';
 
 	export interface HumanProps {
