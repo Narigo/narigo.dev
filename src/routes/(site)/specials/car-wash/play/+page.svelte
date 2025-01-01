@@ -210,7 +210,7 @@ ${bubbles.join('')}`;
 
 <PageLayout>
 	<section
-		class="aspect-video relative grid overflow-clip {currentStep}"
+		class="relative grid aspect-video overflow-clip {currentStep}"
 		style="--car-color-300: {carColor300};--car-color-500: {carColor500};--car-color-800: {carColor800}"
 	>
 		<div
@@ -221,7 +221,7 @@ ${bubbles.join('')}`;
 			<div class="absolute right-8 top-[5%] h-[90%] w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
-						class="finger rounded absolute w-1 bg-gradient-to-b {index % 2 === 0
+						class="finger absolute w-1 rounded bg-gradient-to-b {index % 2 === 0
 							? MITTER_COLORS_1
 							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
@@ -232,10 +232,10 @@ ${bubbles.join('')}`;
 			</div>
 		</div>
 		<div class="shower absolute h-full w-full" class:enabled={currentStep === 'showering'}>
-			<div class="puddle absolute w-full h-4 -bottom-2"></div>
+			<div class="puddle absolute -bottom-2 h-4 w-full"></div>
 		</div>
 		<div
-			class="track absolute grid place-items-center items-end h-full w-full pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
+			class="track absolute grid h-full w-full place-items-center items-end pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
 				'start',
 				'dirty',
 				'cleaning'
@@ -243,8 +243,10 @@ ${bubbles.join('')}`;
 				? ''
 				: '[&_svg_.dirt]:fill-none'}"
 		>
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html image}
-			<div class="absolute bubbles" class:enabled={currentStep === 'cleaning'}>
+			<div class="bubbles absolute" class:enabled={currentStep === 'cleaning'}>
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 				{@html bubblesOverlay?.outerHTML}
 			</div>
 		</div>
@@ -256,7 +258,7 @@ ${bubbles.join('')}`;
 			<div class="absolute right-4 top-0 h-full w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
-						class="finger rounded absolute w-1 bg-gradient-to-b {index % 2 === 0
+						class="finger absolute w-1 rounded bg-gradient-to-b {index % 2 === 0
 							? MITTER_COLORS_1
 							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
@@ -268,11 +270,11 @@ ${bubbles.join('')}`;
 		</div>
 	</section>
 	<button
-		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
+		class="m-auto block rounded border bg-primary px-4 py-2 text-white"
 		onclick={() => startStopAnim()}>{currentStep}</button
 	>
 	<button
-		class="block m-auto border rounded px-4 py-2 bg-primary text-white"
+		class="m-auto block rounded border bg-primary px-4 py-2 text-white"
 		onclick={() => toggleTimer()}
 		>Continue {#if useTimer}automatically{:else}manually{/if}</button
 	>
