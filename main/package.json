@@ -1,10 +1,10 @@
 {
-	"name": "narigo.dev-root",
+	"name": "narigo.dev",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "pnpm -r run dev",
-		"build": "pnpm --filter './main' build && rm -r ./build && mv main/build . && pnpm --filter './talks/*' build",
+		"dev": "vite dev",
+		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
