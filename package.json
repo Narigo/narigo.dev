@@ -5,10 +5,7 @@
 	"scripts": {
 		"dev": "pnpm -r run dev",
 		"build": "pnpm --filter './main' build && rm -r ./build && mv main/build . && pnpm --filter './talks/*' build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
+		"test": "pnpm -r run test",
 		"lint": "prettier --check --plugin prettier-plugin-svelte . && eslint .",
 		"format": "prettier --write --plugin prettier-plugin-svelte ."
 	},
