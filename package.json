@@ -6,8 +6,8 @@
 		"dev": "pnpm -r run dev",
 		"build": "pnpm --filter './main' build && rm -r ./build && mv main/build . && pnpm --filter './talks/*' build",
 		"test": "pnpm -r run test",
-		"lint": "prettier --check --plugin prettier-plugin-svelte . && eslint .",
-		"format": "prettier --write --plugin prettier-plugin-svelte ."
+		"lint": "pnpm -r run lint",
+		"format": "pnpm -r run format"
 	},
 	"dependencies": {
 		"reveal.js": "^5.1.0"
