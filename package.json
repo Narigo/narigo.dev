@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "pnpm -r run dev",
-		"build": "pnpm --filter './main' build && rm -r ./build && mv main/build . && pnpm --filter './talks/*' build",
+		"build": "pnpm --filter './main' build && rm -rf ./build && mv main/build . && pnpm --filter './talks/*' build",
 		"test": "pnpm -r run test",
 		"lint": "pnpm -r run lint",
 		"format": "pnpm -r run format"
