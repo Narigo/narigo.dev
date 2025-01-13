@@ -270,11 +270,11 @@ ${bubbles.join('')}`;
 		</div>
 	</section>
 	<button
-		class="m-auto block rounded border bg-primary px-4 py-2 text-white"
+		class="bg-primary m-auto block rounded border px-4 py-2 text-white"
 		onclick={() => startStopAnim()}>{currentStep}</button
 	>
 	<button
-		class="m-auto block rounded border bg-primary px-4 py-2 text-white"
+		class="bg-primary m-auto block rounded border px-4 py-2 text-white"
 		onclick={() => toggleTimer()}
 		>Continue {#if useTimer}automatically{:else}manually{/if}</button
 	>
