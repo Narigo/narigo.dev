@@ -1,0 +1,40 @@
+name: Deploy a new version
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies 📦
+        run: |
+          corepack enable
+          pnpm install
+
+      - name: Run linter 🕵️
+        run: |
+          pnpm run lint
+
+      - name: Run tests 🧪
+        run: |
+          pnpm run test
+
+      - name: Build 🛠
+        run: |
+          pnpm run build
