@@ -41,7 +41,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3.0.1
         with:
-          name: ghpages-preview-${{ github.ref_name }}
+          name: ghpages-preview-${{ github.head_ref || github.ref_name }}
           path: build/
 
   deploy:
