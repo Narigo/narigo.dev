@@ -12,8 +12,6 @@ jobs:
 
     permissions:
       contents: read
-      pages: write
-      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -38,3 +36,40 @@ jobs:
       - name: Build 🛠
         run: |
           pnpm run build
+
+      - name: Upload preview artifact 🛫
+        id: deployment
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          name: ghpages-preview-${{ github.ref_name }}
+          path: build/
+
+  deploy:
+    needs: build
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages ✉️
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ghpages-preview-${{ github.ref_name }}
+          preview: true
+
+      - name: Deployment Info ℹ️
+        run: |
+          echo ""
+          echo "Deployment finished! Preview should be available at the following URL:"
+          echo ""
+          echo "${{ steps.deployment.outputs.page_url }}"
+          echo ""
