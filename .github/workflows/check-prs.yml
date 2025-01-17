@@ -63,7 +63,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ghpages-preview-${{ github.ref_name }}
+          artifact_name: ghpages-preview-${{ github.head_ref || github.ref_name }}
           preview: true
 
       - name: Deployment Info ℹ️
