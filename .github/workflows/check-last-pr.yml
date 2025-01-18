@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build and deploy
+    name: Build
     runs-on: ubuntu-latest
 
     permissions:
@@ -34,8 +34,21 @@ jobs:
           pnpm run test
 
       - name: Build 🛠
+        env:
+          BASE_PATH: "/ghpages-previews/${{ github.head_ref || github.ref_name }}"
         run: |
           pnpm run build
+
+      - name: Save build into new folder 💾
+        run: |
+          mv build build-pr
+
+      - name: Build main and merge 🛠
+        run: |
+          git checkout origin/main
+          pnpm run build
+          mkdir -p "build/ghpages-previews"
+          mv build-pr "build/ghpages-previews/${{ github.head_ref || github.ref_name }}"
 
       - name: Upload preview artifact 🛫
         id: deployment
@@ -45,7 +58,7 @@ jobs:
           path: build/
 
   deploy:
-    needs: build
+    needs: [build]
 
     permissions:
       contents: read
