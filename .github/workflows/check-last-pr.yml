@@ -46,7 +46,7 @@ jobs:
       - name: Build main and merge 🛠
         run: |
           git status
-          git fetch origin main
+          git fetch origin main --depth 1
           git checkout origin/main
           pnpm run build
           mkdir -p "build/ghpages-previews"
