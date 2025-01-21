@@ -10,6 +10,7 @@
 		title?: string;
 		description?: string;
 		author?: string;
+		noIndex?: boolean;
 		publishDate?: string;
 		og_title?: string;
 		og_description?: string;
@@ -22,10 +23,12 @@
 		children?: Snippet;
 	}
 
+	console.log('should have noIndex?', import.meta.env.BASE_URL !== '/');
 	let {
 		title = 'Thoughts, Talks and Trials by Narigo',
 		description = undefined,
 		author = undefined,
+		noIndex = import.meta.env.BASE_URL !== '/',
 		publishDate = undefined,
 		og_title = undefined,
 		og_description = undefined,
@@ -46,6 +49,9 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="title" content={title} />
+	{#if noIndex}
+		<meta name="robots" content="noindex,follow" />
+	{/if}
 	{#if description}
 		<meta name="description" content={description} />
 	{:else}
