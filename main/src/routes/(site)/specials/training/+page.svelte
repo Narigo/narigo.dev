@@ -39,8 +39,8 @@
 	</Narigo>
 
 	<form class="grid" method="GET" action="{base}/specials/training/run">
-		<p class="border-l-4 border-l-yellow-300 bg-yellow-100 rounded p-4 my-4">
-			Work in progress, you won't be able to submit yet!
+		<p class="my-4 rounded border-l-4 border-l-yellow-300 bg-yellow-100 p-4">
+			WARNING: Work in progress, you won't be able to submit yet!
 		</p>
 		<h2>Select your training mode to start training</h2>
 		<label>
@@ -48,7 +48,7 @@
 			<input
 				name="timePerExercise"
 				type="number"
-				class="border-b-2 border-black text-center w-fit"
+				class="w-fit border-b-2 border-black text-center"
 				style="width:calc(1ch * 4)"
 				oninput={(e) => {
 					e.currentTarget.setAttribute(
