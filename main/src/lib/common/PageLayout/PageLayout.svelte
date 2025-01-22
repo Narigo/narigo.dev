@@ -50,7 +50,7 @@
 	<title>{title}</title>
 	<meta name="title" content={title} />
 	{#if noIndex}
-		<meta name="robots" content="noindex,follow" />
+		<meta name="robots" content="noindex,nofollow" />
 	{/if}
 	{#if description}
 		<meta name="description" content={description} />
