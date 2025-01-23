@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "pnpm -r run dev",
 		"build": "pnpm --filter './main' build && rm -rf ./build && mv main/build . && pnpm --filter './talks/*' build",
-		"build-previewpage": "pnpm --filter './main' build && rm -rf ./build && mv main/build ./build/${BASE_PATH} && pnpm --filter './talks/*' build-previewpage",
+		"build-previewpage": "pnpm --filter './main' build && rm -rf ./build && mkdir -p \"./build/${BASE_PATH}\" && mv main/build \"./build/${BASE_PATH}\" && pnpm --filter './talks/*' build-previewpage",
 		"test": "pnpm -r run test",
 		"lint": "pnpm -r run lint",
 		"format": "pnpm -r run format"
