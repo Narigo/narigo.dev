@@ -20,7 +20,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Poker Chip">
+<PuzzlePageLayout title="Poker Chip" puzzleId="154">
 	<Puzzle title="Puzzle 154 solution" {solution} />
 	<Narigo>
 		Savvy Saturday Stylers Slaying CSSBattle.dev is the Saturday version of this. On Nov 18th, 2023,

@@ -55,7 +55,7 @@
     transform: rotate(45deg)`;
 </script>
 
-<PuzzlePageLayout title="Monopoly">
+<PuzzlePageLayout title="Monopoly" puzzleId="157">
 	<Puzzle title="Puzzle 157 solution" {solution} />
 	<Narigo>
 		The last puzzle we did at JSCraftCamp 2024. Right at the end of the hour, we finalized the

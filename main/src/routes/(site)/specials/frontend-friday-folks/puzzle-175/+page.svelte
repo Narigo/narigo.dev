@@ -67,7 +67,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Evil Cat">
+<PuzzlePageLayout title="Evil Cat" puzzleId="175">
 	<Puzzle title="Puzzle 175 solution" {solution} />
 	<Narigo>
 		Amy took over today and selected a random puzzle. It took me a few tries, but I finally got to

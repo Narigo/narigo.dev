@@ -41,7 +41,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="React India">
+<PuzzlePageLayout title="React India" puzzleId="167">
 	<Puzzle title="Puzzle 167 solution" {solution} />
 	<Narigo
 		>An in-person session we did at the <a href="https://www.bayerwald-hackathon.de/" rel="external"
