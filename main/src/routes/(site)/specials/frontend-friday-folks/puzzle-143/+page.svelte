@@ -5,7 +5,7 @@
 	const solution = `<style>*>*{background:radial-gradient(circle,#D86F45 106q,#F5D6B4 0)75vw -50px`;
 </script>
 
-<PuzzlePageLayout title="Simply Circle" {solution}>
+<PuzzlePageLayout title="Simply Circle" puzzleId="143" {solution}>
 	<Narigo>
 		Due to time zone change, there was a puzzle selected out of order. Looks like an easy one, but
 		pretty hard to get to little amount of characters!

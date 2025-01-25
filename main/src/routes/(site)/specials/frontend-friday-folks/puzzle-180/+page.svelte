@@ -6,7 +6,7 @@
 	const solution = `<style>*>*{margin:0;border-top:100px solid#13AA4B;border-bottom:100px solid#EC1E25;border-left:127q solid#000`;
 </script>
 
-<PuzzlePageLayout title="Kuwait">
+<PuzzlePageLayout title="Kuwait" puzzleId="180">
 	<Puzzle title="Puzzle 180 solution" {solution} />
 	<Narigo>
 		<p>

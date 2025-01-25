@@ -187,6 +187,10 @@ importers:
       vue:
         specifier: ^3.5.8
         version: 3.5.8(typescript@5.7.3)
+    devDependencies:
+      vite:
+        specifier: ^6.0.7
+        version: 6.0.7
 
 packages:
 

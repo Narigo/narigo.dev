@@ -22,7 +22,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Checkerboard">
+<PuzzlePageLayout title="Checkerboard" puzzleId="153">
 	<Puzzle title="Puzzle 153 solution" {solution} />
 	<Narigo>
 		During the JSCraftCamp 2024, we did two sessions of CSS Battles. This time, we wanted to do the

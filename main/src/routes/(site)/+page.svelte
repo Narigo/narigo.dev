@@ -66,10 +66,13 @@
 					>VirtualCoffee.io</a
 				>, I organize the "<a href="{base}/specials/frontend-friday-folks">Frontend Friday Folks</a>
 				battling
-				<a href="https://cssbattle.dev" rel="external noopener noreferrer" target="_blank"
-					>CSSBattle.dev</a
-				>", which is a place where people with all kind of levels in CSS proficiency learn something
-				from each other. There are more people sharing their solutions in the
+				<a
+					href="https://cssbattle.dev/?via=compose-us"
+					rel="external noopener noreferrer"
+					target="_blank">CSSBattle.dev</a
+				>" (affiliate link!), which is a place where people with all kind of levels in CSS
+				proficiency learn something from each other. There are more people sharing their solutions
+				in the
 				<a
 					href="https://github.com/orgs/Virtual-Coffee/discussions/categories/css-battles"
 					rel="external noopener noreferrer">VirtualCoffee discussions on GitHub</a

@@ -62,33 +62,39 @@
 				thighRight: 'straight'
 			}
 		},
-		third: {
-			title: 'C Exercise',
+		pelvicLiftLeft: {
+			title: 'Pelvic lift (left)',
 			description: [
-				'This is the setup.',
-				'Change sides at half time.',
-				'Keeping the feet higher, makes it harder.'
+				'Lay on your back and place your hands behind your head. Keep left heel on the ground, right leg is pulled up.',
+				'Lift your pelvis upward and hold the position. Toes are going up, heels should be pulled towards your glutes to build tension.',
+				'The exercise will be repeated for the other side.'
 			]
 		},
-		fourth: {
-			title: 'D Something',
+		pelvicLiftRight: {
+			title: 'Pelvic lift (right)',
 			description: [
-				'This is the setup.',
-				'Change sides at half time.',
-				'Keeping the feet higher, makes it harder.'
+				'Lay on your back and place your hands behind your head. Keep right heel on the ground, left leg is pulled up.',
+				'Lift your pelvis upward and hold the position. Toes are going up, heels should be pulled towards your glutes to build tension.',
+				''
 			]
 		}
 	} satisfies Record<string, ExerciseWorkout>;
 
 	const workoutSessions: Record<string, Array<ExerciseName>> = {
-		short: ['beetleCrunch', 'third'],
-		regular: ['lateralForearmSupportLeft', 'lateralForearmSupportRight', 'beetleCrunch', 'third'],
+		short: ['beetleCrunch', 'pelvicLiftLeft'],
+		regular: [
+			'lateralForearmSupportLeft',
+			'lateralForearmSupportRight',
+			'beetleCrunch',
+			'pelvicLiftLeft',
+			'pelvicLiftRight'
+		],
 		long: [
 			'lateralForearmSupportLeft',
 			'lateralForearmSupportRight',
 			'beetleCrunch',
-			'third',
-			'fourth'
+			'pelvicLiftLeft',
+			'pelvicLiftRight'
 		]
 	};
 
