@@ -86,5 +86,7 @@ jobs:
           echo ""
           echo "Deployment finished! Preview should be available at the following URL:"
           echo ""
-          echo "${{ steps.deployment.outputs.page_url }}"
+          echo "Preview page: ${{ steps.deployment.outputs.page_url }}/ghpages-previews/${{ github.head_ref || github.ref_name }}"
+          echo ""
+          echo "Main page: ${{ steps.deployment.outputs.page_url }}"
           echo ""
