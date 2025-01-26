@@ -24,7 +24,7 @@
 	const gradientSolution = `<style>&{background:linear-gradient(135deg,#0000 216q,#191919 0),radial-gradient(#F6E59C 20px,#191919 0)10px 10px/60px 60px`;
 </script>
 
-<PuzzlePageLayout title="Curtain">
+<PuzzlePageLayout title="Curtain" puzzleId="109">
 	<Puzzle title="Grid Solution" solution={gridSolution} />
 	<Narigo>
 		<p>

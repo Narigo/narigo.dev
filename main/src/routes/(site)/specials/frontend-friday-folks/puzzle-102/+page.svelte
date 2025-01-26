@@ -146,7 +146,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="One Piece">
+<PuzzlePageLayout title="One Piece" puzzleId="102">
 	<Puzzle title="99.9% Solution" {solution} />
 	<Narigo>
 		<p>

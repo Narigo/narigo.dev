@@ -244,7 +244,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="CSSBattle">
+<PuzzlePageLayout title="CSSBattle" puzzleId="100">
 	<Puzzle title="Solution with gradients" solution={solutionGradients99} />
 	<Narigo>
 		<p>
