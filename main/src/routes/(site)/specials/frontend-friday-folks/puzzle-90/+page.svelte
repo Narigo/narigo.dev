@@ -18,7 +18,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Eclipse">
+<PuzzlePageLayout title="Eclipse" puzzleId="90">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>

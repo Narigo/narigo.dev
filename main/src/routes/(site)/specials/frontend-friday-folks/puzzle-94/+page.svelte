@@ -6,7 +6,7 @@
 	const solution = `<style>&{background:radial-gradient(1q,#F3AC3C 21q,#0000 0+30q,#F3AC3C 0 42q,#0000 0 53q,#998235 0 63q,#0000 0 76q,#F3AC3C 0 85q,#0000 0 99q,#F3AC3C 0 106q,#0000 0)#0E2E2C`;
 </script>
 
-<PuzzlePageLayout title="Ripples">
+<PuzzlePageLayout title="Ripples" puzzleId="94">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>

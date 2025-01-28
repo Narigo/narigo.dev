@@ -69,7 +69,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Great Wall">
+<PuzzlePageLayout title="Great Wall" puzzleId="93">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>

@@ -11,7 +11,7 @@
       linear-gradient(#6592CF 125px,#243D83 0 175px,#6592CF 0);`;
 </script>
 
-<PuzzlePageLayout title="Squeeze">
+<PuzzlePageLayout title="Squeeze" puzzleId="92">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>

@@ -17,7 +17,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Pokeball">
+<PuzzlePageLayout title="Pokeball" puzzleId="95">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>

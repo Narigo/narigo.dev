@@ -26,7 +26,7 @@
 }`;
 </script>
 
-<PuzzlePageLayout title="Snowman">
+<PuzzlePageLayout title="Snowman" puzzleId="97">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		<p>
