@@ -20,14 +20,11 @@ if (import.meta.main) {
 
 		const matches = CHECK_FOLDER_NAME_REGEX.exec(file.name);
 		if (matches !== null) {
-			const currentPageSvelte = await Deno.readTextFile(
-				`${fffFolderName}/${file.name}/+page.svelte`
-			);
+			const pageSvelteFilename = `${fffFolderName}/${file.name}/+page.svelte`;
+			const currentPageSvelte = await Deno.readTextFile(pageSvelteFilename);
 			const newPageSvelte = await updatePageSvelte(currentPageSvelte, matches[1]);
 			if (currentPageSvelte !== newPageSvelte) {
-				console.log('would replace puzzle id', matches[1]);
-			} else {
-				console.log('would NOT replace puzzle id', matches[1]);
+				await Deno.writeTextFile(pageSvelteFilename, newPageSvelte);
 			}
 		}
 	}
