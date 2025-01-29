@@ -3,7 +3,6 @@ const HAS_PUZZLE_ID_REGEX = /<PuzzlePageLayout.*puzzleId=.*>/;
 
 export function updatePageSvelte(fileInput: string, puzzleId: string): string {
 	if (HAS_PUZZLE_ID_REGEX.test(fileInput)) {
-    console.log('has puzzle id already');
 		return fileInput;
 	}
 	return fileInput.replace(SINGLE_LINE_SEARCH_REGEX, `$1 puzzleId="${puzzleId}"$2`);
@@ -11,4 +10,25 @@ export function updatePageSvelte(fileInput: string, puzzleId: string): string {
 
 // Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
 if (import.meta.main) {
+	const CHECK_FOLDER_NAME_REGEX = /^puzzle-(\d+)$/;
+	const fffFolderName = `${import.meta.dirname}/../../main/src/routes/(site)/specials/frontend-friday-folks`;
+	const fffFolderFiles = Deno.readDir(fffFolderName);
+	for await (const file of fffFolderFiles) {
+		if (!file.isDirectory) {
+			continue;
+		}
+
+		const matches = CHECK_FOLDER_NAME_REGEX.exec(file.name);
+		if (matches !== null) {
+			const currentPageSvelte = await Deno.readTextFile(
+				`${fffFolderName}/${file.name}/+page.svelte`
+			);
+			const newPageSvelte = await updatePageSvelte(currentPageSvelte, matches[1]);
+			if (currentPageSvelte !== newPageSvelte) {
+				console.log('would replace puzzle id', matches[1]);
+			} else {
+				console.log('would NOT replace puzzle id', matches[1]);
+			}
+		}
+	}
 }
