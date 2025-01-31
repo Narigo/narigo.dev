@@ -6,7 +6,7 @@
 	const solution = ``;
 </script>
 
-<PuzzlePageLayout title="Wear a Mask">
+<PuzzlePageLayout title="Wear a Mask" puzzleId="51">
 	<Puzzle title="Puzzle 51 solution" {solution} />
 	<Narigo>
 		<p>

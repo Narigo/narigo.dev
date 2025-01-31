@@ -42,7 +42,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Magical Tree">
+<PuzzlePageLayout title="Magical Tree" puzzleId="45">
 	<Puzzle title="Puzzle 45 solution" {solution} />
 	<Narigo
 		>Finally I had a puzzle where I could use <Code>-webkit-box-reflect</Code>. I now know that it

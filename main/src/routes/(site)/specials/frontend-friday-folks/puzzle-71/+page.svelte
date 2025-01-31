@@ -85,7 +85,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Elephant">
+<PuzzlePageLayout title="Elephant" puzzleId="71">
 	<Puzzle title="Puzzle 71 solution" {solution} />
 	<Narigo>
 		I couldn't make it this week. Thanks to David, it still happened and a <a

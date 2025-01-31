@@ -39,7 +39,7 @@
   }`;
 </script>
 
-<PuzzlePageLayout title="Birdie">
+<PuzzlePageLayout title="Birdie" puzzleId="33">
 	<Puzzle title="Puzzle 33 solution" solution={solutionGradients} />
 	<Narigo
 		>This is the first puzzle where I used multiple backgrounds with gradients. It's not optimized

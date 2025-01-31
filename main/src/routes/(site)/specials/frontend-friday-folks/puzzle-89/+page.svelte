@@ -17,7 +17,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Summit">
+<PuzzlePageLayout title="Summit" puzzleId="89">
 	<Puzzle title="Solution" {solution} />
 	<Narigo>
 		This time, we had to be quick. There is not much to say about it, but I didn't get to 100% until

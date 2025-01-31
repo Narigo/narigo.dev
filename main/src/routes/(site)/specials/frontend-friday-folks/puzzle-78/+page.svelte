@@ -56,7 +56,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Ukulele">
+<PuzzlePageLayout title="Ukulele" puzzleId="78">
 	<Puzzle title="Puzzle 78 solution" {solution} />
 	<Narigo>
 		There is a small overlap of the shaft to the body part. I used negative margins here to make it

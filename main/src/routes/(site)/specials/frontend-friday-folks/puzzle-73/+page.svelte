@@ -48,7 +48,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Happy Tiger">
+<PuzzlePageLayout title="Happy Tiger" puzzleId="73">
 	<Puzzle title="Puzzle 73 solution" {solution} />
 	<Narigo>
 		Lots of gradients! 100% again! Finally! Yes! This time, using background positioning and

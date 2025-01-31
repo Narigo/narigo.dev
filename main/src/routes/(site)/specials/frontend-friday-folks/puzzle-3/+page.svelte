@@ -58,7 +58,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Push Button">
+<PuzzlePageLayout title="Push Button" puzzleId="3">
 	<Puzzle title="Puzzle 3 solution" solution={solutionFirst} />
 	<Narigo
 		>My first solution when we started playing these CSS battles. Instead of using two inner divs,

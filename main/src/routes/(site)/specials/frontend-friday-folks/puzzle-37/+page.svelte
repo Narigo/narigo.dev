@@ -32,7 +32,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Tunnel">
+<PuzzlePageLayout title="Tunnel" puzzleId="37">
 	<Puzzle title="Puzzle 37 solution" {solution} />
 	<Narigo>
 		Ok, I initially thought that <Code>::before</Code> and <Code>::after</Code> could be used for nesting.

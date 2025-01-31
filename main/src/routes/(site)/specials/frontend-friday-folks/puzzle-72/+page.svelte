@@ -40,7 +40,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Sheep">
+<PuzzlePageLayout title="Sheep" puzzleId="72">
 	<Puzzle title="Puzzle 72 solution" {solution} />
 	<Narigo>
 		This one is again something I only got 99.9% for. David has seen this as two divs with one

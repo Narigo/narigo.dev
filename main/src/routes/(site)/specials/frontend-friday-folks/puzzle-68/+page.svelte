@@ -30,7 +30,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Bell">
+<PuzzlePageLayout title="Bell" puzzleId="68">
 	<Puzzle title="Puzzle 68 solution" {solution} />
 	<Narigo>
 		That was fast and fun to work on. I learned that I can use <code>body::before</code> to get rid

@@ -75,7 +75,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="ImprovMX">
+<PuzzlePageLayout title="ImprovMX" puzzleId="61">
 	<Puzzle title="Puzzle 61 solution" {solution} />
 	<Narigo>
 		I missed it today due to work, but I finally came around with a solution to this. It was quite

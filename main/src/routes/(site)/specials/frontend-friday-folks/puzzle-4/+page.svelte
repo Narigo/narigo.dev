@@ -94,7 +94,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Ups n Downs">
+<PuzzlePageLayout title="Ups n Downs" puzzleId="4">
 	<Puzzle title="Puzzle 4 solution" {solution} />
 	<Narigo
 		>In my first solution I used regular positioning and thought the left-bottom and middle one were

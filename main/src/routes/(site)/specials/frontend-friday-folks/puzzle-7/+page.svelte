@@ -24,7 +24,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Leafy Trail">
+<PuzzlePageLayout title="Leafy Trail" puzzleId="7">
 	<Puzzle title="Puzzle 7 solution" {solution} />
 	<Narigo>
 		I took a very straight-forward approach to this, having three divs and let them share most code. <code

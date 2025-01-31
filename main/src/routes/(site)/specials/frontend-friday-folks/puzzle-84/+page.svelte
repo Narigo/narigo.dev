@@ -18,7 +18,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Junction" {solution}>
+<PuzzlePageLayout title="Junction" {solution} puzzleId="84">
 	<Narigo
 		>Ah, lovely gradients! One thing that I found lately is using <Code>&amp;</Code> as a way to style
 		the body.</Narigo

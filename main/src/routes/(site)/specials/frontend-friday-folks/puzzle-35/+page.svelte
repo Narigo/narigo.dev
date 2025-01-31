@@ -34,7 +34,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Ice Cream">
+<PuzzlePageLayout title="Ice Cream" puzzleId="35">
 	<Puzzle title="Puzzle 35 solution" {solution} />
 	<Narigo
 		><p>

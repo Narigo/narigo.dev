@@ -21,7 +21,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Pythagoras" {solution}>
+<PuzzlePageLayout title="Pythagoras" {solution} puzzleId="85">
 	<Narigo>
 		<p>
 			This is the first time we did this in the JSCraftCamp Discord and we had Michi and Meg

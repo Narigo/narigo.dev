@@ -45,7 +45,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Danger Noodle">
+<PuzzlePageLayout title="Danger Noodle" puzzleId="74">
 	<Puzzle title="Puzzle 74 solution" {solution} />
 	<Narigo>
 		This was quite hard to do. I've used gradients only and one div for the head. Since most parts

@@ -40,7 +40,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Evil Triangles">
+<PuzzlePageLayout title="Evil Triangles" puzzleId="60">
 	<Puzzle title="Puzzle 60 solution" {solution} />
 	<Narigo>
 		Satoshi had the great idea to add a background and draw black zig-zag lines on top. I've done

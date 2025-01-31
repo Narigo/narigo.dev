@@ -60,7 +60,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Tambourine" {solution}>
+<PuzzlePageLayout title="Tambourine" {solution} puzzleId="79">
 	<Narigo>
 		Sometimes, repeating divs and moving them around seems to be the most simple solution. There may
 		be a background repeat solution for the "jingles" (or "zils" as we learned from ChatGPT).

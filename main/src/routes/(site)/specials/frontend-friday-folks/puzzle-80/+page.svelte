@@ -69,7 +69,7 @@
   </style>`;
 </script>
 
-<PuzzlePageLayout title="Piano" {solution}>
+<PuzzlePageLayout title="Piano" {solution} puzzleId="80">
 	<Narigo>
 		This was special! We've tested Eddie's collaborative <a
 			href="https://cssbattle.dev"

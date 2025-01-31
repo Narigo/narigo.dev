@@ -23,7 +23,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Command Key">
+<PuzzlePageLayout title="Command Key" puzzleId="63">
 	<Puzzle title="Puzzle 63 solution" {solution} />
 	<Narigo>
 		<p>

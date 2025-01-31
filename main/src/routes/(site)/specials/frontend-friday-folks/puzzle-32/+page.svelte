@@ -7,7 +7,7 @@
 	const solution2 = `<r><r><style>*+*,r{display:grid;place-items:center}r{rotate:45deg;width:50;height:200;background:#A3A368;mix-blend-mode:screen}r>r{rotate:90deg;background:#F3AC3C`;
 </script>
 
-<PuzzlePageLayout title="Band-aid">
+<PuzzlePageLayout title="Band-aid" puzzleId="32">
 	<Puzzle title="Puzzle 32 solution" {solution} />
 	<Narigo>
 		I saw the Savvy Saturday Stylers Slaying CSSBattle.dev doing puzzle 32 already, so I thought I

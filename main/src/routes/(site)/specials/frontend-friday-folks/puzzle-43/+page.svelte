@@ -32,7 +32,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Wrench">
+<PuzzlePageLayout title="Wrench" puzzleId="43">
 	<Puzzle title="Puzzle 43 solution" {solution} />
 	<Narigo
 		>That was tricky! The numbers don't really line up well and it feels like there is something off

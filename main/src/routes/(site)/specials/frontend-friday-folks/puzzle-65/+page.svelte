@@ -34,7 +34,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Max Volume">
+<PuzzlePageLayout title="Max Volume" puzzleId="65">
 	<Puzzle title="Puzzle 65 solution" {solution} />
 	<Narigo>
 		The idea used here yielded 100%, but I'm pretty sure if you want to really get the same picture,

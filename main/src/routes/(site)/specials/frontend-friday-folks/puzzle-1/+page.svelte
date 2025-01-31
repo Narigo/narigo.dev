@@ -8,7 +8,7 @@
 	const smallestSolution = `<style>*>*{height:384;background:conic-gradient(#5d3a3a 75%,#b5e0ba 0`;
 </script>
 
-<PuzzlePageLayout title="Simply Square">
+<PuzzlePageLayout title="Simply Square" puzzleId="1">
 	<Puzzle title="Almost Megs solution" {solution} />
 	<Narigo
 		>We haven't done this puzzle in the Frontend Friday folks, but I kind of like how it could be

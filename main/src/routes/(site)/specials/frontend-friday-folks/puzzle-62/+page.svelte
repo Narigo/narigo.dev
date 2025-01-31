@@ -60,7 +60,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Sunset">
+<PuzzlePageLayout title="Sunset" puzzleId="62">
 	<Puzzle title="Puzzle 62 solution" {solution} />
 	<Narigo>
 		Ari, Satoshi and I were doing this together today. This was a nice puzzle to do with radial

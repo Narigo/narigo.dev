@@ -62,7 +62,7 @@
 	const saturdaySolution2 = `<c><b><a><style>*{background:#007065}a,b,c{position:fixed;left:75;width:250;height:100;background:conic-gradient(at 50%0,#0000 128.66deg,var(--c)0 231.34deg,#0000 0)}a{--c:#FFEECF;top:50}b{--c:#F5C181;top:100}c{--c:#00A79D;top:150`;
 </script>
 
-<PuzzlePageLayout title="Christmas Tree">
+<PuzzlePageLayout title="Christmas Tree" puzzleId="34">
 	<Puzzle title="Puzzle 34 solution" {solution} />
 	<Narigo
 		>Using pseudo elements here to check the stacking seemed to be a good way to solve this.</Narigo

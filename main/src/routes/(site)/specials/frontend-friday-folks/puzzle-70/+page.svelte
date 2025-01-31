@@ -72,7 +72,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Froggy">
+<PuzzlePageLayout title="Froggy" puzzleId="70">
 	<Puzzle title="Puzzle 70 solution" {solution} />
 	<Narigo>
 		I'm not sure whether webkit-box-reflect helps too much here. What I don't like is having the

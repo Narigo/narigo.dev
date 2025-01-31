@@ -114,7 +114,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Tight Corner">
+<PuzzlePageLayout title="Tight Corner" puzzleId="88">
 	<Puzzle title="First solution" solution={solution1} />
 	<Narigo>
 		The first idea we had - I wanted to finish it, even though B Suraj came in and had the fantastic

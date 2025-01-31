@@ -30,7 +30,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Pastel Logo">
+<PuzzlePageLayout title="Pastel Logo" puzzleId="53">
 	<Puzzle title="Puzzle 53 solution" {solution} />
 	<Narigo>
 		This is the first time I used <Code>isolation: isolate</Code>! From my understanding, it creates

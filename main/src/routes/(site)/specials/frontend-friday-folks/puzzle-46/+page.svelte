@@ -35,7 +35,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Mountains">
+<PuzzlePageLayout title="Mountains" puzzleId="46">
 	<Puzzle title="Puzzle 46 solution" {solution} />
 	<Narigo
 		>Pretty much the same idea like Sadie: Hide overflows, nest the divs. One of the divs is moved

@@ -29,7 +29,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Beeee">
+<PuzzlePageLayout title="Beeee" puzzleId="76">
 	<Puzzle title="Puzzle 76 solution" {solution} />
 	<Narigo>Gradients again! They are so beautiful...!</Narigo>
 </PuzzlePageLayout>

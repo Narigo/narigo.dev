@@ -58,7 +58,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="PushOwl">
+<PuzzlePageLayout title="PushOwl" puzzleId="69">
 	<Puzzle title="Puzzle 69 solution" {solution} />
 	<Narigo>
 		I missed doing this puzzle with VirtualCoffee, so I had to do this on my own. After lots of

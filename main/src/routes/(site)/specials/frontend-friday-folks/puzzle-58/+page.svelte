@@ -68,7 +68,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Rose">
+<PuzzlePageLayout title="Rose" puzzleId="58">
 	<Puzzle title="Puzzle 58 solution" {solution} />
 	<Narigo>
 		Thanks to Dan Ott, I learned something new about <Code>border-radius</Code> this time! The border

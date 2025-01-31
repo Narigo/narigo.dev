@@ -69,7 +69,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Acid Rain">
+<PuzzlePageLayout title="Acid Rain" puzzleId="5">
 	<Puzzle title="Puzzle 5 solution" solution={firstSolution} />
 	<Narigo>
 		It looks like I've done this puzzle multiple times. This is the first solution available to me

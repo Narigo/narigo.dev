@@ -69,7 +69,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Hippo">
+<PuzzlePageLayout title="Hippo" puzzleId="75">
 	<Puzzle title="Puzzle 75 solution" {solution} />
 	<Narigo>
 		I've tried using <Code>-webkit-box-reflect</Code>, but it doesn't seem to work out with absolute

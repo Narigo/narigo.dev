@@ -7,7 +7,7 @@
 	const nested = `<style>*{background:#E3516E;*{background:conic-gradient(#FADE8B 25%,#0000 0 50%,#F7F3D7 0 75%,#51B5A9 0);clip-path:circle(25vw`;
 </script>
 
-<PuzzlePageLayout title="Missing Slice">
+<PuzzlePageLayout title="Missing Slice" puzzleId="6">
 	<Puzzle title="Gradient solution" solution={gradient} />
 	<Narigo>First solution is regular gradients. Didn't see a good way to make this smaller.</Narigo>
 	<Puzzle title="Nested solution" solution={nested} />

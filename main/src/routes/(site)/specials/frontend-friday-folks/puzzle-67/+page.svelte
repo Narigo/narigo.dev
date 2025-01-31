@@ -26,7 +26,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Video Reel">
+<PuzzlePageLayout title="Video Reel" puzzleId="67">
 	<Puzzle title="Puzzle 67 solution" {solution} />
 	<Narigo>
 		It's a grid! I first tried it with nested grids: First for the columns, the inner ones for the

@@ -33,7 +33,7 @@ body {
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Baby">
+<PuzzlePageLayout title="Baby" puzzleId="42">
 	<Puzzle title="Puzzle 42 solution" {solution} />
 	<Narigo>
 		I missed Frontend Fridays this time, since it was a holiday here in Germany and I kept my phone

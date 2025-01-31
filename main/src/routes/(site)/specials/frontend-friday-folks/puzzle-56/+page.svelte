@@ -47,7 +47,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Skull">
+<PuzzlePageLayout title="Skull" puzzleId="56">
 	<Puzzle title="Puzzle 56 solution" {solution} />
 	<Narigo
 		>That was "fun" using gradients for the teeth and nose. The linear-gradient creates the long

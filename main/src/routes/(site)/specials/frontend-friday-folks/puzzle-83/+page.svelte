@@ -40,7 +40,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Supernova" {solution}>
+<PuzzlePageLayout title="Supernova" {solution} puzzleId="83">
 	<Narigo>
 		This time, I learnt from Derek that you can use nested CSS already! So cool to see this in
 		action!

@@ -117,7 +117,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Interleaved">
+<PuzzlePageLayout title="Interleaved" puzzleId="36">
 	<Puzzle title="Puzzle 36 solution" solution={solutionFlex} />
 	<Narigo>
 		This is a straight forward solution using Flexbox. Even though you may see multiple rows, it's

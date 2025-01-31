@@ -72,7 +72,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Use Hand Sanitizer">
+<PuzzlePageLayout title="Use Hand Sanitizer" puzzleId="50">
 	<Puzzle title="Puzzle 50 solution" {solution} />
 	<Narigo>
 		Today we didn't really manage to create very short solutions for this. There is probably a

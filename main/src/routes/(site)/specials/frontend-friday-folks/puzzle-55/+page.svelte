@@ -79,7 +79,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Windmill">
+<PuzzlePageLayout title="Windmill" puzzleId="55">
 	<Puzzle title="Puzzle 55 solution" {solution} />
 	<Narigo>
 		We figured out that using counters is not going to work here. Also using <Code>attr()</Code> doesn't

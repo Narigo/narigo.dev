@@ -32,7 +32,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Fox Head">
+<PuzzlePageLayout title="Fox Head" puzzleId="41">
 	<Puzzle title="Puzzle 41 solution" {solution} />
 	<Narigo
 		>The solution with gradients does not feel so great and it seems to be much easier using <code

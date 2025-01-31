@@ -27,7 +27,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Building Blocks" {solution}>
+<PuzzlePageLayout title="Building Blocks" {solution} puzzleId="87">
 	<Narigo>
 		I didn't have too much time during the event, but I later came up with a solution for this
 		puzzle. Since this was "almost" mirrored, I figured to use a div and use a rotation at a

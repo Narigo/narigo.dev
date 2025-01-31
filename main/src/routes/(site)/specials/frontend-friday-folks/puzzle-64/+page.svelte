@@ -37,7 +37,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Door Knob">
+<PuzzlePageLayout title="Door Knob" puzzleId="64">
 	<Puzzle title="Puzzle 64 solution" {solution} />
 	<Narigo>
 		First time that David joined and he actually managed to get it done on time! My solution here

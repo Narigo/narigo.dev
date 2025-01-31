@@ -42,7 +42,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Earth">
+<PuzzlePageLayout title="Earth" puzzleId="59">
 	<Puzzle title="Puzzle 59 solution" {solution} />
 	<Narigo>
 		None of us got it to 100% (yet). The solution above is only 99.9% as well. Getting the inner

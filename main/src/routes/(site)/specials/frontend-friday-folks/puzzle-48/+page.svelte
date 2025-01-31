@@ -27,7 +27,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Wash your hands">
+<PuzzlePageLayout title="Wash your hands" puzzleId="48">
 	<Puzzle title="Puzzle 48 solution" {solution} />
 	<Narigo
 		>Dan hosted it today. I don't think there was a solution that can get rid of the inner element

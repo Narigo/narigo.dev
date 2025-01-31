@@ -32,7 +32,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Stairway" {solution}>
+<PuzzlePageLayout title="Stairway" {solution} puzzleId="86">
 	<Narigo>
 		We had to stop solving this due to time constraints and before we actually got somewhere. I've
 		tried looking into counters and using that as a variable. Turns out, this is not possible to use

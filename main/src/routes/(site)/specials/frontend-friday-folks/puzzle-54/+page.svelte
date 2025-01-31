@@ -73,7 +73,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Black Lives Matter">
+<PuzzlePageLayout title="Black Lives Matter" puzzleId="54">
 	<Puzzle title="Puzzle 54 solution" {solution} />
 	<Narigo>
 		It was interesting to use grid here. The solution needed multiple wrappers, to get it done, but

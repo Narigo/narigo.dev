@@ -52,7 +52,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Odoo">
+<PuzzlePageLayout title="Odoo" puzzleId="81">
 	<Puzzle title="Odoo solution 1" solution={solution.trim()} />
 	<Narigo>
 		I have missed this one and I had to solve this on my own. I've tried doing it the way we do it

@@ -89,7 +89,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Batmicky">
+<PuzzlePageLayout title="Batmicky" puzzleId="66">
 	<Puzzle title="Puzzle 66 solution" {solution} />
 	<Narigo>Again, having lots of fun with gradients!</Narigo>
 	<Puzzle title="Puzzle 66 solution" solution={solutionBackgroundPosition} />

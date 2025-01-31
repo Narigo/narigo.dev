@@ -38,7 +38,7 @@
 `;
 </script>
 
-<PuzzlePageLayout title="Piano" {solution}>
+<PuzzlePageLayout title="Piano" {solution} puzzleId="82">
 	<Narigo>
 		I haven't been around for a bit and this week I was late as well. Meg decided we'll be doing
 		this one, so I got to share this time. It's the first time, I could use <Code>outline</Code> and
