@@ -29,6 +29,7 @@ jobs:
 
       - name: Install dependencies 📦
         run: |
+          npm i -g --force corepack
           corepack enable
           pnpm install
 
