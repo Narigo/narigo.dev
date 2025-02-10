@@ -8,10 +8,15 @@
 		left.addEventListener('input', () => {
 			right.value = encodeURIComponent(left.value);
 		});
+		right.addEventListener('input', () => {
+			left.value = decodeURIComponent(right.value);
+		});
 	});
 </script>
 
-<section class="container grid grid-cols-1 md:grid-cols-2">
-	<textarea bind:this={left}></textarea>
-	<textarea bind:this={right}></textarea>
+<section class="@container">
+	<div class="grid w-full auto-cols-fr grid-cols-1 @md:grid-cols-2">
+		<textarea bind:this={left} class="w-full"></textarea>
+		<textarea bind:this={right} class="w-full"></textarea>
+	</div>
 </section>
