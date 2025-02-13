@@ -28,6 +28,9 @@
 		if (decodedSide === 'left') {
 			left.value = decodeURIComponent(left.value);
 			right.value = encodeURIComponent(right.value);
+		} else {
+			left.value = encodeURIComponent(left.value);
+			right.value = decodeURIComponent(right.value);
 		}
 	};
 </script>
