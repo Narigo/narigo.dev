@@ -35,13 +35,13 @@
 	};
 </script>
 
-<section class="@container w-full h-full">
-	<div class="grid w-full auto-cols-fr grid-cols-1 @md:grid-cols-3">
-		<h3>
+<section class="@container h-full w-full">
+	<div class="grid h-full w-full grid-cols-[1fr_min-content_1fr] grid-rows-[min-content_1fr]">
+		<h3 class="h-min">
 			{#if decodedSide === 'left'}Decoded{:else}Encoded{/if}
 		</h3>
-		<button class="row-span-2 bg-gray-200" onclick={swapInputs}>Switch</button>
-		<h3>
+		<button class="row-span-2 bg-gray-200 p-4" onclick={swapInputs}>Switch</button>
+		<h3 class="h-min">
 			{#if decodedSide === 'right'}Decoded{:else}Encoded{/if}
 		</h3>
 		<textarea bind:this={left} class="w-full"></textarea>
