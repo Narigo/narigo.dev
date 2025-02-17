@@ -1,7 +1,4 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"hello_world": "Hello, {name} from en!",
-	"current_counter": "It was counted until {count}.",
-	"encoded": "Encoded",
-	"decoded": "Decoded"
+	"current_counter": "It was counted until {count}."
 }
