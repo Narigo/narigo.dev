@@ -1,4 +1,7 @@
 {
-	"hello_world": "Hallo, {name} aus de!",
-	"current_counter": "Es wurde bis {count} gezählt."
+	"encoded": "Enkodiert",
+	"decoded": "Dekodiert",
+	"toggle": "Wechseln",
+	"switchToGerman": "Zu Deutsch wechseln",
+	"switchToEnglish": "Zu Englisch wechseln"
 }

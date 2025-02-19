@@ -41,7 +41,7 @@
 		<h3 class="h-min">
 			{#if decodedSide === 'left'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>
-		<button class="row-span-2 bg-gray-200 p-4" onclick={swapInputs}>Switch</button>
+		<button class="row-span-2 bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>
 		<h3 class="h-min">
 			{#if decodedSide === 'right'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>

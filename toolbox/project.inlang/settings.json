@@ -6,15 +6,17 @@
 		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@1/dist/index.js",
 		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-without-source@1/dist/index.js",
 		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-valid-js-identifier@1/dist/index.js",
-		"https://cdn.jsdelivr.net/npm/@inlang/plugin-message-format@3.2.0/dist/index.js"
+		"https://cdn.jsdelivr.net/npm/@inlang/plugin-message-format@3/dist/index.js",
+		"https://cdn.jsdelivr.net/npm/@inlang/plugin-m-function-matcher@latest/dist/index.js"
 	],
 	"plugin.inlang.messageFormat": {
-		"pathPattern": [
-			"./messages/test/{locale}.json",
-			"./messages/{locale}.json"
-		]
+		"pathPattern": ["./messages/{locale}.json", "./messages/test/{locale}.json"]
 	},
 	"sourceLanguageTag": "en",
+	"languageTags": [
+		"en",
+		"de"
+	],
 	"baseLocale": "en",
 	"locales": [
 		"en",

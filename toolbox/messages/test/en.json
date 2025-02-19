@@ -1,5 +1,7 @@
 {
 	"encoded": "Encoded",
 	"decoded": "Decoded",
-	"toggle": "Switch"
+	"toggle": "Switchass",
+	"switchToGerman": "Switch to German",
+	"switchToEnglish": "Switch to English"
 }
