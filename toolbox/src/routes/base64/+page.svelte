@@ -8,7 +8,6 @@
 	onSetLanguageTag((newLanguageTag) => (currentLanguage = newLanguageTag));
 
 	const switchLanguage = (language: AvailableLanguageTag) => () => {
-		console.log('clicked for', language);
 		setLanguageTag(language);
 	};
 </script>

@@ -10,15 +10,10 @@
 		"https://cdn.jsdelivr.net/npm/@inlang/plugin-m-function-matcher@latest/dist/index.js"
 	],
 	"plugin.inlang.messageFormat": {
-		"pathPattern": ["./messages/{locale}.json", "./messages/test/{locale}.json"]
+		"pathPattern": "./messages/{languageTag}.json"
 	},
 	"sourceLanguageTag": "en",
 	"languageTags": [
-		"en",
-		"de"
-	],
-	"baseLocale": "en",
-	"locales": [
 		"en",
 		"de"
 	],
