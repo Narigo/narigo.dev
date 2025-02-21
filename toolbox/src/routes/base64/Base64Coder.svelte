@@ -45,7 +45,7 @@
 		<h3 class="h-min">
 			{#if decodedSide === 'right'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>
-		<textarea bind:this={left} class="w-full"></textarea>
-		<textarea bind:this={right} class="w-full"></textarea>
+		<textarea bind:this={left} class="w-full" placeholder={m.placeholderDecoded()}></textarea>
+		<textarea bind:this={right} class="w-full" placeholder={m.placeholderEncoded()}></textarea>
 	</div>
 </section>

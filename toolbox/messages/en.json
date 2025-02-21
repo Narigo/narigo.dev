@@ -4,5 +4,7 @@
 	"decoded": "Decoded",
 	"toggle": "Switch",
 	"switchToGerman": "Switch to German",
-	"switchToEnglish": "Switch to English"
+	"switchToEnglish": "Switch to English",
+	"placeholderEncoded": "Here will be the encoded text %2F Put the encoded text here.",
+	"placeholderDecoded": "Here will be the decoded text / Put the decoded text here."
 }
