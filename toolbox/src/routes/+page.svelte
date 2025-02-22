@@ -1,3 +1,24 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+	import * as m from '$lib/paraglide/messages';
+</script>
+
+<h1>Online-Toolbox</h1>
+<p>{m.placeholderFilter()}</p>
+
+<a href="{base}/base64">
+	<section class="grid grid-cols-[repeat(auto-fill,minmax(450px,1fr))]">
+		<div class="relative min-h-52 overflow-clip bg-purple-600 p-4 text-white">
+			<h2 class="text-4xl">Base64 Encoding</h2>
+			<p>{m.toolsBase64description()}</p>
+			<span
+				class="absolute -right-1 -bottom-1 text-8xl font-bold text-black opacity-15"
+				aria-label="Category: Strings">{m.toolsCategoryStrings()}</span
+			>
+		</div>
+	</section>
+</a>
+
 <h1>Toolbox</h1>
 <p>
 	I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not
