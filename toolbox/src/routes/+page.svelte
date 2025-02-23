@@ -1,38 +1,60 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
+	import PageLayout from '$lib/common/PageLayout.svelte';
 	import * as m from '$lib/paraglide/messages';
+	import ToolCard from '$lib/tools/ToolCard.svelte';
 </script>
 
-<h1>Online-Toolbox</h1>
-<p>{m.placeholderFilter()}</p>
+<PageLayout>
+	<FullWidthSection class="gap-y-4">
+		<h1 class="text-6xl">Online-Toolbox</h1>
+		<input
+			class="rounded-lg border-0 bg-gray-200"
+			type="text"
+			disabled
+			placeholder={m.placeholderFilter()}
+		/>
 
-<a href="{base}/base64">
-	<section class="grid grid-cols-[repeat(auto-fill,minmax(450px,1fr))]">
-		<div class="relative min-h-52 overflow-clip bg-purple-600 p-4 text-white">
-			<h2 class="text-4xl">Base64 Encoding</h2>
-			<p>{m.toolsBase64description()}</p>
-			<span
-				class="absolute -right-1 -bottom-1 text-8xl font-bold text-black opacity-15"
-				aria-label="Category: Strings">{m.toolsCategoryStrings()}</span
-			>
-		</div>
-	</section>
-</a>
+		<section class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+			<a href="{base}/base64">
+				<ToolCard
+					category="strings"
+					title={m.toolsBase64Title()}
+					description={m.toolsBase64Description()}
+				/>
+			</a>
 
-<h1>Toolbox</h1>
-<p>
-	I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not
-	really that great. So I thought I'm going to build a couple of tools myself whenever I have time
-	and see what I can do. Maybe even have some webassembly tools like image converter or similar
-	things. Tools that could be used offline as well. Let's see where this goes.
-</p>
-<p>For now, I want to build:</p>
-<ul>
-	<li>Base64 encoder / decoder</li>
-	<li>URL encoder / decoder</li>
-	<li>JWT extractor</li>
-</ul>
-<p>
-	Oh, and I'm going to try out this localisation that was added by <code>sv create</code>:
-	ParaglideJS.
-</p>
+			<ToolCard
+				category="strings"
+				title={m.toolsUrlEncodingTitle()}
+				description={m.toolsUrlEncodingDescription()}
+			/>
+
+			<ToolCard
+				category="tools"
+				title={m.toolsDocumentScannerTitle()}
+				description={m.toolsDocumentScannerDescription()}
+			/>
+		</section>
+	</FullWidthSection>
+
+	<FullWidthSection>
+		<p>
+			I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not
+			really that great. So I thought I'm going to build a couple of tools myself whenever I have
+			time and see what I can do. Maybe even have some webassembly tools like image converter or
+			similar things. Tools that could be used offline as well. Let's see where this goes.
+		</p>
+		<p>For now, I want to build:</p>
+		<ul>
+			<li>Base64 encoder / decoder</li>
+			<li>URL encoder / decoder</li>
+			<li>JWT extractor</li>
+		</ul>
+		<p>
+			Oh, and I'm going to try out this localisation that was added by <code>sv create</code>:
+			ParaglideJS.
+		</p>
+	</FullWidthSection>
+</PageLayout>

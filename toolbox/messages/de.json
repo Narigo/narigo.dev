@@ -8,6 +8,13 @@
 	"placeholderEncoded": "Hier erscheint der kodierte Text %2F Lege hier den kodierten Text ab.",
 	"placeholderDecoded": "Hier erscheint der dekodierte Text / Lege hier den dekodierten Text ab.",
 	"placeholderFilter": "Werkzeuge filtern ...",
-	"toolsBase64description": "Wandelt eine Zeichenfolge in Base64 um und andersherum.",
-	"toolsCategoryStrings": "Text"
+	"toolsBase64Title": "Base64 Encoding",
+	"toolsBase64Description": "Wandelt eine Zeichenfolge in Base64 um und andersherum.",
+	"toolsUrlEncodingTitle": "URL Encoding",
+	"toolsUrlEncodingDescription": "Wandelt eine Zeichenfolge in URL Encoding um und andersherum.",
+	"toolsDocumentScannerTitle": "Dokumentenscanner",
+	"toolsDocumentScannerDescription": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
+	"toolsCategoryLabel": "Kategorie: {label}",
+	"toolsCategoryStrings": "Text",
+	"toolsCategoryTools": "Werkzeug"
 }
