@@ -1,18 +1,36 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
+	import { languageTag, onSetLanguageTag, setLanguageTag } from '$lib/paraglide/runtime';
+	import * as m from '$lib/paraglide/messages';
+	import FullWidthSection from './FullWidthSection.svelte';
 
 	interface Props {
 		children: Snippet;
 	}
 
 	let { children }: Props = $props();
+	let currentLanguage = $state(languageTag());
+	onSetLanguageTag((newLanguageTag) => (currentLanguage = newLanguageTag));
+
+	const switchLanguage = (language: AvailableLanguageTag) => () => {
+		setLanguageTag(language);
+	};
 </script>
 
-<div class="relative flex min-h-full flex-col">
-	<main class="content-grid flex-grow auto-rows-max">
-		{@render children()}
-	</main>
-</div>
+{#key currentLanguage}
+	<div class="relative flex min-h-full flex-col">
+		<header class="content-grid">
+			<FullWidthSection>
+				<button onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
+				<button onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+			</FullWidthSection>
+		</header>
+		<main class="content-grid flex-grow auto-rows-max">
+			{@render children()}
+		</main>
+	</div>
+{/key}
 
 <style lang="postcss">
 	.content-grid {

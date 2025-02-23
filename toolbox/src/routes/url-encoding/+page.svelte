@@ -6,6 +6,6 @@
 
 <PageLayout>
 	<FullWidthSection>
-		<Encoder encode={atob} decode={btoa} />
+		<Encoder encode={encodeURIComponent} decode={decodeURIComponent} />
 	</FullWidthSection>
 </PageLayout>

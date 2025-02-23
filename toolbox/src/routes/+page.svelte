@@ -25,11 +25,13 @@
 				/>
 			</a>
 
-			<ToolCard
-				category="strings"
-				title={m.toolsUrlEncodingTitle()}
-				description={m.toolsUrlEncodingDescription()}
-			/>
+			<a href="{base}/url-encoding">
+				<ToolCard
+					category="strings"
+					title={m.toolsUrlEncodingTitle()}
+					description={m.toolsUrlEncodingDescription()}
+				/>
+			</a>
 
 			<ToolCard
 				category="tools"

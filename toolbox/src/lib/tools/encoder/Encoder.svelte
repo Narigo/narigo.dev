@@ -2,6 +2,13 @@
 	import { onMount } from 'svelte';
 	import * as m from '$lib/paraglide/messages.js';
 
+	interface EncoderProps {
+		encode: (text: string) => string;
+		decode: (text: string) => string;
+	}
+
+	let { encode, decode }: EncoderProps = $props();
+
 	let left: HTMLTextAreaElement;
 	let right: HTMLTextAreaElement;
 
@@ -10,16 +17,16 @@
 	onMount(() => {
 		left.addEventListener('input', () => {
 			if (decodedSide === 'left') {
-				right.value = encodeURIComponent(left.value);
+				right.value = encode(left.value);
 			} else {
-				right.value = decodeURIComponent(left.value);
+				right.value = decode(left.value);
 			}
 		});
 		right.addEventListener('input', () => {
 			if (decodedSide === 'right') {
-				left.value = encodeURIComponent(right.value);
+				left.value = encode(right.value);
 			} else {
-				left.value = decodeURIComponent(right.value);
+				left.value = decode(right.value);
 			}
 		});
 	});
@@ -27,11 +34,11 @@
 	const swapInputs = () => {
 		decodedSide = decodedSide === 'left' ? 'right' : 'left';
 		if (decodedSide === 'left') {
-			left.value = decodeURIComponent(left.value);
-			right.value = encodeURIComponent(right.value);
+			left.value = decode(left.value);
+			right.value = encode(right.value);
 		} else {
-			left.value = encodeURIComponent(left.value);
-			right.value = decodeURIComponent(right.value);
+			left.value = encode(left.value);
+			right.value = decode(right.value);
 		}
 	};
 </script>
