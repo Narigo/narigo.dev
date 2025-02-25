@@ -33,11 +33,13 @@
 				/>
 			</a>
 
-			<ToolCard
-				category="tools"
-				title={m.toolsDocumentScannerTitle()}
-				description={m.toolsDocumentScannerDescription()}
-			/>
+			<a href="{base}/document-scanner">
+				<ToolCard
+					category="tools"
+					title={m.toolsDocumentScannerTitle()}
+					description={m.toolsDocumentScannerDescription()}
+				/>
+			</a>
 		</section>
 	</FullWidthSection>
 

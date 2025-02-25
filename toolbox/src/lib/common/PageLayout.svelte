@@ -7,9 +7,10 @@
 
 	interface Props {
 		children: Snippet;
+		backLink?: string;
 	}
 
-	let { children }: Props = $props();
+	let { backLink, children }: Props = $props();
 	let currentLanguage = $state(languageTag());
 	onSetLanguageTag((newLanguageTag) => (currentLanguage = newLanguageTag));
 
@@ -22,8 +23,11 @@
 	<div class="relative flex min-h-full flex-col">
 		<header class="content-grid">
 			<FullWidthSection>
-				<button onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
-				<button onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+				<div class="flex gap-4">
+					{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
+					<button onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
+					<button onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+				</div>
 			</FullWidthSection>
 		</header>
 		<main class="content-grid flex-grow auto-rows-max">
@@ -50,5 +54,18 @@
 			[breakout-end]
 			minmax(var(--page-padding), 1fr)
 			[full-width-end];
+	}
+	.arrow-left {
+		position: relative;
+		display: inline-flex;
+		gap: 1em;
+		align-items: center;
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			background: conic-gradient(transparent 45deg, currentColor 0 135deg, transparent 0);
+		}
 	}
 </style>
