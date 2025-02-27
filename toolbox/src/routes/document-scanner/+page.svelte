@@ -42,10 +42,9 @@
 		try {
 			permissionError = undefined;
 			const selectedCameraId = availableCameras[selectedCameraIndex].deviceId;
-			const cameraStream = await navigator.mediaDevices.getDisplayMedia({
+			const cameraStream = await navigator.mediaDevices.getUserMedia({
 				video: { deviceId: selectedCameraId }
 			});
-			console.log('found a stream', cameraStream.id);
 			video.srcObject = cameraStream;
 			video.play();
 		} catch (error) {
@@ -56,7 +55,9 @@
 
 <PageLayout backLink="{base}/">
 	<FullWidthSection>
-		<video class="aspect-square w-full" bind:this={video} playsinline></video>
+		<video class="aspect-square w-full" bind:this={video} playsinline>
+			<track kind="captions" />
+		</video>
 		{#if scannerState === 'no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}

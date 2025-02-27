@@ -23,10 +23,14 @@
 	<div class="relative flex min-h-full flex-col">
 		<header class="content-grid">
 			<FullWidthSection>
-				<div class="flex gap-4">
-					{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
-					<button onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
-					<button onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+				<div class="flex gap-4 justify-between">
+                    <div>
+                        {#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
+                    </div>
+					<div>
+						<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
+						<button class="p-4" onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+					</div>
 				</div>
 			</FullWidthSection>
 		</header>
@@ -65,7 +69,7 @@
 			display: inline-block;
 			width: 1em;
 			height: 1em;
-			background: conic-gradient(transparent 45deg, currentColor 0 135deg, transparent 0);
+			background: conic-gradient(transparent 45deg, currentColor 0 135deg, transparent 0) -.25em no-repeat;
 		}
 	}
 </style>
