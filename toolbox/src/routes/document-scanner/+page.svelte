@@ -19,6 +19,7 @@
 	);
 	let permissionError = $state<string>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
+	let cameraStream = $state<MediaStream>();
 	let selectedCameraIndex = $state(0);
 	let processedImage = $state(new Uint8Array());
 
@@ -38,15 +39,24 @@
 		console.log('should transform to pdf');
 	}
 
-	async function askForPermission() {
+	function stopScanning() {
+		cameraStream?.getTracks().forEach((track) => track.stop());
+		video.pause();
+		video.srcObject = null;
+		cameraStream = undefined;
+		scannerState = 'needs-permission';
+	}
+
+	async function startScanning() {
 		try {
 			permissionError = undefined;
 			const selectedCameraId = availableCameras[selectedCameraIndex].deviceId;
-			const cameraStream = await navigator.mediaDevices.getUserMedia({
+			cameraStream = await navigator.mediaDevices.getUserMedia({
 				video: { deviceId: selectedCameraId }
 			});
 			video.srcObject = cameraStream;
 			video.play();
+			scannerState = 'searching';
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
 		}
@@ -61,12 +71,12 @@
 		{#if scannerState === 'no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
-			<button class="p-4" onclick={askForPermission}>Start scanning</button>
+			<button class="p-4" onclick={startScanning}>Start scanning</button>
 			{#if permissionError}
 				<p>{permissionError}</p>
 			{/if}
 		{:else if scannerState === 'searching' || scannerState === 'scanning'}
-			<div>Should see something in video above...</div>
+			<button class="p-4" onclick={stopScanning}>Stop scanning</button>
 		{:else if scannerState === 'processing'}
 			<div>Please wait...</div>
 		{:else if scannerState === 'processed'}
