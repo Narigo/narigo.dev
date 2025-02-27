@@ -18,18 +18,16 @@
 			: 'no-input-device'
 	);
 	let permissionError = $state<string>();
-	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let cameraStream = $state<MediaStream>();
-	let selectedCameraIndex = $state(0);
+	let selectedCameraIndex = $state<number>();
+	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let processedImage = $state(new Uint8Array());
 
 	let video: HTMLVideoElement;
 
 	onMount(async () => {
-		console.log('enumerating devices');
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		availableCameras = devices.filter((device) => device.kind === 'videoinput');
-		console.log('found cameras', $state.snapshot(availableCameras));
 	});
 
 	async function transformToPdf(
@@ -47,13 +45,35 @@
 		scannerState = 'needs-permission';
 	}
 
+	async function nextCamera() {
+		if (selectedCameraIndex === undefined) {
+			selectedCameraIndex = -1;
+		}
+		selectedCameraIndex = (selectedCameraIndex + 1) % availableCameras.length;
+		cameraStream?.getTracks().forEach((track) => track.stop());
+		video.pause();
+		video.srcObject = null;
+		cameraStream = undefined;
+		startScanning();
+	}
+
 	async function startScanning() {
 		try {
 			permissionError = undefined;
-			const selectedCameraId = availableCameras[selectedCameraIndex].deviceId;
+			const constraint =
+				selectedCameraIndex === undefined
+					? { facingMode: 'environment' }
+					: { deviceId: availableCameras[selectedCameraIndex].deviceId };
 			cameraStream = await navigator.mediaDevices.getUserMedia({
-				video: { deviceId: selectedCameraId }
+				video: constraint
 			});
+			if (!cameraStream) {
+				throw Error('No camera found');
+			}
+			selectedCameraIndex =
+				availableCameras.findIndex((camera) =>
+					cameraStream?.getTracks().some((track) => track.label === camera.label)
+				) ?? 0;
 			video.srcObject = cameraStream;
 			video.play();
 			scannerState = 'searching';
@@ -77,6 +97,9 @@
 			{/if}
 		{:else if scannerState === 'searching' || scannerState === 'scanning'}
 			<button class="p-4" onclick={stopScanning}>Stop scanning</button>
+			{#if availableCameras.length > 1}
+				<button class="p-4" onclick={nextCamera}>Next camera</button>
+			{/if}
 		{:else if scannerState === 'processing'}
 			<div>Please wait...</div>
 		{:else if scannerState === 'processed'}
