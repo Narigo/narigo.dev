@@ -1,7 +1,6 @@
 declare module 'jscanify' {
-	export default function (): JScanify;
-
-	interface JScanify {
-		highlightPaper(image: HTMLImageElement): HTMLCanvasElement;
-	}
+// 	export default class {
+// 		constructor();
+// 		highlightPaper(image: HTMLImageElement | HTMLCanvasElement): HTMLCanvasElement;
+// 	}
 }

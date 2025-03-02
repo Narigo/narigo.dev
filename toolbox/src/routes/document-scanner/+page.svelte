@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
+	import jscanify from 'jscanify';
 	import { onMount } from 'svelte';
 
 	let scannerState = $state<
@@ -23,7 +24,11 @@
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let processedImage = $state(new Uint8Array());
 
+	const scanner = new jscanify();
 	let video: HTMLVideoElement;
+	let previewCanvas: HTMLCanvasElement;
+	let resultCanvasDiv: HTMLDivElement;
+	let scanImageTimer: ReturnType<typeof setTimeout> | undefined = undefined;
 
 	onMount(async () => {
 		const devices = await navigator.mediaDevices.enumerateDevices();
@@ -38,6 +43,8 @@
 	}
 
 	function stopScanning() {
+		clearTimeout(scanImageTimer);
+		scanImageTimer = undefined;
 		cameraStream?.getTracks().forEach((track) => track.stop());
 		video.pause();
 		video.srcObject = null;
@@ -55,6 +62,14 @@
 		video.srcObject = null;
 		cameraStream = undefined;
 		startScanning();
+	}
+
+	const SCAN_IMAGE_TIME_IN_MS = 500;
+	function scanImageFromVideo() {
+		previewCanvas.getContext('2d')?.drawImage(video, 0, 0, video.scrollWidth, video.scrollHeight);
+		const newResultCanvas = scanner.highlightPaper(previewCanvas);
+		resultCanvasDiv.innerHTML = newResultCanvas.outerHTML;
+		setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
 	}
 
 	async function startScanning() {
@@ -77,6 +92,7 @@
 			video.srcObject = cameraStream;
 			video.play();
 			scannerState = 'searching';
+			scanImageFromVideo();
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
 		}
@@ -85,9 +101,13 @@
 
 <PageLayout backLink="{base}/">
 	<FullWidthSection>
-		<video class="aspect-square w-full" bind:this={video} playsinline>
-			<track kind="captions" />
-		</video>
+		<div class="relative aspect-square w-full">
+			<video class="absolute inset-0" bind:this={video} playsinline>
+				<track kind="captions" />
+			</video>
+			<canvas class="absolute inset-0" bind:this={previewCanvas}></canvas>
+			<div bind:this={resultCanvasDiv} class="absolute inset-0"></div>
+		</div>
 		{#if scannerState === 'no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
