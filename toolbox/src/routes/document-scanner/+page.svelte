@@ -2,10 +2,11 @@
 	import { base } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import jscanify from 'jscanify';
+	import { default as jscanify, type OpenCv } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
 
 	let scannerState = $state<
+		| 'initializing'
 		| 'needs-permission'
 		| 'no-input-device'
 		| 'searching'
@@ -13,24 +14,30 @@
 		| 'processing'
 		| 'processed'
 		| 'result'
-	>(
-		'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
-			? 'needs-permission'
-			: 'no-input-device'
-	);
+	>('initializing');
 	let permissionError = $state<string>();
 	let cameraStream = $state<MediaStream>();
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let processedImage = $state(new Uint8Array());
 
-	const scanner = new jscanify();
+	let scanner: jscanify;
 	let video: HTMLVideoElement;
 	let previewCanvas: HTMLCanvasElement;
 	let resultCanvasDiv: HTMLDivElement;
 	let scanImageTimer: ReturnType<typeof setTimeout> | undefined = undefined;
 
 	onMount(async () => {
+		const openCvScript = document.createElement('script');
+		openCvScript.async = true;
+		openCvScript.src = `${base}/vendor/opencv.js`;
+		openCvScript.onload = () => {
+			scannerState =
+				'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+					? 'needs-permission'
+					: 'no-input-device';
+		};
+		document.body.appendChild(openCvScript);
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		availableCameras = devices.filter((device) => device.kind === 'videoinput');
 	});
@@ -65,11 +72,15 @@
 	}
 
 	const SCAN_IMAGE_TIME_IN_MS = 500;
-	function scanImageFromVideo() {
-		previewCanvas.getContext('2d')?.drawImage(video, 0, 0, video.scrollWidth, video.scrollHeight);
-		const newResultCanvas = scanner.highlightPaper(previewCanvas);
-		resultCanvasDiv.innerHTML = newResultCanvas.outerHTML;
-		setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
+	async function scanImageFromVideo() {
+		try {
+			previewCanvas.getContext('2d')?.drawImage(video, 0, 0, video.scrollWidth, video.scrollHeight);
+			const newResultCanvas = scanner.highlightPaper(previewCanvas);
+			resultCanvasDiv.innerHTML = newResultCanvas.outerHTML;
+			scanImageTimer = setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
+		} catch (error) {
+			console.error('could not scan', error);
+		}
 	}
 
 	async function startScanning() {
@@ -92,7 +103,10 @@
 			video.srcObject = cameraStream;
 			video.play();
 			scannerState = 'searching';
-			scanImageFromVideo();
+			const openCv = await (globalThis as typeof globalThis & { cv: OpenCv }).cv;
+			console.log('got openCv?', openCv);
+			scanner = new jscanify(openCv);
+			scanImageTimer = setTimeout(scanImageFromVideo, 1);
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
 		}
@@ -108,7 +122,9 @@
 			<canvas class="absolute inset-0" bind:this={previewCanvas}></canvas>
 			<div bind:this={resultCanvasDiv} class="absolute inset-0"></div>
 		</div>
-		{#if scannerState === 'no-input-device'}
+		{#if scannerState === 'initializing'}
+			<div>Waiting for OpenCV</div>
+		{:else if scannerState === 'no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
 			<button class="p-4" onclick={startScanning}>Start scanning</button>
