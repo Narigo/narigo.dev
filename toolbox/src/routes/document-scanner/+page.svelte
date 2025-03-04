@@ -71,11 +71,34 @@
 		startScanning();
 	}
 
-	const SCAN_IMAGE_TIME_IN_MS = 500;
+	const SCAN_IMAGE_TIME_IN_MS = 5000;
 	async function scanImageFromVideo() {
 		try {
-			previewCanvas.getContext('2d')?.drawImage(video, 0, 0, video.scrollWidth, video.scrollHeight);
+			console.log({
+				videoX: video.scrollWidth,
+				videoY: video.scrollHeight,
+				previewX: previewCanvas.scrollWidth,
+				previewY: previewCanvas.scrollHeight
+			});
+			previewCanvas.setAttribute('width', `${previewCanvas.scrollWidth}`);
+			previewCanvas.setAttribute('height', `${previewCanvas.scrollHeight}`);
+			previewCanvas
+				.getContext('2d')
+				?.drawImage(
+					video,
+					0,
+					0,
+					video.scrollWidth,
+					video.scrollHeight,
+					0,
+					0,
+					previewCanvas.scrollWidth,
+					previewCanvas.scrollHeight
+				);
 			const newResultCanvas = scanner.highlightPaper(previewCanvas);
+			newResultCanvas.setAttribute('class', 'w-full h-full');
+			newResultCanvas.setAttribute('width', `${previewCanvas.scrollWidth}`);
+			newResultCanvas.setAttribute('height', `${previewCanvas.scrollHeight}`);
 			resultCanvasDiv.innerHTML = newResultCanvas.outerHTML;
 			scanImageTimer = setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
 		} catch (error) {
@@ -102,10 +125,9 @@
 				) ?? 0;
 			video.srcObject = cameraStream;
 			video.play();
-			scannerState = 'searching';
 			const openCv = await (globalThis as typeof globalThis & { cv: OpenCv }).cv;
-			console.log('got openCv?', openCv);
 			scanner = new jscanify(openCv);
+			scannerState = 'searching';
 			scanImageTimer = setTimeout(scanImageFromVideo, 1);
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
@@ -115,12 +137,12 @@
 
 <PageLayout backLink="{base}/">
 	<FullWidthSection>
-		<div class="relative aspect-square w-full">
-			<video class="absolute inset-0" bind:this={video} playsinline>
+		<div class="grid w-full grid-cols-1 grid-rows-1">
+			<video bind:this={video} class="h-full w-full [grid-area:1/1/2/2]" playsinline>
 				<track kind="captions" />
 			</video>
-			<canvas class="absolute inset-0" bind:this={previewCanvas}></canvas>
-			<div bind:this={resultCanvasDiv} class="absolute inset-0"></div>
+			<canvas bind:this={previewCanvas} class="h-full w-full [grid-area:1/1/2/2]"></canvas>
+			<div bind:this={resultCanvasDiv} class="h-full w-full [grid-area:1/1/2/2]"></div>
 		</div>
 		{#if scannerState === 'initializing'}
 			<div>Waiting for OpenCV</div>
