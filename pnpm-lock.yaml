@@ -204,6 +204,9 @@ importers:
       '@eslint/js':
         specifier: ^9.18.0
         version: 9.19.0
+      '@fontsource/fira-sans':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@playwright/test':
         specifier: ^1.49.1
         version: 1.49.1
@@ -1585,6 +1588,10 @@ packages:
 
   /@fontsource/annie-use-your-telescope@5.1.1:
     resolution: {integrity: sha512-pIzwe7je4WLwR/j8bclSA9yo5QBc89gdMqX+BVIGzQqQTMBQ1PmTQkJ0o/kPU6aMgk/pHl7hV7Vt8yHYoDejQA==}
+    dev: true
+
+  /@fontsource/fira-sans@5.2.5:
+    resolution: {integrity: sha512-N+GrTGOTIeYE/Wi5tY0RAnc1Tl3ddCdwfZQncvA1zH/lOpKerj9ZS5nfniSXDZ9wrXFRdWTH7anyrRDc+cMpCg==}
     dev: true
 
   /@fontsource/gochi-hand@5.1.1:
