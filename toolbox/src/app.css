@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-body: "Fira Sans", sans-serif;
+  --default-font-family: "Fira Sans", sans-serif;
+  --default-mono-font-family: "Fira Mono", monospace;
+}
+
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/container-queries';

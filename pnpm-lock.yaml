@@ -204,6 +204,12 @@ importers:
       '@eslint/js':
         specifier: ^9.18.0
         version: 9.19.0
+      '@fontsource/fira-code':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/fira-mono':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/fira-sans':
         specifier: ^5.2.5
         version: 5.2.5
@@ -1588,6 +1594,14 @@ packages:
 
   /@fontsource/annie-use-your-telescope@5.1.1:
     resolution: {integrity: sha512-pIzwe7je4WLwR/j8bclSA9yo5QBc89gdMqX+BVIGzQqQTMBQ1PmTQkJ0o/kPU6aMgk/pHl7hV7Vt8yHYoDejQA==}
+    dev: true
+
+  /@fontsource/fira-code@5.2.5:
+    resolution: {integrity: sha512-Rn9PJoyfRr5D6ukEhZpzhpD+rbX2rtoz9QjkOuGxqFxrL69fQvhadMUBxQIOuTF4sTTkPRSKlAEpPjTKaI12QA==}
+    dev: true
+
+  /@fontsource/fira-mono@5.2.5:
+    resolution: {integrity: sha512-rujrs+J+w2Nmqd6zsNQTzT7eYLKrSQWdF7SuAdjjXVs+Si06Ag6etOYFmF3Mzb0NufmEIPCDUS2ppt6hxX+SLg==}
     dev: true
 
   /@fontsource/fira-sans@5.2.5:
