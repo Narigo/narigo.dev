@@ -43,7 +43,7 @@
 <style lang="postcss">
 	.content-grid {
 		--page-padding: 1rem;
-		--max-page-size: 72ch;
+		--max-page-size: 64rem;
 
 		display: grid;
 		grid-template-columns:

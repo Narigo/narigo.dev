@@ -8,7 +8,7 @@
 
 <PageLayout>
 	<FullWidthSection class="gap-y-4">
-		<h1 class="text-6xl">Online-Toolbox</h1>
+		<h1 class="text-4xl font-bold">Online-Toolbox</h1>
 		<input
 			class="rounded-lg border-0 bg-gray-200"
 			type="text"
@@ -16,7 +16,7 @@
 			placeholder={m.placeholderFilter()}
 		/>
 
-		<section class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+		<section class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4">
 			<a href="{base}/base64">
 				<ToolCard
 					category="strings"

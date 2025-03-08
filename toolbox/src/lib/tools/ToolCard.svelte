@@ -27,10 +27,10 @@
 </script>
 
 <div class="relative min-h-52 overflow-clip {cardBackground} p-4 text-white">
-	<h2 class="text-4xl">{title}</h2>
+	<h2 class="text-4xl font-bold">{title}</h2>
 	<p>{description}</p>
 	<span
-		class="absolute -right-1 -bottom-1 text-8xl font-bold text-black opacity-15"
+		class="absolute -right-1 -bottom-1 text-9xl font-bold text-black opacity-15"
 		aria-label={m.toolsCategoryLabel({ label: categoryName })}>{categoryName}</span
 	>
 </div>
