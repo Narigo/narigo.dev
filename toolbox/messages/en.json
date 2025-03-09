@@ -12,7 +12,7 @@
 	"toolsBase64Description": "Translates a string into and from base64 encoding.",
 	"toolsUrlEncodingTitle": "URL Encoding",
 	"toolsUrlEncodingDescription": "Translates a string into and from URL encoding.",
-	"toolsDocumentScannerTitle": "Dokument Scanner",
+	"toolsDocumentScannerTitle": "Document Scanner",
 	"toolsDocumentScannerDescription": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
 	"toolsCategoryLabel": "Category: {label}",
 	"toolsCategoryStrings": "Strings",
