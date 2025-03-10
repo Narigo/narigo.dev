@@ -125,7 +125,7 @@ export default class jscanify {
 		image: ImageLike,
 		resultWidth: number,
 		resultHeight: number,
-		cornerPoints: ReturnType<typeof this.getCornerPoints>
+		cornerPoints?: ReturnType<typeof this.getCornerPoints>
 	) {
 		const canvas = document.createElement('canvas');
 		const img = this.cv.imread(image);

@@ -23,7 +23,7 @@
 
 	let scanner: jscanify;
 	let video: HTMLVideoElement;
-	let previewCanvas: HTMLCanvasElement;
+	let previewCanvas = new OffscreenCanvas(0, 0);
 	let resultCanvasDiv: HTMLDivElement;
 	let scanImageTimer: ReturnType<typeof setTimeout> | undefined = undefined;
 
@@ -75,11 +75,14 @@
 	async function scanImageFromVideo() {
 		try {
 			previewCanvas.getContext('2d')?.drawImage(video, 0, 0);
+			// const newResultCanvas = scanner.extractPaper(previewCanvas, 400, 800);
 			const newResultCanvas = scanner.highlightPaper(previewCanvas);
-			for (const child of resultCanvasDiv.children) {
-				child.remove();
+			if (newResultCanvas) {
+				for (const child of resultCanvasDiv.children) {
+					child.remove();
+				}
+				resultCanvasDiv.appendChild(newResultCanvas);
 			}
-			resultCanvasDiv.appendChild(newResultCanvas);
 			scanImageTimer = setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
 		} catch (error) {
 			console.error('could not scan', error);
@@ -126,7 +129,6 @@
 			<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
 				<track kind="captions" />
 			</video>
-			<canvas bind:this={previewCanvas} class="[grid-area:1/1/2/2]"></canvas>
 			<div bind:this={resultCanvasDiv} class="[grid-area:1/1/2/2]"></div>
 		</div>
 		{#if scannerState === 'initializing'}
