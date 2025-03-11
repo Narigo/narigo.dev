@@ -1,14 +1,67 @@
 /*! jscanify v1.4.0 | (c) ColonelParrot and other contributors | MIT License */
 
 type Point2d = { x: number; y: number };
-class Mat {
-	constructor() {}
+type ImageLike = HTMLImageElement | HTMLCanvasElement | OffscreenCanvas;
+declare namespace OpenCv {
+	const BORDER_DEFAULT: any;
+	const THRESH_OTSU: any;
+	const RETR_CCOMP: any;
+	const CHAIN_APPROX_SIMPLE: any;
+	const CV_32FC2: any;
+	const INTER_LINEAR: any;
+	const BORDER_CONSTANT: any;
+	function imread(image: ImageLike): Mat;
+	function imshow(canvas: HTMLCanvasElement, image: Mat): void;
+	function Canny(img: Mat, imgGray: Mat, a: number, b: number): void;
+	function GaussianBlur(
+		imgGray: Mat,
+		imgBlur: Mat,
+		size: Size,
+		a: number,
+		b: number,
+		constant: any
+	): void;
+	function threshold(imgBlur: Mat, imgThresh: Mat, min: number, max: number, constant: any): void;
+	function findContours(
+		imgThresh: Mat,
+		contours: MatVector,
+		hierarchy: Mat,
+		...constants: Array<any>
+	): void;
+	function contourArea(element: Mat): number;
+	function matFromArray(a: number, b: number, constant: any, numbers: Array<number>): Mat;
+	function getPerspectiveTransform(srcTri: Mat, dstTri: Mat): Mat;
+	function warpPerspective(
+		img: Mat,
+		warpedDst: Mat,
+		M: Mat,
+		dsize: Size,
+		constantA: any,
+		constantB: any,
+		output: Scalar
+	): void;
+	function minAreaRect(contour: Mat): Rectangle;
+	class Size {
+		constructor(a: number, b: number);
+	}
+	class Rectangle {
+		center: Point;
+	}
+	class Point {
+		x: number;
+		y: number;
+	}
+	class Scalar {}
+	class Mat {
+		data32S: Array<number>;
+		delete(): void;
+	}
+	class MatVector {
+		get(n: number): Mat;
+		size(): number;
+		delete(): void;
+	}
 }
-type ImageLike = Mat;
-export type OpenCv = {
-	Canny: (img: ImageLike, imgGray: Mat, a: number, b: number) => void;
-	Mat: Mat;
-};
 
 /**
  * Calculates distance between two points. Each point must have `x` and `y` property
@@ -21,9 +74,9 @@ function distance(p1: Point2d, p2: Point2d) {
 }
 
 export default class jscanify {
-	cv: any;
+	cv: typeof OpenCv;
 
-	constructor(openCv: OpenCv) {
+	constructor(openCv: typeof OpenCv) {
 		this.cv = openCv;
 	}
 
@@ -32,7 +85,7 @@ export default class jscanify {
 	 * @param {*} img image to process (cv.Mat)
 	 * @returns the biggest contour inside the image
 	 */
-	findPaperContour(img: ImageLike) {
+	findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new this.cv.Mat();
 		this.cv.Canny(img, imgGray, 50, 200);
 
@@ -71,6 +124,34 @@ export default class jscanify {
 		contours.delete();
 		hierarchy.delete();
 		return maxContour;
+	}
+
+	drawPaperOnCanvas(
+		image: ImageLike,
+		canvas: HTMLCanvasElement,
+		contour: OpenCv.Mat,
+		options: { color: string; thickness: number } = { color: 'orange', thickness: 10 }
+	) {
+		const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
+		const img = this.cv.imread(image);
+		this.cv.imshow(canvas, img);
+
+		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
+			this.getCornerPoints(contour);
+		if (topLeftCorner && topRightCorner && bottomLeftCorner && bottomRightCorner) {
+			ctx.strokeStyle = options.color;
+			ctx.lineWidth = options.thickness;
+			ctx.beginPath();
+			ctx.moveTo(topLeftCorner.x, topLeftCorner.y);
+			ctx.lineTo(topRightCorner.x, topRightCorner.y);
+			ctx.lineTo(bottomRightCorner.x, bottomRightCorner.y);
+			ctx.lineTo(bottomLeftCorner.x, bottomLeftCorner.y);
+			ctx.lineTo(topLeftCorner.x, topLeftCorner.y);
+			ctx.stroke();
+		}
+
+		img.delete();
+		return canvas;
 	}
 
 	/**
@@ -136,7 +217,7 @@ export default class jscanify {
 		}
 
 		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
-			cornerPoints || this.getCornerPoints(maxContour);
+			cornerPoints || this.getCornerPoints(maxContour!);
 		let warpedDst = new this.cv.Mat();
 
 		let dsize = new this.cv.Size(resultWidth, resultHeight);
@@ -185,7 +266,7 @@ export default class jscanify {
 	 * @param {*} contour contour from {@link findPaperContour}
 	 * @returns object with properties `topLeftCorner`, `topRightCorner`, `bottomLeftCorner`, `bottomRightCorner`, each with `x` and `y` property
 	 */
-	getCornerPoints(contour: ReturnType<typeof this.findPaperContour>) {
+	getCornerPoints(contour: NonNullable<ReturnType<typeof this.findPaperContour>>) {
 		let rect = this.cv.minAreaRect(contour);
 		const center = rect.center;
 
