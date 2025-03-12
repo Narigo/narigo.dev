@@ -2,7 +2,7 @@
 
 type Point2d = { x: number; y: number };
 type ImageLike = HTMLImageElement | HTMLCanvasElement | OffscreenCanvas;
-declare namespace OpenCv {
+export declare namespace OpenCv {
 	const BORDER_DEFAULT: any;
 	const THRESH_OTSU: any;
 	const RETR_CCOMP: any;
@@ -11,7 +11,7 @@ declare namespace OpenCv {
 	const INTER_LINEAR: any;
 	const BORDER_CONSTANT: any;
 	function imread(image: ImageLike): Mat;
-	function imshow(canvas: HTMLCanvasElement, image: Mat): void;
+	function imshow(canvas: HTMLCanvasElement | OffscreenCanvas, image: Mat): void;
 	function Canny(img: Mat, imgGray: Mat, a: number, b: number): void;
 	function GaussianBlur(
 		imgGray: Mat,
@@ -126,15 +126,98 @@ export default class jscanify {
 		return maxContour;
 	}
 
-	drawPaperOnCanvas(
+	drawAndExtract(
 		image: ImageLike,
+		{
+			highlightCanvas,
+			color = 'orange',
+			thickness = 10,
+			extractCanvas
+		}: {
+			highlightCanvas: HTMLCanvasElement | OffscreenCanvas;
+			color?: string;
+			thickness?: number;
+			extractCanvas: HTMLCanvasElement;
+		}
+	) {
+		const resultWidth = extractCanvas.width;
+		const resultHeight = extractCanvas.height;
+
+		const img = this.cv.imread(image);
+		this.cv.imshow(highlightCanvas, img);
+		try {
+			const contour = this.findPaperContour(img);
+			if (!contour) {
+				return;
+			}
+
+			const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
+				this.getCornerPoints(contour);
+			if (!(topLeftCorner && topRightCorner && bottomLeftCorner && bottomRightCorner)) {
+				return;
+			}
+
+			if (highlightCanvas) {
+				const ctx = highlightCanvas.getContext('2d', { willReadFrequently: true })!;
+				ctx.strokeStyle = color;
+				ctx.lineWidth = thickness;
+				ctx.beginPath();
+				ctx.moveTo(topLeftCorner.x, topLeftCorner.y);
+				ctx.lineTo(topRightCorner.x, topRightCorner.y);
+				ctx.lineTo(bottomRightCorner.x, bottomRightCorner.y);
+				ctx.lineTo(bottomLeftCorner.x, bottomLeftCorner.y);
+				ctx.lineTo(topLeftCorner.x, topLeftCorner.y);
+				ctx.stroke();
+			}
+
+			let warpedDst = new this.cv.Mat();
+			let dsize = new this.cv.Size(resultWidth, resultHeight);
+			let srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+				topLeftCorner.x,
+				topLeftCorner.y,
+				topRightCorner.x,
+				topRightCorner.y,
+				bottomLeftCorner.x,
+				bottomLeftCorner.y,
+				bottomRightCorner.x,
+				bottomRightCorner.y
+			]);
+
+			let dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+				0,
+				0,
+				resultWidth,
+				0,
+				0,
+				resultHeight,
+				resultWidth,
+				resultHeight
+			]);
+
+			let M = this.cv.getPerspectiveTransform(srcTri, dstTri);
+			this.cv.warpPerspective(
+				img,
+				warpedDst,
+				M,
+				dsize,
+				this.cv.INTER_LINEAR,
+				this.cv.BORDER_CONSTANT,
+				new this.cv.Scalar()
+			);
+			this.cv.imshow(extractCanvas, warpedDst);
+		} finally {
+			img.delete();
+		}
+	}
+
+	drawPaperOnCanvas(
+		image: OpenCv.Mat,
 		canvas: HTMLCanvasElement,
 		contour: OpenCv.Mat,
 		options: { color: string; thickness: number } = { color: 'orange', thickness: 10 }
 	) {
 		const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
-		const img = this.cv.imread(image);
-		this.cv.imshow(canvas, img);
+		this.cv.imshow(canvas, image);
 
 		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
 			this.getCornerPoints(contour);
@@ -150,7 +233,6 @@ export default class jscanify {
 			ctx.stroke();
 		}
 
-		img.delete();
 		return canvas;
 	}
 

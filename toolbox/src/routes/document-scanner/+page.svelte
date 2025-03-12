@@ -24,7 +24,8 @@
 	let scanner: jscanify;
 	let video: HTMLVideoElement;
 	let previewCanvas = new OffscreenCanvas(0, 0);
-	let resultCanvasDiv: HTMLDivElement;
+	let extractCanvas: HTMLCanvasElement;
+	let highlightCanvas: HTMLCanvasElement;
 	let scanImageTimer: ReturnType<typeof setTimeout> | undefined = undefined;
 
 	onMount(async () => {
@@ -74,15 +75,8 @@
 	const SCAN_IMAGE_TIME_IN_MS = 100;
 	async function scanImageFromVideo() {
 		try {
-			previewCanvas.getContext('2d')?.drawImage(video, 0, 0);
-			// const newResultCanvas = scanner.extractPaper(previewCanvas, 400, 800);
-			const newResultCanvas = scanner.highlightPaper(previewCanvas);
-			if (newResultCanvas) {
-				for (const child of resultCanvasDiv.children) {
-					child.remove();
-				}
-				resultCanvasDiv.appendChild(newResultCanvas);
-			}
+			previewCanvas.getContext('2d', { willReadFrequently: true })?.drawImage(video, 0, 0);
+			scanner.drawAndExtract(previewCanvas, { extractCanvas, highlightCanvas });
 			scanImageTimer = setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
 		} catch (error) {
 			console.error('could not scan', error);
@@ -111,9 +105,9 @@
 				video.onloadedmetadata = resolve;
 			});
 			video.play();
-			previewCanvas.height = video.videoHeight;
-			previewCanvas.width = video.videoWidth;
-			const openCv = await (globalThis as typeof globalThis & { cv: OpenCv }).cv;
+			previewCanvas.height = extractCanvas.height = video.videoHeight;
+			previewCanvas.width = extractCanvas.width = video.videoWidth;
+			const openCv = await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
 			scanner = new jscanify(openCv);
 			scannerState = 'searching';
 			scanImageTimer = setTimeout(scanImageFromVideo, 1);
@@ -125,12 +119,19 @@
 
 <PageLayout backLink="{base}/">
 	<FullWidthSection>
-		<div class="grid w-full grid-cols-1 grid-rows-1 place-items-center">
-			<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
-				<track kind="captions" />
-			</video>
-			<div bind:this={resultCanvasDiv} class="[grid-area:1/1/2/2]"></div>
-		</div>
+		<section class="grid w-full grid-rows-1 place-items-center md:grid-cols-2">
+			<div
+				class="grid w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400 [grid-area:1/1/1/1]"
+			>
+				<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
+					<track kind="captions" />
+				</video>
+				<canvas bind:this={highlightCanvas} class="[grid-area:1/1/2/2]"></canvas>
+			</div>
+			<div class="border border-lime-400">
+				<canvas bind:this={extractCanvas} class="[grid-area:2/2/2/2]"></canvas>
+			</div>
+		</section>
 		{#if scannerState === 'initializing'}
 			<div>Waiting for OpenCV</div>
 		{:else if scannerState === 'no-input-device'}
