@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
+	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import { default as jscanify, type OpenCv } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
@@ -118,7 +118,7 @@
 </script>
 
 <PageLayout backLink="{base}/">
-	<FullWidthSection>
+	<FullBreakoutSection>
 		<section class="grid w-full grid-rows-1 place-items-center md:grid-cols-2">
 			<div
 				class="grid w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400 [grid-area:1/1/1/1]"
@@ -157,5 +157,5 @@
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 		{/if}
-	</FullWidthSection>
+	</FullBreakoutSection>
 </PageLayout>
