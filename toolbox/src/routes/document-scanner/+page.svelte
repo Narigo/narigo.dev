@@ -2,15 +2,20 @@
 	import { base } from '$app/paths';
 	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import { default as jscanify, type OpenCv } from '$lib/tools/document-scanner/jscanify';
-	import { onMount } from 'svelte';
+	import {
+		default as jscanify,
+		type OpenCv,
+		type CornerPoints
+	} from '$lib/tools/document-scanner/jscanify';
+	import { onMount, tick } from 'svelte';
+	import type { DragEventHandler, EventHandler, MouseEventHandler } from 'svelte/elements';
 
 	let scannerState = $state<
 		| 'initializing'
+		| 'error-no-input-device'
 		| 'needs-permission'
-		| 'no-input-device'
-		| 'searching'
 		| 'scanning'
+		| 'selecting-paper'
 		| 'processing'
 		| 'processed'
 		| 'result'
@@ -18,15 +23,19 @@
 	let permissionError = $state<string>();
 	let cameraStream = $state<MediaStream>();
 	let selectedCameraIndex = $state<number>();
+	let resultHeight = $state<number>(842);
+	let resultWidth = $state<number>(595);
+	let resultAspect = $state<number>(842 / 595);
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let processedImage = $state(new Uint8Array());
+	let scanImageTimer = $state<ReturnType<typeof setTimeout>>();
+	let lastCornerPoints = $state<CornerPoints>();
 
 	let scanner: jscanify;
 	let video: HTMLVideoElement;
 	let previewCanvas = new OffscreenCanvas(0, 0);
-	let extractCanvas: HTMLCanvasElement;
 	let highlightCanvas: HTMLCanvasElement;
-	let scanImageTimer: ReturnType<typeof setTimeout> | undefined = undefined;
+	let resultCanvasDiv: HTMLDivElement;
 
 	onMount(async () => {
 		const openCvScript = document.createElement('script');
@@ -36,7 +45,7 @@
 			scannerState =
 				'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
 					? 'needs-permission'
-					: 'no-input-device';
+					: 'error-no-input-device';
 		};
 		document.body.appendChild(openCvScript);
 		const devices = await navigator.mediaDevices.enumerateDevices();
@@ -50,14 +59,59 @@
 		console.log('should transform to pdf');
 	}
 
-	function stopScanning() {
+	const dragStart =
+		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
+		(event) => {
+			console.log('trying to drag', point);
+			if (!lastCornerPoints) return;
+			event.currentTarget.classList.replace('bg-teal-400', 'bg-red-400');
+		};
+	const dragStop =
+		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
+		async (event) => {
+			console.log('stopping drag of', point);
+			if (!lastCornerPoints) return;
+			lastCornerPoints[point] = { x: event.clientX, y: event.clientY };
+			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
+			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
+			event.currentTarget.classList.replace('bg-red-400', 'bg-teal-400');
+			const ctx = highlightCanvas.getContext('2d');
+			ctx?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
+			ctx?.drawImage(previewCanvas, 0, 0);
+			await highlightLastFoundPaperOnCanvas(highlightCanvas);
+		};
+	const dragging =
+		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
+		(event) => {
+			console.log('dragging', point);
+			if (!lastCornerPoints) return;
+			lastCornerPoints[point] = { x: event.clientX, y: event.clientY };
+		};
+
+	const extractLatestPointsIntoPdf: MouseEventHandler<HTMLButtonElement> = (event) => {
+		const result = scanner.extractPaper(previewCanvas, resultWidth, resultHeight, lastCornerPoints);
+		for (const child of resultCanvasDiv.childNodes) {
+			child.remove();
+		}
+		resultCanvasDiv.append(result);
+	};
+	async function stopScanning() {
+		const ctx = highlightCanvas.getContext('2d');
+		ctx?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
+		ctx?.drawImage(previewCanvas, 0, 0);
+		await highlightLastFoundPaperOnCanvas(highlightCanvas);
 		clearTimeout(scanImageTimer);
 		scanImageTimer = undefined;
 		cameraStream?.getTracks().forEach((track) => track.stop());
 		video.pause();
 		video.srcObject = null;
 		cameraStream = undefined;
-		scannerState = 'needs-permission';
+		if (lastCornerPoints) {
+			scannerState = 'selecting-paper';
+			await tick();
+		} else {
+			scannerState = 'needs-permission';
+		}
 	}
 
 	async function nextCamera() {
@@ -73,13 +127,40 @@
 	}
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
-	async function scanImageFromVideo() {
+	function rerunHighlightPaperInVideo() {
+		previewCanvas.getContext('2d', { willReadFrequently: true })?.drawImage(video, 0, 0);
+		const cornerPoints = scanner.findCornerPointsOfPaper(previewCanvas);
+		if (cornerPoints) {
+			lastCornerPoints = cornerPoints;
+			highlightCanvas
+				.getContext('2d')
+				?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
+			highlightLastFoundPaperOnCanvas(highlightCanvas);
+		}
+		scanImageTimer = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+	}
+
+	async function highlightLastFoundPaperOnCanvas(canvas: HTMLCanvasElement) {
+		if (!lastCornerPoints) {
+			console.warn('no corner points found');
+			return;
+		}
 		try {
-			previewCanvas.getContext('2d', { willReadFrequently: true })?.drawImage(video, 0, 0);
-			scanner.drawAndExtract(previewCanvas, { extractCanvas, highlightCanvas });
-			scanImageTimer = setTimeout(scanImageFromVideo, SCAN_IMAGE_TIME_IN_MS);
+			const ctx = canvas.getContext('2d');
+			if (!ctx) return;
+			ctx.strokeStyle = 'orange';
+			ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
+			ctx.lineWidth = 5;
+			ctx.beginPath();
+			ctx.moveTo(lastCornerPoints.topLeftCorner.x, lastCornerPoints.topLeftCorner.y);
+			ctx.lineTo(lastCornerPoints.topRightCorner.x, lastCornerPoints.topRightCorner.y);
+			ctx.lineTo(lastCornerPoints.bottomRightCorner.x, lastCornerPoints.bottomRightCorner.y);
+			ctx.lineTo(lastCornerPoints.bottomLeftCorner.x, lastCornerPoints.bottomLeftCorner.y);
+			ctx.lineTo(lastCornerPoints.topLeftCorner.x, lastCornerPoints.topLeftCorner.y);
+			ctx.fill();
+			ctx.stroke();
 		} catch (error) {
-			console.error('could not scan', error);
+			console.warn('could not scan', error);
 		}
 	}
 
@@ -101,16 +182,17 @@
 					cameraStream?.getTracks().some((track) => track.label === camera.label)
 				) ?? 0;
 			video.srcObject = cameraStream;
+			lastCornerPoints = undefined;
 			await new Promise((resolve) => {
 				video.onloadedmetadata = resolve;
 			});
 			video.play();
-			previewCanvas.height = extractCanvas.height = video.videoHeight;
-			previewCanvas.width = extractCanvas.width = video.videoWidth;
+			previewCanvas.height = highlightCanvas.height = video.videoHeight;
+			previewCanvas.width = highlightCanvas.width = video.videoWidth;
 			const openCv = await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
 			scanner = new jscanify(openCv);
-			scannerState = 'searching';
-			scanImageTimer = setTimeout(scanImageFromVideo, 1);
+			scannerState = 'scanning';
+			scanImageTimer = setTimeout(rerunHighlightPaperInVideo, 1);
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
 		}
@@ -118,36 +200,77 @@
 </script>
 
 <PageLayout backLink="{base}/">
-	<FullBreakoutSection>
-		<section class="grid w-full grid-rows-1 place-items-center md:grid-cols-2">
-			<div
-				class="grid w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400 [grid-area:1/1/1/1]"
-			>
-				<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
-					<track kind="captions" />
-				</video>
-				<canvas bind:this={highlightCanvas} class="[grid-area:1/1/2/2]"></canvas>
-			</div>
-			<div class="border border-lime-400">
-				<canvas bind:this={extractCanvas} class="[grid-area:2/2/2/2]"></canvas>
-			</div>
+	<FullBreakoutSection class="px-8">
+		<section
+			class="relative isolate grid h-full w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400"
+		>
+			{#if scannerState === 'scanning'}
+				<button class="absolute inset-0 z-10 opacity-0" onclick={stopScanning}>Stop scanning</button
+				>
+			{/if}
+			<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
+				<track kind="captions" />
+			</video>
+			<canvas bind:this={highlightCanvas} class="h-full w-full [grid-area:1/1/2/2]"></canvas>
+			{#if scannerState === 'selecting-paper'}
+				<button
+					draggable="true"
+					ondragstart={dragStart('topLeftCorner')}
+					ondragend={dragStop('topLeftCorner')}
+					ondrag={dragging('topLeftCorner')}
+					class="absolute h-8 w-8 rounded-full bg-teal-400"
+					style="left:{lastCornerPoints?.topLeftCorner.x ?? 0}px;top:{lastCornerPoints
+						?.topLeftCorner.y ?? 0}px">↖️</button
+				>
+				<button
+					draggable="true"
+					ondragstart={dragStart('topRightCorner')}
+					ondragend={dragStop('topRightCorner')}
+					ondrag={dragging('topRightCorner')}
+					class="absolute h-8 w-8 rounded-full bg-teal-400"
+					style="left:{lastCornerPoints?.topRightCorner.x ?? 0}px;top:{lastCornerPoints
+						?.topRightCorner.y ?? 0}px">↗️</button
+				>
+				<button
+					draggable="true"
+					ondragstart={dragStart('bottomRightCorner')}
+					ondragend={dragStop('bottomRightCorner')}
+					ondrag={dragging('bottomRightCorner')}
+					class="absolute h-8 w-8 rounded-full bg-teal-400"
+					style="left:{lastCornerPoints?.bottomRightCorner.x ?? 0}px;top:{lastCornerPoints
+						?.bottomRightCorner.y ?? 0}px">↘️</button
+				>
+				<button
+					draggable="true"
+					ondragstart={dragStart('bottomLeftCorner')}
+					ondragend={dragStop('bottomLeftCorner')}
+					ondrag={dragging('bottomLeftCorner')}
+					class="absolute h-8 w-8 rounded-full bg-teal-400"
+					style="left:{lastCornerPoints?.bottomLeftCorner.x ?? 0}px;top:{lastCornerPoints
+						?.bottomLeftCorner.y ?? 0}px">↙️</button
+				>
+			{/if}
 		</section>
 		{#if scannerState === 'initializing'}
 			<div>Waiting for OpenCV</div>
-		{:else if scannerState === 'no-input-device'}
+		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
 			<button class="p-4" onclick={startScanning}>Start scanning</button>
 			{#if permissionError}
 				<p>{permissionError}</p>
 			{/if}
-		{:else if scannerState === 'searching' || scannerState === 'scanning'}
+		{:else if scannerState === 'scanning'}
 			<button class="p-4" onclick={stopScanning}>Stop scanning</button>
 			{#if availableCameras.length > 1}
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
-		{:else if scannerState === 'processing'}
-			<div>Please wait...</div>
+		{:else if scannerState === 'selecting-paper'}
+			<div class="flex items-center gap-4">
+				<label>Height: <input type="number" bind:value={resultHeight} /></label>
+				<label>Width: <input type="number" bind:value={resultWidth} /></label>
+				<button onclick={extractLatestPointsIntoPdf}>Extract</button>
+			</div>
 		{:else if scannerState === 'processed'}
 			<div>Specific format or as big as it is?</div>
 			<button onclick={() => transformToPdf(processedImage)}>Transform as it is</button>
@@ -157,5 +280,6 @@
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 		{/if}
+		<div bind:this={resultCanvasDiv}></div>
 	</FullBreakoutSection>
 </PageLayout>

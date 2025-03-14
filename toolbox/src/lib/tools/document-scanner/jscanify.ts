@@ -1,5 +1,11 @@
 /*! jscanify v1.4.0 | (c) ColonelParrot and other contributors | MIT License */
 
+export type CornerPoints = {
+	topLeftCorner: Point2d;
+	topRightCorner: Point2d;
+	bottomRightCorner: Point2d;
+	bottomLeftCorner: Point2d;
+};
 type Point2d = { x: number; y: number };
 type ImageLike = HTMLImageElement | HTMLCanvasElement | OffscreenCanvas;
 export declare namespace OpenCv {
@@ -124,6 +130,26 @@ export default class jscanify {
 		contours.delete();
 		hierarchy.delete();
 		return maxContour;
+	}
+
+	findCornerPointsOfPaper(image: ImageLike): CornerPoints | undefined {
+		const img = this.cv.imread(image);
+		try {
+			const contour = this.findPaperContour(img);
+			if (!contour) {
+				return;
+			}
+
+			const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
+				this.getCornerPoints(contour);
+			if (!(topLeftCorner && topRightCorner && bottomLeftCorner && bottomRightCorner)) {
+				return;
+			}
+
+			return { topLeftCorner, topRightCorner, bottomRightCorner, bottomLeftCorner };
+		} finally {
+			img.delete();
+		}
 	}
 
 	drawAndExtract(
