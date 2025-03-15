@@ -71,7 +71,9 @@
 		async (event) => {
 			console.log('stopping drag of', point);
 			if (!lastCornerPoints) return;
-			lastCornerPoints[point] = { x: event.clientX, y: event.clientY };
+			const x = event.screenX;
+			const y = event.screenY;
+			lastCornerPoints[point] = { x, y };
 			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
 			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
 			event.currentTarget.classList.replace('bg-red-400', 'bg-teal-400');
@@ -85,11 +87,23 @@
 		(event) => {
 			console.log('dragging', point);
 			if (!lastCornerPoints) return;
-			lastCornerPoints[point] = { x: event.clientX, y: event.clientY };
+			const x = event.screenX;
+			const y = event.screenY;
+			lastCornerPoints[point] = { x, y };
 		};
 
 	const extractLatestPointsIntoPdf: MouseEventHandler<HTMLButtonElement> = (event) => {
-		const result = scanner.extractPaper(previewCanvas, resultWidth, resultHeight, lastCornerPoints);
+		const result = scanner.extractPaper(
+			previewCanvas,
+			resultWidth,
+			resultHeight,
+			lastCornerPoints ?? {
+				topLeftCorner: { x: 0, y: 0 },
+				topRightCorner: { x: 595, y: 0 },
+				bottomLeftCorner: { x: 0, y: 842 },
+				bottomRightCorner: { x: 595, y: 842 }
+			}
+		);
 		for (const child of resultCanvasDiv.childNodes) {
 			child.remove();
 		}

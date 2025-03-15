@@ -314,18 +314,12 @@ export default class jscanify {
 		image: ImageLike,
 		resultWidth: number,
 		resultHeight: number,
-		cornerPoints?: ReturnType<typeof this.getCornerPoints>
+		cornerPoints: ReturnType<typeof this.getCornerPoints>
 	) {
 		const canvas = document.createElement('canvas');
 		const img = this.cv.imread(image);
-		const maxContour = cornerPoints ? null : this.findPaperContour(img);
 
-		if (maxContour == null && cornerPoints === undefined) {
-			return null;
-		}
-
-		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
-			cornerPoints || this.getCornerPoints(maxContour!);
+		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;
 		let warpedDst = new this.cv.Mat();
 
 		let dsize = new this.cv.Size(resultWidth, resultHeight);
