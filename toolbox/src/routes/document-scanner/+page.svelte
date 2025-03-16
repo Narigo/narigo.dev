@@ -216,54 +216,56 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		<section
-			class="relative isolate grid h-full w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400"
+			class="grid h-full w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400"
 		>
 			{#if scannerState === 'scanning'}
 				<button class="absolute inset-0 z-10 opacity-0" onclick={stopScanning}>Stop scanning</button
 				>
 			{/if}
-			<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
-				<track kind="captions" />
-			</video>
-			<canvas bind:this={highlightCanvas} class="h-full w-full [grid-area:1/1/2/2]"></canvas>
-			{#if scannerState === 'selecting-paper'}
-				<button
-					draggable="true"
-					ondragstart={dragStart('topLeftCorner')}
-					ondragend={dragStop('topLeftCorner')}
-					ondrag={dragging('topLeftCorner')}
-					class="absolute h-8 w-8 rounded-full bg-teal-400"
-					style="left:{lastCornerPoints?.topLeftCorner.x ?? 0}px;top:{lastCornerPoints
-						?.topLeftCorner.y ?? 0}px">↖️</button
-				>
-				<button
-					draggable="true"
-					ondragstart={dragStart('topRightCorner')}
-					ondragend={dragStop('topRightCorner')}
-					ondrag={dragging('topRightCorner')}
-					class="absolute h-8 w-8 rounded-full bg-teal-400"
-					style="left:{lastCornerPoints?.topRightCorner.x ?? 0}px;top:{lastCornerPoints
-						?.topRightCorner.y ?? 0}px">↗️</button
-				>
-				<button
-					draggable="true"
-					ondragstart={dragStart('bottomRightCorner')}
-					ondragend={dragStop('bottomRightCorner')}
-					ondrag={dragging('bottomRightCorner')}
-					class="absolute h-8 w-8 rounded-full bg-teal-400"
-					style="left:{lastCornerPoints?.bottomRightCorner.x ?? 0}px;top:{lastCornerPoints
-						?.bottomRightCorner.y ?? 0}px">↘️</button
-				>
-				<button
-					draggable="true"
-					ondragstart={dragStart('bottomLeftCorner')}
-					ondragend={dragStop('bottomLeftCorner')}
-					ondrag={dragging('bottomLeftCorner')}
-					class="absolute h-8 w-8 rounded-full bg-teal-400"
-					style="left:{lastCornerPoints?.bottomLeftCorner.x ?? 0}px;top:{lastCornerPoints
-						?.bottomLeftCorner.y ?? 0}px">↙️</button
-				>
-			{/if}
+			<div class="relative isolate grid grid-cols-1 grid-rows-1 border border-lime-400">
+				<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
+					<track kind="captions" />
+				</video>
+				<canvas bind:this={highlightCanvas} class="h-full w-full [grid-area:1/1/2/2]"></canvas>
+				{#if scannerState === 'selecting-paper'}
+					<button
+						draggable="true"
+						ondragstart={dragStart('topLeftCorner')}
+						ondragend={dragStop('topLeftCorner')}
+						ondrag={dragging('topLeftCorner')}
+						class="absolute h-8 w-8 rounded-full bg-teal-400"
+						style="left:{lastCornerPoints?.topLeftCorner.x ?? 0}px;top:{lastCornerPoints
+							?.topLeftCorner.y ?? 0}px">↖️</button
+					>
+					<button
+						draggable="true"
+						ondragstart={dragStart('topRightCorner')}
+						ondragend={dragStop('topRightCorner')}
+						ondrag={dragging('topRightCorner')}
+						class="absolute h-8 w-8 rounded-full bg-teal-400"
+						style="left:{lastCornerPoints?.topRightCorner.x ?? 0}px;top:{lastCornerPoints
+							?.topRightCorner.y ?? 0}px">↗️</button
+					>
+					<button
+						draggable="true"
+						ondragstart={dragStart('bottomRightCorner')}
+						ondragend={dragStop('bottomRightCorner')}
+						ondrag={dragging('bottomRightCorner')}
+						class="absolute h-8 w-8 rounded-full bg-teal-400"
+						style="left:{lastCornerPoints?.bottomRightCorner.x ?? 0}px;top:{lastCornerPoints
+							?.bottomRightCorner.y ?? 0}px">↘️</button
+					>
+					<button
+						draggable="true"
+						ondragstart={dragStart('bottomLeftCorner')}
+						ondragend={dragStop('bottomLeftCorner')}
+						ondrag={dragging('bottomLeftCorner')}
+						class="absolute h-8 w-8 rounded-full bg-teal-400"
+						style="left:{lastCornerPoints?.bottomLeftCorner.x ?? 0}px;top:{lastCornerPoints
+							?.bottomLeftCorner.y ?? 0}px">↙️</button
+					>
+				{/if}
+			</div>
 		</section>
 		{#if scannerState === 'initializing'}
 			<div>Waiting for OpenCV</div>
