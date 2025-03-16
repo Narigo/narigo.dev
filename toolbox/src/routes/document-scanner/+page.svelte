@@ -59,11 +59,15 @@
 		console.log('should transform to pdf');
 	}
 
+	let offsetX: number;
+	let offsetY: number;
 	const dragStart =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
 			console.log('trying to drag', point);
 			if (!lastCornerPoints) return;
+			offsetX = event.clientX - lastCornerPoints[point].x;
+			offsetY = event.clientY - lastCornerPoints[point].y;
 			event.currentTarget.classList.replace('bg-teal-400', 'bg-red-400');
 		};
 	const dragStop =
@@ -71,8 +75,14 @@
 		async (event) => {
 			console.log('stopping drag of', point);
 			if (!lastCornerPoints) return;
-			const x = event.screenX;
-			const y = event.screenY;
+			console.log({
+				clientLeft: event.currentTarget.clientLeft,
+				clientTop: event.currentTarget.clientTop,
+				clientX: event.clientX,
+				clientY: event.clientY
+			});
+			const x = event.clientX - offsetX;
+			const y = event.clientY - offsetY;
 			lastCornerPoints[point] = { x, y };
 			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
 			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
@@ -87,9 +97,17 @@
 		(event) => {
 			console.log('dragging', point);
 			if (!lastCornerPoints) return;
-			const x = event.screenX;
-			const y = event.screenY;
+			console.log({
+				lastCornerPointX: lastCornerPoints[point].x,
+				clientX: event.clientX,
+				screenX: event.screenX,
+				offsetLeft: event.currentTarget.offsetLeft
+			});
+			const x = event.clientX - offsetX;
+			const y = event.clientY - offsetY;
 			lastCornerPoints[point] = { x, y };
+			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
+			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
 		};
 
 	const extractLatestPointsIntoPdf: MouseEventHandler<HTMLButtonElement> = (event) => {
