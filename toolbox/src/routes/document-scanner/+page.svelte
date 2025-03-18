@@ -64,7 +64,6 @@
 	const dragStart =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
-			console.log('trying to drag', point);
 			if (!lastCornerPoints) return;
 			offsetX = event.clientX - lastCornerPoints[point].x;
 			offsetY = event.clientY - lastCornerPoints[point].y;
@@ -73,19 +72,10 @@
 	const dragStop =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		async (event) => {
-			console.log('stopping drag of', point);
 			if (!lastCornerPoints) return;
-			console.log({
-				clientLeft: event.currentTarget.clientLeft,
-				clientTop: event.currentTarget.clientTop,
-				clientX: event.clientX,
-				clientY: event.clientY
-			});
 			const x = event.clientX - offsetX;
 			const y = event.clientY - offsetY;
 			lastCornerPoints[point] = { x, y };
-			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
-			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
 			event.currentTarget.classList.replace('bg-red-400', 'bg-teal-400');
 			const ctx = highlightCanvas.getContext('2d');
 			ctx?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
@@ -95,24 +85,19 @@
 	const dragging =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
-			console.log('dragging', point);
 			if (!lastCornerPoints) return;
-			console.log({
-				lastCornerPointX: lastCornerPoints[point].x,
-				clientX: event.clientX,
-				screenX: event.screenX,
-				offsetLeft: event.currentTarget.offsetLeft
-			});
 			const x = event.clientX - offsetX;
 			const y = event.clientY - offsetY;
 			lastCornerPoints[point] = { x, y };
-			event.currentTarget.style.left = `${lastCornerPoints[point].x}px`;
-			event.currentTarget.style.top = `${lastCornerPoints[point].y}px`;
 		};
 
 	const extractLatestPointsIntoPdf: MouseEventHandler<HTMLButtonElement> = (event) => {
+		const widthAspect = highlightCanvas.width / highlightCanvas.getBoundingClientRect().width;
+		const heightAspect = highlightCanvas.height / highlightCanvas.getBoundingClientRect().height;
 		const result = scanner.extractPaper(
 			previewCanvas,
+			widthAspect,
+			heightAspect,
 			resultWidth,
 			resultHeight,
 			lastCornerPoints ?? {
@@ -131,7 +116,11 @@
 		const ctx = highlightCanvas.getContext('2d');
 		ctx?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
 		ctx?.drawImage(previewCanvas, 0, 0);
-		await highlightLastFoundPaperOnCanvas(highlightCanvas);
+		const cornerPoints = scanner.findCornerPointsOfPaper(previewCanvas, {
+			widthAspect: highlightCanvas.width / highlightCanvas.getBoundingClientRect().width,
+			heightAspect: highlightCanvas.height / highlightCanvas.getBoundingClientRect().height
+		});
+		await highlightLastFoundPaperOnCanvas(highlightCanvas, { aspect: false });
 		clearTimeout(scanImageTimer);
 		scanImageTimer = undefined;
 		cameraStream?.getTracks().forEach((track) => track.stop());
@@ -167,28 +156,51 @@
 			highlightCanvas
 				.getContext('2d')
 				?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
-			highlightLastFoundPaperOnCanvas(highlightCanvas);
+			highlightLastFoundPaperOnCanvas(highlightCanvas, { aspect: false });
 		}
 		scanImageTimer = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 	}
 
-	async function highlightLastFoundPaperOnCanvas(canvas: HTMLCanvasElement) {
+	async function highlightLastFoundPaperOnCanvas(
+		canvas: HTMLCanvasElement,
+		options: { aspect: boolean } = { aspect: true }
+	) {
 		if (!lastCornerPoints) {
 			console.warn('no corner points found');
 			return;
 		}
 		try {
+			const widthAspect = options.aspect ? canvas.width / canvas.getBoundingClientRect().width : 1;
+			const heightAspect = options.aspect
+				? canvas.height / canvas.getBoundingClientRect().height
+				: 1;
+			console.log({ lcpTl: lastCornerPoints.topLeftCorner, widthAspect, heightAspect });
 			const ctx = canvas.getContext('2d');
 			if (!ctx) return;
 			ctx.strokeStyle = 'orange';
 			ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
 			ctx.lineWidth = 5;
 			ctx.beginPath();
-			ctx.moveTo(lastCornerPoints.topLeftCorner.x, lastCornerPoints.topLeftCorner.y);
-			ctx.lineTo(lastCornerPoints.topRightCorner.x, lastCornerPoints.topRightCorner.y);
-			ctx.lineTo(lastCornerPoints.bottomRightCorner.x, lastCornerPoints.bottomRightCorner.y);
-			ctx.lineTo(lastCornerPoints.bottomLeftCorner.x, lastCornerPoints.bottomLeftCorner.y);
-			ctx.lineTo(lastCornerPoints.topLeftCorner.x, lastCornerPoints.topLeftCorner.y);
+			ctx.moveTo(
+				widthAspect * lastCornerPoints.topLeftCorner.x,
+				heightAspect * lastCornerPoints.topLeftCorner.y
+			);
+			ctx.lineTo(
+				widthAspect * lastCornerPoints.topRightCorner.x,
+				heightAspect * lastCornerPoints.topRightCorner.y
+			);
+			ctx.lineTo(
+				widthAspect * lastCornerPoints.bottomRightCorner.x,
+				heightAspect * lastCornerPoints.bottomRightCorner.y
+			);
+			ctx.lineTo(
+				widthAspect * lastCornerPoints.bottomLeftCorner.x,
+				heightAspect * lastCornerPoints.bottomLeftCorner.y
+			);
+			ctx.lineTo(
+				widthAspect * lastCornerPoints.topLeftCorner.x,
+				heightAspect * lastCornerPoints.topLeftCorner.y
+			);
 			ctx.fill();
 			ctx.stroke();
 		} catch (error) {
@@ -251,36 +263,48 @@
 						ondragstart={dragStart('topLeftCorner')}
 						ondragend={dragStop('topLeftCorner')}
 						ondrag={dragging('topLeftCorner')}
-						class="absolute h-8 w-8 rounded-full bg-teal-400"
-						style="left:{lastCornerPoints?.topLeftCorner.x ?? 0}px;top:{lastCornerPoints
-							?.topLeftCorner.y ?? 0}px">↖️</button
+						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
+						style="left:{((lastCornerPoints?.topLeftCorner.x ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) *
+							100}%;top:{((lastCornerPoints?.topLeftCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().height) *
+							100}%">↖️</button
 					>
 					<button
 						draggable="true"
 						ondragstart={dragStart('topRightCorner')}
 						ondragend={dragStop('topRightCorner')}
 						ondrag={dragging('topRightCorner')}
-						class="absolute h-8 w-8 rounded-full bg-teal-400"
-						style="left:{lastCornerPoints?.topRightCorner.x ?? 0}px;top:{lastCornerPoints
-							?.topRightCorner.y ?? 0}px">↗️</button
+						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
+						style="left:{((lastCornerPoints?.topRightCorner.x ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) *
+							100}%;top:{((lastCornerPoints?.topRightCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().height) *
+							100}%">↗️</button
 					>
 					<button
 						draggable="true"
 						ondragstart={dragStart('bottomRightCorner')}
 						ondragend={dragStop('bottomRightCorner')}
 						ondrag={dragging('bottomRightCorner')}
-						class="absolute h-8 w-8 rounded-full bg-teal-400"
-						style="left:{lastCornerPoints?.bottomRightCorner.x ?? 0}px;top:{lastCornerPoints
-							?.bottomRightCorner.y ?? 0}px">↘️</button
+						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
+						style="left:{((lastCornerPoints?.bottomRightCorner.x ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) *
+							100}%;top:{((lastCornerPoints?.bottomRightCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().height) *
+							100}%">↘️</button
 					>
 					<button
 						draggable="true"
 						ondragstart={dragStart('bottomLeftCorner')}
 						ondragend={dragStop('bottomLeftCorner')}
 						ondrag={dragging('bottomLeftCorner')}
-						class="absolute h-8 w-8 rounded-full bg-teal-400"
-						style="left:{lastCornerPoints?.bottomLeftCorner.x ?? 0}px;top:{lastCornerPoints
-							?.bottomLeftCorner.y ?? 0}px">↙️</button
+						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
+						style="left:{((lastCornerPoints?.bottomLeftCorner.x ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) *
+							100}%;top:{((lastCornerPoints?.bottomLeftCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().height) *
+							100}%">↙️</button
 					>
 				{/if}
 			</div>

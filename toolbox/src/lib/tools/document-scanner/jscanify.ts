@@ -132,7 +132,10 @@ export default class jscanify {
 		return maxContour;
 	}
 
-	findCornerPointsOfPaper(image: ImageLike): CornerPoints | undefined {
+	findCornerPointsOfPaper(
+		image: ImageLike,
+		options: { widthAspect: number; heightAspect: number } = { widthAspect: 1, heightAspect: 1 }
+	): CornerPoints | undefined {
 		const img = this.cv.imread(image);
 		try {
 			const contour = this.findPaperContour(img);
@@ -146,7 +149,24 @@ export default class jscanify {
 				return;
 			}
 
-			return { topLeftCorner, topRightCorner, bottomRightCorner, bottomLeftCorner };
+			return {
+				topLeftCorner: {
+					x: topLeftCorner.x * options.widthAspect,
+					y: topLeftCorner.y * options.heightAspect
+				},
+				topRightCorner: {
+					x: topRightCorner.x * options.widthAspect,
+					y: topRightCorner.y * options.heightAspect
+				},
+				bottomRightCorner: {
+					x: bottomRightCorner.x * options.widthAspect,
+					y: bottomRightCorner.y * options.heightAspect
+				},
+				bottomLeftCorner: {
+					x: bottomLeftCorner.x * options.widthAspect,
+					y: bottomLeftCorner.y * options.heightAspect
+				}
+			};
 		} finally {
 			img.delete();
 		}
@@ -312,6 +332,8 @@ export default class jscanify {
 	 */
 	extractPaper(
 		image: ImageLike,
+		widthAspect: number,
+		heightAspect: number,
 		resultWidth: number,
 		resultHeight: number,
 		cornerPoints: ReturnType<typeof this.getCornerPoints>
@@ -319,19 +341,27 @@ export default class jscanify {
 		const canvas = document.createElement('canvas');
 		const img = this.cv.imread(image);
 
+		console.log('extract paper', {
+			widthAspect,
+			heightAspect,
+			lcpTlx: cornerPoints.topLeftCorner.x,
+			lcpTly: cornerPoints.topLeftCorner.y,
+			imageHeight: image.height,
+			imageWidth: image.width
+		});
 		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;
 		let warpedDst = new this.cv.Mat();
 
 		let dsize = new this.cv.Size(resultWidth, resultHeight);
 		let srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
-			topLeftCorner.x,
-			topLeftCorner.y,
-			topRightCorner.x,
-			topRightCorner.y,
-			bottomLeftCorner.x,
-			bottomLeftCorner.y,
-			bottomRightCorner.x,
-			bottomRightCorner.y
+			widthAspect * topLeftCorner.x,
+			heightAspect * topLeftCorner.y,
+			widthAspect * topRightCorner.x,
+			heightAspect * topRightCorner.y,
+			widthAspect * bottomLeftCorner.x,
+			heightAspect * bottomLeftCorner.y,
+			widthAspect * bottomRightCorner.x,
+			heightAspect * bottomRightCorner.y
 		]);
 
 		let dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
