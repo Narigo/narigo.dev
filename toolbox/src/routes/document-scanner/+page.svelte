@@ -117,10 +117,13 @@
 		ctx?.clearRect(0, 0, highlightCanvas.width, highlightCanvas.height);
 		ctx?.drawImage(previewCanvas, 0, 0);
 		const cornerPoints = scanner.findCornerPointsOfPaper(previewCanvas, {
-			widthAspect: highlightCanvas.width / highlightCanvas.getBoundingClientRect().width,
-			heightAspect: highlightCanvas.height / highlightCanvas.getBoundingClientRect().height
+			widthAspect: highlightCanvas.getBoundingClientRect().width / highlightCanvas.width,
+			heightAspect: highlightCanvas.getBoundingClientRect().height / highlightCanvas.height
 		});
-		await highlightLastFoundPaperOnCanvas(highlightCanvas, { aspect: false });
+		if (cornerPoints) {
+			lastCornerPoints = cornerPoints;
+		}
+		await highlightLastFoundPaperOnCanvas(highlightCanvas);
 		clearTimeout(scanImageTimer);
 		scanImageTimer = undefined;
 		cameraStream?.getTracks().forEach((track) => track.stop());
