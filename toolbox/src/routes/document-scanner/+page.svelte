@@ -65,16 +65,17 @@
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
 			if (!lastCornerPoints) return;
-			offsetX = event.clientX - lastCornerPoints[point].x;
-			offsetY = event.clientY - lastCornerPoints[point].y;
+			offsetX = event.currentTarget.offsetLeft;
+			offsetY = event.currentTarget.offsetTop;
+			console.log({event: event})
 			event.currentTarget.classList.replace('bg-teal-400', 'bg-red-400');
 		};
 	const dragStop =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		async (event) => {
 			if (!lastCornerPoints) return;
-			const x = event.clientX - offsetX;
-			const y = event.clientY - offsetY;
+			const x = event.screenX - offsetX;
+			const y = event.screenY - offsetY;
 			lastCornerPoints[point] = { x, y };
 			event.currentTarget.classList.replace('bg-red-400', 'bg-teal-400');
 			const ctx = highlightCanvas.getContext('2d');
@@ -86,8 +87,8 @@
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
 			if (!lastCornerPoints) return;
-			const x = event.clientX - offsetX;
-			const y = event.clientY - offsetY;
+			const x = event.screenX - offsetX;
+			const y = event.screenY - offsetY;
 			lastCornerPoints[point] = { x, y };
 		};
 
