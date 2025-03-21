@@ -8,7 +8,7 @@
 		type CornerPoints
 	} from '$lib/tools/document-scanner/jscanify';
 	import { onMount, tick } from 'svelte';
-	import type { DragEventHandler, EventHandler, MouseEventHandler } from 'svelte/elements';
+	import type { DragEventHandler, MouseEventHandler } from 'svelte/elements';
 
 	let scannerState = $state<
 		| 'initializing'
@@ -59,23 +59,19 @@
 		console.log('should transform to pdf');
 	}
 
-	let offsetX: number;
-	let offsetY: number;
 	const dragStart =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
 			if (!lastCornerPoints) return;
-			offsetX = event.currentTarget.offsetLeft;
-			offsetY = event.currentTarget.offsetTop;
-			console.log({event: event})
 			event.currentTarget.classList.replace('bg-teal-400', 'bg-red-400');
 		};
 	const dragStop =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		async (event) => {
 			if (!lastCornerPoints) return;
-			const x = event.screenX - offsetX;
-			const y = event.screenY - offsetY;
+			const rect = highlightCanvas.getBoundingClientRect();
+			const x = event.clientX - rect.left;
+			const y = event.clientY - rect.top;
 			lastCornerPoints[point] = { x, y };
 			event.currentTarget.classList.replace('bg-red-400', 'bg-teal-400');
 			const ctx = highlightCanvas.getContext('2d');
@@ -87,8 +83,9 @@
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
 			if (!lastCornerPoints) return;
-			const x = event.screenX - offsetX;
-			const y = event.screenY - offsetY;
+			const rect = highlightCanvas.getBoundingClientRect();
+			const x = event.clientX - rect.left;
+			const y = event.clientY - rect.top;
 			lastCornerPoints[point] = { x, y };
 		};
 
