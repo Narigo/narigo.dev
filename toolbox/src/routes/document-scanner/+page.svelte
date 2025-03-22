@@ -175,7 +175,6 @@
 			const heightAspect = options.aspect
 				? canvas.height / canvas.getBoundingClientRect().height
 				: 1;
-			console.log({ lcpTl: lastCornerPoints.topLeftCorner, widthAspect, heightAspect });
 			const ctx = canvas.getContext('2d');
 			if (!ctx) return;
 			ctx.strokeStyle = 'orange';
