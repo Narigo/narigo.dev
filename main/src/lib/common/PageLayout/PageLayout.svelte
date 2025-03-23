@@ -23,7 +23,6 @@
 		children?: Snippet;
 	}
 
-	console.log('should have noIndex?', import.meta.env.BASE_URL !== '/');
 	let {
 		title = 'Thoughts, Talks and Trials by Narigo',
 		description = undefined,
