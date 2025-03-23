@@ -16,10 +16,10 @@
 	let isExpanded = $state(false);
 </script>
 
-<div class="flex flex-col mb-4">
+<div class="mb-4 flex flex-col">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
 	<label
-		class="bg-primary hover:bg-primary-light cursor-pointer text-white flex flex-1 isolate px-4 py-2 relative uppercase lg:hidden"
+		class="relative isolate flex flex-1 cursor-pointer bg-primary px-4 py-2 uppercase text-white hover:bg-primary-light lg:hidden"
 		for="navigation-menu-toggle-{navigationId}"
 	>
 		<div class="menu-icon"></div>
@@ -28,15 +28,15 @@
 	</label>
 	<nav class="contents">
 		<ul
-			class="flex flex-1 flex-col flex-nowrap items-stretch gap-x-2 justify-between p-0 {variant ===
+			class="flex flex-1 flex-col flex-nowrap items-stretch justify-between gap-x-2 p-0 {variant ===
 			'stretch'
 				? ''
 				: 'lg:flex-row lg:flex-wrap'}"
 		>
 			{#each menuItems as { label, href, ...linkProps }}
-				<li class="relative inline-flex flex-1 isolate">
+				<li class="relative isolate inline-flex flex-1">
 					<a
-						class="bg-primary hover:bg-primary-light flex-1 text-white hover:text-white no-underline flex py-2 px-4 m-0"
+						class="internal m-0 flex flex-1 bg-primary px-4 py-2 text-white no-underline hover:bg-primary-light hover:text-white"
 						{href}
 						{...linkProps}>{label}</a
 					>
