@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "slidev build --base /talks/webrtc-use-cases/ --out ../../build/talks/webrtc-use-cases",
 		"build-previewpage": "echo '<head><meta name=\"robots\" content=\"noindex,nofollow\" /></head>' > index.html && pnpm run build && rm index.html",
-		"dev": "slidev --open",
+		"dev": "slidev --port 3033",
 		"export": "slidev export"
 	},
 	"dependencies": {

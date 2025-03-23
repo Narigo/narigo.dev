@@ -4,11 +4,12 @@
 	"private": true,
 	"scripts": {
 		"dev": "pnpm -r run dev",
-		"build": "pnpm run build:website && rm -rf ./build && mv main/build . && pnpm run build:talks",
+		"build": "pnpm run build:website && rm -rf ./build && mv main/build . && pnpm run build:talks && pnpm run build:toolbox && mv ./toolbox/build ./build/toolbox",
 		"build:website": "pnpm --filter './main' build",
 		"build:talks": "pnpm --filter './talks/*' build",
 		"build:talks-preview": "pnpm --filter './talks/*' build-previewpage",
-		"build-previewpage": "pnpm run build:website && rm -rf ./build && mv main/build . && pnpm run build:talks-preview",
+		"build:toolbox": "pnpm --filter './toolbox' build",
+		"build-previewpage": "pnpm run build:website && rm -rf ./build && mv main/build . && pnpm run build:talks-preview && pnpm run build:toolbox && mv ./toolbox/build ./build/toolbox",
 		"test": "pnpm -r run test",
 		"lint": "pnpm -r run lint",
 		"format": "pnpm -r run format"

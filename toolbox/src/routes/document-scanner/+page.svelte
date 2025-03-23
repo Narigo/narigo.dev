@@ -33,11 +33,12 @@
 
 	let scanner: jscanify;
 	let video: HTMLVideoElement;
-	let previewCanvas = new OffscreenCanvas(0, 0);
+	let previewCanvas: OffscreenCanvas;
 	let highlightCanvas: HTMLCanvasElement;
 	let resultCanvasDiv: HTMLDivElement;
 
 	onMount(async () => {
+		previewCanvas = new OffscreenCanvas(0, 0);
 		const openCvScript = document.createElement('script');
 		openCvScript.async = true;
 		openCvScript.src = `${base}/vendor/opencv.js`;
