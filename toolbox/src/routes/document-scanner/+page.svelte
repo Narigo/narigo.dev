@@ -25,7 +25,6 @@
 	let selectedCameraIndex = $state<number>();
 	let resultHeight = $state<number>(842);
 	let resultWidth = $state<number>(595);
-	let resultAspect = $state<number>(842 / 595);
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let processedImage = $state(new Uint8Array());
 	let scanImageTimer = $state<ReturnType<typeof setTimeout>>();
