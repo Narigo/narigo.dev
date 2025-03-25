@@ -89,7 +89,7 @@
 			lastCornerPoints[point] = { x, y };
 		};
 
-	const extractLatestPointsIntoPdf: MouseEventHandler<HTMLButtonElement> = (event) => {
+	const extractLatestPointsIntoImage: MouseEventHandler<HTMLButtonElement> = (event) => {
 		const widthAspect = highlightCanvas.width / highlightCanvas.getBoundingClientRect().width;
 		const heightAspect = highlightCanvas.height / highlightCanvas.getBoundingClientRect().height;
 		const result = scanner.extractPaper(
@@ -327,7 +327,7 @@
 			<div class="flex items-center gap-4">
 				<label>Height: <input type="number" bind:value={resultHeight} /></label>
 				<label>Width: <input type="number" bind:value={resultWidth} /></label>
-				<button onclick={extractLatestPointsIntoPdf}>Extract</button>
+				<button onclick={extractLatestPointsIntoImage}>Extract</button>
 			</div>
 		{:else if scannerState === 'processed'}
 			<div>Specific format or as big as it is?</div>
