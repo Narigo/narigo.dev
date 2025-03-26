@@ -34,6 +34,7 @@
 	let video: HTMLVideoElement;
 	let previewCanvas: OffscreenCanvas;
 	let highlightCanvas: HTMLCanvasElement;
+	let previewDiv: HTMLDivElement;
 	let resultCanvasDiv: HTMLDivElement;
 
 	onMount(async () => {
@@ -108,6 +109,7 @@
 		for (const child of resultCanvasDiv.childNodes) {
 			child.remove();
 		}
+		result.setAttribute('class', 'max-w-full');
 		resultCanvasDiv.append(result);
 	};
 	async function stopScanning() {
@@ -216,7 +218,7 @@
 					? { facingMode: 'environment' }
 					: { deviceId: availableCameras[selectedCameraIndex].deviceId };
 			cameraStream = await navigator.mediaDevices.getUserMedia({
-				video: constraint
+				video: { ...constraint, width: 2880, height: 1800 }
 			});
 			if (!cameraStream) {
 				throw Error('No camera found');
@@ -246,17 +248,25 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		<section
-			class="grid h-full w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400"
+			class="grid h-full max-h-screen w-full grid-cols-1 grid-rows-1 place-items-center border border-red-400"
 		>
 			{#if scannerState === 'scanning'}
 				<button class="absolute inset-0 z-10 opacity-0" onclick={stopScanning}>Stop scanning</button
 				>
 			{/if}
-			<div class="relative isolate grid grid-cols-1 grid-rows-1 border border-lime-400">
-				<video bind:this={video} class="[grid-area:1/1/2/2]" playsinline>
+			<div
+				bind:this={previewDiv}
+				class="relative isolate grid max-h-full max-w-full grid-cols-1 grid-rows-1 border border-lime-400"
+			>
+				<video
+					bind:this={video}
+					class="m-auto max-h-full max-w-full [grid-area:1/1/2/2]"
+					playsinline
+				>
 					<track kind="captions" />
 				</video>
-				<canvas bind:this={highlightCanvas} class="h-full w-full [grid-area:1/1/2/2]"></canvas>
+				<canvas bind:this={highlightCanvas} class="m-auto max-h-full max-w-full [grid-area:1/1/2/2]"
+				></canvas>
 				{#if scannerState === 'selecting-paper'}
 					<button
 						draggable="true"
@@ -264,10 +274,22 @@
 						ondragend={dragStop('topLeftCorner')}
 						ondrag={dragging('topLeftCorner')}
 						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
-						style="left:{((lastCornerPoints?.topLeftCorner.x ?? 0) /
+						style="left:{((((lastCornerPoints?.topLeftCorner.x ?? 0) /
 							highlightCanvas.getBoundingClientRect().width) *
-							100}%;top:{((lastCornerPoints?.topLeftCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) /
+							previewDiv.getBoundingClientRect().width +
+							(previewDiv.getBoundingClientRect().width -
+								highlightCanvas.getBoundingClientRect().width) /
+								2 /
+								previewDiv.getBoundingClientRect().width) *
+							100}%;top:{((((lastCornerPoints?.topLeftCorner.y ?? 0) /
 							highlightCanvas.getBoundingClientRect().height) *
+							highlightCanvas.getBoundingClientRect().height) /
+							previewDiv.getBoundingClientRect().height +
+							(previewDiv.getBoundingClientRect().height -
+								highlightCanvas.getBoundingClientRect().height) /
+								2 /
+								previewDiv.getBoundingClientRect().height) *
 							100}%">↖️</button
 					>
 					<button
@@ -276,10 +298,22 @@
 						ondragend={dragStop('topRightCorner')}
 						ondrag={dragging('topRightCorner')}
 						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
-						style="left:{((lastCornerPoints?.topRightCorner.x ?? 0) /
+						style="left:{((((lastCornerPoints?.topRightCorner.x ?? 0) /
 							highlightCanvas.getBoundingClientRect().width) *
-							100}%;top:{((lastCornerPoints?.topRightCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) /
+							previewDiv.getBoundingClientRect().width +
+							(previewDiv.getBoundingClientRect().width -
+								highlightCanvas.getBoundingClientRect().width) /
+								2 /
+								previewDiv.getBoundingClientRect().width) *
+							100}%;top:{((((lastCornerPoints?.topRightCorner.y ?? 0) /
 							highlightCanvas.getBoundingClientRect().height) *
+							highlightCanvas.getBoundingClientRect().height) /
+							previewDiv.getBoundingClientRect().height +
+							(previewDiv.getBoundingClientRect().height -
+								highlightCanvas.getBoundingClientRect().height) /
+								2 /
+								previewDiv.getBoundingClientRect().height) *
 							100}%">↗️</button
 					>
 					<button
@@ -288,10 +322,22 @@
 						ondragend={dragStop('bottomRightCorner')}
 						ondrag={dragging('bottomRightCorner')}
 						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
-						style="left:{((lastCornerPoints?.bottomRightCorner.x ?? 0) /
+						style="left:{((((lastCornerPoints?.bottomRightCorner.x ?? 0) /
 							highlightCanvas.getBoundingClientRect().width) *
-							100}%;top:{((lastCornerPoints?.bottomRightCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) /
+							previewDiv.getBoundingClientRect().width +
+							(previewDiv.getBoundingClientRect().width -
+								highlightCanvas.getBoundingClientRect().width) /
+								2 /
+								previewDiv.getBoundingClientRect().width) *
+							100}%;top:{((((lastCornerPoints?.bottomRightCorner.y ?? 0) /
 							highlightCanvas.getBoundingClientRect().height) *
+							highlightCanvas.getBoundingClientRect().height) /
+							previewDiv.getBoundingClientRect().height +
+							(previewDiv.getBoundingClientRect().height -
+								highlightCanvas.getBoundingClientRect().height) /
+								2 /
+								previewDiv.getBoundingClientRect().height) *
 							100}%">↘️</button
 					>
 					<button
@@ -300,10 +346,22 @@
 						ondragend={dragStop('bottomLeftCorner')}
 						ondrag={dragging('bottomLeftCorner')}
 						class="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400"
-						style="left:{((lastCornerPoints?.bottomLeftCorner.x ?? 0) /
+						style="left:{((((lastCornerPoints?.bottomLeftCorner.x ?? 0) /
 							highlightCanvas.getBoundingClientRect().width) *
-							100}%;top:{((lastCornerPoints?.bottomLeftCorner.y ?? 0) /
+							highlightCanvas.getBoundingClientRect().width) /
+							previewDiv.getBoundingClientRect().width +
+							(previewDiv.getBoundingClientRect().width -
+								highlightCanvas.getBoundingClientRect().width) /
+								2 /
+								previewDiv.getBoundingClientRect().width) *
+							100}%;top:{((((lastCornerPoints?.bottomLeftCorner.y ?? 0) /
 							highlightCanvas.getBoundingClientRect().height) *
+							highlightCanvas.getBoundingClientRect().height) /
+							previewDiv.getBoundingClientRect().height +
+							(previewDiv.getBoundingClientRect().height -
+								highlightCanvas.getBoundingClientRect().height) /
+								2 /
+								previewDiv.getBoundingClientRect().height) *
 							100}%">↙️</button
 					>
 				{/if}
@@ -338,6 +396,6 @@
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 		{/if}
-		<div bind:this={resultCanvasDiv}></div>
+		<div class="max-w-full" bind:this={resultCanvasDiv}></div>
 	</FullBreakoutSection>
 </PageLayout>
