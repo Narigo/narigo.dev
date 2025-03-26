@@ -10,6 +10,9 @@
 	import { onMount, tick } from 'svelte';
 	import type { DragEventHandler, MouseEventHandler } from 'svelte/elements';
 
+	const A4_HEIGHT = 842;
+	const A4_WIDTH = 595;
+
 	let scannerState = $state<
 		| 'initializing'
 		| 'error-no-input-device'
@@ -382,9 +385,15 @@
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'selecting-paper'}
-			<div class="flex items-center gap-4">
+			<div class="flex flex-wrap items-center gap-4">
 				<label>Height: <input type="number" bind:value={resultHeight} /></label>
 				<label>Width: <input type="number" bind:value={resultWidth} /></label>
+				<button
+					onclick={() => {
+						resultHeight = A4_HEIGHT;
+						resultWidth = A4_WIDTH;
+					}}>A4</button
+				>
 				<button onclick={extractLatestPointsIntoImage}>Extract</button>
 			</div>
 		{:else if scannerState === 'processed'}
