@@ -114,6 +114,7 @@
 		}
 		result.setAttribute('class', 'max-w-full');
 		resultCanvasDiv.append(result);
+		scannerState = "processed";
 	};
 	async function stopScanning() {
 		const ctx = highlightCanvas.getContext('2d');
