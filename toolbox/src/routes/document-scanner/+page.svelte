@@ -60,6 +60,7 @@
 		image: Uint8Array,
 		_options: { format: 'A4' | 'auto' } = { format: 'A4' }
 	) {
+		console.log('should minify first');
 		console.log('should transform to pdf');
 	}
 
