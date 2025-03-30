@@ -62,6 +62,7 @@
 	) {
 		console.log('should minify first');
 		console.log('should transform to pdf');
+		console.log('ability to add image to pdf');
 	}
 
 	const dragStart =
