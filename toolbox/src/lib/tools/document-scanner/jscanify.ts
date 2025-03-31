@@ -6,8 +6,8 @@ export type CornerPoints = {
 	bottomRightCorner: Point2d;
 	bottomLeftCorner: Point2d;
 };
-type Point2d = { x: number; y: number };
-type ImageLike = HTMLImageElement | HTMLCanvasElement | OffscreenCanvas;
+export type Point2d = { x: number; y: number };
+export type ImageLike = HTMLImageElement | HTMLCanvasElement | OffscreenCanvas;
 export declare namespace OpenCv {
 	const BORDER_DEFAULT: any;
 	const THRESH_OTSU: any;
