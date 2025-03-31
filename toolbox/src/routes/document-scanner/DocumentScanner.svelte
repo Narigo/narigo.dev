@@ -5,6 +5,7 @@
 		OpenCv,
 		Point2d
 	} from '$lib/tools/document-scanner/jscanify';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		openCv: typeof OpenCv;
@@ -12,8 +13,11 @@
 
 	let { openCv }: Props = $props();
 
+	const SCAN_IMAGE_TIME_IN_MS = 100;
+
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
+	let previewCanvas: OffscreenCanvas;
 
 	function findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new openCv.Mat();
@@ -114,32 +118,6 @@
 		};
 	}
 
-	function drawPaperOnCanvas(
-		image: OpenCv.Mat,
-		canvas: HTMLCanvasElement,
-		contour: OpenCv.Mat,
-		options: { color: string; thickness: number } = { color: 'orange', thickness: 10 }
-	) {
-		const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
-		openCv.imshow(canvas, image);
-
-		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
-			getCornerPoints(contour);
-		if (topLeftCorner && topRightCorner && bottomLeftCorner && bottomRightCorner) {
-			ctx.strokeStyle = options.color;
-			ctx.lineWidth = options.thickness;
-			ctx.beginPath();
-			ctx.moveTo(topLeftCorner.x, topLeftCorner.y);
-			ctx.lineTo(topRightCorner.x, topRightCorner.y);
-			ctx.lineTo(bottomRightCorner.x, bottomRightCorner.y);
-			ctx.lineTo(bottomLeftCorner.x, bottomLeftCorner.y);
-			ctx.lineTo(topLeftCorner.x, topLeftCorner.y);
-			ctx.stroke();
-		}
-
-		return canvas;
-	}
-
 	function findCornerPointsOfPaper(
 		image: ImageLike,
 		options: { widthAspect: number; heightAspect: number } = { widthAspect: 1, heightAspect: 1 }
@@ -179,6 +157,43 @@
 			img.delete();
 		}
 	}
+
+	onMount(() => {
+		previewCanvas = new OffscreenCanvas(videoFeed.width, videoFeed.height);
+		const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
+		let timerId: ReturnType<typeof setTimeout> = setTimeout(
+			rerunHighlightPaperInVideo,
+			SCAN_IMAGE_TIME_IN_MS
+		);
+
+		function rerunHighlightPaperInVideo() {
+			previewCanvasCtx.drawImage(videoFeed, 0, 0);
+			const cornerPoints = findCornerPointsOfPaper(previewCanvas);
+			if (cornerPoints) {
+				const ctx = highlightedPaper.getContext('2d');
+				if (!ctx) {
+					console.log('Could not draw on highlightedPaper canvas');
+					return;
+				}
+				ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
+				ctx.strokeStyle = 'orange';
+				ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
+				ctx.lineWidth = 5;
+				ctx.beginPath();
+				ctx.moveTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+				ctx.lineTo(cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y);
+				ctx.lineTo(cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y);
+				ctx.lineTo(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y);
+				ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+				ctx.fill();
+				ctx.stroke();
+			}
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+		}
+		return () => {
+			clearTimeout(timerId);
+		};
+	});
 </script>
 
 <section>
