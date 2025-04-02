@@ -29,7 +29,6 @@
 	let resultHeight = $state<number>(842);
 	let resultWidth = $state<number>(595);
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
-	let processedImage = $state(new Uint8Array());
 	let scanImageTimer = $state<ReturnType<typeof setTimeout>>();
 	let lastCornerPoints = $state<CornerPoints>();
 
@@ -116,7 +115,7 @@
 		}
 		result.setAttribute('class', 'max-w-full');
 		resultCanvasDiv.append(result);
-		scannerState = "processed";
+		scannerState = 'processed';
 	};
 	async function stopScanning() {
 		const ctx = highlightCanvas.getContext('2d');
@@ -248,6 +247,20 @@
 		} catch (error) {
 			permissionError = 'Error when using devices: ' + error;
 		}
+	}
+
+	function downloadResult() {
+		const canvas = resultCanvasDiv.querySelector('canvas');
+		if (!canvas) {
+			alert('No result canvas found to download image!');
+			return;
+		}
+		const today = new Date();
+		const [year, month, date] = today.toISOString().substring(0, 10).split('-');
+		const link = document.createElement('a');
+		link.download = `${year}-${month}-${date} scan.jpg`;
+		link.href = canvas.toDataURL('image/jpeg');
+		link.click();
 	}
 </script>
 
@@ -400,11 +413,7 @@
 				<button onclick={extractLatestPointsIntoImage}>Extract</button>
 			</div>
 		{:else if scannerState === 'processed'}
-			<div>Specific format or as big as it is?</div>
-			<button onclick={() => transformToPdf(processedImage)}>Transform as it is</button>
-			<button onclick={() => transformToPdf(processedImage, { format: 'A4' })}
-				>Transform into A4</button
-			>
+			<button onclick={() => downloadResult()}>Download</button>
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 		{/if}

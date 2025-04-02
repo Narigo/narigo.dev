@@ -47,6 +47,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
-		"@inlang/paraglide-sveltekit": "^0.15.5"
+		"@inlang/paraglide-sveltekit": "^0.15.5",
+		"@vitejs/plugin-basic-ssl": "^2.0.0"
 	}
 }
