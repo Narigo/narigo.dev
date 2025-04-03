@@ -7,11 +7,19 @@
 	} from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
 
+    type RecordedImage = {
+        src: string;
+        x: string;
+        nice: string;
+        nope: string;
+    }
 	interface Props {
+		onscan: (image: RecordedImage) => void;
 		openCv: typeof OpenCv;
+		videoStream: MediaStream;
 	}
 
-	let { openCv }: Props = $props();
+	let { openCv, videoStream }: Props = $props();
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
 
@@ -159,6 +167,7 @@
 	}
 
 	onMount(() => {
+		videoFeed.srcObject = videoStream;
 		previewCanvas = new OffscreenCanvas(videoFeed.width, videoFeed.height);
 		const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
 		let timerId: ReturnType<typeof setTimeout> = setTimeout(
@@ -192,6 +201,8 @@
 		}
 		return () => {
 			clearTimeout(timerId);
+			videoFeed.pause();
+			videoFeed.srcObject = null;
 		};
 	});
 </script>

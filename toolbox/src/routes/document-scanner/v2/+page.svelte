@@ -1,0 +1,130 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
+	import PageLayout from '$lib/common/PageLayout.svelte';
+	import type { OpenCv, Point2d } from '$lib/tools/document-scanner/jscanify';
+	import { onMount } from 'svelte';
+	import DocumentScanner from './DocumentScanner.svelte';
+
+    type ContourPoints = {
+        topLeft: {x: Point2d,y: Point2d};
+        topRight: {x: Point2d,y: Point2d};
+        bottomLeft: {x: Point2d,y: Point2d};
+        bottomRight: {x: Point2d,y: Point2d};
+    }
+    type RecordedImage = {
+        src: Uint8Array
+        height: number;
+        width: number;
+    }
+    type ExtractedImage = {
+        src: Uint8Array,
+        contourPoints: ContourPoints;
+    }
+
+    let scannerState = $state<
+		| 'initializing'
+		| 'error-no-input-device'
+		| 'needs-permission'
+		| 'scanning'
+		| 'selecting-paper'
+		| 'processing'
+		| 'processed'
+		| 'result'
+	>('initializing');
+	let permissionError = $state<string>();
+	let cameraStream = $state<MediaStream>();
+	let openCv = $state<typeof OpenCv>();
+	let selectedCameraIndex = $state<number>();
+	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
+	let recordedImages = $state<Array<RecordedImage>>([]);
+
+	async function nextCamera() {
+		if (selectedCameraIndex === undefined) {
+			selectedCameraIndex = -1;
+		}
+		selectedCameraIndex = (selectedCameraIndex + 1) % availableCameras.length;
+		cameraStream?.getTracks().forEach((track) => track.stop());
+		cameraStream = undefined;
+		startScanning();
+	}
+
+	async function startScanning() {
+		try {
+			permissionError = undefined;
+			const constraint =
+				selectedCameraIndex === undefined
+					? { facingMode: 'environment' }
+					: { deviceId: availableCameras[selectedCameraIndex].deviceId };
+			cameraStream = await navigator.mediaDevices.getUserMedia({
+				video: { ...constraint, width: 2880, height: 1800 }
+			});
+			if (!cameraStream) {
+				throw Error('No camera found');
+			}
+			selectedCameraIndex =
+				availableCameras.findIndex((camera) =>
+					cameraStream?.getTracks().some((track) => track.label === camera.label)
+				) ?? 0;
+			scannerState = 'scanning';
+		} catch (error) {
+			permissionError = 'Error when using devices: ' + error;
+		}
+	}
+
+	onMount(async () => {
+		const openCvScript = document.createElement('script');
+		openCvScript.async = true;
+		openCvScript.src = `${base}/vendor/opencv.js`;
+		openCvScript.onload = () => {
+			scannerState =
+				'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+					? 'needs-permission'
+					: 'error-no-input-device';
+		};
+		document.body.appendChild(openCvScript);
+		openCv = await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
+		const devices = await navigator.mediaDevices.enumerateDevices();
+		availableCameras = devices.filter((device) => device.kind === 'videoinput');
+	});
+</script>
+
+<PageLayout backLink="{base}/">
+	<FullBreakoutSection class="px-8">
+		{#if scannerState === 'initializing'}
+			<div>Waiting for OpenCV</div>
+		{:else if scannerState === 'error-no-input-device'}
+			<div>No input device found</div>
+		{:else if scannerState === 'needs-permission'}
+			<button class="p-4" onclick={startScanning}>Start scanning</button>
+			{#if permissionError}
+				<p>{permissionError}</p>
+			{/if}
+		{:else if scannerState === 'scanning' && cameraStream && openCv}
+			<DocumentScanner
+				videoStream={cameraStream}
+				{openCv}
+				onscan={(image) => {
+					recordedImages = [...recordedImages, {src: image, width: 519, height: 829}];
+				}}
+				onclose={() => {
+					scannerState = 'processing';
+				}}
+			/>
+			{#if availableCameras.length > 1}
+				<button class="p-4" onclick={nextCamera}>Next camera</button>
+			{/if}
+		{:else if scannerState === 'processing'}
+			<div class="flex flex-wrap items-center gap-4">
+				{#each recordedImages as image, index}
+					<div>Image {index} ...</div>
+				{/each}
+                <button onclick={() => scannerState()}
+			</div>
+		{:else if scannerState === 'processed'}
+			<button onclick={() => downloadResult()}>Download</button>
+		{:else if scannerState === 'result'}
+			<div>Here should be the PDF:</div>
+		{/if}
+	</FullBreakoutSection>
+</PageLayout>
