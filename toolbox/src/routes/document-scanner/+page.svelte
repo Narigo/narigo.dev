@@ -55,15 +55,6 @@
 		availableCameras = devices.filter((device) => device.kind === 'videoinput');
 	});
 
-	async function transformToPdf(
-		image: Uint8Array,
-		_options: { format: 'A4' | 'auto' } = { format: 'A4' }
-	) {
-		console.log('should minify first');
-		console.log('should transform to pdf');
-		console.log('ability to add image to pdf');
-	}
-
 	const dragStart =
 		(point: keyof CornerPoints): DragEventHandler<HTMLButtonElement> =>
 		(event) => {
