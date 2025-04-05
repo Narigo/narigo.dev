@@ -7,13 +7,24 @@
 	} from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
 
-    type RecordedImage = {
-        src: string;
-        x: string;
-        nice: string;
-        nope: string;
-    }
+	export type ContourPoints = {
+		topLeft: { x: Point2d; y: Point2d };
+		topRight: { x: Point2d; y: Point2d };
+		bottomLeft: { x: Point2d; y: Point2d };
+		bottomRight: { x: Point2d; y: Point2d };
+	};
+	export type RecordedImage = {
+		data: Uint8Array;
+		height: number;
+		width: number;
+	};
+	export type ExtractedImage = {
+		source: RecordedImage;
+		contourPoints: ContourPoints;
+	};
+
 	interface Props {
+		onclose: () => void;
 		onscan: (image: RecordedImage) => void;
 		openCv: typeof OpenCv;
 		videoStream: MediaStream;
@@ -199,6 +210,7 @@
 			}
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
+
 		return () => {
 			clearTimeout(timerId);
 			videoFeed.pause();

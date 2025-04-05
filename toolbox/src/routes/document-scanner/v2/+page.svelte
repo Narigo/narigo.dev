@@ -4,25 +4,9 @@
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import type { OpenCv, Point2d } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
-	import DocumentScanner from './DocumentScanner.svelte';
+	import DocumentScanner, { type RecordedImage } from './DocumentScanner.svelte';
 
-    type ContourPoints = {
-        topLeft: {x: Point2d,y: Point2d};
-        topRight: {x: Point2d,y: Point2d};
-        bottomLeft: {x: Point2d,y: Point2d};
-        bottomRight: {x: Point2d,y: Point2d};
-    }
-    type RecordedImage = {
-        src: Uint8Array
-        height: number;
-        width: number;
-    }
-    type ExtractedImage = {
-        src: Uint8Array,
-        contourPoints: ContourPoints;
-    }
-
-    let scannerState = $state<
+	let scannerState = $state<
 		| 'initializing'
 		| 'error-no-input-device'
 		| 'needs-permission'
@@ -50,6 +34,8 @@
 	}
 
 	async function startScanning() {
+		console.log('startScanning()');
+
 		try {
 			permissionError = undefined;
 			const constraint =
@@ -62,27 +48,37 @@
 			if (!cameraStream) {
 				throw Error('No camera found');
 			}
+			console.log('selecting camera index');
 			selectedCameraIndex =
 				availableCameras.findIndex((camera) =>
 					cameraStream?.getTracks().some((track) => track.label === camera.label)
 				) ?? 0;
+			console.log('cameraStream = ?', cameraStream);
+			console.log('openCv = ?', openCv);
 			scannerState = 'scanning';
 		} catch (error) {
+			console.log('got an error starting to scan', error);
 			permissionError = 'Error when using devices: ' + error;
 		}
 	}
 
 	onMount(async () => {
-		const openCvScript = document.createElement('script');
-		openCvScript.async = true;
-		openCvScript.src = `${base}/vendor/opencv.js`;
-		openCvScript.onload = () => {
-			scannerState =
-				'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
-					? 'needs-permission'
-					: 'error-no-input-device';
-		};
-		document.body.appendChild(openCvScript);
+		await new Promise<void>((resolve, reject) => {
+			const openCvScript = document.createElement('script');
+			openCvScript.async = true;
+			openCvScript.src = `${base}/vendor/opencv.js`;
+			openCvScript.onload = () => {
+				scannerState =
+					'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+						? 'needs-permission'
+						: 'error-no-input-device';
+				resolve();
+			};
+			openCvScript.onerror = (error) => {
+				reject(error);
+			};
+			document.body.appendChild(openCvScript);
+		});
 		openCv = await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		availableCameras = devices.filter((device) => device.kind === 'videoinput');
@@ -105,7 +101,7 @@
 				videoStream={cameraStream}
 				{openCv}
 				onscan={(image) => {
-					recordedImages = [...recordedImages, {src: image, width: 519, height: 829}];
+					recordedImages = [...recordedImages, image];
 				}}
 				onclose={() => {
 					scannerState = 'processing';
@@ -119,10 +115,18 @@
 				{#each recordedImages as image, index}
 					<div>Image {index} ...</div>
 				{/each}
-                <button onclick={() => scannerState()}
+				<button
+					onclick={() => {
+						scannerState = 'result';
+					}}>next</button
+				>
 			</div>
 		{:else if scannerState === 'processed'}
-			<button onclick={() => downloadResult()}>Download</button>
+			<button
+				onclick={() => {
+					// downloadResult();
+				}}>Download</button
+			>
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 		{/if}

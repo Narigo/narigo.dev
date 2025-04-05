@@ -8,7 +8,7 @@
 		{ href: `${base}/`, label: '🏠 Home' },
 		{ href: `${base}/articles`, label: '📝 Articles' },
 		{ href: `${base}/talks`, label: '🗣️ Talks' },
-		{ href: `${base}/toolbox`, label: '🛠️ Toolbox', rel: 'external'},
+		{ href: `${base}/toolbox`, label: '🛠️ Toolbox', rel: 'external' },
 		{ href: `${base}/specials`, label: '🤪 Specials' },
 		{ href: `${base}/contact`, label: '🧑‍💼 Contact' }
 	]}
