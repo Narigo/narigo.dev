@@ -137,10 +137,7 @@
 		};
 	}
 
-	function findCornerPointsOfPaper(
-		image: ImageLike,
-		options: { widthAspect: number; heightAspect: number } = { widthAspect: 1, heightAspect: 1 }
-	): CornerPoints | undefined {
+	function findCornerPointsOfPaper(image: ImageLike): CornerPoints | undefined {
 		const img = openCv.imread(image);
 		try {
 			const contour = findPaperContour(img);
@@ -148,30 +145,20 @@
 				return;
 			}
 
-			const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } =
-				getCornerPoints(contour);
-			if (!(topLeftCorner && topRightCorner && bottomLeftCorner && bottomRightCorner)) {
+			const cornerPoints = getCornerPoints(contour);
+			if (
+				!(
+					cornerPoints &&
+					cornerPoints.topLeftCorner &&
+					cornerPoints.topRightCorner &&
+					cornerPoints.bottomLeftCorner &&
+					cornerPoints.bottomRightCorner
+				)
+			) {
 				return;
 			}
 
-			return {
-				topLeftCorner: {
-					x: topLeftCorner.x * options.widthAspect,
-					y: topLeftCorner.y * options.heightAspect
-				},
-				topRightCorner: {
-					x: topRightCorner.x * options.widthAspect,
-					y: topRightCorner.y * options.heightAspect
-				},
-				bottomRightCorner: {
-					x: bottomRightCorner.x * options.widthAspect,
-					y: bottomRightCorner.y * options.heightAspect
-				},
-				bottomLeftCorner: {
-					x: bottomLeftCorner.x * options.widthAspect,
-					y: bottomLeftCorner.y * options.heightAspect
-				}
-			};
+			return cornerPoints;
 		} finally {
 			img.delete();
 		}
@@ -179,6 +166,8 @@
 
 	onMount(() => {
 		videoFeed.srcObject = videoStream;
+		console.log('width:', videoFeed.videoWidth);
+		console.log('height:', videoFeed.videoHeight);
 		previewCanvas = new OffscreenCanvas(videoFeed.width, videoFeed.height);
 		const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
 		let timerId: ReturnType<typeof setTimeout> = setTimeout(
@@ -189,25 +178,28 @@
 		function rerunHighlightPaperInVideo() {
 			previewCanvasCtx.drawImage(videoFeed, 0, 0);
 			const cornerPoints = findCornerPointsOfPaper(previewCanvas);
-			if (cornerPoints) {
-				const ctx = highlightedPaper.getContext('2d');
-				if (!ctx) {
-					console.log('Could not draw on highlightedPaper canvas');
-					return;
-				}
-				ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
-				ctx.strokeStyle = 'orange';
-				ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
-				ctx.lineWidth = 5;
-				ctx.beginPath();
-				ctx.moveTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
-				ctx.lineTo(cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y);
-				ctx.lineTo(cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y);
-				ctx.lineTo(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y);
-				ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
-				ctx.fill();
-				ctx.stroke();
+			if (!cornerPoints) {
+				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+				return;
 			}
+			const ctx = highlightedPaper.getContext('2d');
+			if (!ctx) {
+				console.log('Could not draw on highlightedPaper canvas');
+				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+				return;
+			}
+			ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
+			ctx.strokeStyle = 'orange';
+			ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
+			ctx.lineWidth = 5;
+			ctx.beginPath();
+			ctx.moveTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+			ctx.lineTo(cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y);
+			ctx.lineTo(cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y);
+			ctx.lineTo(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y);
+			ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+			ctx.fill();
+			ctx.stroke();
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
 
