@@ -5,7 +5,7 @@
 		OpenCv,
 		Point2d
 	} from '$lib/tools/document-scanner/jscanify';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 
 	export type ContourPoints = {
 		topLeft: { x: Point2d; y: Point2d };
@@ -165,17 +165,21 @@
 	}
 
 	onMount(() => {
+		let timerId: ReturnType<typeof setTimeout> | undefined = undefined;
+
 		videoFeed.srcObject = videoStream;
-		console.log('width:', videoFeed.videoWidth);
-		console.log('height:', videoFeed.videoHeight);
-		previewCanvas = new OffscreenCanvas(videoFeed.width, videoFeed.height);
-		const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
-		let timerId: ReturnType<typeof setTimeout> = setTimeout(
-			rerunHighlightPaperInVideo,
-			SCAN_IMAGE_TIME_IN_MS
-		);
+		$inspect(videoFeed.videoWidth).with(console.log);
+		$inspect(videoFeed.videoHeight).with(console.log);
+		videoFeed.onloadedmetadata = () => {
+			videoFeed.play();
+			previewCanvas = new OffscreenCanvas(videoFeed.videoWidth, videoFeed.videoHeight);
+			highlightedPaper.width = videoFeed.videoWidth;
+			highlightedPaper.height = videoFeed.videoHeight;
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+		};
 
 		function rerunHighlightPaperInVideo() {
+			const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
 			previewCanvasCtx.drawImage(videoFeed, 0, 0);
 			const cornerPoints = findCornerPointsOfPaper(previewCanvas);
 			if (!cornerPoints) {
@@ -211,9 +215,9 @@
 	});
 </script>
 
-<section>
-	<video bind:this={videoFeed}>
+<section class="grid grid-cols-1 grid-rows-1">
+	<video bind:this={videoFeed} id="videofeed" class="[grid-area:1/1/2/2]">
 		<track kind="captions" />
 	</video>
-	<canvas bind:this={highlightedPaper}></canvas>
+	<canvas bind:this={highlightedPaper} id="hlpaper" class="[grid-area:1/1/2/2]"></canvas>
 </section>
