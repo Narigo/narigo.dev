@@ -215,9 +215,9 @@
 	});
 </script>
 
-<section class="grid grid-cols-1 grid-rows-1">
-	<video bind:this={videoFeed} id="videofeed" class="[grid-area:1/1/2/2]">
+<section class="grid grid-cols-1 grid-rows-1 max-h-dvh">
+	<video bind:this={videoFeed} id="videofeed" class="[grid-area:1/1/2/2] max-h-full">
 		<track kind="captions" />
 	</video>
-	<canvas bind:this={highlightedPaper} id="hlpaper" class="[grid-area:1/1/2/2]"></canvas>
+	<canvas bind:this={highlightedPaper} id="hlpaper" class="[grid-area:1/1/2/2] max-h-full"></canvas>
 </section>
