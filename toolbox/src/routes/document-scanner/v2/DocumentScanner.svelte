@@ -37,6 +37,7 @@
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
 	let previewCanvas: OffscreenCanvas;
+	let cornerPoints = $state<CornerPoints>();
 
 	function findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new openCv.Mat();
@@ -164,9 +165,80 @@
 		}
 	}
 
-	onMount(() => {
-		let timerId: ReturnType<typeof setTimeout> | undefined = undefined;
+	let timerId: ReturnType<typeof setTimeout> | undefined = undefined;
+	function stopScan() {
+		clearTimeout(timerId);
+		const ctx = highlightedPaper.getContext('2d');
+		if (!ctx) {
+			console.error('Could not get context of highlightedPaper');
+			return;
+		}
+		if (!cornerPoints) {
+			console.error('Could not find any cornerPoints');
+			return;
+		}
 
+		const midPointTop = {
+			x:
+				Math.min(cornerPoints.topLeftCorner.x, cornerPoints.topRightCorner.x) +
+				Math.abs(cornerPoints.topLeftCorner.x - cornerPoints.topRightCorner.x) / 2,
+			y:
+				Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y) +
+				Math.abs(cornerPoints.topLeftCorner.y - cornerPoints.topRightCorner.y) / 2
+		};
+		const midPointBottom = {
+			x:
+				Math.min(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomRightCorner.x) +
+				Math.abs(cornerPoints.bottomLeftCorner.x - cornerPoints.bottomRightCorner.x) / 2,
+			y:
+				Math.min(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) +
+				Math.abs(cornerPoints.bottomLeftCorner.y - cornerPoints.bottomRightCorner.y) / 2
+		};
+		const midPointLeft = {
+			x:
+				Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x) +
+				Math.abs(cornerPoints.topLeftCorner.x - cornerPoints.bottomLeftCorner.x) / 2,
+			y:
+				Math.min(cornerPoints.topLeftCorner.y, cornerPoints.bottomLeftCorner.y) +
+				Math.abs(cornerPoints.topLeftCorner.y - cornerPoints.bottomLeftCorner.y) / 2
+		};
+		const midPointRight = {
+			x:
+				Math.min(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) +
+				Math.abs(cornerPoints.topRightCorner.x - cornerPoints.bottomRightCorner.x) / 2,
+			y:
+				Math.min(cornerPoints.topRightCorner.y, cornerPoints.bottomRightCorner.y) +
+				Math.abs(cornerPoints.topRightCorner.y - cornerPoints.bottomRightCorner.y) / 2
+		};
+
+		ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
+		ctx.drawImage(previewCanvas, 0, 0);
+		drawLines(ctx, cornerPoints, 'black', 5);
+		drawLines(ctx, cornerPoints, 'white', 2);
+		function drawLines(
+			ctx: CanvasRenderingContext2D,
+			corners: CornerPoints,
+			strokeStyle: string,
+			lineWidth: number
+		) {
+			ctx.strokeStyle = strokeStyle;
+			ctx.lineWidth = lineWidth;
+			ctx.beginPath();
+			ctx.moveTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
+			ctx.lineTo(corners.topRightCorner.x, corners.topRightCorner.y);
+			ctx.lineTo(corners.bottomRightCorner.x, corners.bottomRightCorner.y);
+			ctx.lineTo(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y);
+			ctx.lineTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
+			ctx.moveTo(midPointTop.x, midPointTop.y);
+			ctx.lineTo(midPointBottom.x, midPointBottom.y);
+			ctx.moveTo(midPointLeft.x, midPointLeft.y);
+			ctx.lineTo(midPointRight.x, midPointRight.y);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+		}
+	}
+	onMount(() => {
 		videoFeed.srcObject = videoStream;
 		$inspect(videoFeed.videoWidth).with(console.log);
 		$inspect(videoFeed.videoHeight).with(console.log);
@@ -181,7 +253,7 @@
 		function rerunHighlightPaperInVideo() {
 			const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
 			previewCanvasCtx.drawImage(videoFeed, 0, 0);
-			const cornerPoints = findCornerPointsOfPaper(previewCanvas);
+			cornerPoints = findCornerPointsOfPaper(previewCanvas) ?? cornerPoints;
 			if (!cornerPoints) {
 				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 				return;
@@ -215,9 +287,14 @@
 	});
 </script>
 
-<section class="grid grid-cols-1 grid-rows-1 max-h-dvh">
-	<video bind:this={videoFeed} id="videofeed" class="[grid-area:1/1/2/2] max-h-full">
+<section
+	class="grid max-h-dvh grid-cols-1 grid-rows-1"
+	onclick={() => {
+		stopScan();
+	}}
+>
+	<video bind:this={videoFeed} id="videofeed" class="max-h-full [grid-area:1/1/2/2]">
 		<track kind="captions" />
 	</video>
-	<canvas bind:this={highlightedPaper} id="hlpaper" class="[grid-area:1/1/2/2] max-h-full"></canvas>
+	<canvas bind:this={highlightedPaper} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"></canvas>
 </section>
