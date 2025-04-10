@@ -238,6 +238,7 @@
 			ctx.closePath();
 		}
 	}
+
 	onMount(() => {
 		videoFeed.srcObject = videoStream;
 		$inspect(videoFeed.videoWidth).with(console.log);
@@ -287,7 +288,8 @@
 	});
 </script>
 
-<section
+<button
+	aria-label="Scanner start / stop"
 	class="grid max-h-dvh grid-cols-1 grid-rows-1"
 	onclick={() => {
 		stopScan();
@@ -297,4 +299,4 @@
 		<track kind="captions" />
 	</video>
 	<canvas bind:this={highlightedPaper} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"></canvas>
-</section>
+</button>
