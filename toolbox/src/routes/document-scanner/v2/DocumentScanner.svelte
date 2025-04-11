@@ -236,6 +236,14 @@
 			ctx.fill();
 			ctx.stroke();
 			ctx.closePath();
+			ctx.beginPath();
+			ctx.arc(corners.topLeftCorner.x, corners.topLeftCorner.y, 5, 0, 360);
+			ctx.arc(corners.topRightCorner.x, corners.topRightCorner.y, 5, 0, 360);
+			ctx.arc(corners.bottomRightCorner.x, corners.bottomRightCorner.y, 5, 0, 360);
+			ctx.arc(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y, 5, 0, 360);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
 		}
 	}
 
@@ -288,15 +296,18 @@
 	});
 </script>
 
-<button
-	aria-label="Scanner start / stop"
-	class="grid max-h-dvh grid-cols-1 grid-rows-1"
-	onclick={() => {
-		stopScan();
-	}}
->
-	<video bind:this={videoFeed} id="videofeed" class="max-h-full [grid-area:1/1/2/2]">
-		<track kind="captions" />
-	</video>
-	<canvas bind:this={highlightedPaper} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"></canvas>
-</button>
+<section class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center">
+	<button
+		aria-label="Scanner start / stop"
+		class="grid max-h-dvh grid-cols-1 grid-rows-1"
+		onclick={() => {
+			stopScan();
+		}}
+	>
+		<video bind:this={videoFeed} id="videofeed" class="max-h-full [grid-area:1/1/2/2]">
+			<track kind="captions" />
+		</video>
+		<canvas bind:this={highlightedPaper} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"
+		></canvas>
+	</button>
+</section>
