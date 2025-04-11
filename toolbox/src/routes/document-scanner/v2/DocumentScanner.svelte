@@ -214,16 +214,19 @@
 		ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
 		ctx.drawImage(previewCanvas, 0, 0);
 		drawLines(ctx, cornerPoints, 'black', 5);
+		drawCorners(ctx, cornerPoints, 'black', 10);
 		drawLines(ctx, cornerPoints, 'white', 2);
+		drawCorners(ctx, cornerPoints, 'white', 8);
 		function drawLines(
 			ctx: CanvasRenderingContext2D,
 			corners: CornerPoints,
 			strokeStyle: string,
 			lineWidth: number
 		) {
+			ctx.beginPath();
+			ctx.fillStyle = '';
 			ctx.strokeStyle = strokeStyle;
 			ctx.lineWidth = lineWidth;
-			ctx.beginPath();
 			ctx.moveTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
 			ctx.lineTo(corners.topRightCorner.x, corners.topRightCorner.y);
 			ctx.lineTo(corners.bottomRightCorner.x, corners.bottomRightCorner.y);
@@ -233,16 +236,27 @@
 			ctx.lineTo(midPointBottom.x, midPointBottom.y);
 			ctx.moveTo(midPointLeft.x, midPointLeft.y);
 			ctx.lineTo(midPointRight.x, midPointRight.y);
-			ctx.fill();
 			ctx.stroke();
 			ctx.closePath();
+		}
+		function drawCorners(
+			ctx: CanvasRenderingContext2D,
+			corners: CornerPoints,
+			fillStyle: string,
+			size: number
+		) {
 			ctx.beginPath();
-			ctx.arc(corners.topLeftCorner.x, corners.topLeftCorner.y, 5, 0, 360);
-			ctx.arc(corners.topRightCorner.x, corners.topRightCorner.y, 5, 0, 360);
-			ctx.arc(corners.bottomRightCorner.x, corners.bottomRightCorner.y, 5, 0, 360);
-			ctx.arc(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y, 5, 0, 360);
+			ctx.fillStyle = fillStyle;
+			ctx.strokeStyle = fillStyle;
+			ctx.moveTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
+			ctx.arc(corners.topLeftCorner.x, corners.topLeftCorner.y, size, 0, 360);
+			ctx.moveTo(corners.topRightCorner.x, corners.topRightCorner.y);
+			ctx.arc(corners.topRightCorner.x, corners.topRightCorner.y, size, 0, 360);
+			ctx.moveTo(corners.bottomRightCorner.x, corners.bottomRightCorner.y);
+			ctx.arc(corners.bottomRightCorner.x, corners.bottomRightCorner.y, size, 0, 360);
+			ctx.moveTo(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y);
+			ctx.arc(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y, size, 0, 360);
 			ctx.fill();
-			ctx.stroke();
 			ctx.closePath();
 		}
 	}
