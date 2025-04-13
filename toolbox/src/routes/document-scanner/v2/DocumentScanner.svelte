@@ -33,11 +33,13 @@
 	let { openCv, videoStream }: Props = $props();
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
+	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 5;
 
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
 	let previewCanvas: OffscreenCanvas;
 	let cornerPoints = $state<CornerPoints>();
+	let count = $state(0);
 
 	function findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new openCv.Mat();
@@ -276,8 +278,9 @@
 		function rerunHighlightPaperInVideo() {
 			const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
 			previewCanvasCtx.drawImage(videoFeed, 0, 0);
-			cornerPoints = findCornerPointsOfPaper(previewCanvas) ?? cornerPoints;
-			if (!cornerPoints) {
+			const newCornerPoints = findCornerPointsOfPaper(previewCanvas) ?? cornerPoints;
+			cornerPoints ??= newCornerPoints;
+			if (!newCornerPoints || !cornerPoints) {
 				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 				return;
 			}
@@ -287,6 +290,22 @@
 				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 				return;
 			}
+
+			if (
+				distance(cornerPoints.topLeftCorner, newCornerPoints.topLeftCorner) <
+					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+				distance(cornerPoints.topRightCorner, newCornerPoints.topRightCorner) <
+					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+				distance(cornerPoints.bottomLeftCorner, newCornerPoints.bottomLeftCorner) <
+					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+				distance(cornerPoints.bottomRightCorner, newCornerPoints.bottomRightCorner) <
+					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN
+			) {
+				count = count + 1;
+			} else {
+				count = 0;
+			}
+			cornerPoints = newCornerPoints;
 			ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
 			ctx.strokeStyle = 'orange';
 			ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
@@ -299,6 +318,9 @@
 			ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
 			ctx.fill();
 			ctx.stroke();
+			ctx.font = '50px serif';
+			ctx.fillStyle = 'lime';
+			ctx.fillText(`Counter: ${count}`, 50, 50);
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
 
@@ -310,10 +332,10 @@
 	});
 </script>
 
-<section class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center">
+<section>
 	<button
 		aria-label="Scanner start / stop"
-		class="grid max-h-dvh grid-cols-1 grid-rows-1"
+		class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center"
 		onclick={() => {
 			stopScan();
 		}}
