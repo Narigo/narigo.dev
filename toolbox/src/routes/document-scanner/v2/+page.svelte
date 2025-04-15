@@ -4,7 +4,11 @@
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import type { OpenCv, Point2d } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
-	import DocumentScanner, { type RecordedImage } from './DocumentScanner.svelte';
+	import DocumentScanner, {
+		type ExtractedImage,
+		type RecordedImage
+	} from './DocumentScanner.svelte';
+	import DocumentSelector from './DocumentSelector.svelte';
 
 	let scannerState = $state<
 		| 'initializing'
@@ -22,6 +26,7 @@
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let recordedImages = $state<Array<RecordedImage>>([]);
+	let extractedImages = $state<Array<ExtractedImage>>([]);
 
 	async function nextCamera() {
 		if (selectedCameraIndex === undefined) {
@@ -97,6 +102,7 @@
 				<p>{permissionError}</p>
 			{/if}
 		{:else if scannerState === 'scanning' && cameraStream && openCv}
+			<pre>w:{cameraStream}</pre>
 			<DocumentScanner
 				videoStream={cameraStream}
 				{openCv}
@@ -113,7 +119,12 @@
 		{:else if scannerState === 'processing'}
 			<div class="flex flex-wrap items-center gap-4">
 				{#each recordedImages as image, index}
-					<div>Image {index} ...</div>
+					<DocumentSelector
+						{image}
+						onselect={(contourPoints) => {
+							extractedImages[index] = { source: image, contourPoints };
+						}}
+					/>
 				{/each}
 				<button
 					onclick={() => {
