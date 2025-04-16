@@ -128,6 +128,7 @@
 				{/each}
 				<button
 					onclick={() => {
+						// put all extracted images into a PDF
 						scannerState = 'result';
 					}}>next</button
 				>
