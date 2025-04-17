@@ -130,7 +130,7 @@
 					onclick={() => {
 						// put all extracted images into a PDF
 						scannerState = 'result';
-					}}>next</button
+					}}>Download</button
 				>
 			</div>
 		{:else if scannerState === 'processed'}
