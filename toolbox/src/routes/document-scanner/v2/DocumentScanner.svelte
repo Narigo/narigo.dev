@@ -19,18 +19,18 @@
 		width: number;
 	};
 	export type ExtractedImage = {
-		source: RecordedImage;
+		source: ImageData;
 		contourPoints: ContourPoints;
 	};
 
 	interface Props {
 		onclose: () => void;
-		onscan: (image: RecordedImage) => void;
+		onscan: (image: ImageData) => void;
 		openCv: typeof OpenCv;
 		videoStream: MediaStream;
 	}
 
-	let { openCv, videoStream }: Props = $props();
+	let { openCv, onscan, videoStream }: Props = $props();
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
 	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 5;
@@ -321,7 +321,11 @@
 			ctx.font = '50px serif';
 			ctx.fillStyle = 'lime';
 			ctx.fillText(`Counter: ${count}`, 50, 50);
-			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+			if (count < 200) {
+				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+			} else {
+				onscan(previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height));
+			}
 		}
 
 		return () => {

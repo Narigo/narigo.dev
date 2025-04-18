@@ -25,7 +25,7 @@
 	let openCv = $state<typeof OpenCv>();
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
-	let recordedImages = $state<Array<RecordedImage>>([]);
+	let recordedImages = $state<Array<ImageData>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
 
 	async function nextCamera() {

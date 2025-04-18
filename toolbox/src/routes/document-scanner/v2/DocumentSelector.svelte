@@ -2,7 +2,7 @@
 	import type { ContourPoints, RecordedImage } from './DocumentScanner.svelte';
 
 	interface Props {
-		image: RecordedImage;
+		image: ImageData;
 		onselect: (contourPoints: ContourPoints) => void;
 	}
 	let { image, onselect }: Props = $props();
