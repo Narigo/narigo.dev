@@ -2,12 +2,9 @@
 	import { base } from '$app/paths';
 	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import type { OpenCv, Point2d } from '$lib/tools/document-scanner/jscanify';
+	import type { OpenCv } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
-	import DocumentScanner, {
-		type ExtractedImage,
-		type RecordedImage
-	} from './DocumentScanner.svelte';
+	import DocumentScanner, { type ExtractedImage } from './DocumentScanner.svelte';
 	import DocumentSelector from './DocumentSelector.svelte';
 
 	let scannerState = $state<
@@ -25,7 +22,7 @@
 	let openCv = $state<typeof OpenCv>();
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
-	let recordedImages = $state<Array<ImageData>>([]);
+	let recordedImages = $state<Array<ExtractedImage>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
 
 	async function nextCamera() {
@@ -102,12 +99,11 @@
 				<p>{permissionError}</p>
 			{/if}
 		{:else if scannerState === 'scanning' && cameraStream && openCv}
-			<pre>w:{cameraStream}</pre>
 			<DocumentScanner
 				videoStream={cameraStream}
 				{openCv}
-				onscan={(image) => {
-					recordedImages = [...recordedImages, image];
+				onscan={(image, cornerPoints) => {
+					recordedImages = [...recordedImages, { source: image, cornerPoints }];
 				}}
 				onclose={() => {
 					scannerState = 'processing';
@@ -117,22 +113,21 @@
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing'}
-			<div class="flex flex-wrap items-center gap-4">
-				{#each recordedImages as image, index}
-					<DocumentSelector
-						{image}
-						onselect={(contourPoints) => {
-							extractedImages[index] = { source: image, contourPoints };
-						}}
-					/>
-				{/each}
-				<button
-					onclick={() => {
-						// put all extracted images into a PDF
-						scannerState = 'result';
-					}}>Download</button
-				>
-			</div>
+			{#each recordedImages as image, index}
+				<DocumentSelector
+					image={image.source}
+					initialCornerPoints={image.cornerPoints}
+					onselect={(cornerPoints) => {
+						extractedImages[index] = { source: image.source, cornerPoints };
+					}}
+				/>
+			{/each}
+			<button
+				onclick={() => {
+					// put all extracted images into a PDF
+					scannerState = 'result';
+				}}>Download</button
+			>
 		{:else if scannerState === 'processed'}
 			<button
 				onclick={() => {

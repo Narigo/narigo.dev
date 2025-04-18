@@ -1,39 +1,28 @@
 <script lang="ts">
-	import type {
-		CornerPoints,
-		ImageLike,
-		OpenCv,
-		Point2d
+	import {
+		distance,
+		type CornerPoints,
+		type ImageLike,
+		type OpenCv
 	} from '$lib/tools/document-scanner/jscanify';
 	import { onMount, tick } from 'svelte';
 
-	export type ContourPoints = {
-		topLeft: { x: Point2d; y: Point2d };
-		topRight: { x: Point2d; y: Point2d };
-		bottomLeft: { x: Point2d; y: Point2d };
-		bottomRight: { x: Point2d; y: Point2d };
-	};
-	export type RecordedImage = {
-		data: Uint8Array;
-		height: number;
-		width: number;
-	};
 	export type ExtractedImage = {
 		source: ImageData;
-		contourPoints: ContourPoints;
+		cornerPoints: CornerPoints;
 	};
 
 	interface Props {
 		onclose: () => void;
-		onscan: (image: ImageData) => void;
+		onscan: (image: ImageData, cornerPoints: CornerPoints) => void;
 		openCv: typeof OpenCv;
 		videoStream: MediaStream;
 	}
 
-	let { openCv, onscan, videoStream }: Props = $props();
+	let { openCv, onscan, onclose, videoStream }: Props = $props();
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
-	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 5;
+	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 25;
 
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
@@ -80,10 +69,6 @@
 		contours.delete();
 		hierarchy.delete();
 		return maxContour;
-	}
-
-	function distance(p1: Point2d, p2: Point2d) {
-		return Math.hypot(p1.x - p2.x, p1.y - p2.y);
 	}
 
 	function getCornerPoints(contour: NonNullable<ReturnType<typeof findPaperContour>>) {
@@ -170,97 +155,7 @@
 	let timerId: ReturnType<typeof setTimeout> | undefined = undefined;
 	function stopScan() {
 		clearTimeout(timerId);
-		const ctx = highlightedPaper.getContext('2d');
-		if (!ctx) {
-			console.error('Could not get context of highlightedPaper');
-			return;
-		}
-		if (!cornerPoints) {
-			console.error('Could not find any cornerPoints');
-			return;
-		}
-
-		const midPointTop = {
-			x:
-				Math.min(cornerPoints.topLeftCorner.x, cornerPoints.topRightCorner.x) +
-				Math.abs(cornerPoints.topLeftCorner.x - cornerPoints.topRightCorner.x) / 2,
-			y:
-				Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y) +
-				Math.abs(cornerPoints.topLeftCorner.y - cornerPoints.topRightCorner.y) / 2
-		};
-		const midPointBottom = {
-			x:
-				Math.min(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomRightCorner.x) +
-				Math.abs(cornerPoints.bottomLeftCorner.x - cornerPoints.bottomRightCorner.x) / 2,
-			y:
-				Math.min(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) +
-				Math.abs(cornerPoints.bottomLeftCorner.y - cornerPoints.bottomRightCorner.y) / 2
-		};
-		const midPointLeft = {
-			x:
-				Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x) +
-				Math.abs(cornerPoints.topLeftCorner.x - cornerPoints.bottomLeftCorner.x) / 2,
-			y:
-				Math.min(cornerPoints.topLeftCorner.y, cornerPoints.bottomLeftCorner.y) +
-				Math.abs(cornerPoints.topLeftCorner.y - cornerPoints.bottomLeftCorner.y) / 2
-		};
-		const midPointRight = {
-			x:
-				Math.min(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) +
-				Math.abs(cornerPoints.topRightCorner.x - cornerPoints.bottomRightCorner.x) / 2,
-			y:
-				Math.min(cornerPoints.topRightCorner.y, cornerPoints.bottomRightCorner.y) +
-				Math.abs(cornerPoints.topRightCorner.y - cornerPoints.bottomRightCorner.y) / 2
-		};
-
-		ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
-		ctx.drawImage(previewCanvas, 0, 0);
-		drawLines(ctx, cornerPoints, 'black', 5);
-		drawCorners(ctx, cornerPoints, 'black', 10);
-		drawLines(ctx, cornerPoints, 'white', 2);
-		drawCorners(ctx, cornerPoints, 'white', 8);
-		function drawLines(
-			ctx: CanvasRenderingContext2D,
-			corners: CornerPoints,
-			strokeStyle: string,
-			lineWidth: number
-		) {
-			ctx.beginPath();
-			ctx.fillStyle = '';
-			ctx.strokeStyle = strokeStyle;
-			ctx.lineWidth = lineWidth;
-			ctx.moveTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
-			ctx.lineTo(corners.topRightCorner.x, corners.topRightCorner.y);
-			ctx.lineTo(corners.bottomRightCorner.x, corners.bottomRightCorner.y);
-			ctx.lineTo(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y);
-			ctx.lineTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
-			ctx.moveTo(midPointTop.x, midPointTop.y);
-			ctx.lineTo(midPointBottom.x, midPointBottom.y);
-			ctx.moveTo(midPointLeft.x, midPointLeft.y);
-			ctx.lineTo(midPointRight.x, midPointRight.y);
-			ctx.stroke();
-			ctx.closePath();
-		}
-		function drawCorners(
-			ctx: CanvasRenderingContext2D,
-			corners: CornerPoints,
-			fillStyle: string,
-			size: number
-		) {
-			ctx.beginPath();
-			ctx.fillStyle = fillStyle;
-			ctx.strokeStyle = fillStyle;
-			ctx.moveTo(corners.topLeftCorner.x, corners.topLeftCorner.y);
-			ctx.arc(corners.topLeftCorner.x, corners.topLeftCorner.y, size, 0, 360);
-			ctx.moveTo(corners.topRightCorner.x, corners.topRightCorner.y);
-			ctx.arc(corners.topRightCorner.x, corners.topRightCorner.y, size, 0, 360);
-			ctx.moveTo(corners.bottomRightCorner.x, corners.bottomRightCorner.y);
-			ctx.arc(corners.bottomRightCorner.x, corners.bottomRightCorner.y, size, 0, 360);
-			ctx.moveTo(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y);
-			ctx.arc(corners.bottomLeftCorner.x, corners.bottomLeftCorner.y, size, 0, 360);
-			ctx.fill();
-			ctx.closePath();
-		}
+		onclose();
 	}
 
 	onMount(() => {
@@ -321,11 +216,14 @@
 			ctx.font = '50px serif';
 			ctx.fillStyle = 'lime';
 			ctx.fillText(`Counter: ${count}`, 50, 50);
-			if (count < 200) {
-				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
-			} else {
-				onscan(previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height));
+			if (count >= 25) {
+				onscan(
+					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
+					cornerPoints
+				);
+				count = 0;
 			}
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
 
 		return () => {

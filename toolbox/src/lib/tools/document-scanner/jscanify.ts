@@ -75,7 +75,7 @@ export declare namespace OpenCv {
  * @param {*} p2 point 2
  * @returns distance between two points
  */
-function distance(p1: Point2d, p2: Point2d) {
+export function distance(p1: Point2d, p2: Point2d) {
 	return Math.hypot(p1.x - p2.x, p1.y - p2.y);
 }
 
