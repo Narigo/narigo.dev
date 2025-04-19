@@ -112,9 +112,10 @@
 			{#if availableCameras.length > 1}
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
-		{:else if scannerState === 'processing'}
+		{:else if scannerState === 'processing' && openCv}
 			{#each recordedImages as image, index}
 				<DocumentSelector
+					{openCv}
 					image={image.source}
 					initialCornerPoints={image.cornerPoints}
 					onselect={(cornerPoints) => {
