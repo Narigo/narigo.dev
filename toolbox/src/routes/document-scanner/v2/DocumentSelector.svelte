@@ -143,12 +143,19 @@
 
 	function isInsideExtractedPaper(coords: Point2d): boolean {
 		const contour: Array<[number, number]> = [
-			[cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y],
 			[cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y],
-			[cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y],
-			[cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y]
+			[cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y],
+			[cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y],
+			[cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y]
 		];
-		return openCv.pointPolygonTest(contour, coords, false) >= 0;
+		const result =
+			openCv.pointPolygonTest(
+				openCv.matFromArray(contour.length, 1, openCv.CV_32SC2, contour.flat()),
+				coords,
+				false
+			) >= 0;
+		console.log(coords, 'vs', contour, '=>', result);
+		return result;
 	}
 
 	function getPartsToChange(coords: Point2d): Array<keyof CornerPoints> {
@@ -169,7 +176,7 @@
 		if (min === dtr) {
 			return ['topRightCorner'];
 		}
-		if (min === dtl) {
+		if (min === dbl) {
 			return ['bottomLeftCorner'];
 		}
 		return ['bottomRightCorner'];
@@ -187,11 +194,17 @@
 			id="hlpaper"
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
-				if (isInsideExtractedPaper({ x: event.clientX, y: event.clientY })) {
+				if (isInsideExtractedPaper({ x: event.clientX, y: event.offsetY })) {
+					console.log('point was inside extracted paper!');
 					changingExtraction = true;
-					extractionPartsToChange = getPartsToChange({ x: event.clientX, y: event.clientY });
-					extractionChangeStartedAt = { x: event.clientX, y: event.clientY };
+					extractionPartsToChange = getPartsToChange({ x: event.clientX, y: event.offsetY });
+					extractionChangeStartedAt = { x: event.clientX, y: event.offsetY };
 				} else {
+					console.log(
+						'point was NOT inside extracted paper!',
+						{ x: event.clientX, y: event.offsetY },
+						'vs'
+					);
 					onselect(cornerPoints);
 				}
 			}}

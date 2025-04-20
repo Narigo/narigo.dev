@@ -14,13 +14,10 @@ export declare namespace OpenCv {
 	const RETR_CCOMP: any;
 	const CHAIN_APPROX_SIMPLE: any;
 	const CV_32FC2: any;
+	const CV_32SC2: any;
 	const INTER_LINEAR: any;
 	const BORDER_CONSTANT: any;
-	function pointPolygonTest(
-		contour: Array<[number, number]>,
-		point: Point,
-		measureDist: boolean
-	): number;
+	function pointPolygonTest(contour: Mat, point: Point, measureDist: boolean): number;
 	function imread(image: ImageLike): Mat;
 	function imshow(canvas: HTMLCanvasElement | OffscreenCanvas, image: Mat): void;
 	function Canny(img: Mat, imgGray: Mat, a: number, b: number): void;
@@ -40,7 +37,7 @@ export declare namespace OpenCv {
 		...constants: Array<any>
 	): void;
 	function contourArea(element: Mat): number;
-	function matFromArray(a: number, b: number, constant: any, numbers: Array<number>): Mat;
+	function matFromArray(lengthOfNumbers: number, dimensions: number, constant: any, numbers: Array<number>): Mat;
 	function getPerspectiveTransform(srcTri: Mat, dstTri: Mat): Mat;
 	function warpPerspective(
 		img: Mat,
@@ -64,6 +61,8 @@ export declare namespace OpenCv {
 	}
 	class Scalar {}
 	class Mat {
+		constructor();
+		constructor(points: Array<[number, number]>);
 		data32S: Array<number>;
 		delete(): void;
 	}
