@@ -18,7 +18,12 @@
 
 	let changingExtraction = $state<boolean>(false);
 	let extractionPartsToChange = $state<Array<keyof CornerPoints>>([]);
-	let extractionChangeStartedAt = $state<Point2d>();
+	let extractionChangeDistances = $state<Record<keyof CornerPoints, Point2d>>({
+		topLeftCorner: { x: 0, y: 0 },
+		topRightCorner: { x: 0, y: 0 },
+		bottomLeftCorner: { x: 0, y: 0 },
+		bottomRightCorner: { x: 0, y: 0 }
+	});
 	let cornerPoints = $state<CornerPoints>(initialCornerPoints);
 	let completeImage: HTMLCanvasElement;
 	let highlightedPaper: HTMLCanvasElement;
@@ -154,7 +159,6 @@
 				coords,
 				false
 			) >= 0;
-		console.log(coords, 'vs', contour, '=>', result);
 		return result;
 	}
 
@@ -162,14 +166,17 @@
 		if (!cornerPoints) {
 			throw Error('No corner points set!');
 		}
-		// if (isInCenterOfCornerPoints(coords)) {
-		// 	return ['topLeftCorner', 'topRightCorner', 'bottomLeftCorner', 'bottomRightCorner'];
-		// }
 		const dtl = distance(coords, cornerPoints.topLeftCorner);
 		const dtr = distance(coords, cornerPoints.topRightCorner);
 		const dbl = distance(coords, cornerPoints.bottomLeftCorner);
 		const dbr = distance(coords, cornerPoints.bottomRightCorner);
 		const min = Math.min(dtl, dtr, dbl, dbr);
+		const dtlbr = distance(cornerPoints.topLeftCorner, cornerPoints.bottomRightCorner);
+		const dtrbl = distance(cornerPoints.topRightCorner, cornerPoints.bottomLeftCorner);
+		const isInCenter = dtl - dbr < dtlbr / 3 && dtr - dbl < dtrbl / 3;
+		if (isInCenter) {
+			return ['topLeftCorner', 'topRightCorner', 'bottomLeftCorner', 'bottomRightCorner'];
+		}
 		if (min === dtl) {
 			return ['topLeftCorner'];
 		}
@@ -179,7 +186,10 @@
 		if (min === dbl) {
 			return ['bottomLeftCorner'];
 		}
-		return ['bottomRightCorner'];
+		if (min === dbr) {
+			return ['bottomRightCorner'];
+		}
+		return [];
 	}
 </script>
 
@@ -194,17 +204,31 @@
 			id="hlpaper"
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
-				if (isInsideExtractedPaper({ x: event.clientX, y: event.offsetY })) {
+				const rect = highlightedPaper.getBoundingClientRect();
+				const coords = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+				if (isInsideExtractedPaper(coords)) {
 					console.log('point was inside extracted paper!');
 					changingExtraction = true;
-					extractionPartsToChange = getPartsToChange({ x: event.clientX, y: event.offsetY });
-					extractionChangeStartedAt = { x: event.clientX, y: event.offsetY };
+					extractionPartsToChange = getPartsToChange(coords);
+					extractionChangeDistances = {
+						topLeftCorner: {
+							x: cornerPoints.topLeftCorner.x - coords.x,
+							y: cornerPoints.topLeftCorner.y - coords.y
+						},
+						topRightCorner: {
+							x: cornerPoints.topRightCorner.x - coords.x,
+							y: cornerPoints.topRightCorner.y - coords.y
+						},
+						bottomLeftCorner: {
+							x: cornerPoints.bottomLeftCorner.x - coords.x,
+							y: cornerPoints.bottomLeftCorner.y - coords.y
+						},
+						bottomRightCorner: {
+							x: cornerPoints.bottomRightCorner.x - coords.x,
+							y: cornerPoints.bottomRightCorner.y - coords.y
+						}
+					};
 				} else {
-					console.log(
-						'point was NOT inside extracted paper!',
-						{ x: event.clientX, y: event.offsetY },
-						'vs'
-					);
 					onselect(cornerPoints);
 				}
 			}}
@@ -217,14 +241,20 @@
 				drawExtractedImageSelection();
 			}}
 			onpointermove={(event) => {
+				const rect = highlightedPaper.getBoundingClientRect();
+				const coords = { x: event.clientX - rect.left, y: event.clientY - rect.top };
 				if (changingExtraction) {
 					for (const extractionPartToChange of extractionPartsToChange) {
-						const coords = { x: event.clientX, y: event.clientY };
 						const newCornerPoints = cornerPoints;
-						newCornerPoints[extractionPartToChange].x = coords.x;
-						newCornerPoints[extractionPartToChange].y = coords.y;
+						newCornerPoints[extractionPartToChange].x =
+							coords.x + extractionChangeDistances[extractionPartToChange].x;
+						newCornerPoints[extractionPartToChange].y =
+							coords.y + extractionChangeDistances[extractionPartToChange].y;
 						cornerPoints = newCornerPoints;
 					}
+					drawExtractedImageSelection();
+				} else if (isInsideExtractedPaper(coords)) {
+					extractionPartsToChange = getPartsToChange(coords);
 					drawExtractedImageSelection();
 				}
 			}}
