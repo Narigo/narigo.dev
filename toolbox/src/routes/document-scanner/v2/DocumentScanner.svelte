@@ -6,11 +6,13 @@
 		type ImageLike,
 		type OpenCv
 	} from '$lib/tools/document-scanner/jscanify';
-	import { onMount, tick } from 'svelte';
+	import { onMount } from 'svelte';
 
 	export type ExtractedImage = {
 		source: ImageData;
 		cornerPoints: CornerPoints;
+		extracted: boolean;
+		result: OffscreenCanvas;
 	};
 
 	interface Props {
@@ -160,10 +162,10 @@
 			ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
 			ctx.fill();
 			ctx.stroke();
-			ctx.font = '50px serif';
+			ctx.font = '50px sans-serif';
 			ctx.fillStyle = 'lime';
 			ctx.fillText(`Counter: ${count}`, 50, 50);
-			if (count >= 25) {
+			if (count >= 15) {
 				onscan(
 					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
 					cornerPoints

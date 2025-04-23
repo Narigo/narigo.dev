@@ -22,16 +22,19 @@
 	let openCv = $state<typeof OpenCv>();
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
-	let recordedImages = $state<Array<ExtractedImage>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
+
+	function stopCurrentCamera() {
+		cameraStream?.getTracks().forEach((track) => track.stop());
+		cameraStream = undefined;
+	}
 
 	async function nextCamera() {
 		if (selectedCameraIndex === undefined) {
 			selectedCameraIndex = -1;
 		}
 		selectedCameraIndex = (selectedCameraIndex + 1) % availableCameras.length;
-		cameraStream?.getTracks().forEach((track) => track.stop());
-		cameraStream = undefined;
+		stopCurrentCamera();
 		startScanning();
 	}
 
@@ -103,9 +106,13 @@
 				videoStream={cameraStream}
 				{openCv}
 				onscan={(image, cornerPoints) => {
-					recordedImages = [...recordedImages, { source: image, cornerPoints }];
+					extractedImages = [
+						...extractedImages,
+						{ source: image, cornerPoints, extracted: false, result: new OffscreenCanvas(0, 0) }
+					];
 				}}
 				onclose={() => {
+					stopCurrentCamera();
 					scannerState = 'processing';
 				}}
 			/>
@@ -113,15 +120,34 @@
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
-			{#each recordedImages as image, index}
-				<DocumentSelector
-					{openCv}
-					image={image.source}
-					initialCornerPoints={image.cornerPoints}
-					onselect={(cornerPoints) => {
-						extractedImages[index] = { source: image.source, cornerPoints };
-					}}
-				/>
+			{#each extractedImages as image, index}
+				<div
+					class="relative border-4"
+					class:border-transparent={!image.extracted}
+					class:border-green-400={image.extracted}
+				>
+					<button
+						class="absolute top-4 right-4 p-4"
+						onclick={() => {
+							extractedImages[index] = { ...extractedImages[index], extracted: true };
+						}}>✅</button
+					>
+					<DocumentSelector
+						{openCv}
+						enabled={!image.extracted}
+						image={image.source}
+						initialCornerPoints={image.cornerPoints}
+						onselect={(cornerPoints) => {
+							extractedImages[index].result.width =
+								Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
+								Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
+							extractedImages[index].result.height =
+								Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
+								Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
+							extractedImages[index] = { ...extractedImages[index], cornerPoints };
+						}}
+					/>
+				</div>
 			{/each}
 			<button
 				onclick={() => {
@@ -130,6 +156,9 @@
 				}}>Download</button
 			>
 		{:else if scannerState === 'processed'}
+			{#each extractedImages as image, index}
+				<canvas id="page-{index}"></canvas>
+			{/each}
 			<button
 				onclick={() => {
 					// downloadResult();

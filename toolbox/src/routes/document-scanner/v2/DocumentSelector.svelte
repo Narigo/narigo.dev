@@ -9,12 +9,13 @@
 	} from '$lib/tools/document-scanner/jscanify';
 
 	interface Props {
+		enabled: boolean;
 		image: ImageData;
 		initialCornerPoints: CornerPoints;
 		onselect: (cornerPoints: CornerPoints) => void;
 		openCv: typeof OpenCv;
 	}
-	let { image, initialCornerPoints, onselect, openCv }: Props = $props();
+	let { enabled, image, initialCornerPoints, onselect, openCv }: Props = $props();
 
 	let changingExtraction = $state<boolean>(false);
 	let extractionPartsToChange = $state<Array<keyof CornerPoints>>([]);
@@ -171,9 +172,13 @@
 		const dbl = distance(coords, cornerPoints.bottomLeftCorner);
 		const dbr = distance(coords, cornerPoints.bottomRightCorner);
 		const min = Math.min(dtl, dtr, dbl, dbr);
-		const dtlbr = distance(cornerPoints.topLeftCorner, cornerPoints.bottomRightCorner);
-		const dtrbl = distance(cornerPoints.topRightCorner, cornerPoints.bottomLeftCorner);
-		const isInCenter = dtl - dbr < dtlbr / 3 && dtr - dbl < dtrbl / 3;
+		const minLeft = Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
+		const minTop = Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
+		const maxLeft = Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x);
+		const maxTop = Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y);
+		const isInCenter =
+			Math.abs(maxLeft - coords.x - (coords.x - minLeft)) < (maxLeft - minLeft) / 4 &&
+			Math.abs(maxTop - coords.y - (coords.y - minTop)) < (maxTop - minTop) / 4;
 		if (isInCenter) {
 			return ['topLeftCorner', 'topRightCorner', 'bottomLeftCorner', 'bottomRightCorner'];
 		}
@@ -186,10 +191,7 @@
 		if (min === dbl) {
 			return ['bottomLeftCorner'];
 		}
-		if (min === dbr) {
-			return ['bottomRightCorner'];
-		}
-		return [];
+		return ['bottomRightCorner'];
 	}
 </script>
 
@@ -198,16 +200,20 @@
 		aria-label="Scanner start / stop"
 		class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center"
 	>
-		<canvas bind:this={completeImage} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"></canvas>
+		<canvas bind:this={completeImage} class="max-h-full [grid-area:1/1/2/2]"></canvas>
 		<canvas
 			bind:this={highlightedPaper}
-			id="hlpaper"
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
+				if (!enabled) return;
 				const rect = highlightedPaper.getBoundingClientRect();
-				const coords = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+				const scaleX = highlightedPaper.width / rect.width;
+				const scaleY = highlightedPaper.height / rect.height;
+				const coords = {
+					x: (event.clientX - rect.left) * scaleX,
+					y: (event.clientY - rect.top) * scaleY
+				};
 				if (isInsideExtractedPaper(coords)) {
-					console.log('point was inside extracted paper!');
 					changingExtraction = true;
 					extractionPartsToChange = getPartsToChange(coords);
 					extractionChangeDistances = {
@@ -233,16 +239,24 @@
 				}
 			}}
 			onpointerup={(event) => {
+				if (!enabled) return;
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}
 			onpointerout={(event) => {
+				if (!enabled) return;
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}
 			onpointermove={(event) => {
+				if (!enabled) return;
 				const rect = highlightedPaper.getBoundingClientRect();
-				const coords = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+				const scaleX = highlightedPaper.width / rect.width;
+				const scaleY = highlightedPaper.height / rect.height;
+				const coords = {
+					x: (event.clientX - rect.left) * scaleX,
+					y: (event.clientY - rect.top) * scaleY
+				};
 				if (changingExtraction) {
 					for (const extractionPartToChange of extractionPartsToChange) {
 						const newCornerPoints = cornerPoints;
@@ -255,6 +269,9 @@
 					drawExtractedImageSelection();
 				} else if (isInsideExtractedPaper(coords)) {
 					extractionPartsToChange = getPartsToChange(coords);
+					drawExtractedImageSelection();
+				} else {
+					extractionPartsToChange = [];
 					drawExtractedImageSelection();
 				}
 			}}
