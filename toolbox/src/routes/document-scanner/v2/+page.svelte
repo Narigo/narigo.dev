@@ -152,6 +152,14 @@
 			<button
 				onclick={() => {
 					// put all extracted images into a PDF
+					if (Object.values(extractedImages.some((image) => !image.extracted))) {
+						if (
+							!confirm(`Not all images were set to ready.
+Are you sure you want to download the PDF already?`)
+						) {
+							return;
+						}
+					}
 					scannerState = 'result';
 				}}>Download</button
 			>
