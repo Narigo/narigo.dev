@@ -23,6 +23,11 @@
 	let selectedCameraIndex = $state<number>();
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
+	let filename = $state<string>(getDefaultFilename());
+
+	function getDefaultFilename(): string {
+		return 'file.pdf';
+	}
 
 	function stopCurrentCamera() {
 		cameraStream?.getTracks().forEach((track) => track.stop());
@@ -65,6 +70,12 @@
 			console.log('got an error starting to scan', error);
 			permissionError = 'Error when using devices: ' + error;
 		}
+	}
+	
+	async function downloadExtractedAsPdf() {
+		console.log('create PDF from images');
+		console.log('create a download link');
+		console.log('click download link');
 	}
 
 	onMount(async () => {
@@ -160,7 +171,7 @@ Are you sure you want to download the PDF already?`)
 							return;
 						}
 					}
-					scannerState = 'result';
+					downloadExtractedAsPdf(filename);
 				}}>Download</button
 			>
 		{:else if scannerState === 'processed'}
