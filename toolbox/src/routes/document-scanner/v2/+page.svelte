@@ -72,9 +72,9 @@
 		}
 	}
 	
-	async function downloadExtractedAsPdf() {
+	async function downloadExtractedAsPdf(filename: string) {
 		console.log('create PDF from images');
-		console.log('create a download link');
+		console.log('create a download link for file', filename);
 		console.log('click download link');
 	}
 
