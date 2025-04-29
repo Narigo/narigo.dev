@@ -73,6 +73,10 @@
 	}
 	
 	async function downloadExtractedAsPdf(filename: string) {
+		const pages: Array<OffscreenCanvas> = [];
+		for (const image of extractedImages) {
+			pages.push(image.result);
+		}
 		console.log('create PDF from images');
 		console.log('create a download link for file', filename);
 		console.log('click download link');
@@ -155,6 +159,7 @@
 							extractedImages[index].result.height =
 								Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
 								Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
+							// const ctx = extractedImages[index].result.getContext('2d');
 							extractedImages[index] = { ...extractedImages[index], cornerPoints };
 						}}
 					/>

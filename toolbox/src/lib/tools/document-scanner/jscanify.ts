@@ -37,7 +37,12 @@ export declare namespace OpenCv {
 		...constants: Array<any>
 	): void;
 	function contourArea(element: Mat): number;
-	function matFromArray(lengthOfNumbers: number, dimensions: number, constant: any, numbers: Array<number>): Mat;
+	function matFromArray(
+		lengthOfNumbers: number,
+		dimensions: number,
+		constant: any,
+		numbers: Array<number>
+	): Mat;
 	function getPerspectiveTransform(srcTri: Mat, dstTri: Mat): Mat;
 	function warpPerspective(
 		img: Mat,
@@ -81,6 +86,60 @@ export declare namespace OpenCv {
  */
 export function distance(p1: Point2d, p2: Point2d) {
 	return Math.hypot(p1.x - p2.x, p1.y - p2.y);
+}
+
+export function extractPaper(
+	openCv: typeof OpenCv,
+	image: ImageLike,
+	cornerPoints: CornerPoints,
+	desiredSize: { width: number; height: number }
+): OffscreenCanvas {
+	const { width, height } = desiredSize;
+	const canvas = new OffscreenCanvas(0, 0);
+	const img = openCv.imread(image);
+
+	const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;
+	let warpedDst = new openCv.Mat();
+
+	let dsize = new openCv.Size(width, height);
+	let srcTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
+		topLeftCorner.x,
+		topLeftCorner.y,
+		topRightCorner.x,
+		topRightCorner.y,
+		bottomLeftCorner.x,
+		bottomLeftCorner.y,
+		bottomRightCorner.x,
+		bottomRightCorner.y
+	]);
+
+	let dstTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
+		0,
+		0,
+		width,
+		0,
+		0,
+		height,
+		width,
+		height
+	]);
+
+	let M = openCv.getPerspectiveTransform(srcTri, dstTri);
+	openCv.warpPerspective(
+		img,
+		warpedDst,
+		M,
+		dsize,
+		openCv.INTER_LINEAR,
+		openCv.BORDER_CONSTANT,
+		new openCv.Scalar()
+	);
+
+	openCv.imshow(canvas, warpedDst);
+
+	img.delete();
+	warpedDst.delete();
+	return canvas;
 }
 
 export function getCornerPoints(openCv: typeof OpenCv, contour: OpenCv.Mat) {
