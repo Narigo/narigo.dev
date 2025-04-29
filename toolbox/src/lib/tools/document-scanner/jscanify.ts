@@ -93,9 +93,9 @@ export function extractPaper(
 	image: ImageLike,
 	cornerPoints: CornerPoints,
 	desiredSize: { width: number; height: number }
-): OffscreenCanvas {
+): HTMLCanvasElement {
 	const { width, height } = desiredSize;
-	const canvas = new OffscreenCanvas(0, 0);
+	const canvas = document.createElement('canvas');
 	const img = openCv.imread(image);
 
 	const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;

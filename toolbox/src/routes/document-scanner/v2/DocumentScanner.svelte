@@ -11,8 +11,7 @@
 	export type ExtractedImage = {
 		source: ImageData;
 		cornerPoints: CornerPoints;
-		extracted: boolean;
-		result: OffscreenCanvas;
+		result?: HTMLCanvasElement;
 	};
 
 	interface Props {
@@ -109,8 +108,6 @@
 
 	onMount(() => {
 		videoFeed.srcObject = videoStream;
-		$inspect(videoFeed.videoWidth).with(console.log);
-		$inspect(videoFeed.videoHeight).with(console.log);
 		videoFeed.onloadedmetadata = () => {
 			videoFeed.play();
 			previewCanvas = new OffscreenCanvas(videoFeed.videoWidth, videoFeed.videoHeight);

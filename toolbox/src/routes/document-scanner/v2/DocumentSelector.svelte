@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { ExtractedImage } from './DocumentScanner.svelte';
 	import {
 		distance,
 		type Point2d,
@@ -9,13 +8,12 @@
 	} from '$lib/tools/document-scanner/jscanify';
 
 	interface Props {
-		enabled: boolean;
 		image: ImageData;
 		initialCornerPoints: CornerPoints;
 		onselect: (cornerPoints: CornerPoints) => void;
 		openCv: typeof OpenCv;
 	}
-	let { enabled, image, initialCornerPoints, onselect, openCv }: Props = $props();
+	let { image, initialCornerPoints, onselect, openCv }: Props = $props();
 
 	let changingExtraction = $state<boolean>(false);
 	let extractionPartsToChange = $state<Array<keyof CornerPoints>>([]);
@@ -205,7 +203,6 @@
 			bind:this={highlightedPaper}
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
-				if (!enabled) return;
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;
@@ -239,17 +236,14 @@
 				}
 			}}
 			onpointerup={(event) => {
-				if (!enabled) return;
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}
 			onpointerout={(event) => {
-				if (!enabled) return;
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}
 			onpointermove={(event) => {
-				if (!enabled) return;
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;

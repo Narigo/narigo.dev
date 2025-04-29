@@ -22,6 +22,7 @@
 		"@fontsource/fira-code": "^5.2.5",
 		"@fontsource/fira-mono": "^5.2.5",
 		"@fontsource/fira-sans": "^5.2.5",
+		"@inlang/paraglide-sveltekit": "^0.15.5",
 		"@playwright/test": "^1.49.1",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.16.0",
@@ -30,6 +31,7 @@
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/postcss": "^4.0.0",
 		"@tailwindcss/typography": "^0.5.16",
+		"@vitejs/plugin-basic-ssl": "^2.0.0",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^2.46.1",
@@ -47,7 +49,6 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
-		"@inlang/paraglide-sveltekit": "^0.15.5",
-		"@vitejs/plugin-basic-ssl": "^2.0.0"
+		"jspdf": "^3.0.1"
 	}
 }

@@ -1,8 +1,9 @@
 <script lang="ts">
+	import jsPdf from 'jspdf';
 	import { base } from '$app/paths';
 	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import type { OpenCv } from '$lib/tools/document-scanner/jscanify';
+	import { extractPaper, type OpenCv } from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
 	import DocumentScanner, { type ExtractedImage } from './DocumentScanner.svelte';
 	import DocumentSelector from './DocumentSelector.svelte';
@@ -71,15 +72,19 @@
 			permissionError = 'Error when using devices: ' + error;
 		}
 	}
-	
+
 	async function downloadExtractedAsPdf(filename: string) {
-		const pages: Array<OffscreenCanvas> = [];
+		const pdf = new jsPdf();
 		for (const image of extractedImages) {
-			pages.push(image.result);
+			if (!image.result) {
+				continue;
+			}
+			console.log('create page from image', image);
+			pdf.addPage([image.result.width, image.result.height]);
+			const dataUrl = image.result.toDataURL('image/jpeg', 1);
+			pdf.addImage(dataUrl, 'JPEG', 0, 0, image.result.width, image.result.height);
 		}
-		console.log('create PDF from images');
-		console.log('create a download link for file', filename);
-		console.log('click download link');
+		pdf.autoPrint();
 	}
 
 	onMount(async () => {
@@ -121,10 +126,7 @@
 				videoStream={cameraStream}
 				{openCv}
 				onscan={(image, cornerPoints) => {
-					extractedImages = [
-						...extractedImages,
-						{ source: image, cornerPoints, extracted: false, result: new OffscreenCanvas(0, 0) }
-					];
+					extractedImages = [...extractedImages, { source: image, cornerPoints }];
 				}}
 				onclose={() => {
 					stopCurrentCamera();
@@ -138,29 +140,38 @@
 			{#each extractedImages as image, index}
 				<div
 					class="relative border-4"
-					class:border-transparent={!image.extracted}
-					class:border-green-400={image.extracted}
+					class:border-transparent={!image.result}
+					class:border-green-400={image.result}
 				>
-					<button
-						class="absolute top-4 right-4 p-4"
-						onclick={() => {
-							extractedImages[index] = { ...extractedImages[index], extracted: true };
-						}}>✅</button
-					>
 					<DocumentSelector
 						{openCv}
-						enabled={!image.extracted}
 						image={image.source}
 						initialCornerPoints={image.cornerPoints}
 						onselect={(cornerPoints) => {
-							extractedImages[index].result.width =
+							console.log('selecting image');
+							if (!openCv) {
+								return;
+							}
+							console.log('got openCv ready.');
+							const width =
 								Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
 								Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
-							extractedImages[index].result.height =
+							const height =
 								Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
 								Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
-							// const ctx = extractedImages[index].result.getContext('2d');
-							extractedImages[index] = { ...extractedImages[index], cornerPoints };
+							const sourceImage = document.createElement('canvas');
+							sourceImage.width = extractedImages[index].source.width;
+							sourceImage.height = extractedImages[index].source.height;
+							const ctx = sourceImage.getContext('2d');
+							ctx?.putImageData(extractedImages[index].source, 0, 0);
+							console.log('put image data');
+							extractedImages[index].result = extractPaper(
+								openCv,
+								sourceImage,
+								extractedImages[index].cornerPoints,
+								{ width, height }
+							);
+							extractedImages[index] = { ...extractedImages[index], extracted: true, cornerPoints };
 						}}
 					/>
 				</div>
@@ -176,6 +187,10 @@ Are you sure you want to download the PDF already?`)
 							return;
 						}
 					}
+					console.log(
+						'not extracted:',
+						extractedImages.filter((i) => !i.extracted)
+					);
 					downloadExtractedAsPdf(filename);
 				}}>Download</button
 			>
