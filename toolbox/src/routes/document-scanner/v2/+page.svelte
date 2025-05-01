@@ -45,8 +45,6 @@
 	}
 
 	async function startScanning() {
-		console.log('startScanning()');
-
 		try {
 			permissionError = undefined;
 			const constraint =
@@ -59,13 +57,10 @@
 			if (!cameraStream) {
 				throw Error('No camera found');
 			}
-			console.log('selecting camera index');
 			selectedCameraIndex =
 				availableCameras.findIndex((camera) =>
 					cameraStream?.getTracks().some((track) => track.label === camera.label)
 				) ?? 0;
-			console.log('cameraStream = ?', cameraStream);
-			console.log('openCv = ?', openCv);
 			scannerState = 'scanning';
 		} catch (error) {
 			console.log('got an error starting to scan', error);
@@ -84,7 +79,7 @@
 			const dataUrl = image.result.toDataURL('image/jpeg', 1);
 			pdf.addImage(dataUrl, 'JPEG', 0, 0, image.result.width, image.result.height);
 		}
-		pdf.autoPrint();
+		pdf.output('dataurlnewwindow', { filename });
 	}
 
 	onMount(async () => {
@@ -137,6 +132,7 @@
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
+			<div>{extractedImages.length} images scanned</div>
 			{#each extractedImages as image, index}
 				<div
 					class="relative border-4"
@@ -171,7 +167,7 @@
 								extractedImages[index].cornerPoints,
 								{ width, height }
 							);
-							extractedImages[index] = { ...extractedImages[index], extracted: true, cornerPoints };
+							extractedImages[index] = { ...extractedImages[index], cornerPoints };
 						}}
 					/>
 				</div>
@@ -179,7 +175,7 @@
 			<button
 				onclick={() => {
 					// put all extracted images into a PDF
-					if (Object.values(extractedImages.some((image) => !image.extracted))) {
+					if (Object.values(extractedImages.some((image) => !image.result))) {
 						if (
 							!confirm(`Not all images were set to ready.
 Are you sure you want to download the PDF already?`)
@@ -189,7 +185,7 @@ Are you sure you want to download the PDF already?`)
 					}
 					console.log(
 						'not extracted:',
-						extractedImages.filter((i) => !i.extracted)
+						extractedImages.filter((i) => !i.result)
 					);
 					downloadExtractedAsPdf(filename);
 				}}>Download</button

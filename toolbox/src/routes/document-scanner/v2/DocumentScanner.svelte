@@ -161,13 +161,15 @@
 			ctx.stroke();
 			ctx.font = '50px sans-serif';
 			ctx.fillStyle = 'lime';
-			ctx.fillText(`Counter: ${count}`, 50, 50);
 			if (count >= 15) {
+				ctx.fillText(`Snapped!`, 50, 50);
 				onscan(
 					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
 					cornerPoints
 				);
 				count = 0;
+			} else {
+				ctx.fillText(`Counter: ${count}`, 50, 50);
 			}
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
