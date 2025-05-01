@@ -70,6 +70,9 @@
 
 	async function downloadExtractedAsPdf(filename: string) {
 		const pdf = new jsPdf();
+		// jsPdf creates a page. Since we're walking through the extracted images only,
+		// we don't need this first extra page.
+		pdf.deletePage(1);
 		for (const image of extractedImages) {
 			if (!image.result) {
 				continue;
@@ -132,46 +135,63 @@
 				<button class="p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
-			<div>{extractedImages.length} images scanned</div>
-			{#each extractedImages as image, index}
-				<div
-					class="relative border-4"
-					class:border-transparent={!image.result}
-					class:border-green-400={image.result}
-				>
-					<DocumentSelector
-						{openCv}
-						image={image.source}
-						initialCornerPoints={image.cornerPoints}
-						onselect={(cornerPoints) => {
-							console.log('selecting image');
-							if (!openCv) {
-								return;
-							}
-							console.log('got openCv ready.');
-							const width =
-								Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
-								Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
-							const height =
-								Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
-								Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
-							const sourceImage = document.createElement('canvas');
-							sourceImage.width = extractedImages[index].source.width;
-							sourceImage.height = extractedImages[index].source.height;
-							const ctx = sourceImage.getContext('2d');
-							ctx?.putImageData(extractedImages[index].source, 0, 0);
-							console.log('put image data');
-							extractedImages[index].result = extractPaper(
-								openCv,
-								sourceImage,
-								extractedImages[index].cornerPoints,
-								{ width, height }
-							);
-							extractedImages[index] = { ...extractedImages[index], cornerPoints };
-						}}
-					/>
-				</div>
-			{/each}
+			<ol class="flex flex-row gap-4">
+				{#each extractedImages as image, index}
+					{#if image.result}
+						<li
+							class="max-h-16 max-w-16"
+							style="aspect-ratio:{image.result!.height}/{image.result!.width}"
+						>
+							<button onclick={() => (image.result = undefined)}> needs image from canvas </button>
+						</li>
+					{/if}
+				{/each}
+			</ol>
+			<section class="isolate grid grid-cols-1 grid-rows-1">
+				{#each extractedImages as image, index}
+					{#if !image.result}
+						<div
+							style="--index:{index}"
+							class="relative z-[--index] border-4 [grid-area:1/1/2/2]"
+							class:border-transparent={!image.result}
+							class:border-green-400={image.result}
+						>
+							<DocumentSelector
+								{openCv}
+								image={image.source}
+								initialCornerPoints={image.cornerPoints}
+								onselect={(cornerPoints) => {
+									console.log('selecting image');
+									if (!openCv) {
+										return;
+									}
+									console.log('got openCv ready.');
+									const width =
+										Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
+										Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
+									const height =
+										Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
+										Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
+									const sourceImage = document.createElement('canvas');
+									sourceImage.width = extractedImages[index].source.width;
+									sourceImage.height = extractedImages[index].source.height;
+									const ctx = sourceImage.getContext('2d');
+									ctx?.putImageData(extractedImages[index].source, 0, 0);
+									console.log('put image data');
+									extractedImages[index].result = extractPaper(
+										openCv,
+										sourceImage,
+										extractedImages[index].cornerPoints,
+										{ width, height }
+									);
+									extractedImages[index] = { ...extractedImages[index], cornerPoints };
+								}}
+							/>
+						</div>
+					{/if}
+				{/each}
+			</section>
+
 			<button
 				onclick={() => {
 					// put all extracted images into a PDF
