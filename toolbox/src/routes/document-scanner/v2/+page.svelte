@@ -161,11 +161,9 @@
 								image={image.source}
 								initialCornerPoints={image.cornerPoints}
 								onselect={(cornerPoints) => {
-									console.log('selecting image');
 									if (!openCv) {
 										return;
 									}
-									console.log('got openCv ready.');
 									const width =
 										Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
 										Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
@@ -177,7 +175,6 @@
 									sourceImage.height = extractedImages[index].source.height;
 									const ctx = sourceImage.getContext('2d');
 									ctx?.putImageData(extractedImages[index].source, 0, 0);
-									console.log('put image data');
 									extractedImages[index].result = extractPaper(
 										openCv,
 										sourceImage,
