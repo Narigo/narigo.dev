@@ -184,16 +184,19 @@
 
 <section>
 	<button
-		aria-label="Scanner start / stop"
+		aria-label="Stop scanning"
 		class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center"
 		onclick={() => {
 			stopScan();
 		}}
 	>
-		<video bind:this={videoFeed} id="videofeed" class="max-h-full [grid-area:1/1/2/2]">
+		<video bind:this={videoFeed} id="videofeed" class="max-h-full max-w-full [grid-area:1/1/2/2]">
 			<track kind="captions" />
 		</video>
-		<canvas bind:this={highlightedPaper} id="hlpaper" class="max-h-full [grid-area:1/1/2/2]"
+		<canvas
+			bind:this={highlightedPaper}
+			id="hlpaper"
+			class="max-h-full max-w-full [grid-area:1/1/2/2]"
 		></canvas>
 	</button>
 </section>
