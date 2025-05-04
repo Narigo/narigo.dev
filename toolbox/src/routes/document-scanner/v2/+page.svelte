@@ -151,8 +151,8 @@
 				{#each extractedImages as image, index}
 					{#if !image.result}
 						<div
-							style="--index:{index}"
-							class="relative z-[--index] border-4 [grid-area:1/1/2/2]"
+							style="--index:{extractedImages.length - index}"
+							class="relative z-[var(--index)] border-4 [grid-area:1/1/2/2]"
 							class:border-transparent={!image.result}
 							class:border-green-400={image.result}
 						>
@@ -181,7 +181,7 @@
 										extractedImages[index].cornerPoints,
 										{ width, height }
 									);
-									extractedImages[index] = { ...extractedImages[index], cornerPoints };
+									extractedImages[index].cornerPoints = cornerPoints;
 								}}
 							/>
 						</div>
@@ -192,7 +192,7 @@
 			<button
 				onclick={() => {
 					// put all extracted images into a PDF
-					if (Object.values(extractedImages.some((image) => !image.result))) {
+					if (extractedImages.some((image) => !image.result)) {
 						if (
 							!confirm(`Not all images were set to ready.
 Are you sure you want to download the PDF already?`)
@@ -205,15 +205,6 @@ Are you sure you want to download the PDF already?`)
 						extractedImages.filter((i) => !i.result)
 					);
 					downloadExtractedAsPdf(filename);
-				}}>Download</button
-			>
-		{:else if scannerState === 'processed'}
-			{#each extractedImages as image, index}
-				<canvas id="page-{index}"></canvas>
-			{/each}
-			<button
-				onclick={() => {
-					// downloadResult();
 				}}>Download</button
 			>
 		{:else if scannerState === 'result'}
