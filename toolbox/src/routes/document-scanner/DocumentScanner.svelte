@@ -25,12 +25,14 @@
 
 	const SCAN_IMAGE_TIME_IN_MS = 100;
 	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 25;
+	const SCAN_WHEN_KEPT_FOR_IN_MS = 3000;
 
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
 	let previewCanvas: OffscreenCanvas;
 	let cornerPoints = $state<CornerPoints>();
 	let count = $state(0);
+	let counterStartedAt = $state(+Infinity);
 
 	function findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new openCv.Mat();
@@ -145,6 +147,7 @@
 				count = count + 1;
 			} else {
 				count = 0;
+				counterStartedAt = +new Date();
 			}
 			cornerPoints = newCornerPoints;
 			ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
@@ -161,15 +164,18 @@
 			ctx.stroke();
 			ctx.font = '50px sans-serif';
 			ctx.fillStyle = 'lime';
-			if (count >= 15) {
+			const countingFor = +new Date() - counterStartedAt;
+			if (countingFor >= SCAN_WHEN_KEPT_FOR_IN_MS) {
 				ctx.fillText(`Snapped!`, 50, 50);
 				onscan(
 					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
 					cornerPoints
 				);
 				count = 0;
+				counterStartedAt = +new Date();
 			} else {
-				ctx.fillText(`Counter: ${count}`, 50, 50);
+				const toGo = SCAN_WHEN_KEPT_FOR_IN_MS - countingFor;
+				ctx.fillText(`Time to go before snapping: ${toGo}`, 50, 50);
 			}
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
