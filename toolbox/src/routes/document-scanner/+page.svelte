@@ -87,16 +87,17 @@
 		scannerState = 'result';
 	}
 
-	onMount(async () => {
+	async function loadOpenCv(): Promise<typeof OpenCv> {
+		const potentiallyOpenCv = (globalThis as typeof globalThis & { cv?: typeof OpenCv }).cv;
+		if (potentiallyOpenCv) {
+			console.log('found an existing openCv to return');
+			return potentiallyOpenCv;
+		}
 		await new Promise<void>((resolve, reject) => {
 			const openCvScript = document.createElement('script');
 			openCvScript.async = true;
 			openCvScript.src = `${base}/vendor/opencv.js`;
 			openCvScript.onload = () => {
-				scannerState =
-					'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
-						? 'needs-permission'
-						: 'error-no-input-device';
 				resolve();
 			};
 			openCvScript.onerror = (error) => {
@@ -104,7 +105,14 @@
 			};
 			document.body.appendChild(openCvScript);
 		});
-		openCv = await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
+		return await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
+	}
+	onMount(async () => {
+		openCv = await loadOpenCv();
+		scannerState =
+			'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+				? 'needs-permission'
+				: 'error-no-input-device';
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		availableCameras = devices.filter((device) => device.kind === 'videoinput');
 	});
