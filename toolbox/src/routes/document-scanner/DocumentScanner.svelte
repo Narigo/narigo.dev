@@ -174,8 +174,8 @@
 				count = 0;
 				counterStartedAt = +new Date();
 			} else {
-				const toGo = SCAN_WHEN_KEPT_FOR_IN_MS - countingFor;
-				ctx.fillText(`Time to go before snapping: ${toGo}`, 50, 50);
+				const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
+				ctx.fillText(`Time until snap: ${secondsToGo}`, 50, 50);
 			}
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
