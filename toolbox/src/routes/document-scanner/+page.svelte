@@ -144,7 +144,12 @@
 							class="max-h-16 max-w-16"
 							style="aspect-ratio:{image.result!.height}/{image.result!.width}"
 						>
-							<button onclick={() => (image.result = undefined)}> needs image from canvas </button>
+							<button onclick={() => (image.result = undefined)}
+								><img
+									src={image.result.toDataURL('image/jpeg', 0.9)}
+									alt="Scanned image number {index}"
+								/></button
+							>
 						</li>
 					{/if}
 				{/each}
