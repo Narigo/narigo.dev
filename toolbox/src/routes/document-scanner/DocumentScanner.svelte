@@ -134,7 +134,7 @@
 				return;
 			}
 
-			if (
+			const isSimilarDistance =
 				distance(cornerPoints.topLeftCorner, newCornerPoints.topLeftCorner) <
 					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
 				distance(cornerPoints.topRightCorner, newCornerPoints.topRightCorner) <
@@ -142,11 +142,8 @@
 				distance(cornerPoints.bottomLeftCorner, newCornerPoints.bottomLeftCorner) <
 					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
 				distance(cornerPoints.bottomRightCorner, newCornerPoints.bottomRightCorner) <
-					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN
-			) {
-				count = count + 1;
-			} else {
-				count = 0;
+					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN;
+			if (!isSimilarDistance) {
 				counterStartedAt = +new Date();
 			}
 			cornerPoints = newCornerPoints;
@@ -171,7 +168,6 @@
 					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
 					cornerPoints
 				);
-				count = 0;
 				counterStartedAt = +new Date();
 			} else {
 				const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
