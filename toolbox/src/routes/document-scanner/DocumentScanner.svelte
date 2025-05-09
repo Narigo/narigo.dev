@@ -26,12 +26,12 @@
 	const SCAN_IMAGE_TIME_IN_MS = 100;
 	const DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN = 25;
 	const SCAN_WHEN_KEPT_FOR_IN_MS = 3000;
+	const MIN_PAUSE_BETWEEN_SCANS_IN_MS = 1000;
 
 	let videoFeed: HTMLVideoElement;
 	let highlightedPaper: HTMLCanvasElement;
 	let previewCanvas: OffscreenCanvas;
 	let cornerPoints = $state<CornerPoints>();
-	let count = $state(0);
 	let counterStartedAt = $state(+Infinity);
 
 	function findPaperContour(img: OpenCv.Mat) {
@@ -169,11 +169,12 @@
 					cornerPoints
 				);
 				counterStartedAt = +new Date();
+				timerId = setTimeout(rerunHighlightPaperInVideo, MIN_PAUSE_BETWEEN_SCANS_IN_MS);
 			} else {
 				const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
 				ctx.fillText(`Time until snap: ${secondsToGo}`, 50, 50);
+				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 			}
-			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		}
 
 		return () => {
