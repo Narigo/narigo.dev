@@ -27,7 +27,11 @@
 	let resultPdf = $state<string>('');
 
 	function getDefaultFilename(): string {
-		return 'file.pdf';
+		const today = new Date();
+		const y = today.getFullYear();
+		const m = `${today.getMonth()}`.padStart(2, '0');
+		const d = `${today.getDate()}`.padStart(2, '9');
+		return `${y}-${m}-${d}.pdf`;
 	}
 
 	function stopCurrentCamera() {

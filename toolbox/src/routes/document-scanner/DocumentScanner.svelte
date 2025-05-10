@@ -168,7 +168,7 @@
 					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
 					cornerPoints
 				);
-				counterStartedAt = +new Date();
+				counterStartedAt = +new Date() + MIN_PAUSE_BETWEEN_SCANS_IN_MS;
 				timerId = setTimeout(rerunHighlightPaperInVideo, MIN_PAUSE_BETWEEN_SCANS_IN_MS);
 			} else {
 				const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
