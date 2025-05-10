@@ -203,6 +203,7 @@
 			bind:this={highlightedPaper}
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
+				event.preventDefault();
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;
@@ -244,6 +245,7 @@
 				drawExtractedImageSelection();
 			}}
 			onpointermove={(event) => {
+				event.preventDefault();
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;
