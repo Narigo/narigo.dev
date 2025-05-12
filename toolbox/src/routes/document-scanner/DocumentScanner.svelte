@@ -200,6 +200,10 @@
 			bind:this={highlightedPaper}
 			id="hlpaper"
 			class="max-h-full max-w-full [grid-area:1/1/2/2]"
+			onclick={(event) => {
+				// check if inside highlight
+				// run "onscan", refresh timers
+			}}
 		></canvas>
 	</button>
 </section>
