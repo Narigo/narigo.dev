@@ -145,7 +145,7 @@
 		}
 	}
 
-	function isInsideExtractedPaper(coords: Point2d): boolean {
+	function isInsideExtractedPaper(coords: Point2d, cornerPoints: CornerPoints): boolean {
 		const contour: Array<[number, number]> = [
 			[cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y],
 			[cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y],
@@ -211,7 +211,7 @@
 					x: (event.clientX - rect.left) * scaleX,
 					y: (event.clientY - rect.top) * scaleY
 				};
-				if (isInsideExtractedPaper(coords)) {
+				if (isInsideExtractedPaper(coords, cornerPoints)) {
 					changingExtraction = true;
 					extractionPartsToChange = getPartsToChange(coords);
 					extractionChangeDistances = {
@@ -263,7 +263,7 @@
 						cornerPoints = newCornerPoints;
 					}
 					drawExtractedImageSelection();
-				} else if (isInsideExtractedPaper(coords)) {
+				} else if (isInsideExtractedPaper(coords, cornerPoints)) {
 					extractionPartsToChange = getPartsToChange(coords);
 					drawExtractedImageSelection();
 				} else {
