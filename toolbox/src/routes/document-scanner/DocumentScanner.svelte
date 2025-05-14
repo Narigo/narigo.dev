@@ -2,6 +2,7 @@
 	import {
 		distance,
 		getCornerPoints,
+		isInsidePoints,
 		type CornerPoints,
 		type ImageLike,
 		type OpenCv
@@ -32,7 +33,9 @@
 	let highlightedPaper: HTMLCanvasElement;
 	let previewCanvas: OffscreenCanvas;
 	let cornerPoints = $state<CornerPoints>();
-	let counterStartedAt = $state(+Infinity);
+	let counterStartedAt = $state(
+		+new Date() + SCAN_WHEN_KEPT_FOR_IN_MS + MIN_PAUSE_BETWEEN_SCANS_IN_MS
+	);
 
 	function findPaperContour(img: OpenCv.Mat) {
 		const imgGray = new openCv.Mat();
@@ -108,6 +111,65 @@
 		onclose();
 	}
 
+	function rerunHighlightPaperInVideo() {
+		const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
+		previewCanvasCtx.drawImage(videoFeed, 0, 0);
+		const newCornerPoints = findCornerPointsOfPaper(previewCanvas) ?? cornerPoints;
+		cornerPoints ??= newCornerPoints;
+		if (!newCornerPoints || !cornerPoints) {
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+			return;
+		}
+		const ctx = highlightedPaper.getContext('2d');
+		if (!ctx) {
+			console.log('Could not draw on highlightedPaper canvas');
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+			return;
+		}
+
+		const isSimilarDistance =
+			distance(cornerPoints.topLeftCorner, newCornerPoints.topLeftCorner) <
+				DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+			distance(cornerPoints.topRightCorner, newCornerPoints.topRightCorner) <
+				DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+			distance(cornerPoints.bottomLeftCorner, newCornerPoints.bottomLeftCorner) <
+				DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
+			distance(cornerPoints.bottomRightCorner, newCornerPoints.bottomRightCorner) <
+				DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN;
+		if (!isSimilarDistance) {
+			counterStartedAt = +new Date();
+		}
+		cornerPoints = newCornerPoints;
+		ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
+		ctx.strokeStyle = 'orange';
+		ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
+		ctx.lineWidth = 5;
+		ctx.beginPath();
+		ctx.moveTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+		ctx.lineTo(cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y);
+		ctx.lineTo(cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y);
+		ctx.lineTo(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y);
+		ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
+		ctx.fill();
+		ctx.stroke();
+		ctx.font = '50px sans-serif';
+		ctx.fillStyle = 'lime';
+		const countingFor = +new Date() - counterStartedAt;
+		if (countingFor >= SCAN_WHEN_KEPT_FOR_IN_MS) {
+			ctx.fillText(`Snapped!`, 50, 50);
+			onscan(
+				previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
+				cornerPoints
+			);
+			counterStartedAt = +new Date() + MIN_PAUSE_BETWEEN_SCANS_IN_MS;
+			timerId = setTimeout(rerunHighlightPaperInVideo, MIN_PAUSE_BETWEEN_SCANS_IN_MS);
+		} else {
+			const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
+			ctx.fillText(`Time until snap: ${secondsToGo}`, 50, 50);
+			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
+		}
+	}
+
 	onMount(() => {
 		videoFeed.srcObject = videoStream;
 		videoFeed.onloadedmetadata = () => {
@@ -117,65 +179,6 @@
 			highlightedPaper.height = videoFeed.videoHeight;
 			timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
 		};
-
-		function rerunHighlightPaperInVideo() {
-			const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
-			previewCanvasCtx.drawImage(videoFeed, 0, 0);
-			const newCornerPoints = findCornerPointsOfPaper(previewCanvas) ?? cornerPoints;
-			cornerPoints ??= newCornerPoints;
-			if (!newCornerPoints || !cornerPoints) {
-				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
-				return;
-			}
-			const ctx = highlightedPaper.getContext('2d');
-			if (!ctx) {
-				console.log('Could not draw on highlightedPaper canvas');
-				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
-				return;
-			}
-
-			const isSimilarDistance =
-				distance(cornerPoints.topLeftCorner, newCornerPoints.topLeftCorner) <
-					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
-				distance(cornerPoints.topRightCorner, newCornerPoints.topRightCorner) <
-					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
-				distance(cornerPoints.bottomLeftCorner, newCornerPoints.bottomLeftCorner) <
-					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN &&
-				distance(cornerPoints.bottomRightCorner, newCornerPoints.bottomRightCorner) <
-					DISTANCE_THRESHOLD_IN_PX_FOR_AUTO_SCAN;
-			if (!isSimilarDistance) {
-				counterStartedAt = +new Date();
-			}
-			cornerPoints = newCornerPoints;
-			ctx.clearRect(0, 0, highlightedPaper.width, highlightedPaper.height);
-			ctx.strokeStyle = 'orange';
-			ctx.fillStyle = 'rgba(255, 128, 128, 0.2)';
-			ctx.lineWidth = 5;
-			ctx.beginPath();
-			ctx.moveTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
-			ctx.lineTo(cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y);
-			ctx.lineTo(cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y);
-			ctx.lineTo(cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y);
-			ctx.lineTo(cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y);
-			ctx.fill();
-			ctx.stroke();
-			ctx.font = '50px sans-serif';
-			ctx.fillStyle = 'lime';
-			const countingFor = +new Date() - counterStartedAt;
-			if (countingFor >= SCAN_WHEN_KEPT_FOR_IN_MS) {
-				ctx.fillText(`Snapped!`, 50, 50);
-				onscan(
-					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
-					cornerPoints
-				);
-				counterStartedAt = +new Date() + MIN_PAUSE_BETWEEN_SCANS_IN_MS;
-				timerId = setTimeout(rerunHighlightPaperInVideo, MIN_PAUSE_BETWEEN_SCANS_IN_MS);
-			} else {
-				const secondsToGo = Math.round((SCAN_WHEN_KEPT_FOR_IN_MS - countingFor) / 1000);
-				ctx.fillText(`Time until snap: ${secondsToGo}`, 50, 50);
-				timerId = setTimeout(rerunHighlightPaperInVideo, SCAN_IMAGE_TIME_IN_MS);
-			}
-		}
 
 		return () => {
 			clearTimeout(timerId);
@@ -189,8 +192,30 @@
 	<button
 		aria-label="Stop scanning"
 		class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center"
-		onclick={() => {
-			stopScan();
+		onclick={(event) => {
+			console.log('clicked on button -> stopping');
+			const rect = highlightedPaper.getBoundingClientRect();
+			const scaleX = highlightedPaper.width / rect.width;
+			const scaleY = highlightedPaper.height / rect.height;
+			const coords = {
+				x: (event.clientX - rect.left) * scaleX,
+				y: (event.clientY - rect.top) * scaleY
+			};
+			if (cornerPoints && isInsidePoints(openCv, coords, cornerPoints)) {
+				console.log('got inside the corner points!');
+				event.stopPropagation();
+				event.preventDefault();
+				const previewCanvasCtx = previewCanvas.getContext('2d', { willReadFrequently: true })!;
+				onscan(
+					previewCanvasCtx.getImageData(0, 0, previewCanvas.width, previewCanvas.height),
+					cornerPoints
+				);
+				counterStartedAt = +new Date() + MIN_PAUSE_BETWEEN_SCANS_IN_MS;
+				timerId = setTimeout(rerunHighlightPaperInVideo, MIN_PAUSE_BETWEEN_SCANS_IN_MS);
+			} else {
+				console.log('NOT got inside the corner points, stopping');
+				stopScan();
+			}
 		}}
 	>
 		<video bind:this={videoFeed} id="videofeed" class="max-h-full max-w-full [grid-area:1/1/2/2]">
@@ -200,10 +225,6 @@
 			bind:this={highlightedPaper}
 			id="hlpaper"
 			class="max-h-full max-w-full [grid-area:1/1/2/2]"
-			onclick={(event) => {
-				// check if inside highlight
-				// run "onscan", refresh timers
-			}}
 		></canvas>
 	</button>
 </section>

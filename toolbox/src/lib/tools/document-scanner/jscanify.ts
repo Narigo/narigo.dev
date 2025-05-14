@@ -196,6 +196,26 @@ export function getCornerPoints(openCv: typeof OpenCv, contour: OpenCv.Mat) {
 	};
 }
 
+export function isInsidePoints(
+	openCv: typeof OpenCv,
+	coords: Point2d,
+	cornerPoints: CornerPoints
+): boolean {
+	const contour: Array<[number, number]> = [
+		[cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y],
+		[cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y],
+		[cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y],
+		[cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y]
+	];
+	const result =
+		openCv.pointPolygonTest(
+			openCv.matFromArray(contour.length, 1, openCv.CV_32SC2, contour.flat()),
+			coords,
+			false
+		) >= 0;
+	return result;
+}
+
 export default class jscanify {
 	cv: typeof OpenCv;
 

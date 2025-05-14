@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import {
 		distance,
+		isInsidePoints,
 		type Point2d,
 		type CornerPoints,
 		type OpenCv
@@ -145,22 +146,6 @@
 		}
 	}
 
-	function isInsideExtractedPaper(coords: Point2d, cornerPoints: CornerPoints): boolean {
-		const contour: Array<[number, number]> = [
-			[cornerPoints.topLeftCorner.x, cornerPoints.topLeftCorner.y],
-			[cornerPoints.topRightCorner.x, cornerPoints.topRightCorner.y],
-			[cornerPoints.bottomRightCorner.x, cornerPoints.bottomRightCorner.y],
-			[cornerPoints.bottomLeftCorner.x, cornerPoints.bottomLeftCorner.y]
-		];
-		const result =
-			openCv.pointPolygonTest(
-				openCv.matFromArray(contour.length, 1, openCv.CV_32SC2, contour.flat()),
-				coords,
-				false
-			) >= 0;
-		return result;
-	}
-
 	function getPartsToChange(coords: Point2d): Array<keyof CornerPoints> {
 		if (!cornerPoints) {
 			throw Error('No corner points set!');
@@ -211,7 +196,7 @@
 					x: (event.clientX - rect.left) * scaleX,
 					y: (event.clientY - rect.top) * scaleY
 				};
-				if (isInsideExtractedPaper(coords, cornerPoints)) {
+				if (isInsidePoints(openCv, coords, cornerPoints)) {
 					changingExtraction = true;
 					extractionPartsToChange = getPartsToChange(coords);
 					extractionChangeDistances = {
@@ -263,7 +248,7 @@
 						cornerPoints = newCornerPoints;
 					}
 					drawExtractedImageSelection();
-				} else if (isInsideExtractedPaper(coords, cornerPoints)) {
+				} else if (isInsidePoints(openCv, coords, cornerPoints)) {
 					extractionPartsToChange = getPartsToChange(coords);
 					drawExtractedImageSelection();
 				} else {
