@@ -129,7 +129,7 @@
 		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
-			<button class="p-4" onclick={startScanning}>Start scanning</button>
+			<button class="rounded border bg-gray-100 p-4" onclick={startScanning}>Start scanning</button>
 			{#if permissionError}
 				<p>{permissionError}</p>
 			{/if}
@@ -146,7 +146,7 @@
 				}}
 			/>
 			{#if availableCameras.length > 1}
-				<button class="p-4" onclick={nextCamera}>Next camera</button>
+				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
 			<ol class="flex flex-row gap-4">
@@ -156,8 +156,9 @@
 							class="max-h-16 max-w-16"
 							style="aspect-ratio:{image.result!.height}/{image.result!.width}"
 						>
-							<button onclick={() => (image.result = undefined)}
+							<button class="h-full" onclick={() => (image.result = undefined)}
 								><img
+									class="max-h-full"
 									src={image.result.toDataURL('image/jpeg', 0.9)}
 									alt="Scanned image number {index}"
 								/></button
@@ -209,6 +210,7 @@
 			</section>
 
 			<button
+				class="rounded border bg-gray-100 p-4"
 				onclick={() => {
 					// put all extracted images into a PDF
 					if (extractedImages.some((image) => !image.result)) {
