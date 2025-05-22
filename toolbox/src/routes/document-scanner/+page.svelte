@@ -87,7 +87,7 @@
 			pdf.addImage(dataUrl, 'JPEG', 0, 0, image.result.width, image.result.height);
 		}
 		pdf.output('dataurlnewwindow', { filename });
-		resultPdf = pdf.output('datauristring');
+		resultPdf = pdf.output('datauristring', { filename });
 		scannerState = 'result';
 	}
 
