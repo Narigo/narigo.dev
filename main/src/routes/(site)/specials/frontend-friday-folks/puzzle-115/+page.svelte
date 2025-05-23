@@ -28,10 +28,13 @@
 <PuzzlePageLayout title="Droplet" puzzleId="109">
 	<Puzzle title="Pseudo elements" {solution} />
 	<Narigo>
+		<p>I couldn't make it this Friday, but this puzzle is what was scheduled next.</p>
 		<p>
 			I thought I'll take two pseudo elements, move them around and at the same time use the main
 			element to do the circle in the middle. The pseudo elements need to keep that space clean
-			(transparent).
+			(transparent) and fill the rest with their color. This way, the main element can draw the
+			sides and the circle colors, while the pseudo elements could use transparency and border
+			radius to draw the inner circle and the curves.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
