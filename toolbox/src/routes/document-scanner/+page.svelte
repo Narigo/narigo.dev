@@ -72,7 +72,7 @@
 		}
 	}
 
-	async function downloadExtractedAsPdf(filename: string) {
+	async function preparePdf(filename: string) {
 		const pdf = new jsPdf();
 		// jsPdf creates a page. Since we're walking through the extracted images only,
 		// we don't need this first extra page.
@@ -152,9 +152,17 @@
 				{#each extractedImages as image, index}
 					{#if image.result}
 						<li
-							class="max-h-16 max-w-16"
+							class="relative max-h-16 max-w-16"
 							style="aspect-ratio:{image.result!.height}/{image.result!.width}"
 						>
+							<button
+								class="h-4 w-4"
+								onclick={() =>
+									(extractedImages = [
+										...extractedImages.slice(0, index),
+										...extractedImages.slice(index + 1)
+									])}>x</button
+							>
 							<button class="h-full" onclick={() => (image.result = undefined)}
 								><img
 									class="max-h-full"
@@ -224,7 +232,7 @@ Are you sure you want to download the PDF already?`)
 						'not extracted:',
 						extractedImages.filter((i) => !i.result)
 					);
-					downloadExtractedAsPdf(filename);
+					preparePdf(filename);
 				}}>Download</button
 			>
 		{:else if scannerState === 'result'}
