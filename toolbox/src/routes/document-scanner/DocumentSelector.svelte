@@ -189,6 +189,7 @@
 			class="max-h-full [grid-area:1/1/2/2]"
 			onpointerdown={(event) => {
 				event.preventDefault();
+				event.stopPropagation();
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;
@@ -231,6 +232,7 @@
 			}}
 			onpointermove={(event) => {
 				event.preventDefault();
+				event.stopPropagation();
 				const rect = highlightedPaper.getBoundingClientRect();
 				const scaleX = highlightedPaper.width / rect.width;
 				const scaleY = highlightedPaper.height / rect.height;
