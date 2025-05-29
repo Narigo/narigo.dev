@@ -219,6 +219,13 @@
 			<button
 				class="rounded border bg-gray-100 p-4"
 				onclick={() => {
+					scannerState = 'scanning';
+				}}>Scan another page</button
+			>
+
+			<button
+				class="rounded border bg-gray-100 p-4"
+				onclick={() => {
 					// put all extracted images into a PDF
 					if (extractedImages.some((image) => !image.result)) {
 						if (
@@ -233,7 +240,7 @@ Are you sure you want to download the PDF already?`)
 						extractedImages.filter((i) => !i.result)
 					);
 					preparePdf(filename);
-				}}>Download</button
+				}}>Create Download Link</button
 			>
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
