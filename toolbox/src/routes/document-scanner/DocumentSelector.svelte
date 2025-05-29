@@ -28,11 +28,6 @@
 	let completeImage: HTMLCanvasElement;
 	let highlightedPaper: HTMLCanvasElement;
 
-	function handlerToPreventScrolling(event) {
-		if (changingExtraction) {
-			event.preventDefault();
-		}
-	}
 	onMount(() => {
 		completeImage.width = highlightedPaper.width = image.width;
 		completeImage.height = highlightedPaper.height = image.height;
@@ -50,6 +45,12 @@
 			document.body.removeEventListener('touchstart', handlerToPreventScrolling);
 		};
 	});
+
+	function handlerToPreventScrolling(event: TouchEvent) {
+		if (changingExtraction) {
+			event.preventDefault();
+		}
+	}
 
 	function drawExtractedImageSelection() {
 		const ctx = highlightedPaper.getContext('2d');
