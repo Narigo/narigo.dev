@@ -10,7 +10,7 @@
 	}
 
 	let {
-		textBgColor = 'rgb(var(--color-primary-rgb) / 1)',
+		textBgColor = 'var(color-primary)',
 		textColor = '#fff',
 		rotation = Math.random() - 0.5,
 		outerClass,
@@ -21,14 +21,14 @@
 </script>
 
 <section
-	class="bg-white grid p-[--panel-padding] rotate-[calc(--rotation_*_1deg)] border-2 border-black rounded-sm {outerClass}"
+	class="grid rotate-[calc(--rotation*1deg)] rounded-sm border-2 border-black bg-white p-(--panel-padding) {outerClass}"
 	style="--panel-padding: 0.5rem;--rotation: {rotation};--text-bg-color: {textBgColor};--text-color: {textColor};"
 >
-	<div class="panel border-2 border-black rounded-sm">
+	<div class="panel rounded-sm border-2 border-black">
 		{#if text}
-			<div class="text relative z-10 inline-flex justify-end float-right">
+			<div class="text relative z-10 float-right inline-flex justify-end">
 				<span
-					class="border-2 border-black rounded-sm bg-[--text-bg-color] text-[--text-color] font-sans text-xs -m-[2px] p-1"
+					class="-m-[2px] rounded-sm border-2 border-black bg-(--text-bg-color) p-1 font-sans text-xs text-(--text-color)"
 					>{@render text?.()}</span
 				>
 			</div>

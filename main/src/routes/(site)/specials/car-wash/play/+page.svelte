@@ -218,10 +218,10 @@ ${bubbles.join('')}`;
 			class:moving={currentStep === 'cleaning'}
 			class:rotating={currentStep === 'cleaning'}
 		>
-			<div class="absolute right-8 top-[5%] h-[90%] w-24">
+			<div class="absolute top-[5%] right-8 h-[90%] w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
-						class="finger absolute w-1 rounded bg-gradient-to-b {index % 2 === 0
+						class="finger absolute w-1 rounded bg-linear-to-b {index % 2 === 0
 							? MITTER_COLORS_1
 							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
@@ -235,7 +235,7 @@ ${bubbles.join('')}`;
 			<div class="puddle absolute -bottom-2 h-4 w-full"></div>
 		</div>
 		<div
-			class="track absolute grid h-full w-full place-items-center items-end pb-1 [&_svg_.body]:fill-[--car-color-500] [&_svg_.darker]:fill-[--car-color-800] [&_svg_.lighter]:fill-[--car-color-300] {[
+			class="track absolute grid h-full w-full place-items-center items-end pb-1 [&_svg_.body]:fill-(--car-color-500) [&_svg_.darker]:fill-(--car-color-800) [&_svg_.lighter]:fill-(--car-color-300) {[
 				'start',
 				'dirty',
 				'cleaning'
@@ -255,10 +255,10 @@ ${bubbles.join('')}`;
 			class:moving={currentStep === 'cleaning'}
 			class:rotating={currentStep === 'cleaning'}
 		>
-			<div class="absolute right-4 top-0 h-full w-24">
+			<div class="absolute top-0 right-4 h-full w-24">
 				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
 					<div
-						class="finger absolute w-1 rounded bg-gradient-to-b {index % 2 === 0
+						class="finger absolute w-1 rounded bg-linear-to-b {index % 2 === 0
 							? MITTER_COLORS_1
 							: MITTER_COLORS_2}"
 						style="height: {100 / AMOUNT_OF_ROWS}%;left:{((index % AMOUNT_OF_FINGERS) /
@@ -281,6 +281,8 @@ ${bubbles.join('')}`;
 </PageLayout>
 
 <style lang="postcss">
+	@reference "../../../../app.css";
+
 	.mitter {
 		transform: translate(0);
 		transition: transform 2000ms;
@@ -293,8 +295,8 @@ ${bubbles.join('')}`;
 	}
 	.back .finger {
 		@apply bg-blend-color;
-		background-image: linear-gradient(to bottom, var(--tw-gradient-stops)),
-			linear-gradient(#0003, #0003);
+		background-image:
+			linear-gradient(to bottom, var(--tw-gradient-stops)), linear-gradient(#0003, #0003);
 	}
 	.finger {
 		transform-origin: 50% 0;

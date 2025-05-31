@@ -17,7 +17,7 @@
 		<div>
 			{#if mode === 'shutup'}🤐{:else}<img
 					src={narigo}
-					class="rounded-full max-h-4 max-w-4"
+					class="max-h-4 max-w-4 rounded-full"
 					class:shout={mode === 'shout'}
 					alt={mode === 'talk' ? 'Narigo' : 'Narigo, shouting'}
 				/>{/if}
@@ -26,7 +26,8 @@
 </Bubble>
 
 <style lang="postcss">
+	@reference "../../../app.css";
 	.shout {
-		@apply border-2 border-red-600 scale-125;
+		@apply scale-125 border-2 border-red-600;
 	}
 </style>

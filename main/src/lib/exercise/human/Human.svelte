@@ -49,21 +49,21 @@
 		</section>
 		<section class="leg-l absolute right-6 top-full origin-top">
 			<div
-				class="thighLeft absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighLeftClasses}"
+				class="thighLeft absolute top-0 h-11 w-4 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighLeftClasses}"
 			>
 				<div class="leg-ul absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
 		<section class="leg-r absolute left-2 top-full origin-top">
 			<div
-				class="thighRight absolute top-0 h-11 w-4 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighRightClasses}"
+				class="thighRight absolute top-0 h-11 w-4 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighRightClasses}"
 			>
 				<div class="leg-ur absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
 		<section class="arm-r absolute left-0 top-1 origin-top">
 			<div
-				class="upperArm-r w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-25% to-orange-200 {upperArmRightClasses}"
+				class="upperArm-r w-3 origin-top bg-linear-to-b from-green-400 via-orange-300 via-25% to-orange-200 {upperArmRightClasses}"
 			>
 				<div
 					class="forearm-r absolute top-full w-3 origin-top bg-orange-200 {forearmRightClasses}"
@@ -72,7 +72,7 @@
 		</section>
 		<section class="arm-l absolute right-3 top-1 origin-top">
 			<div
-				class="upperArm-l absolute top-0 w-3 origin-top bg-gradient-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperArmLeftClasses}"
+				class="upperArm-l absolute top-0 w-3 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperArmLeftClasses}"
 			>
 				<div
 					class="forearm-l absolute top-full w-3 origin-top bg-orange-200 {forearmLeftClasses}"

@@ -12,6 +12,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "../../app.css";
+
 	.shakeit > :global(*) {
 		@apply animate-shake;
 		text-transform: uppercase;

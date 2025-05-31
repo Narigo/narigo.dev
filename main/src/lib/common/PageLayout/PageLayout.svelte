@@ -120,7 +120,7 @@
 			<Navigation />
 		</FullWidthSection>
 	</header>
-	<main class="content-grid flex-grow auto-rows-max {mainClasses}">
+	<main class="content-grid grow auto-rows-max {mainClasses}">
 		{#if allowSections}
 			{@render children?.()}
 		{:else}
@@ -144,6 +144,8 @@
 </div>
 
 <style lang="postcss">
+	@reference "../../../app.css";
+
 	.page {
 		--rgbv-background-color: 255, 255, 255;
 		--rgbv-background-inverted-color: 0, 0, 0;
@@ -192,7 +194,7 @@
 	footer {
 		margin-top: 1rem;
 		background: rgb(var(--color-primary));
-		color: rgb(var(--color-primary-text));
+		color: var(--color-white);
 		position: relative;
 		&::after {
 			position: absolute;
