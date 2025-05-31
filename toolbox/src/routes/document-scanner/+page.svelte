@@ -148,11 +148,11 @@
 				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
-			<ol class="flex flex-row gap-4">
+			<ol class="flex h-32 flex-row gap-4">
 				{#each extractedImages as image, index}
 					{#if image.result}
 						<li
-							class="relative max-h-16 max-w-16"
+							class="relative max-h-32 max-w-32"
 							style="aspect-ratio:{image.result!.height}/{image.result!.width}"
 						>
 							<button
@@ -163,7 +163,9 @@
 										...extractedImages.slice(index + 1)
 									])}>x</button
 							>
-							<button class="h-full" onclick={() => (image.result = undefined)}
+							<button
+								class="absolute top-0 right-0 h-full"
+								onclick={() => (image.result = undefined)}
 								><img
 									class="max-h-full"
 									src={image.result.toDataURL('image/jpeg', 0.9)}
