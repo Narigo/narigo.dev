@@ -173,6 +173,10 @@
 						</li>
 					{/if}
 				{/each}
+				<li class="relative max-h-32 max-w-32" style="aspect-ratio:3/2">
+					<button class="h-full w-full border bg-gray-100" onclick={() => startScanning()}>+</button
+					>
+				</li>
 			</ol>
 			<section class="isolate grid grid-cols-1 grid-rows-1">
 				{#each extractedImages as image, index}
