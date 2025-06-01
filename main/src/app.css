@@ -1,6 +1,6 @@
-@import '@fontsource/annie-use-your-telescope' layer(base);
-@import '@fontsource/gochi-hand' layer(base);
-@import '@fontsource/permanent-marker' layer(base);
+@import '@fontsource/annie-use-your-telescope';
+@import '@fontsource/gochi-hand';
+@import '@fontsource/permanent-marker';
 
 @import 'tailwindcss';
 
@@ -18,6 +18,10 @@
 	--color-primary-light: rgb(101 193 96);
 	--color-primary: rgb(64 154 69);
 	--color-primary-dark: rgb(42 92 36);
+
+	--font-primary: 'Gochi Hand', cursive;
+	--font-headline: 'Permanent Marker', 'Gochi Hand', cursive;
+	--font-code: 'Victor Mono', monospace;
 
 	--shadow-box: 0.25rem 0.25rem 0 #555;
 
@@ -75,15 +79,9 @@
 
 @layer base {
 	:root {
-		--font-family-primary: 'Gochi Hand', cursive;
-		--font-family-headline: 'Permanent Marker', 'Gochi Hand', cursive;
 		--font-size-primary: 24px;
 
 		--nd-box-shadow: 0.25rem 0.25rem 0 #555;
-
-		--color-primary-light: 101 193 96;
-		--color-primary: 73 153 66;
-		--color-primary-dark: 42 92 36;
 
 		--text-color: var(--color-black);
 		--primary-text-color: var(--color-white);
@@ -104,13 +102,12 @@
 	h4,
 	h5,
 	h6 {
-		@apply shadow-box;
+		@apply font-headline shadow-box;
 		background: var(--color-primary);
 		clear: both;
 		color: var(--color-primary-text);
 		display: flex;
 		flex-wrap: wrap;
-		font-family: var(--font-family-headline);
 		isolation: isolate;
 		padding: 0.5em 1em;
 		margin: 0 0.5em 0.5em 0;
@@ -135,6 +132,6 @@
 	}
 
 	code {
-		font-family: 'Victor Mono', monospace;
+		@apply font-code;
 	}
 }

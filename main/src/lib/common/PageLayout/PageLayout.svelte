@@ -167,7 +167,7 @@
 				center / cover no-repeat,
 			rgba(var(--rgbv-background-color), 1);
 		background-size: cover;
-		font-family: var(--font-family-primary);
+		font-family: var(--font-primary);
 		letter-spacing: 0.5px;
 	}
 	.content-grid {
@@ -193,7 +193,7 @@
 
 	footer {
 		margin-top: 1rem;
-		background: rgb(var(--color-primary));
+		background: var(--color-primary);
 		color: var(--color-white);
 		position: relative;
 		&::after {
@@ -204,7 +204,7 @@
 					calc(-1rem + 3px) / calc(2rem) calc(2rem),
 				linear-gradient(to bottom left, #0000 calc(50% - 2px), #000 0 calc(50%), #0000 0) -1rem
 					calc(-1rem + 3px) / calc(2rem) calc(2rem),
-				conic-gradient(#0000 135deg, rgb(var(--color-primary)) 0 225deg, #0000 0)-1rem -1rem / 2rem
+				conic-gradient(#0000 135deg, var(--color-primary) 0 225deg, #0000 0)-1rem -1rem / 2rem
 					calc(2rem + 2px);
 			mask:
 				linear-gradient(to bottom right, #0000 calc(50% - 2px), #000 0 calc(50% + 2px)) calc(-1rem)
