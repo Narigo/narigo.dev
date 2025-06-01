@@ -10,7 +10,7 @@
 	}
 
 	let {
-		textBgColor = 'var(color-primary)',
+		textBgColor = 'var(--color-primary)',
 		textColor = '#fff',
 		rotation = Math.random() - 0.5,
 		outerClass,
