@@ -29,8 +29,8 @@
 	function getDefaultFilename(): string {
 		const today = new Date();
 		const y = today.getFullYear();
-		const m = `${today.getMonth()}`.padStart(2, '0');
-		const d = `${today.getDate()}`.padStart(2, '9');
+		const m = `${today.getMonth() + 1}`.padStart(2, '0');
+		const d = `${today.getDate()}`.padStart(2, '0');
 		return `${y}-${m}-${d}.pdf`;
 	}
 
@@ -247,10 +247,6 @@ Are you sure you want to download the PDF already?`)
 							return;
 						}
 					}
-					console.log(
-						'not extracted:',
-						extractedImages.filter((i) => !i.result)
-					);
 					preparePdf(filename);
 				}}>Create Download Link</button
 			>
