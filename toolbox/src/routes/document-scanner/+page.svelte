@@ -3,7 +3,11 @@
 	import { base } from '$app/paths';
 	import FullBreakoutSection from '$lib/common/FullBreakoutSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import { extractPaper, type OpenCv } from '$lib/tools/document-scanner/jscanify';
+	import {
+		extractPaper,
+		type CornerPoints,
+		type OpenCv
+	} from '$lib/tools/document-scanner/jscanify';
 	import { onMount } from 'svelte';
 	import DocumentScanner, { type ExtractedImage } from './DocumentScanner.svelte';
 	import DocumentSelector from './DocumentSelector.svelte';
@@ -111,6 +115,29 @@
 		});
 		return await (globalThis as typeof globalThis & { cv: typeof OpenCv }).cv;
 	}
+
+	function extractImage(
+		openCv: typeof OpenCv,
+		source: ImageData,
+		cornerPoints: CornerPoints
+	): HTMLCanvasElement {
+		const width =
+			Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
+			Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
+		const height =
+			Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
+			Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
+		const sourceImage = document.createElement('canvas');
+		sourceImage.width = source.width;
+		sourceImage.height = source.height;
+		const ctx = sourceImage.getContext('2d');
+		ctx?.putImageData(source, 0, 0);
+		return extractPaper(openCv, sourceImage, cornerPoints, {
+			width,
+			height
+		});
+	}
+
 	onMount(async () => {
 		openCv = await loadOpenCv();
 		scannerState =
@@ -138,7 +165,11 @@
 				videoStream={cameraStream}
 				{openCv}
 				onscan={(image, cornerPoints) => {
-					extractedImages = [...extractedImages, { source: image, cornerPoints }];
+					if (!openCv) {
+						return;
+					}
+					const result = extractImage(openCv, image, cornerPoints);
+					extractedImages = [...extractedImages, { source: image, cornerPoints, result }];
 				}}
 				onclose={() => {
 					stopCurrentCamera();
@@ -181,24 +212,12 @@
 									if (!openCv) {
 										return;
 									}
-									const width =
-										Math.max(cornerPoints.topRightCorner.x, cornerPoints.bottomRightCorner.x) -
-										Math.min(cornerPoints.topLeftCorner.x, cornerPoints.bottomLeftCorner.x);
-									const height =
-										Math.max(cornerPoints.bottomLeftCorner.y, cornerPoints.bottomRightCorner.y) -
-										Math.min(cornerPoints.topLeftCorner.y, cornerPoints.topRightCorner.y);
-									const sourceImage = document.createElement('canvas');
-									sourceImage.width = extractedImages[index].source.width;
-									sourceImage.height = extractedImages[index].source.height;
-									const ctx = sourceImage.getContext('2d');
-									ctx?.putImageData(extractedImages[index].source, 0, 0);
-									extractedImages[index].result = extractPaper(
-										openCv,
-										sourceImage,
-										extractedImages[index].cornerPoints,
-										{ width, height }
-									);
 									extractedImages[index].cornerPoints = cornerPoints;
+									extractedImages[index].result = extractImage(
+										openCv,
+										extractedImages[index].source,
+										cornerPoints
+									);
 								}}
 							/>
 						</div>
