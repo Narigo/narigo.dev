@@ -239,6 +239,10 @@ Are you sure you want to download the PDF already?`)
 						}
 					}
 					preparePdf(filename);
+					const hiddenAnchor = document.createElement('a');
+					hiddenAnchor.setAttribute('download', filename);
+					hiddenAnchor.setAttribute('href', resultPdf);
+					hiddenAnchor.click();
 				}}>Create Download Link</button
 			>
 		{:else if scannerState === 'result'}
