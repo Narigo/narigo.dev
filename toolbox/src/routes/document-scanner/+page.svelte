@@ -29,6 +29,7 @@
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
 	let filename = $state<string>(getDefaultFilename());
+	let finalFilename = $derived(filename.replace(/\.pdf$/, '') + '.pdf');
 	let resultPdf = $state<string>('');
 
 	function getDefaultFilename(): string {
@@ -238,16 +239,16 @@ Are you sure you want to download the PDF already?`)
 							return;
 						}
 					}
-					preparePdf(filename);
+					preparePdf(finalFilename);
 					const hiddenAnchor = document.createElement('a');
-					hiddenAnchor.setAttribute('download', filename);
+					hiddenAnchor.setAttribute('download', finalFilename);
 					hiddenAnchor.setAttribute('href', resultPdf);
 					hiddenAnchor.click();
 				}}>Create Download Link</button
 			>
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
-			<a href={resultPdf} download={filename}>{filename}</a>
+			<a href={resultPdf} download={finalFilename}>{finalFilename}</a>
 			<button class="rounded border bg-gray-100 p-4" onclick={() => startScanning()}
 				>Scan another page</button
 			>
