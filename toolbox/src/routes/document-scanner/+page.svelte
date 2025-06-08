@@ -248,7 +248,9 @@ Are you sure you want to download the PDF already?`)
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
 			<a href={resultPdf} download={filename}>{filename}</a>
-			<button onclick={() => startScanning()}>Scan another page</button>
+			<button class="rounded border bg-gray-100 p-4" onclick={() => startScanning()}
+				>Scan another page</button
+			>
 		{/if}
 	</FullBreakoutSection>
 </PageLayout>
