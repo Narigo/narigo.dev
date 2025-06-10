@@ -1,3 +1,7 @@
 export function ensureEndsWith(ending: string, string: string): string {
-	return string + ending;
+	const ensuredString = string ?? '';
+	if (ensuredString?.endsWith(ending)) {
+		return ensuredString;
+	}
+	return ensuredString + ending;
 }

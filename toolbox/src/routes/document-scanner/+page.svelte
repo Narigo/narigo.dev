@@ -12,6 +12,7 @@
 	import DocumentScanner, { type ExtractedImage } from './DocumentScanner.svelte';
 	import DocumentSelector from './DocumentSelector.svelte';
 	import PreviewBar from './PreviewBar.svelte';
+	import { ensureEndsWith } from '$lib/tools/document-scanner/ensure-ends-with';
 
 	let scannerState = $state<
 		| 'initializing'
@@ -29,7 +30,7 @@
 	let availableCameras = $state<Array<MediaDeviceInfo>>([]);
 	let extractedImages = $state<Array<ExtractedImage>>([]);
 	let filename = $state<string>(getDefaultFilename());
-	let finalFilename = $derived(filename.replace(/\.pdf$/, '') + '.pdf');
+	let finalFilename = $derived(ensureEndsWith('.pdf', filename));
 	let resultPdf = $state<string>('');
 
 	function getDefaultFilename(): string {
