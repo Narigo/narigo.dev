@@ -13,6 +13,7 @@
 	import DocumentSelector from './DocumentSelector.svelte';
 	import PreviewBar from './PreviewBar.svelte';
 	import { ensureEndsWith } from '$lib/tools/document-scanner/ensure-ends-with';
+	import LoadingScreen from './LoadingScreen.svelte';
 
 	let scannerState = $state<
 		| 'initializing'
@@ -154,7 +155,7 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		{#if scannerState === 'initializing'}
-			<div>Waiting for OpenCV</div>
+			<LoadingScreen>Waiting for OpenCV</LoadingScreen>
 		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
