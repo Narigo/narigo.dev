@@ -155,7 +155,9 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		{#if scannerState === 'initializing'}
-			<LoadingScreen>Waiting for OpenCV</LoadingScreen>
+			<div class="grid h-full w-full place-items-center">
+				<LoadingScreen>Waiting for OpenCV</LoadingScreen>
+			</div>
 		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
