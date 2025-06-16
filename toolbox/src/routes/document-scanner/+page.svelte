@@ -143,12 +143,12 @@
 
 	onMount(async () => {
 		openCv = await loadOpenCv();
-		scannerState =
-			'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
-				? 'needs-permission'
-				: 'error-no-input-device';
-		const devices = await navigator.mediaDevices.enumerateDevices();
-		availableCameras = devices.filter((device) => device.kind === 'videoinput');
+		// scannerState =
+		// 	'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+		// 		? 'needs-permission'
+		// 		: 'error-no-input-device';
+		// const devices = await navigator.mediaDevices.enumerateDevices();
+		// availableCameras = devices.filter((device) => device.kind === 'videoinput');
 	});
 </script>
 
@@ -156,7 +156,10 @@
 	<FullBreakoutSection class="px-8">
 		{#if scannerState === 'initializing'}
 			<div class="grid h-full w-full place-items-center">
-				<LoadingScreen>Waiting for OpenCV</LoadingScreen>
+				<LoadingScreen>
+					<p>Waiting for OpenCV</p>
+					<p>...and maybe something else</p>
+				</LoadingScreen>
 			</div>
 		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
