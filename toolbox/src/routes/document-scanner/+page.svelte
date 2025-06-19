@@ -143,17 +143,32 @@
 
 	onMount(async () => {
 		openCv = await loadOpenCv();
-		// scannerState =
-		// 	'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
-		// 		? 'needs-permission'
-		// 		: 'error-no-input-device';
-		// const devices = await navigator.mediaDevices.enumerateDevices();
-		// availableCameras = devices.filter((device) => device.kind === 'videoinput');
+		scannerState =
+			'mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices
+				? 'needs-permission'
+				: 'error-no-input-device';
+		const devices = await navigator.mediaDevices.enumerateDevices();
+		availableCameras = devices.filter((device) => device.kind === 'videoinput');
 	});
 </script>
 
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
+		<section>
+			<h2>Preview</h2>
+			<PreviewBar
+				images={extractedImages}
+				removeImage={(index: number) => {
+					extractedImages = [
+						...extractedImages.slice(0, index),
+						...extractedImages.slice(index + 1)
+					];
+				}}
+				addImage={() => {
+					startScanning();
+				}}
+			/>
+		</section>
 		{#if scannerState === 'initializing'}
 			<div class="grid h-full w-full place-items-center">
 				<LoadingScreen>
@@ -188,21 +203,6 @@
 				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>Next camera</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
-			<section>
-				<PreviewBar
-					images={extractedImages}
-					removeImage={(index: number) => {
-						extractedImages = [
-							...extractedImages.slice(0, index),
-							...extractedImages.slice(index + 1)
-						];
-					}}
-					addImage={() => {
-						startScanning();
-					}}
-				/>
-			</section>
-
 			<section class="isolate grid grid-cols-1 grid-rows-1">
 				{#each extractedImages as image, index}
 					{#if !image.result}
