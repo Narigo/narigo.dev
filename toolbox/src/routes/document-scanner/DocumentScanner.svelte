@@ -188,7 +188,7 @@
 	});
 </script>
 
-<section>
+<section class="scanner">
 	<button
 		aria-label="Stop scanning"
 		class="grid max-h-dvh grid-cols-1 grid-rows-1 place-items-center"
