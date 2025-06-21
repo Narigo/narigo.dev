@@ -2,11 +2,11 @@ import { expect, test } from '@playwright/test';
 
 test('document scanner has expected start button', async ({ page }) => {
 	await page.goto('/document-scanner');
-	await expect(page.locator('button')).toContainText(/start/i);
+	await expect(page.locator('button.start')).toContainText(/start/i);
 });
 
 test('document scanner has a preview bar and a camera section', async ({ page }) => {
 	await page.goto('/document-scanner');
-	await expect(page.locator('section')).toContainText(/preview/i);
-	await expect(page.locator('section')).toContainText(/camera/i);
+	await expect(page.locator('section.preview')).toContainText(/preview/i);
+	await expect(page.locator('section.camera')).toContainText(/camera/i);
 });

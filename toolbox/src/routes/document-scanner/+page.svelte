@@ -154,7 +154,7 @@
 
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
-		<section>
+		<section class="preview">
 			<h2>Preview</h2>
 			<PreviewBar
 				images={extractedImages}
@@ -170,7 +170,7 @@
 			/>
 		</section>
 		{#if scannerState === 'initializing'}
-			<div class="grid h-full w-full place-items-center">
+			<div class="loader grid h-full w-full place-items-center">
 				<LoadingScreen>
 					<p>Waiting for OpenCV</p>
 					<p>...and maybe something else</p>
@@ -179,7 +179,9 @@
 		{:else if scannerState === 'error-no-input-device'}
 			<div>No input device found</div>
 		{:else if scannerState === 'needs-permission'}
-			<button class="rounded border bg-gray-100 p-4" onclick={startScanning}>Start scanning</button>
+			<button class="start rounded border bg-gray-100 p-4" onclick={startScanning}
+				>Start scanning (asks for permission to use camera)</button
+			>
 			{#if permissionError}
 				<p>{permissionError}</p>
 			{/if}
