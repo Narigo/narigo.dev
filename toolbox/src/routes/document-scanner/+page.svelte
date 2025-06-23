@@ -155,7 +155,7 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		<section class="preview">
-			<h2>Preview</h2>
+			<h2>Preview - scannerState:{scannerState}</h2>
 			<PreviewBar
 				images={extractedImages}
 				removeImage={(index: number) => {

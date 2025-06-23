@@ -8,7 +8,10 @@ export default defineConfig({
 	},
 	use: {
 		baseURL: 'https://localhost:4173',
-		ignoreHTTPSErrors: true
+		ignoreHTTPSErrors: true,
+		launchOptions: {
+			args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream']
+		}
 	},
 	testDir: 'e2e'
 });
