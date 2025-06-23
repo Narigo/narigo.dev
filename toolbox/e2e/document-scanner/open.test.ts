@@ -5,9 +5,10 @@ test('document scanner has expected start button', async ({ page }) => {
 	await expect(page.locator('button.start')).toContainText(/start/i);
 });
 
-test('document scanner has a preview bar and a camera section', async ({ page }) => {
+test('document scanner has a preview bar and a camera section', async ({ page, context }) => {
 	await page.goto('/document-scanner');
 	await page.locator('button.start').click();
+    await context.grantPermissions(["camera"]);
 	await expect(page.locator('section.preview')).toContainText(/preview/i);
 	await expect(page.locator('section.scanner')).toBeVisible();
 });
