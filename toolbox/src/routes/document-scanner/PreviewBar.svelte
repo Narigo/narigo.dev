@@ -32,7 +32,7 @@
 		{/if}
 	{/each}
 	<li class="relative max-h-32 max-w-32" style="aspect-ratio:3/2">
-		<button class="h-full w-full border bg-gray-100" onclick={() => addImage()}>+</button>
+		<button class="h-full w-full border bg-gray-100" onclick={() => addImage()}>Add scan</button>
 	</li>
 </ol>
 
