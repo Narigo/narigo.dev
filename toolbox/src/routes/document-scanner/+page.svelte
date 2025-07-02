@@ -147,13 +147,18 @@
 			scannerState = 'error-no-input-device';
 			return;
 		}
+		const devices = await navigator.mediaDevices.enumerateDevices();
+		availableCameras = devices.filter((device) => device.kind === 'videoinput');
 
 		openCv = await loadOpenCv();
 
 		const { state: cameraPermissionState } = await navigator.permissions.query({ name: 'camera' });
-		scannerState = cameraPermissionState === 'granted' ? 'scanning' : 'needs-permission';
-		const devices = await navigator.mediaDevices.enumerateDevices();
-		availableCameras = devices.filter((device) => device.kind === 'videoinput');
+		if (cameraPermissionState === 'denied' || cameraPermissionState === 'prompt') {
+			scannerState = 'needs-permission';
+			return;
+		}
+
+		startScanning();
 	});
 </script>
 
