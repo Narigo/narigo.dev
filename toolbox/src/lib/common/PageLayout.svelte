@@ -8,9 +8,10 @@
 	interface Props {
 		children: Snippet;
 		backLink?: string;
+		stretch?: boolean;
 	}
 
-	let { backLink, children }: Props = $props();
+	let { backLink, children, stretch = false }: Props = $props();
 	let currentLanguage = $state(languageTag());
 	onSetLanguageTag((newLanguageTag) => (currentLanguage = newLanguageTag));
 
@@ -23,10 +24,10 @@
 	<div class="relative flex min-h-full flex-col">
 		<header class="content-grid">
 			<FullWidthSection>
-				<div class="flex gap-4 justify-between">
-                    <div>
-                        {#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
-                    </div>
+				<div class="flex justify-between gap-4">
+					<div>
+						{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
+					</div>
 					<div>
 						<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
 						<button class="p-4" onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
@@ -34,7 +35,7 @@
 				</div>
 			</FullWidthSection>
 		</header>
-		<main class="content-grid flex-grow auto-rows-max">
+		<main class="content-grid flex-grow" class:auto-rows-max={!stretch}>
 			{@render children()}
 		</main>
 	</div>
@@ -69,7 +70,8 @@
 			display: inline-block;
 			width: 1em;
 			height: 1em;
-			background: conic-gradient(transparent 45deg, currentColor 0 135deg, transparent 0) -.25em no-repeat;
+			background: conic-gradient(transparent 45deg, currentColor 0 135deg, transparent 0) -0.25em
+				no-repeat;
 		}
 	}
 </style>

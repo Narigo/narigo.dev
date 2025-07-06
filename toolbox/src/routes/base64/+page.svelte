@@ -10,8 +10,8 @@
 	const encodeString = (s: string) => encode(new TextEncoder().encode(s));
 </script>
 
-<PageLayout backLink="{base}/">
-	<FullWidthSection>
+<PageLayout backLink="{base}/" stretch={true}>
+	<FullWidthSection class="grid-rows-[1fr]">
 		<Encoder encode={encodeString} decode={decodeToString} />
 	</FullWidthSection>
 </PageLayout>
