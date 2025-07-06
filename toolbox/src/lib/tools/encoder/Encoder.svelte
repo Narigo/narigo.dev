@@ -16,17 +16,27 @@
 
 	onMount(() => {
 		left.addEventListener('input', () => {
-			if (decodedSide === 'left') {
-				right.value = encode(left.value);
-			} else {
-				right.value = decode(left.value);
+			try {
+				if (decodedSide === 'left') {
+					right.value = encode(left.value);
+				} else {
+					right.value = decode(left.value);
+				}
+				right.classList.remove('border-red-500');
+			} catch (e) {
+				right.classList.add('border-red-500');
 			}
 		});
 		right.addEventListener('input', () => {
-			if (decodedSide === 'right') {
-				left.value = encode(right.value);
-			} else {
-				left.value = decode(right.value);
+			try {
+				if (decodedSide === 'right') {
+					left.value = encode(right.value);
+				} else {
+					left.value = decode(right.value);
+				}
+				left.classList.remove('border-red-500');
+			} catch (e) {
+				left.classList.add('border-red-500');
 			}
 		});
 	});
