@@ -55,14 +55,15 @@
 
 <section class="@container h-full w-full">
 	<div class="grid h-full w-full grid-cols-[1fr_min-content_1fr] grid-rows-[min-content_1fr]">
-		<h3 class="h-min">
+		<h3 class="h-min font-bold">
 			{#if decodedSide === 'left'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>
-		<button class="row-span-2 bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>
-		<h3 class="h-min">
+		<div></div>
+		<h3 class="h-min font-bold">
 			{#if decodedSide === 'right'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>
 		<textarea bind:this={left} class="w-full" placeholder={m.placeholderDecoded()}></textarea>
+		<button class="bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>
 		<textarea bind:this={right} class="w-full" placeholder={m.placeholderEncoded()}></textarea>
 	</div>
 </section>
