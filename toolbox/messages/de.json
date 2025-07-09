@@ -16,5 +16,8 @@
 	"toolsDocumentScannerDescription": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
 	"toolsCategoryLabel": "Kategorie: {label}",
 	"toolsCategoryStrings": "Text",
-	"toolsCategoryTools": "Werkzeug"
+	"toolsCategoryTools": "Werkzeug",
+	"documentScanner": {
+		"preview": "Vorschau"
+	}
 }

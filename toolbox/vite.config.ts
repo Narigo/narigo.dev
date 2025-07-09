@@ -1,4 +1,4 @@
-import { paraglide } from '@inlang/paraglide-sveltekit/vite';
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { readFileSync } from 'node:fs';
@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 export default defineConfig({
 	plugins: [
 		sveltekit(),
-		paraglide({
+		paraglideVitePlugin({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'
 		})

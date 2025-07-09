@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
-	import { languageTag, onSetLanguageTag, setLanguageTag } from '$lib/paraglide/runtime';
+	import { locales, setLocale, type Locale } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 	import FullWidthSection from './FullWidthSection.svelte';
 
@@ -12,34 +11,30 @@
 	}
 
 	let { backLink, children, stretch = false }: Props = $props();
-	let currentLanguage = $state(languageTag());
-	onSetLanguageTag((newLanguageTag) => (currentLanguage = newLanguageTag));
 
-	const switchLanguage = (language: AvailableLanguageTag) => () => {
-		setLanguageTag(language);
+	const switchLanguage = (language: Locale) => () => {
+		setLocale(language);
 	};
 </script>
 
-{#key currentLanguage}
-	<div class="relative flex min-h-full flex-col">
-		<header class="content-grid">
-			<FullWidthSection>
-				<div class="flex justify-between gap-4">
-					<div>
-						{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
-					</div>
-					<div>
-						<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
-						<button class="p-4" onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
-					</div>
+<div class="relative flex min-h-full flex-col">
+	<header class="content-grid">
+		<FullWidthSection>
+			<div class="flex justify-between gap-4">
+				<div>
+					{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
 				</div>
-			</FullWidthSection>
-		</header>
-		<main class="content-grid flex-grow" class:auto-rows-max={!stretch}>
-			{@render children()}
-		</main>
-	</div>
-{/key}
+				<div>
+					<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
+					<button class="p-4" onclick={switchLanguage('en')}>{m.switchToEnglish()}</button>
+				</div>
+			</div>
+		</FullWidthSection>
+	</header>
+	<main class="content-grid flex-grow" class:auto-rows-max={!stretch}>
+		{@render children()}
+	</main>
+</div>
 
 <style lang="postcss">
 	.content-grid {

@@ -166,7 +166,7 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		<section class="preview">
-			<h2 class="sr-only">{m.toolsDocumentScannerPreview()}</h2>
+			<h2 class="sr-only">{m['documentScanner.preview']()}</h2>
 			<PreviewBar
 				images={extractedImages}
 				removeImage={(index: number) => {

@@ -22,7 +22,7 @@
 		"@fontsource/fira-code": "^5.2.6",
 		"@fontsource/fira-mono": "^5.2.6",
 		"@fontsource/fira-sans": "^5.2.5",
-		"@inlang/paraglide-sveltekit": "^0.15.5",
+		"@inlang/paraglide-js": "2.2.0",
 		"@playwright/test": "^1.52.0",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.21.1",

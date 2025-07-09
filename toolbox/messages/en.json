@@ -17,5 +17,8 @@
 	"toolsCategoryLabel": "Category: {label}",
 	"toolsCategoryStrings": "Strings",
 	"toolsCategoryTools": "Tools",
-	"toolsDocumentScannerPreview": "Preview"
+	"toolsDocumentScannerPreview": "Preview",
+	"documentScanner": {
+		"preview": "Preview"
+	}
 }
