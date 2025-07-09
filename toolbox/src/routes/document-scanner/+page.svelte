@@ -14,6 +14,7 @@
 	import PreviewBar from './PreviewBar.svelte';
 	import { ensureEndsWith } from '$lib/tools/document-scanner/ensure-ends-with';
 	import LoadingScreen from './LoadingScreen.svelte';
+	import * as m from '$lib/paraglide/messages.js';
 
 	let scannerState = $state<
 		| 'initializing'
@@ -165,7 +166,7 @@
 <PageLayout backLink="{base}/">
 	<FullBreakoutSection class="px-8">
 		<section class="preview">
-			<h2 class="sr-only">Preview</h2>
+			<h2 class="sr-only">{m.toolsDocumentScannerPreview()}</h2>
 			<PreviewBar
 				images={extractedImages}
 				removeImage={(index: number) => {

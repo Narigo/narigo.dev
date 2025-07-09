@@ -16,5 +16,6 @@
 	"toolsDocumentScannerDescription": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
 	"toolsCategoryLabel": "Category: {label}",
 	"toolsCategoryStrings": "Strings",
-	"toolsCategoryTools": "Tools"
+	"toolsCategoryTools": "Tools",
+	"toolsDocumentScannerPreview": "Preview"
 }
