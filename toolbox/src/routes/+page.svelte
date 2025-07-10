@@ -50,11 +50,12 @@
 			time and see what I can do. Maybe even have some webassembly tools like image converter or
 			similar things. Tools that could be used offline as well. Let's see where this goes.
 		</p>
-		<p>For now, I want to build:</p>
+		<p>Things I may want to build:</p>
 		<ul>
-			<li>Base64 encoder / decoder</li>
-			<li>URL encoder / decoder</li>
+			<li>Flashlight / Torch - if that's possible?</li>
 			<li>JWT extractor</li>
+			<li>Image converter</li>
+			<li>Video to GIF converter</li>
 		</ul>
 		<p>
 			Oh, and I'm going to try out this localisation that was added by <code>sv create</code>:
