@@ -40,6 +40,14 @@
 					description={m.toolsDocumentScannerDescription()}
 				/>
 			</a>
+
+			<a href="{base}/flashlight">
+				<ToolCard
+					category="tools"
+					title={m.toolsFlashlightTitle()}
+					description={m.toolsFlashlightDescription()}
+				/>
+			</a>
 		</section>
 	</FullWidthSection>
 
