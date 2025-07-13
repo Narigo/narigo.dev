@@ -217,7 +217,7 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5
       '@inlang/paraglide-js':
-        specifier: ^2.2.0
+        specifier: 2.2.0
         version: 2.2.0
       '@playwright/test':
         specifier: ^1.52.0
@@ -243,6 +243,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@4.1.8)
+      '@types/w3c-image-capture':
+        specifier: ^1.0.11
+        version: 1.0.11
       '@vitejs/plugin-basic-ssl':
         specifier: ^2.0.0
         version: 2.0.0(vite@6.3.5)
@@ -3179,9 +3182,19 @@ packages:
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
     dev: false
 
+  /@types/w3c-image-capture@1.0.11:
+    resolution: {integrity: sha512-g3BsmP29VsaaB9M2Hp0IJ8W/WatH0NzM6GV6Awdaqex5wjCcScdDa58ctX0al+ixQLDfIxplu+xOaLNA/u66bg==}
+    dependencies:
+      '@types/webrtc': 0.0.46
+    dev: true
+
   /@types/web-bluetooth@0.0.20:
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
     dev: false
+
+  /@types/webrtc@0.0.46:
+    resolution: {integrity: sha512-cvCnjKy0ma9ODWbVYBTMMB+WkocwLcscCwn2/caDVdb9MWaesS8PYGapIIHFsAaIBXRFlH1Fc7ZjIBO6pH0HKA==}
+    dev: true
 
   /@typescript-eslint/eslint-plugin@8.33.0(@typescript-eslint/parser@8.33.0)(eslint@9.28.0)(typescript@5.8.3):
     resolution: {integrity: sha512-CACyQuqSHt7ma3Ns601xykeBK/rDeZa3w6IS6UtMQbixO5DWy+8TilKkviGDH6jtWCo8FGRKEK5cLLkPvEammQ==}

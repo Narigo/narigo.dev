@@ -20,5 +20,11 @@
 	"toolsDocumentScannerPreview": "Preview",
 	"documentScanner": {
 		"preview": "Preview"
+	},
+	"toolsFlashlightTitle": "Flashlight",
+	"toolsFlashlightDescription": "Uses the camera light as flashlight / torch.",
+	"flashlight": {
+		"switchOn": "Turn on",
+		"switchOff": "Turn off"
 	}
 }

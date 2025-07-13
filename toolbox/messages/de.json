@@ -19,5 +19,11 @@
 	"toolsCategoryTools": "Werkzeug",
 	"documentScanner": {
 		"preview": "Vorschau"
+	},
+	"toolsFlashlightTitle": "Taschenlampe",
+	"toolsFlashlightDescription": "Verwendet das Blitzlicht der Kamera als Taschenlampe.",
+	"flashlight": {
+		"switchOn": "Anschalten",
+		"switchOff": "Ausschalten"
 	}
 }
