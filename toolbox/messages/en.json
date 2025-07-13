@@ -25,6 +25,11 @@
 	"toolsFlashlightDescription": "Uses the camera light as flashlight / torch.",
 	"flashlight": {
 		"switchOn": "Turn on",
-		"switchOff": "Turn off"
+		"switchOff": "Turn off",
+		"errors": {
+			"noFlashlightFound": "No camera with flashlight found!",
+			"noPermissionGiven": "Did not receive permission, to use the camera (and with it the flashlight function)!",
+			"noPermissionGranted": "Did not receive permission, to use the camera (and with it the flashlight function)!"
+		}
 	}
 }

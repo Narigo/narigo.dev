@@ -24,6 +24,10 @@
 	"toolsFlashlightDescription": "Verwendet das Blitzlicht der Kamera als Taschenlampe.",
 	"flashlight": {
 		"switchOn": "Anschalten",
-		"switchOff": "Ausschalten"
+		"switchOff": "Ausschalten",
+		"errors": {
+			"noFlashlightFound": "Keine Kamera mit Blitzlicht gefunden!",
+			"noPermissionGiven": "Keine Berechtigung erhalten, um die Kamera (und damit die Blitzlichtfunktion) zu verwenden!"
+		}
 	}
 }
