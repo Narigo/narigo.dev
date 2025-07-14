@@ -15,37 +15,47 @@
 		| 'trying-to-turn-on'
 		| 'trying-to-turn-off';
 	let flashlightState = $state<FlashlightState>('off');
+	let userMedia = $state<MediaStream | null>(null);
 
 	async function turnOff() {
 		flashlightState = 'trying-to-turn-off';
+		if (!userMedia) {
+			console.error('No user media stream available to turn off flashlight');
+			flashlightState = 'off';
+			return;
+		}
+
+		try {
+			await Promise.all(userMedia.getVideoTracks().map((track) => track.stop()));
+		} catch (e) {
+			console.error('Failed to turn off flashlight:', e);
+			flashlightState = 'error-no-flashlight-found';
+			return;
+		} finally {
+			userMedia = null;
+		}
+		flashlightState = 'off';
 	}
 	async function turnOn() {
 		flashlightState = 'trying-to-turn-on';
 		if (typeof navigator !== 'undefined' && 'permissions' in navigator) {
-			const permissionStatus = await navigator.permissions.query({ name: 'camera' });
-			if (permissionStatus.state === 'granted') {
-				try {
-					const supportedConstraints = await navigator.mediaDevices.getSupportedConstraints();
-					console.log('Supported constraints:', supportedConstraints);
-					const userMedia = await navigator.mediaDevices.getUserMedia({
-						video: { facingMode: 'environment', torch: true }
-					});
-					const videoTracks = userMedia.getVideoTracks();
-					if (videoTracks.length === 0) {
-						console.error('No video track found');
-						flashlightState = 'error-no-flashlight-found';
-						return;
-					}
+			try {
+				userMedia = await navigator.mediaDevices.getUserMedia({
+					video: { facingMode: 'environment', torch: true }
+				});
+				const videoTracks = userMedia.getVideoTracks();
+				if (videoTracks.some((track) => track.getCapabilities().torch)) {
 					flashlightState = 'on';
-				} catch (e) {
-					console.error('Failed to turn on flashlight:', e);
-					flashlightState = 'off';
-					return;
+				} else {
+					flashlightState = 'error-no-flashlight-found';
+					for (const track of videoTracks) {
+						track.stop();
+					}
 				}
-			} else if (permissionStatus.state === 'prompt') {
+			} catch (e) {
+				console.error('Failed to turn on flashlight:', e);
 				flashlightState = 'error-needs-permission';
-			} else {
-				flashlightState = 'off';
+				return;
 			}
 		} else {
 			flashlightState = 'error-needs-permission';
@@ -67,7 +77,7 @@
 		{:else if flashlightState === 'error-no-flashlight-found'}
 			<button
 				class="grid h-dvh w-full grid-cols-1 place-items-center gap-4 border bg-red-200"
-				disabled
+				onclick={turnOff}
 			>
 				<img class="self-end" src={flashlightImageError} alt="Broken flashlight" />
 				<div class="self-start">{m['flashlight.errors.noFlashlightFound']()}</div>
@@ -75,7 +85,7 @@
 		{:else if flashlightState === 'error-needs-permission'}
 			<button
 				class="grid h-dvh w-full grid-cols-1 place-items-center gap-4 border bg-red-200"
-				disabled
+				onclick={turnOn}
 			>
 				<img class="self-end" src={flashlightImageError} alt="Broken flashlight" />
 				<div class="self-start">{m['flashlight.errors.noPermissionGranted']()}</div>
