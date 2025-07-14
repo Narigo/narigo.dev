@@ -99,10 +99,10 @@ export function extractPaper(
 	const img = openCv.imread(image);
 
 	const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;
-	let warpedDst = new openCv.Mat();
+	const warpedDst = new openCv.Mat();
 
-	let dsize = new openCv.Size(width, height);
-	let srcTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
+	const dsize = new openCv.Size(width, height);
+	const srcTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
 		topLeftCorner.x,
 		topLeftCorner.y,
 		topRightCorner.x,
@@ -113,7 +113,7 @@ export function extractPaper(
 		bottomRightCorner.y
 	]);
 
-	let dstTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
+	const dstTri = openCv.matFromArray(4, 1, openCv.CV_32FC2, [
 		0,
 		0,
 		width,
@@ -124,7 +124,7 @@ export function extractPaper(
 		height
 	]);
 
-	let M = openCv.getPerspectiveTransform(srcTri, dstTri);
+	const M = openCv.getPerspectiveTransform(srcTri, dstTri);
 	openCv.warpPerspective(
 		img,
 		warpedDst,
@@ -143,7 +143,7 @@ export function extractPaper(
 }
 
 export function getCornerPoints(openCv: typeof OpenCv, contour: OpenCv.Mat) {
-	let rect = openCv.minAreaRect(contour);
+	const rect = openCv.minAreaRect(contour);
 	const center = rect.center;
 
 	let topLeftCorner;
@@ -238,8 +238,8 @@ export default class jscanify {
 		const imgThresh = new this.cv.Mat();
 		this.cv.threshold(imgBlur, imgThresh, 0, 255, this.cv.THRESH_OTSU);
 
-		let contours = new this.cv.MatVector();
-		let hierarchy = new this.cv.Mat();
+		const contours = new this.cv.MatVector();
+		const hierarchy = new this.cv.Mat();
 
 		this.cv.findContours(
 			imgThresh,
@@ -252,7 +252,7 @@ export default class jscanify {
 		let maxArea = 0;
 		let maxContourIndex = -1;
 		for (let i = 0; i < contours.size(); ++i) {
-			let contourArea = this.cv.contourArea(contours.get(i));
+			const contourArea = this.cv.contourArea(contours.get(i));
 			if (contourArea > maxArea) {
 				maxArea = contourArea;
 				maxContourIndex = i;
@@ -353,9 +353,9 @@ export default class jscanify {
 				ctx.stroke();
 			}
 
-			let warpedDst = new this.cv.Mat();
-			let dsize = new this.cv.Size(resultWidth, resultHeight);
-			let srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+			const warpedDst = new this.cv.Mat();
+			const dsize = new this.cv.Size(resultWidth, resultHeight);
+			const srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
 				topLeftCorner.x,
 				topLeftCorner.y,
 				topRightCorner.x,
@@ -366,7 +366,7 @@ export default class jscanify {
 				bottomRightCorner.y
 			]);
 
-			let dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+			const dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
 				0,
 				0,
 				resultWidth,
@@ -377,7 +377,7 @@ export default class jscanify {
 				resultHeight
 			]);
 
-			let M = this.cv.getPerspectiveTransform(srcTri, dstTri);
+			const M = this.cv.getPerspectiveTransform(srcTri, dstTri);
 			this.cv.warpPerspective(
 				img,
 				warpedDst,
@@ -487,10 +487,10 @@ export default class jscanify {
 			imageWidth: image.width
 		});
 		const { topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner } = cornerPoints;
-		let warpedDst = new this.cv.Mat();
+		const warpedDst = new this.cv.Mat();
 
-		let dsize = new this.cv.Size(resultWidth, resultHeight);
-		let srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+		const dsize = new this.cv.Size(resultWidth, resultHeight);
+		const srcTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
 			widthAspect * topLeftCorner.x,
 			heightAspect * topLeftCorner.y,
 			widthAspect * topRightCorner.x,
@@ -501,7 +501,7 @@ export default class jscanify {
 			heightAspect * bottomRightCorner.y
 		]);
 
-		let dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
+		const dstTri = this.cv.matFromArray(4, 1, this.cv.CV_32FC2, [
 			0,
 			0,
 			resultWidth,
@@ -512,7 +512,7 @@ export default class jscanify {
 			resultHeight
 		]);
 
-		let M = this.cv.getPerspectiveTransform(srcTri, dstTri);
+		const M = this.cv.getPerspectiveTransform(srcTri, dstTri);
 		this.cv.warpPerspective(
 			img,
 			warpedDst,
@@ -536,7 +536,7 @@ export default class jscanify {
 	 * @returns object with properties `topLeftCorner`, `topRightCorner`, `bottomLeftCorner`, `bottomRightCorner`, each with `x` and `y` property
 	 */
 	getCornerPoints(contour: NonNullable<ReturnType<typeof this.findPaperContour>>) {
-		let rect = this.cv.minAreaRect(contour);
+		const rect = this.cv.minAreaRect(contour);
 		const center = rect.center;
 
 		let topLeftCorner;

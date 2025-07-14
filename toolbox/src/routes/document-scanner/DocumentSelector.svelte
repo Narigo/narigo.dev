@@ -235,11 +235,11 @@
 					onselect(cornerPoints);
 				}
 			}}
-			onpointerup={(event) => {
+			onpointerup={() => {
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}
-			onpointerout={(event) => {
+			onpointerout={() => {
 				changingExtraction = false;
 				drawExtractedImageSelection();
 			}}

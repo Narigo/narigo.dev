@@ -11,7 +11,7 @@
 </script>
 
 <ol class="flex h-32 flex-row gap-4">
-	{#each images as image, index}
+	{#each images as image, index (image.source)}
 		{#if image.result}
 			<li
 				class="relative isolate max-h-32 max-w-32 border"

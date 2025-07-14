@@ -217,7 +217,7 @@
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
 			<section class="isolate grid grid-cols-1 grid-rows-1">
-				{#each extractedImages as image, index}
+				{#each extractedImages as image, index (image.source)}
 					{#if !image.result}
 						<div
 							style="--index:{extractedImages.length - index}"

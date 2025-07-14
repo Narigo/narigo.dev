@@ -23,7 +23,7 @@
 					right.value = decode(left.value);
 				}
 				right.classList.remove('border-red-500');
-			} catch (e) {
+			} catch {
 				right.classList.add('border-red-500');
 			}
 		});
@@ -35,7 +35,7 @@
 					left.value = decode(right.value);
 				}
 				left.classList.remove('border-red-500');
-			} catch (e) {
+			} catch {
 				left.classList.add('border-red-500');
 			}
 		});

@@ -101,6 +101,6 @@
 		<p>
 			...and here we are - done with gradients and even got to 100%, finally! There is probably a
 			lot of potential to make this smaller, but I am happy to got to 100% at all.
-    </p>
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
