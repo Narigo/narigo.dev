@@ -60,7 +60,6 @@
 		</p>
 		<p>Things I may want to build:</p>
 		<ul>
-			<li>Flashlight / Torch - if that's possible?</li>
 			<li>JWT extractor</li>
 			<li>Image converter</li>
 			<li>Video to GIF converter</li>
