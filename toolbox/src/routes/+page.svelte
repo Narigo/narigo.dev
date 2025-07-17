@@ -53,10 +53,7 @@
 
 	<FullWidthSection>
 		<p>
-			I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not
-			really that great. So I thought I'm going to build a couple of tools myself whenever I have
-			time and see what I can do. Maybe even have some webassembly tools like image converter or
-			similar things. Tools that could be used offline as well. Let's see where this goes.
+			{m['general.explanation']()}
 		</p>
 		<p>Things I may want to build:</p>
 		<ul>
