@@ -56,10 +56,11 @@
 			{m['general.explanation']()}
 		</p>
 		<p>Things I may want to build:</p>
-		<ul>
-			<li>JWT extractor</li>
-			<li>Image converter</li>
-			<li>Video to GIF converter</li>
+		<ul class="list-disc pl-6">
+			{@html m['general.toolsIWantToBuild']()
+				.split('\n')
+				.map((tool) => `<li>${tool}</li>`)
+				.join('')}
 		</ul>
 		<p>
 			Oh, and I'm going to try out this localisation that was added by <code>sv create</code>:
