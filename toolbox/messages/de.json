@@ -33,6 +33,7 @@
 	"general": {
 		"explanation": "Ich nutze selbst viele Online-Tools, aber dank Werbung und Cookie-Bannern ist die Benutzererfahrung nicht wirklich toll. Deshalb möchte ich selbst ein paar Tools entwickeln, um diese schnell und einfach nutzen zu können. Vielleicht kommen sogar einige Webassembly-Tools wie Bildkonverter oder ähnliches dazu. Tools, die auch offline genutzt werden können, am besten. Mal sehen, wie sich das entwickelt.",
 		"toolsIWantToBuild": "JWT Extrahierer\nBilder Konvertierer\nVideo zu GIF Umwandler",
-		"stuffToDo": "Dinge, die ich noch bauen möchte:"
+		"stuffToDo": "Dinge, die ich noch bauen möchte:",
+		"noteAboutParaglide": "Oh, und ich probiere diese Lokalisierungsbibliothek aus, die mit <code>sv create</code> mitgeliefert wurde: ParaglideJS."
 	}
 }

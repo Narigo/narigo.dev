@@ -55,7 +55,7 @@
 		<p>
 			{m['general.explanation']()}
 		</p>
-		<p>{m['general.stuffToDo']}</p>
+		<p>{m['general.stuffToDo']()}</p>
 		<ul class="list-disc pl-6">
 			{@html m['general.toolsIWantToBuild']()
 				.split('\n')
@@ -63,8 +63,7 @@
 				.join('')}
 		</ul>
 		<p>
-			Oh, and I'm going to try out this localisation that was added by <code>sv create</code>:
-			ParaglideJS.
+			{@html m['general.noteAboutParaglide']()}
 		</p>
 	</FullWidthSection>
 </PageLayout>
