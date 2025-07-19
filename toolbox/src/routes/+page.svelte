@@ -55,7 +55,7 @@
 		<p>
 			{m['general.explanation']()}
 		</p>
-		<p>Things I may want to build:</p>
+		<p>{m['general.stuffToDo']}</p>
 		<ul class="list-disc pl-6">
 			{@html m['general.toolsIWantToBuild']()
 				.split('\n')
