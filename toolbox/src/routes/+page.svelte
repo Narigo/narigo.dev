@@ -4,6 +4,15 @@
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import * as m from '$lib/paraglide/messages';
 	import ToolCard from '$lib/tools/ToolCard.svelte';
+
+	let toolFilter = $state<string>('');
+
+	function isInFilter(filter: string, text: string): boolean {
+		if (!filter) return true;
+		if (filter.trim() === '') return true;
+
+		return text.toLocaleLowerCase().includes(filter.toLocaleLowerCase());
+	}
 </script>
 
 <PageLayout>
@@ -12,42 +21,50 @@
 		<input
 			class="rounded-lg border-0 bg-gray-200"
 			type="text"
-			disabled
+			bind:value={toolFilter}
 			placeholder={m.placeholderFilter()}
 		/>
 
 		<section class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4">
-			<a href="{base}/base64">
-				<ToolCard
-					category="strings"
-					title={m.toolsBase64Title()}
-					description={m.toolsBase64Description()}
-				/>
-			</a>
+			{#if isInFilter(toolFilter, `${m.toolsBase64Title()} ${m.toolsBase64Description()}`)}
+				<a href="{base}/base64">
+					<ToolCard
+						category="strings"
+						title={m.toolsBase64Title()}
+						description={m.toolsBase64Description()}
+					/>
+				</a>
+			{/if}
 
-			<a href="{base}/url-encoding">
-				<ToolCard
-					category="strings"
-					title={m.toolsUrlEncodingTitle()}
-					description={m.toolsUrlEncodingDescription()}
-				/>
-			</a>
+			{#if isInFilter(toolFilter, `${m.toolsUrlEncodingTitle()} ${m.toolsUrlEncodingDescription()}`)}
+				<a href="{base}/url-encoding">
+					<ToolCard
+						category="strings"
+						title={m.toolsUrlEncodingTitle()}
+						description={m.toolsUrlEncodingDescription()}
+					/>
+				</a>
+			{/if}
 
-			<a href="{base}/document-scanner">
-				<ToolCard
-					category="tools"
-					title={m.toolsDocumentScannerTitle()}
-					description={m.toolsDocumentScannerDescription()}
-				/>
-			</a>
+			{#if isInFilter(toolFilter, `${m.toolsDocumentScannerTitle()} ${m.toolsDocumentScannerDescription()}`)}
+				<a href="{base}/document-scanner">
+					<ToolCard
+						category="tools"
+						title={m.toolsDocumentScannerTitle()}
+						description={m.toolsDocumentScannerDescription()}
+					/>
+				</a>
+			{/if}
 
-			<a href="{base}/flashlight">
-				<ToolCard
-					category="tools"
-					title={m.toolsFlashlightTitle()}
-					description={m.toolsFlashlightDescription()}
-				/>
-			</a>
+			{#if isInFilter(toolFilter, `${m.toolsFlashlightTitle()} ${m.toolsFlashlightDescription()}`)}
+				<a href="{base}/flashlight">
+					<ToolCard
+						category="tools"
+						title={m.toolsFlashlightTitle()}
+						description={m.toolsFlashlightDescription()}
+					/>
+				</a>
+			{/if}
 		</section>
 	</FullWidthSection>
 
