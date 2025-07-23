@@ -21,8 +21,6 @@
 	"documentScanner": {
 		"preview": "Preview"
 	},
-	"toolsFlashlightTitle": "Flashlight",
-	"toolsFlashlightDescription": "Uses the camera light as flashlight / torch.",
 	"flashlight": {
 		"switchOn": "Turn on",
 		"switchOff": "Turn off",
@@ -34,9 +32,23 @@
 	},
 	"general": {
 		"explanation": "I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not really that great. So I thought I'm going to build a couple of tools myself whenever I have time and see what I can do. Maybe even have some webassembly tools like image converter or similar things. Tools that could be used offline as well. Let's see where this goes.",
-		"noteAboutParaglide": "Oh, and I'm going to try out this localisation that was added by <code>sv create</code>: ParaglideJS.",
+		"toolsIWantToBuild": "JWT extractor\nImage converter\nVideo to GIF converter",
 		"stuffToDo": "Things I may want to build:",
-		"toolbox": "Online-Toolbox",
-		"toolsIWantToBuild": "JWT extractor\nImage converter\nVideo to GIF converter"
+		"noteAboutParaglide": "Oh, and I'm going to try out this localisation that was added by <code>sv create</code>: ParaglideJS.",
+		"toolbox": "Online-Toolbox"
+	},
+	"tools": {
+		"base64Title": "Base64 Encoding",
+		"base64Description": "Translates a string into and from base64 encoding.",
+		"urlEncodingTitle": "URL Encoding",
+		"urlEncodingDescription": "Translates a string into and from URL encoding.",
+		"documentScannerTitle": "Document Scanner",
+		"documentScannerDescription": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
+		"categoryLabel": "Category: {label}",
+		"categoryStrings": "Strings",
+		"categoryTools": "Tools",
+		"documentScannerPreview": "Preview",
+		"flashlightTitle": "Flashlight",
+		"flashlightDescription": "Uses the camera light as flashlight / torch."
 	}
 }
