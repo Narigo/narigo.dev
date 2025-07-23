@@ -17,7 +17,7 @@
 
 <PageLayout>
 	<FullWidthSection class="gap-y-4">
-		<h1 class="text-4xl font-bold">Online-Toolbox</h1>
+		<h1 class="text-4xl font-bold">{m['general.toolbox']()}</h1>
 		<input
 			class="rounded-lg border-0 bg-gray-200"
 			type="text"
