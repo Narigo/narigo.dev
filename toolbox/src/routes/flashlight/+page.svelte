@@ -72,7 +72,7 @@
 				onclick={turnOff}
 			>
 				<img class="self-end" src={flashlightImageOn} alt="Turned on flashlight" />
-				<div class="self-start">{m['flashlight.switchOff']()}</div>
+				<div class="self-start">{m['tools.flashlight.switchOff']()}</div>
 			</button>
 		{:else if flashlightState === 'error-no-flashlight-found'}
 			<button
@@ -80,7 +80,7 @@
 				onclick={turnOff}
 			>
 				<img class="self-end" src={flashlightImageError} alt="Broken flashlight" />
-				<div class="self-start">{m['flashlight.errors.noFlashlightFound']()}</div>
+				<div class="self-start">{m['tools.flashlight.errors.noFlashlightFound']()}</div>
 			</button>
 		{:else if flashlightState === 'error-needs-permission'}
 			<button
@@ -88,7 +88,7 @@
 				onclick={turnOn}
 			>
 				<img class="self-end" src={flashlightImageError} alt="Broken flashlight" />
-				<div class="self-start">{m['flashlight.errors.noPermissionGranted']()}</div>
+				<div class="self-start">{m['tools.flashlight.errors.noPermissionGranted']()}</div>
 			</button>
 		{:else}
 			<button
@@ -96,7 +96,7 @@
 				onclick={turnOn}
 			>
 				<img class="self-end" src={flashlightImageOff} alt="Turned off flashlight" />
-				<div class="self-start text-white">{m['flashlight.switchOn']()}</div>
+				<div class="self-start text-white">{m['tools.flashlight.switchOn']()}</div>
 			</button>
 		{/if}
 	</FullWidthSection>

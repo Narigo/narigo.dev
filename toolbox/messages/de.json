@@ -8,17 +8,6 @@
 	"placeholderEncoded": "Hier erscheint der kodierte Text %2F Lege hier den kodierten Text ab.",
 	"placeholderDecoded": "Hier erscheint der dekodierte Text / Lege hier den dekodierten Text ab.",
 	"placeholderFilter": "Werkzeuge filtern ...",
-	"documentScanner": {
-		"preview": "Vorschau"
-	},
-	"flashlight": {
-		"switchOn": "Anschalten",
-		"switchOff": "Ausschalten",
-		"errors": {
-			"noFlashlightFound": "Keine Kamera mit Blitzlicht gefunden!",
-			"noPermissionGiven": "Keine Berechtigung erhalten, um die Kamera (und damit die Blitzlichtfunktion) zu verwenden!"
-		}
-	},
 	"general": {
 		"explanation": "Ich nutze selbst viele Online-Tools, aber dank Werbung und Cookie-Bannern ist die Benutzererfahrung nicht wirklich toll. Deshalb möchte ich selbst ein paar Tools entwickeln, um diese schnell und einfach nutzen zu können. Vielleicht kommen sogar einige Webassembly-Tools wie Bildkonverter oder ähnliches dazu. Tools, die auch offline genutzt werden können, am besten. Mal sehen, wie sich das entwickelt.",
 		"toolsIWantToBuild": "JWT Extrahierer\nBilder Konvertierer\nVideo zu GIF Umwandler",
@@ -27,16 +16,33 @@
 		"toolbox": "Online-Toolbox"
 	},
 	"tools": {
-		"base64Title": "Base64 Verschlüsselung",
-		"base64Description": "Wandelt eine Zeichenfolge in Base64 um und andersherum.",
-		"urlEncodingTitle": "URL Verschlüsselung",
-		"urlEncodingDescription": "Wandelt eine Zeichenfolge in URL Encoding um und andersherum.",
-		"documentScannerTitle": "Dokumentenscanner",
-		"documentScannerDescription": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
-		"categoryLabel": "Kategorie: {label}",
-		"categoryStrings": "Text",
-		"categoryTools": "Werkzeug",
-		"flashlightTitle": "Taschenlampe",
-		"flashlightDescription": "Verwendet das Blitzlicht der Kamera als Taschenlampe."
+		"categories": {
+			"label": "Kategorie: {label}",
+			"strings": "Text",
+			"tools": "Werkzeug"
+		},
+		"base64": {
+			"title": "Base64 Verschlüsselung",
+			"description": "Wandelt eine Zeichenfolge in Base64 um und andersherum."
+		},
+		"urlEncoding": {
+			"title": "URL Verschlüsselung",
+			"description": "Wandelt eine Zeichenfolge in URL Encoding um und andersherum."
+		},
+		"documentScanner": {
+			"title": "Dokumentenscanner",
+			"description": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
+			"preview": "Vorschau"
+		},
+		"flashlight": {
+			"title": "Taschenlampe",
+			"description": "Verwendet das Blitzlicht der Kamera als Taschenlampe.",
+			"switchOn": "Anschalten",
+			"switchOff": "Ausschalten",
+			"errors": {
+				"noFlashlightFound": "Keine Kamera mit Blitzlicht gefunden!",
+				"noPermissionGiven": "Keine Berechtigung erhalten, um die Kamera (und damit die Blitzlichtfunktion) zu verwenden!"
+			}
+		}
 	}
 }

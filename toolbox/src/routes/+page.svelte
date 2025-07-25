@@ -26,42 +26,42 @@
 		/>
 
 		<section class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4">
-			{#if isInFilter(toolFilter, `${m['tools.base64Title']()} ${m['tools.base64Description']()}`)}
+			{#if isInFilter(toolFilter, `${m['tools.base64.title']()} ${m['tools.base64.description']()}`)}
 				<a href="{base}/base64">
 					<ToolCard
 						category="strings"
-						title={m['tools.base64Title']()}
-						description={m['tools.base64Description']()}
+						title={m['tools.base64.title']()}
+						description={m['tools.base64.description']()}
 					/>
 				</a>
 			{/if}
 
-			{#if isInFilter(toolFilter, `${m['tools.urlEncodingTitle']()} ${m['tools.urlEncodingDescription']()}`)}
+			{#if isInFilter(toolFilter, `${m['tools.urlEncoding.title']()} ${m['tools.urlEncoding.description']()}`)}
 				<a href="{base}/url-encoding">
 					<ToolCard
 						category="strings"
-						title={m['tools.urlEncodingTitle']()}
-						description={m['tools.urlEncodingDescription']()}
+						title={m['tools.urlEncoding.title']()}
+						description={m['tools.urlEncoding.description']()}
 					/>
 				</a>
 			{/if}
 
-			{#if isInFilter(toolFilter, `${m['tools.documentScannerTitle']()} ${m['tools.documentScannerDescription']()}`)}
+			{#if isInFilter(toolFilter, `${m['tools.documentScanner.title']()} ${m['tools.documentScanner.description']()}`)}
 				<a href="{base}/document-scanner">
 					<ToolCard
 						category="tools"
-						title={m['tools.documentScannerTitle']()}
-						description={m['tools.documentScannerDescription']()}
+						title={m['tools.documentScanner.title']()}
+						description={m['tools.documentScanner.description']()}
 					/>
 				</a>
 			{/if}
 
-			{#if isInFilter(toolFilter, `${m['tools.flashlightTitle']()} ${m['tools.flashlightDescription']()}`)}
+			{#if isInFilter(toolFilter, `${m['tools.flashlight.title']()} ${m['tools.flashlight.description']()}`)}
 				<a href="{base}/flashlight">
 					<ToolCard
 						category="tools"
-						title={m['tools.flashlightTitle']()}
-						description={m['tools.flashlightDescription']()}
+						title={m['tools.flashlight.title']()}
+						description={m['tools.flashlight.description']()}
 					/>
 				</a>
 			{/if}

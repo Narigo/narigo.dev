@@ -20,8 +20,8 @@
 
 	const categoryName = (
 		{
-			strings: m.toolsCategoryStrings(),
-			tools: m.toolsCategoryTools()
+			strings: m['tools.categories.strings'](),
+			tools: m['tools.categories.tools']()
 		} as Record<Category, string>
 	)[category];
 </script>
@@ -31,6 +31,6 @@
 	<p>{description}</p>
 	<span
 		class="absolute -right-1 -bottom-1 text-9xl font-bold text-black opacity-15"
-		aria-label={m.toolsCategoryLabel({ label: categoryName })}>{categoryName}</span
+		aria-label={m['tools.categories.label']({ label: categoryName })}>{categoryName}</span
 	>
 </div>
