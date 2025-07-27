@@ -5,7 +5,7 @@
 	"toggle": "Wechseln",
 	"switchToGerman": "Zu Deutsch wechseln",
 	"switchToEnglish": "Zu Englisch wechseln",
-	"placeholderEncoded": "Hier erscheint der kodierte Text %2F Lege hier den kodierten Text ab.",
+	"placeholderEncoded": "Hier%20erscheint%20der%20kodierte%20Text%20%2F%20Lege%20hier%20den%20kodierten%20Text%20ab.",
 	"placeholderDecoded": "Hier erscheint der dekodierte Text / Lege hier den dekodierten Text ab.",
 	"placeholderFilter": "Werkzeuge filtern ...",
 	"general": {
