@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "slidev build --base /talks/decentralization-with-webrtc/ --out ../../build/talks/decentralization-with-webrtc",
 		"build-previewpage": "echo '<head><meta name=\"robots\" content=\"noindex,nofollow\" /></head>' > index.html && pnpm run build && rm index.html",
-		"dev": "slidev --open",
+		"dev": "slidev --port 3031",
 		"export": "slidev export"
 	},
 	"dependencies": {
