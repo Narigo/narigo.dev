@@ -281,8 +281,6 @@ ${bubbles.join('')}`;
 </PageLayout>
 
 <style lang="postcss">
-	@reference "../../../../app.css";
-
 	.mitter {
 		transform: translate(0);
 		transition: transform 2000ms;

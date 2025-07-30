@@ -1,4 +1,15 @@
 packages:
-  - 'main'
-  - 'talks/**'
-  - 'toolbox'
+  - main
+  - talks/**
+  - toolbox
+
+ignoredBuiltDependencies:
+  - canvas
+  - core-js
+  - esbuild
+  - sharp
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - playwright-chromium
+  - svelte-preprocess
