@@ -32,6 +32,7 @@
 		"documentScanner": {
 			"title": "Document Scanner",
 			"description": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
+			"loadingOpenCv": "Loading OpenCV ...",
 			"preview": "Preview"
 		},
 		"flashlight": {

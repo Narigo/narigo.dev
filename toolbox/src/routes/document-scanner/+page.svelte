@@ -183,8 +183,7 @@
 		{#if scannerState === 'initializing'}
 			<div class="loader grid h-full w-full place-items-center">
 				<LoadingScreen>
-					<p>Waiting for OpenCV</p>
-					<p>...and maybe something else</p>
+					<p>{m['tools.documentScanner.loadingOpenCv']()}</p>
 				</LoadingScreen>
 			</div>
 		{:else if scannerState === 'error-no-input-device'}
