@@ -36,6 +36,7 @@
 			"nextCamera": "Next camera",
 			"preview": "Preview",
 			"startScanning": "Start scanning (asks for permission to use camera)",
+			"stillSelectingWarning": "Not all images were set to ready.\nAre you sure you want to download the PDF already?",
 			"errors": {
 				"noCameraFound": "No input device found"
 			}

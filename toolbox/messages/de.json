@@ -36,6 +36,7 @@
 			"nextCamera": "Andere Kamera",
 			"preview": "Vorschau",
 			"startScanning": "Scannen starten (fragt nach Berechtigung zur Nutzung der Kamera)",
+			"stillSelectingWarning": "Nicht alle Bilder wurden als fertig markiert.\nSoll trotzdem ein PDF generiert werden?",
 			"errors": {
 				"noCameraFound": "Keine Kamera gefunden"
 			}

@@ -252,8 +252,7 @@
 					// put all extracted images into a PDF
 					if (extractedImages.some((image) => !image.result)) {
 						if (
-							!confirm(`Not all images were set to ready.
-Are you sure you want to download the PDF already?`)
+							!confirm(m['tools.documentScanner.stillSelectingWarning']())
 						) {
 							return;
 						}
