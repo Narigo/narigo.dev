@@ -33,7 +33,12 @@
 			"title": "Dokumentenscanner",
 			"description": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
 			"loadingOpenCv": "Lade OpenCV ...",
-			"preview": "Vorschau"
+			"nextCamera": "Andere Kamera",
+			"preview": "Vorschau",
+			"startScanning": "Scannen starten (fragt nach Berechtigung zur Nutzung der Kamera)",
+			"errors": {
+				"noCameraFound": "Keine Kamera gefunden"
+			}
 		},
 		"flashlight": {
 			"title": "Taschenlampe",

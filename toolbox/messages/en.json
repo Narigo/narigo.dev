@@ -33,7 +33,12 @@
 			"title": "Document Scanner",
 			"description": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
 			"loadingOpenCv": "Loading OpenCV ...",
-			"preview": "Preview"
+			"nextCamera": "Next camera",
+			"preview": "Preview",
+			"startScanning": "Start scanning (asks for permission to use camera)",
+			"errors": {
+				"noCameraFound": "No input device found"
+			}
 		},
 		"flashlight": {
 			"title": "Flashlight",

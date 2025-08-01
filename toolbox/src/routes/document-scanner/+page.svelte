@@ -187,10 +187,10 @@
 				</LoadingScreen>
 			</div>
 		{:else if scannerState === 'error-no-input-device'}
-			<div>No input device found</div>
+			<div>{m['tools.documentScanner.errors.noCameraFound']()}</div>
 		{:else if scannerState === 'needs-permission'}
 			<button class="start rounded border bg-gray-100 p-4" onclick={startScanning}
-				>Start scanning (asks for permission to use camera)</button
+				>{m['tools.documentScanner.startScanning']()}</button
 			>
 			{#if permissionError}
 				<p>{permissionError}</p>
@@ -212,7 +212,7 @@
 				}}
 			/>
 			{#if availableCameras.length > 1}
-				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>Next camera</button>
+				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>{m['tools.documentScanner.nextCamera']()}</button>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
 			<section class="isolate grid grid-cols-1 grid-rows-1">
