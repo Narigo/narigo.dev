@@ -212,7 +212,9 @@
 				}}
 			/>
 			{#if availableCameras.length > 1}
-				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}>{m['tools.documentScanner.nextCamera']()}</button>
+				<button class="rounded border bg-gray-100 p-4" onclick={nextCamera}
+					>{m['tools.documentScanner.nextCamera']()}</button
+				>
 			{/if}
 		{:else if scannerState === 'processing' && openCv}
 			<section class="isolate grid grid-cols-1 grid-rows-1">
@@ -251,9 +253,7 @@
 				onclick={() => {
 					// put all extracted images into a PDF
 					if (extractedImages.some((image) => !image.result)) {
-						if (
-							!confirm(m['tools.documentScanner.stillSelectingWarning']())
-						) {
+						if (!confirm(m['tools.documentScanner.stillSelectingWarning']())) {
 							return;
 						}
 					}
@@ -262,7 +262,7 @@
 					hiddenAnchor.setAttribute('download', finalFilename);
 					hiddenAnchor.setAttribute('href', resultPdf);
 					hiddenAnchor.click();
-				}}>Create Download Link</button
+				}}>{m['tools.documentScanner.createDownloadLink']()}</button
 			>
 		{:else if scannerState === 'result'}
 			<div>Here should be the PDF:</div>
