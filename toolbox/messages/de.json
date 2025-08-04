@@ -36,6 +36,8 @@
 			"loadingOpenCv": "Lade OpenCV ...",
 			"nextCamera": "Andere Kamera",
 			"preview": "Vorschau",
+			"scanAnotherPage": "Weitere Seite scannen",
+			"showPdfResult": "Hier sollte die PDF sein:",
 			"startScanning": "Scannen starten (fragt nach Berechtigung zur Nutzung der Kamera)",
 			"stillSelectingWarning": "Nicht alle Bilder wurden als fertig markiert.\nSoll trotzdem ein PDF generiert werden?",
 			"errors": {

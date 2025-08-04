@@ -36,6 +36,8 @@
 			"loadingOpenCv": "Loading OpenCV ...",
 			"nextCamera": "Next camera",
 			"preview": "Preview",
+			"scanAnotherPage": "Scan another page",
+			"showPdfResult": "Here should be the PDF:",
 			"startScanning": "Start scanning (asks for permission to use camera)",
 			"stillSelectingWarning": "Not all images were set to ready.\nAre you sure you want to download the PDF already?",
 			"errors": {

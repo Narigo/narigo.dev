@@ -265,10 +265,10 @@
 				}}>{m['tools.documentScanner.createDownloadLink']()}</button
 			>
 		{:else if scannerState === 'result'}
-			<div>Here should be the PDF:</div>
+			<div>{m['tools.documentScanner.showPdfResult']()}</div>
 			<a href={resultPdf} download={finalFilename}>{finalFilename}</a>
 			<button class="rounded border bg-gray-100 p-4" onclick={() => startScanning()}
-				>Scan another page</button
+				>{m['tools.documentScanner.scanAnotherPage']()}</button
 			>
 		{/if}
 	</FullBreakoutSection>
