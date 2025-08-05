@@ -22,7 +22,8 @@
 		<FullWidthSection>
 			<div class="flex justify-between gap-4">
 				<div>
-					{#if backLink}<a class="arrow-left p-4" href={backLink}>Back</a>{/if}
+					{#if backLink}<a class="arrow-left p-4" href={backLink}>{m['general.backButton']()}</a
+						>{/if}
 				</div>
 				<div>
 					<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>

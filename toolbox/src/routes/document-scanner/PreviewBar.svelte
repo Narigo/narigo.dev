@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { m } from '$lib/paraglide/messages';
 	import type { ExtractedImage } from './DocumentScanner.svelte';
 
 	interface PreviewBarProps {
@@ -19,7 +20,7 @@
 			>
 				<button
 					class="trashcan absolute -top-2 -right-2 z-10 h-10 w-10 rounded-full border text-transparent"
-					onclick={() => removeImage(index)}>Remove image</button
+					onclick={() => removeImage(index)}>{m['tools.documentScanner.removeImage']()}</button
 				>
 				<button class="absolute h-full w-full" onclick={() => (image.result = undefined)}
 					><img
@@ -32,7 +33,9 @@
 		{/if}
 	{/each}
 	<li class="relative max-h-32 max-w-32" style="aspect-ratio:3/2">
-		<button class="h-full w-full border bg-gray-100" onclick={() => addImage()}>Add scan</button>
+		<button class="h-full w-full border bg-gray-100" onclick={() => addImage()}
+			>{m['tools.documentScanner.addPageScan']()}</button
+		>
 	</li>
 </ol>
 

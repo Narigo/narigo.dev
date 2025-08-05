@@ -9,6 +9,7 @@
 	"placeholderDecoded": "Here will be the decoded text / Put the decoded text here.",
 	"placeholderFilter": "Filter tools ...",
 	"general": {
+		"backButton": "Back",
 		"explanation": "I use a lot of online tools myself and thanks to ads and cookie banners, the experience is not really that great. So I thought I'm going to build a couple of tools myself whenever I have time and see what I can do. Maybe even have some webassembly tools like image converter or similar things. Tools that could be used offline as well. Let's see where this goes.",
 		"toolsIWantToBuild": "JWT extractor\nImage converter\nVideo to GIF converter",
 		"stuffToDo": "Things I may want to build:",
@@ -32,10 +33,12 @@
 		"documentScanner": {
 			"title": "Document Scanner",
 			"description": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
+			"addPageScan": "Add page scan",
 			"createDownloadLink": "Create Download Link",
 			"loadingOpenCv": "Loading OpenCV ...",
 			"nextCamera": "Next camera",
 			"preview": "Preview",
+			"removeImage": "Remove image",
 			"scanAnotherPage": "Scan another page",
 			"showPdfResult": "Here should be the PDF:",
 			"startScanning": "Start scanning (asks for permission to use camera)",
