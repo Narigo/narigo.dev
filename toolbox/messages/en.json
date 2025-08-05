@@ -38,6 +38,7 @@
 			"loadingOpenCv": "Loading OpenCV ...",
 			"nextCamera": "Next camera",
 			"preview": "Preview",
+			"previewAltImage": "Scanned image number {index}",
 			"removeImage": "Remove image",
 			"scanAnotherPage": "Scan another page",
 			"showPdfResult": "Here should be the PDF:",

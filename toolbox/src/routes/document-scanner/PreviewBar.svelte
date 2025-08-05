@@ -26,7 +26,7 @@
 					><img
 						class="max-h-full"
 						src={image.result.toDataURL('image/jpeg', 0.9)}
-						alt="Scanned image number {index}"
+						alt={m['tools.documentScanner.previewAltImage']({ index })}
 					/></button
 				>
 			</li>
