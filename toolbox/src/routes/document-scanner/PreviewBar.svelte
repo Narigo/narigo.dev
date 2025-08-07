@@ -5,10 +5,17 @@
 	interface PreviewBarProps {
 		images: Array<ExtractedImage>;
 		removeImage: (image: number) => void;
+		reorderImage: (image: number, newIndex: number) => void;
 		addImage: () => void;
 	}
 
-	let { images, removeImage, addImage }: PreviewBarProps = $props();
+	let { images, removeImage, reorderImage, addImage }: PreviewBarProps = $props();
+
+	let imageDragState:
+		| { isDraggingImage: false }
+		| { isDraggingImage: true; oldImageIndex: number; newImageIndex: number } = {
+		isDraggingImage: false
+	};
 </script>
 
 <ol class="flex h-32 flex-row gap-4">
@@ -17,22 +24,53 @@
 			<li
 				class="relative isolate max-h-32 max-w-32 border"
 				style="aspect-ratio:{image.result!.height}/{image.result!.width}"
+				ondragover={(e) => {
+					if (imageDragState.isDraggingImage) {
+						console.log('dragging over', index, 'now');
+						imageDragState = { ...imageDragState, newImageIndex: index };
+					}
+				}}
 			>
 				<button
 					class="trashcan absolute -top-2 -right-2 z-10 h-10 w-10 rounded-full border text-transparent"
 					onclick={() => removeImage(index)}>{m['tools.documentScanner.removeImage']()}</button
 				>
-				<button class="absolute h-full w-full" onclick={() => (image.result = undefined)}
-					><img
+				<button
+					class="absolute h-full w-full"
+					ondragstart={(e) => {
+						imageDragState = { isDraggingImage: true, oldImageIndex: index, newImageIndex: index };
+						console.log('start dragging image', index);
+					}}
+					ondragend={(e) => {
+						console.log('ended some dragging on image', index);
+						if (imageDragState.isDraggingImage) {
+							console.log('ended dragging of an image!');
+							const { oldImageIndex, newImageIndex } = imageDragState;
+							reorderImage(oldImageIndex, newImageIndex);
+							imageDragState = { isDraggingImage: false };
+						}
+					}}
+					onclick={() => (image.result = undefined)}
+				>
+					<img
 						class="max-h-full"
 						src={image.result.toDataURL('image/jpeg', 0.9)}
 						alt={m['tools.documentScanner.previewAltImage']({ index })}
-					/></button
-				>
+					/>
+				</button>
 			</li>
 		{/if}
 	{/each}
-	<li class="relative max-h-32 max-w-32" style="aspect-ratio:3/2">
+	<li
+		class="relative max-h-32 max-w-32"
+		style="aspect-ratio:3/2"
+		ondragover={(e) => {
+			if (imageDragState.isDraggingImage) {
+				console.log('dragging over end');
+				imageDragState = { ...imageDragState, newImageIndex: images.length };
+			}
+		}}
+	>
 		<button class="h-full w-full border bg-gray-100" onclick={() => addImage()}
 			>{m['tools.documentScanner.addPageScan']()}</button
 		>

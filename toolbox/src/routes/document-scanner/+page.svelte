@@ -169,6 +169,22 @@
 			<h2 class="sr-only">{m['tools.documentScanner.preview']()}</h2>
 			<PreviewBar
 				images={extractedImages}
+				reorderImage={(oldIndex: number, newIndex: number) => {
+					console.log('reordering image from', oldIndex, 'to', newIndex);
+					const newImages = [];
+					for (let i = 0; i < extractedImages.length; i++) {
+						if (i === newIndex) {
+							newImages.push(extractedImages[oldIndex]);
+						}
+						if (i !== oldIndex) {
+							newImages.push(extractedImages[i]);
+						}
+					}
+					if (extractedImages.length === newIndex) {
+						newImages.push(extractedImages[oldIndex]);
+					}
+					extractedImages = newImages;
+				}}
 				removeImage={(index: number) => {
 					extractedImages = [
 						...extractedImages.slice(0, index),
