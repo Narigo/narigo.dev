@@ -11,11 +11,12 @@
 
 	let { images, removeImage, reorderImage, addImage }: PreviewBarProps = $props();
 
-	let imageDragState:
+	let imageDragState = $state<
 		| { isDraggingImage: false }
-		| { isDraggingImage: true; oldImageIndex: number; newImageIndex: number } = {
+		| { isDraggingImage: true; oldImageIndex: number; newImageIndex: number }
+	>({
 		isDraggingImage: false
-	};
+	});
 </script>
 
 <ol class="flex h-32 flex-row gap-4">
@@ -23,6 +24,10 @@
 		{#if image.result}
 			<li
 				class="relative isolate max-h-32 max-w-32 border"
+				class:border-l-2={index ===
+					(imageDragState.isDraggingImage && imageDragState.newImageIndex)}
+				class:border-l-blue-500={index ===
+					(imageDragState.isDraggingImage && imageDragState.newImageIndex)}
 				style="aspect-ratio:{image.result!.height}/{image.result!.width}"
 				ondragover={(e) => {
 					if (imageDragState.isDraggingImage) {
