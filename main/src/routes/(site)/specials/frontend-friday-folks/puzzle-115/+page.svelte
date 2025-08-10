@@ -25,7 +25,7 @@
 </style>`;
 </script>
 
-<PuzzlePageLayout title="Droplet" puzzleId="109">
+<PuzzlePageLayout title="Droplet" puzzleId="115">
 	<Puzzle title="Pseudo elements" {solution} />
 	<Narigo>
 		<p>I couldn't make it this Friday, but this puzzle is what was scheduled next.</p>
