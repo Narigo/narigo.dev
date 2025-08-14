@@ -44,8 +44,14 @@
 			I can't remember why, but after doing this CSS Battle, I've researched a bit about this new <Code
 				>hsl(from currentColor h s l)</Code
 			> syntax. When playing around with it for a bit, I noticed a but that reproducibly crashed Chrome
-			for me with pure CSS. I've submitted a bug report which got fixed pretty fast - but it is fixed
-			in the latest stable versions now.
+			for me with pure CSS.
+			<a href="https://issues.chromium.org/issues/422982562" rel="external"
+				>I've submitted a bug report which got fixed pretty fast</a
+			>. It took a bit longer to land in the latest stable version, but it is now. Joe put an SVG
+			online with the crash
+			<a href="https://github.com/JoeKarow/breaking-gh" rel="external"
+				>code on GitHub and it could reproducibly crash</a
+			> Chromium based browsers when they navigated to the page. This doesn't happen anymore now.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
