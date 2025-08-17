@@ -16,7 +16,7 @@
 		want to limit myself to that. Let's see where this leads to. I think I should add sections for
 		these tips...
 	</Narigo>
-	<ul class="grid gap-4 m-0 p-0">
+	<ul class="m-0 grid gap-4 p-0">
 		<li>
 			<h3>Drawing with linear gradients</h3>
 			<p>
@@ -169,7 +169,7 @@
 
 <style lang="postcss">
 	h3 {
-		@apply inline box-decoration-clone relative py-1 px-4 leading-7;
+		@apply relative inline box-decoration-clone px-4 py-1 leading-7;
 	}
 	h3 + p {
 		@apply mt-2;

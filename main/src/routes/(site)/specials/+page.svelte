@@ -52,9 +52,9 @@
 				There are some projects I've created that I want to highlight. I had a real need for these
 				at some point in time and I'm pretty happy I can share some of them today.
 			</Narigo>
-			<ul class="m-0 p-0 list-none">
+			<ul class="m-0 list-none p-0">
 				<li
-					class="m-0 p-0 list-none"
+					class="m-0 list-none p-0"
 					onmouseenter={setRandomColorOnHover}
 					style="--color-random:{getRandomColor()};"
 				>
@@ -82,7 +82,7 @@
 					</a>
 				</li>
 				<li
-					class="m-0 p-0 list-none"
+					class="m-0 list-none p-0"
 					onmouseenter={setRandomColorOnHover}
 					style="--color-random:{getRandomColor()};"
 				>
@@ -111,7 +111,7 @@
 					</a>
 				</li>
 				<li
-					class="m-0 p-0 list-none"
+					class="m-0 list-none p-0"
 					onmouseenter={setRandomColorOnHover}
 					style="--color-random:{getRandomColor()};"
 				>

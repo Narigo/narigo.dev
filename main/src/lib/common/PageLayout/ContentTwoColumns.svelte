@@ -9,7 +9,7 @@
 	const { class: clazz, left, right }: Props = $props();
 </script>
 
-<div class="grid sm:grid-cols-2 gap-4 {clazz}">
+<div class="grid gap-4 sm:grid-cols-2 {clazz}">
 	<div>
 		{@render left()}
 	</div>

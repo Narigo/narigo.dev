@@ -35,7 +35,7 @@ jobs:
 
       - name: Build 🛠
         env:
-          BASE_PATH: "/ghpages-previews/${{ github.head_ref || github.ref_name }}"
+          BASE_PATH: '/ghpages-previews/${{ github.head_ref || github.ref_name }}'
         run: |
           pnpm run build-previewpage
 

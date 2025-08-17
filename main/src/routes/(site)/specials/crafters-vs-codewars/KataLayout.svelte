@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Kata from './Kata.svelte';
@@ -24,6 +24,6 @@
 	{/if}
 	<Narigo>
 		If you want to check out other katas we did, look at
-		<a href="{base}/specials/crafters-vs-codewars/">the list of Crafters vs CodeWars events</a>.
+		<a href={resolve('/specials/crafters-vs-codewars')}>the list of Crafters vs CodeWars events</a>.
 	</Narigo>
 </PageLayout>

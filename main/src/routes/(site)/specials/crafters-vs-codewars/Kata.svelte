@@ -28,7 +28,7 @@
 		{@render children?.()}
 	{:else}
 		<button
-			class="self-center bg-primary border-0 cursor-pointer text-white p-4 mb-8"
+			class="bg-primary mb-8 cursor-pointer self-center border-0 p-4 text-white"
 			onclick={() => (showSolution = true)}>Show solution</button
 		>
 	{/if}

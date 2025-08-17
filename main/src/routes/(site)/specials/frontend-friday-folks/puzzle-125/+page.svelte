@@ -31,7 +31,7 @@ div{width:180;height:180;background:#1c1c1c;
       hline by 20px,
       arc to 80px 75px of 1q cw,
       hline by -20px
-    );
+    )}
 </style>`;
 </script>
 

@@ -10,7 +10,7 @@
 	description="How I solve the Rubiks Cube (3x3 and 4x4)"
 	lastUpdateOn="2024-09-10"
 >
-	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
+	<p class="bg-opacity-40 border border-solid border-red-300 bg-red-200 p-4">
 		This is still a work in progress.
 	</p>
 	<p>

@@ -15,7 +15,7 @@
 </script>
 
 <button
-	class="animate-pulse-fast sticky top-0 right-0 bg-none hover:bg-black hover:bg-opacity-20 border-none cursor-pointer py-2 px-4 z-10 disabled:hover:bg-none disabled:hover:cursor-not-allowed"
+	class="animate-pulse-fast hover:bg-opacity-20 sticky top-0 right-0 z-10 cursor-pointer border-none bg-none px-4 py-2 hover:bg-black disabled:hover:cursor-not-allowed disabled:hover:bg-none"
 	transition:fade|global={{ duration: 500 }}
 	onclick={() => stopAll()}>Fast forward animations &gt;&gt;</button
 >

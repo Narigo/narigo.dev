@@ -43,73 +43,73 @@
 
 {#if isValid}
 	<div
-		class="grid grid-cols-3 aspect-square w-full text-[clamp(1px,calc(calc(-360px*5/504+1px)+calc(5/504*100vw)),6px)]"
+		class="grid aspect-square w-full grid-cols-3 text-[clamp(1px,calc(calc(-360px*5/504+1px)+calc(5/504*100vw)),6px)]"
 	>
 		<div></div>
 		<div></div>
 		<div></div>
 
 		<div></div>
-		<div class="relative perspective-origin-[50%_50%] perspective-near">
+		<div class="relative perspective-near perspective-origin-[50%_50%]">
 			<div
-				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] z-10"
+				class="absolute inset-0 z-10 grid [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
 				{#each back as [c1, c2, c3, c4]}
 					<div class="grid grid-flow-col gap-[2em]">
-						<div class="rounded aspect-square {f[c1]}"></div>
-						<div class="rounded aspect-square {f[c2]}"></div>
-						<div class="rounded aspect-square {f[c3]}"></div>
-						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+						<div class="aspect-square rounded {f[c1]}"></div>
+						<div class="aspect-square rounded {f[c2]}"></div>
+						<div class="aspect-square rounded {f[c3]}"></div>
+						{#if is4x4}<div class="aspect-square rounded {f[c4 ?? '_']}"></div>{/if}
 					</div>
 				{/each}
 			</div>
 
 			<div
-				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+				class="absolute inset-0 grid [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
 				{#each left as [c1, c2, c3, c4]}
 					<div class="grid grid-flow-col gap-[2em]">
-						<div class="rounded aspect-square {f[c1]}"></div>
-						<div class="rounded aspect-square {f[c2]}"></div>
-						<div class="rounded aspect-square {f[c3]}"></div>
-						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+						<div class="aspect-square rounded {f[c1]}"></div>
+						<div class="aspect-square rounded {f[c2]}"></div>
+						<div class="aspect-square rounded {f[c3]}"></div>
+						{#if is4x4}<div class="aspect-square rounded {f[c4 ?? '_']}"></div>{/if}
 					</div>
 				{/each}
 			</div>
 
-			<div class="absolute inset-0 bg-black grid gap-[2em] p-[1em]">
+			<div class="absolute inset-0 grid gap-[2em] bg-black p-[1em]">
 				{#each top as [c1, c2, c3, c4]}
 					<div class="grid grid-flow-col gap-[2em]">
-						<div class="rounded aspect-square {f[c1]}"></div>
-						<div class="rounded aspect-square {f[c2]}"></div>
-						<div class="rounded aspect-square {f[c3]}"></div>
-						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+						<div class="aspect-square rounded {f[c1]}"></div>
+						<div class="aspect-square rounded {f[c2]}"></div>
+						<div class="aspect-square rounded {f[c3]}"></div>
+						{#if is4x4}<div class="aspect-square rounded {f[c4 ?? '_']}"></div>{/if}
 					</div>
 				{/each}
 			</div>
 
 			<div
-				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+				class="absolute inset-0 grid [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
 				{#each right as [c1, c2, c3, c4]}
 					<div class="grid grid-flow-col gap-[2em]">
-						<div class="rounded aspect-square {f[c1]}"></div>
-						<div class="rounded aspect-square {f[c2]}"></div>
-						<div class="rounded aspect-square {f[c3]}"></div>
-						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+						<div class="aspect-square rounded {f[c1]}"></div>
+						<div class="aspect-square rounded {f[c2]}"></div>
+						<div class="aspect-square rounded {f[c3]}"></div>
+						{#if is4x4}<div class="aspect-square rounded {f[c4 ?? '_']}"></div>{/if}
 					</div>
 				{/each}
 			</div>
 
 			<div
-				class="shadow-black shadow-2xl absolute inset-0 bg-black grid gap-[2em] p-[1em] [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)]"
+				class="absolute inset-0 grid [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
 				{#each front as [c1, c2, c3, c4]}
 					<div class="grid grid-flow-col gap-[2em]">
-						<div class="rounded aspect-square {f[c1]}"></div>
-						<div class="rounded aspect-square {f[c2]}"></div>
-						<div class="rounded aspect-square {f[c3]}"></div>
-						{#if is4x4}<div class="rounded aspect-square {f[c4 ?? '_']}"></div>{/if}
+						<div class="aspect-square rounded {f[c1]}"></div>
+						<div class="aspect-square rounded {f[c2]}"></div>
+						<div class="aspect-square rounded {f[c3]}"></div>
+						{#if is4x4}<div class="aspect-square rounded {f[c4 ?? '_']}"></div>{/if}
 					</div>
 				{/each}
 			</div>

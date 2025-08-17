@@ -19,7 +19,7 @@
 <div class="mb-4 flex flex-col">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
 	<label
-		class="relative isolate flex flex-1 cursor-pointer bg-primary px-4 py-2 uppercase text-white hover:bg-primary-light lg:hidden"
+		class="bg-primary hover:bg-primary-light relative isolate flex flex-1 cursor-pointer px-4 py-2 text-white uppercase lg:hidden"
 		for="navigation-menu-toggle-{navigationId}"
 	>
 		<div class="menu-icon"></div>
@@ -36,7 +36,7 @@
 			{#each menuItems as { label, href, ...linkProps }}
 				<li class="relative isolate inline-flex flex-1">
 					<a
-						class="internal m-0 flex flex-1 bg-primary px-4 py-2 text-white no-underline hover:bg-primary-light hover:text-white"
+						class="internal bg-primary hover:bg-primary-light m-0 flex flex-1 px-4 py-2 text-white no-underline hover:text-white"
 						{href}
 						{...linkProps}>{label}</a
 					>

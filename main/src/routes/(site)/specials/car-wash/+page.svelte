@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 </script>
@@ -15,7 +15,7 @@
 			>Car Wash (for Toddlers) game by retne_games</a
 		>
 		could be done with CSS and little JavaScript. And as you can see, it worked:
-		<a href="{base}/specials/car-wash/play">Try it out here!</a>
+		<a href={resolve('/specials/car-wash/play')}>Try it out here!</a>
 	</Narigo>
 	<Narigo>Oh and one of the cars was drawn by my nephew!</Narigo>
 </PageLayout>

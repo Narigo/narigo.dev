@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Navigation from '../navigation/Navigation.svelte';
 	import ContentSection from './ContentSection.svelte';
 	import FullWidthSection from './FullWidthSection.svelte';
@@ -131,7 +131,7 @@
 	</main>
 	<footer class="content-grid primary py-4">
 		<FullWidthSection>
-			<div><a href="{base}/imprint">ℹ️ Imprint</a></div>
+			<div><a href={resolve('/imprint')}>ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
 			<div>
 				Statically hosted on GitHub Pages. <a

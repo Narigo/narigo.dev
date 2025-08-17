@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
@@ -47,7 +47,7 @@
 					href="https://github.com/compose-us/flottform/"
 					rel="external noopener noreferrer"
 					target="_blank">implementation</a
-				>: Please <a href="{base}/contact">let me know</a>!
+				>: Please <a href={resolve('/contact')}>let me know</a>!
 			</p>
 		</Narigo>
 		<Narigo>
@@ -64,7 +64,9 @@
 			<p>
 				For <a href="https://virtualcoffee.io" rel="external noopener noreferrer" target="_blank"
 					>VirtualCoffee.io</a
-				>, I organize the "<a href="{base}/specials/frontend-friday-folks">Frontend Friday Folks</a>
+				>, I organize the "<a href={resolve('/specials/frontend-friday-folks')}
+					>Frontend Friday Folks</a
+				>
 				battling
 				<a
 					href="https://cssbattle.dev/?via=compose-us"
@@ -110,11 +112,11 @@
 		<h3>Why is this here again? 🤔</h3>
 		<Narigo>
 			<p>
-				I needed a space where I could put <a href="{base}/talks">slides for my talks</a> online.
+				I needed a space where I could put <a href={resolve('/talks')}>slides for my talks</a> online.
 			</p>
 			<p>But I somehow started building a "real" web page...</p>
 			<p>
-				I even started to write <a href="{base}/articles/"
+				I even started to write <a href={resolve('/articles')}
 					>some articles about topics that were interesting for me</a
 				>.
 			</p>

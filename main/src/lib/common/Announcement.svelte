@@ -13,7 +13,7 @@
 		{@render title()}
 	{:else if title}
 		<h2
-			class="animate-announce motion-reduce:animate-none flex flex-wrap gap-4 items-center justify-center mx-auto mb-2 text-center"
+			class="animate-announce mx-auto mb-2 flex flex-wrap items-center justify-center gap-4 text-center motion-reduce:animate-none"
 		>
 			<div class="inline-block">
 				📢

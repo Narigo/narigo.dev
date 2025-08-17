@@ -9,7 +9,7 @@
 	let { code }: Props = $props();
 </script>
 
-<div class="text-xs prose-code:before:content-none prose-code:after:content-none">
+<div class="prose-code:before:content-none prose-code:after:content-none text-xs">
 	<HighlightSvelte {code} let:highlighted>
 		<LineNumbers {highlighted} wrapLines />
 	</HighlightSvelte>

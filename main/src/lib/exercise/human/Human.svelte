@@ -47,21 +47,21 @@
 		>
 			<div class="neck absolute -bottom-2 left-1/2 h-2 w-4 -translate-x-1/2 bg-orange-300"></div>
 		</section>
-		<section class="leg-l absolute right-6 top-full origin-top">
+		<section class="leg-l absolute top-full right-6 origin-top">
 			<div
 				class="thighLeft absolute top-0 h-11 w-4 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighLeftClasses}"
 			>
 				<div class="leg-ul absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
-		<section class="leg-r absolute left-2 top-full origin-top">
+		<section class="leg-r absolute top-full left-2 origin-top">
 			<div
 				class="thighRight absolute top-0 h-11 w-4 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {thighRightClasses}"
 			>
 				<div class="leg-ur absolute top-full h-11 w-4 origin-top bg-orange-200"></div>
 			</div>
 		</section>
-		<section class="arm-r absolute left-0 top-1 origin-top">
+		<section class="arm-r absolute top-1 left-0 origin-top">
 			<div
 				class="upperArm-r w-3 origin-top bg-linear-to-b from-green-400 via-orange-300 via-25% to-orange-200 {upperArmRightClasses}"
 			>
@@ -70,7 +70,7 @@
 				></div>
 			</div>
 		</section>
-		<section class="arm-l absolute right-3 top-1 origin-top">
+		<section class="arm-l absolute top-1 right-3 origin-top">
 			<div
 				class="upperArm-l absolute top-0 w-3 origin-top bg-linear-to-b from-green-400 via-orange-300 via-20% to-orange-200 {upperArmLeftClasses}"
 			>

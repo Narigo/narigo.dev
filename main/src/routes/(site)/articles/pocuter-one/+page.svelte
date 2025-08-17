@@ -29,7 +29,7 @@ config/      (optionally)
 	description="My experiences with the Pocuter One and all the things I learnt along the way."
 	lastUpdateOn="2023-06-01"
 >
-	<p class="bg-opacity-40 bg-red-200 border border-solid border-red-300 p-4">
+	<p class="bg-opacity-40 border border-solid border-red-300 bg-red-200 p-4">
 		Be aware, I'm going to continue writing and improving on this article. Maybe the parts I release
 		are already useful for someone.
 	</p>

@@ -1,15 +1,15 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import BaseNavigation from './BaseNavigation.svelte';
 </script>
 
 <BaseNavigation
 	menuItems={[
-		{ href: `${base}/`, label: '🏠 Home' },
-		{ href: `${base}/articles`, label: '📝 Articles' },
-		{ href: `${base}/talks`, label: '🗣️ Talks' },
-		{ href: `${base}/toolbox`, label: '🛠️ Toolbox', rel: 'external' },
-		{ href: `${base}/specials`, label: '🤪 Specials' },
-		{ href: `${base}/contact`, label: '🧑‍💼 Contact' }
+		{ href: resolve('/'), label: '🏠 Home' },
+		{ href: resolve('/articles'), label: '📝 Articles' },
+		{ href: resolve('/talks'), label: '🗣️ Talks' },
+		{ href: resolve('/toolbox'), label: '🛠️ Toolbox', rel: 'external' },
+		{ href: resolve('/specials'), label: '🤪 Specials' },
+		{ href: resolve('/contact'), label: '🧑‍💼 Contact' }
 	]}
 />

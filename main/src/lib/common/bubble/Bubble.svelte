@@ -63,7 +63,7 @@
 		>
 			{#if modes[mode] === 'talk' || modes[mode] === 'shout'}
 				<div
-					class="bubble relative bg-white border-2 border-black text-base leading-8 my-2 mx-auto p-2 max-w-max translate-x-(--x) rounded-lg"
+					class="bubble relative mx-auto my-2 max-w-max translate-x-(--x) rounded-lg border-2 border-black bg-white p-2 text-base leading-8"
 					class:ml-8={side === 'left'}
 					class:mr-8={side === 'right'}
 					transition:fly={{ x: (side === 'left' ? -1 : 1) * 50, duration }}
@@ -74,7 +74,7 @@
 				</div>
 			{/if}
 			<button
-				class="avatar absolute bg-transparent border-none bottom-2 cursor-pointer text-base"
+				class="avatar absolute bottom-2 cursor-pointer border-none bg-transparent text-base"
 				onclick={(e) => {
 					e.preventDefault();
 					toggleTalking();
