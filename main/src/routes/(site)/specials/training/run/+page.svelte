@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/stores';
 	import { supportsScreenLock, requestScreenLock } from '$lib/screenlock/screenlock';
 	import { onMount } from 'svelte';
@@ -130,7 +130,7 @@
 	async function run() {
 		console.log({ currentStep, currentExercise });
 		if (!currentExercise) {
-			return await goto(`${base}/specials/training/done`);
+			return await goto(resolve('/specials/training/done'));
 		}
 
 		do {

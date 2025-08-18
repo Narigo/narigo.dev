@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/stores';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { onMount } from 'svelte';
@@ -31,7 +31,7 @@
 	description="A little experiment I've created to try and cheer someone up."
 >
 	{#if encrypted === undefined}
-		<p>Do you want to <a href="{base}/specials/recharge/create">create your own</a>?</p>
+		<p>Do you want to <a href={resolve('/specials/recharge/create')}>create your own</a>?</p>
 	{:else}
 		<Recharge person={data.person} emojis={data.emojis} message={data.message} />
 	{/if}

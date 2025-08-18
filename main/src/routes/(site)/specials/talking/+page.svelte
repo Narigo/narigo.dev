@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { onMount } from 'svelte';
 	import Animation from './Animation.svelte';
+	import { resolve } from '$app/paths';
 
 	let encrypted: string | undefined = $state();
 	let lines: { side: 'left' | 'right'; avatar?: string; line: string }[] = $state([]);
@@ -40,7 +40,7 @@
 	description="This experiment allows you to create some cartoon animation with Gravatar images and custom text bubbles without saving it to a server."
 >
 	{#if encrypted === undefined}
-		<p>Do you want to <a href="{base}/specials/talking/create">create your own</a>?</p>
+		<p>Do you want to <a href={resolve('/specials/talking/create')}>create your own</a>?</p>
 	{:else}
 		<Animation {lines} />
 	{/if}

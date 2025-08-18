@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Puzzle from './Puzzle.svelte';
 
@@ -15,7 +15,8 @@
 
 <PageLayout>
 	<div>
-		<a href="{base}/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
+		<a href={resolve('/specials/frontend-friday-folks')}>&lt; Back to Frontend Friday Folks Index</a
+		>
 		<section>
 			{#if title}<h2>{title}</h2>{/if}
 			{#if puzzleId}
@@ -34,7 +35,8 @@
 				{@render children?.()}
 			{/if}
 		</section>
-		<a href="{base}/specials/frontend-friday-folks">&lt; Back to Frontend Friday Folks Index</a>
+		<a href={resolve('/specials/frontend-friday-folks')}>&lt; Back to Frontend Friday Folks Index</a
+		>
 	</div>
 </PageLayout>
 

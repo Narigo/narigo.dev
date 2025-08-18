@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Code from '$lib/common/Code.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
@@ -36,8 +36,8 @@
 		<li>
 			<h3>srcdoc sets an iframes doctype implicitly, Quirks mode expands the body height</h3>
 			<p>
-				When working on the Puzzle iframe for the <a href="{base}/specials/frontend-friday-folks"
-					>Frontend Friday Folks</a
+				When working on the Puzzle iframe for the <a
+					href={resolve('/specials/frontend-friday-folks')}>Frontend Friday Folks</a
 				>, I had trouble centering the image. I had the same code result in the Chrome Dev Tools as
 				in CSSBattle.dev, when inspecting the elements, so I didn't realize why it still looked
 				different. It looks like when using the <Code>srcdoc</Code> on an <Code>iframe</Code>

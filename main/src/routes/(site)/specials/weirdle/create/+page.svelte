@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
@@ -14,7 +14,7 @@
 		const encUrl = encodeURIComponent(window.btoa(word));
 		const hintUrl = hint.trim() !== '' ? `&hint=${encodeURIComponent(window.btoa(hint))}` : '';
 		const wordListUrl = wordList !== '' ? `&wl=${encodeURIComponent(wordList)}` : '';
-		$link = `${base}/specials/weirdle/play?enc=${encUrl}${hintUrl}${wordListUrl}`;
+		$link = `${resolve('/specials/weirdle/play')}?enc=${encUrl}${hintUrl}${wordListUrl}`;
 	}
 </script>
 

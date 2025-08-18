@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
 
@@ -29,7 +29,7 @@
 		const toEncode =
 			characterA !== '' || characterB !== '' ? { f: [characterA, characterB], l: $lines } : $lines;
 		const encUrl = encode(JSON.stringify(toEncode));
-		$link = `${base}/specials/talking?e=${encodeURIComponent(encUrl)}`;
+		$link = `${resolve('/specials/talking')}?e=${encodeURIComponent(encUrl)}`;
 	}
 </script>
 

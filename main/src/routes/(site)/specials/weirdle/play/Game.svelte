@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { preventDefault } from 'svelte/legacy';
 
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Bubble from '$lib/common/bubble/Bubble.svelte';
 	import { writable } from 'svelte/store';
 	import type { FiveLetterWord, GameState, LetterInfo } from './gameTypes';
@@ -76,10 +76,10 @@
 	</form>
 {:else if $gameState === 'lost'}
 	<Bubble>Better luck next time, the word to be found was: {word}</Bubble>
-	<Bubble side="right"><a href="{base}/specials/weirdle/play">Play another round</a>?</Bubble>
+	<Bubble side="right"><a href={resolve('/specials/weirdle/play')}>Play another round</a>?</Bubble>
 {:else if $gameState === 'won'}
 	<Bubble>You found it! It was {word}!</Bubble>
-	<Bubble side="right"><a href="{base}/specials/weirdle/play">Play another round</a>?</Bubble>
+	<Bubble side="right"><a href={resolve('/specials/weirdle/play')}>Play another round</a>?</Bubble>
 {/if}
 
 <style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 
@@ -38,7 +38,7 @@
 		</p>
 	</Narigo>
 
-	<form class="grid" method="GET" action="{base}/specials/training/run">
+	<form class="grid" method="GET" action={resolve('/specials/training/run')}>
 		<p class="my-4 rounded border-l-4 border-l-yellow-300 bg-yellow-100 p-4">
 			WARNING: Work in progress, you won't be able to submit yet!
 		</p>

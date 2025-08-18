@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import type { PageData } from './$types';
@@ -39,7 +39,8 @@
 	<ul>
 		{#each puzzles as { number, title }}
 			<li class="ml-4 list-disc">
-				<a href="{base}/specials/frontend-friday-folks/puzzle-{number}">Puzzle {number} - {title}</a
+				<a href="{resolve('/specials/frontend-friday-folks')}/puzzle-{number}"
+					>Puzzle {number} - {title}</a
 				>
 			</li>
 		{/each}

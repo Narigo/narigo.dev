@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 </script>
 
@@ -13,6 +13,6 @@
 		>. But sometimes, I'd like to let someone else decide on a word for me to play. With this
 		version, you can create your own word and pass it to a friend.
 	</p>
-	<p><a href="{base}/specials/weirdle/create">Create your own word</a></p>
-	<p><a href="{base}/specials/weirdle/play">Play a random word</a></p>
+	<p><a href={resolve('/specials/weirdle/create')}>Create your own word</a></p>
+	<p><a href={resolve('/specials/weirdle/play')}>Play a random word</a></p>
 </PageLayout>

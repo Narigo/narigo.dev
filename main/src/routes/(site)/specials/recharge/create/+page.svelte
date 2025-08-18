@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import { writable } from 'svelte/store';
 
@@ -15,7 +15,7 @@
 	function submitForm(e: Event) {
 		e.preventDefault();
 		const encUrl = encode(JSON.stringify({ person: $person, emojis: $emojis, message: $message }));
-		$link = `${base}/specials/recharge?e=${encodeURIComponent(encUrl)}`;
+		$link = `${resolve('/specials/recharge')}?e=${encodeURIComponent(encUrl)}`;
 	}
 </script>
 
