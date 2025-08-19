@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import type { PageData } from './$types';
@@ -24,7 +24,7 @@
 	<ul>
 		{#each data.events as { date, names }}
 			<li>
-				<a href="{base}/specials/crafters-vs-codewars/event-{date}">
+				<a href="{resolve('/specials/crafters-vs-codewars')}/event-{date}">
 					{date}
 					{#if names.length > 0}
 						- {names.join('; ')}
