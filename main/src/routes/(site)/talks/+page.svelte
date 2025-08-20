@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import PageLayout from '$lib/common/PageLayout/PageLayout.svelte';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 </script>
@@ -20,7 +20,7 @@
 	<ul class="mt-12 grid gap-12">
 		<li>
 			<div>
-				<a href="{base}/talks/static-pages-with-dynamic-content" rel="external"
+				<a href="{resolve('/talks')}/static-pages-with-dynamic-content" rel="external"
 					>Static pages with "dynamic" content</a
 				>
 				-
@@ -35,7 +35,7 @@
 		</li>
 		<li>
 			<div>
-				<a href="{base}/talks/webrtc-use-cases" rel="external"
+				<a href="{resolve('/talks')}/webrtc-use-cases" rel="external"
 					>Beyond Calls - Inspiring Use-Cases for WebRTC</a
 				>
 				-
@@ -53,7 +53,7 @@
 		</li>
 		<li>
 			<div>
-				<a href="{base}/talks/decentralization-with-webrtc" rel="external"
+				<a href="{resolve('/talks')}/decentralization-with-webrtc" rel="external"
 					>Decentralization with WebRTC - Inspiring Use-Cases</a
 				>
 				-
@@ -71,7 +71,7 @@
 		</li>
 		<li>
 			<div>
-				<a href="{base}/talks/dezentralisierung-mit-webrtc" rel="external"
+				<a href="{resolve('/talks')}/dezentralisierung-mit-webrtc" rel="external"
 					>Dezentralisierung mit WebRTC - Inspirierende Use-Cases</a
 				>
 				- German version of the lightning talk at the Bayerwald Hackathon.
