@@ -163,7 +163,11 @@
 	});
 </script>
 
-<PageLayout backLink="{base}/">
+<PageLayout
+	backLink="{base}/"
+	title={m['tools.documentScanner.title']}
+	description={m['tools.documentScanner.seoDescription']}
+>
 	<FullBreakoutSection class="px-8">
 		<section class="preview">
 			<h2 class="sr-only">{m['tools.documentScanner.preview']()}</h2>

@@ -32,7 +32,8 @@
 		},
 		"documentScanner": {
 			"title": "Document Scanner",
-			"description": "Uses the camera to scan a document, morphs it to a rectangle and converts it into a PDF.",
+			"seoDescription": "Fast, free, and locally running scanner. Takes pictures of documents/papers, straightens them, and creates a PDF from them. The images are not uploaded but processed directly on the device.",
+			"description": "Uses the camera to scan documents, straightens them and combines the results into a PDF. The images are not uploaded but processed directly on the device.",
 			"addPageScan": "Add page scan",
 			"createDownloadLink": "Create Download Link",
 			"loadingOpenCv": "Loading OpenCV ...",

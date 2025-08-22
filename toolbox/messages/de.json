@@ -32,7 +32,8 @@
 		},
 		"documentScanner": {
 			"title": "Dokumentenscanner",
-			"description": "Verwendet die Kamera, um ein Dokument zu scannen, es gerade zu rücken und in ein PDF umzuwandeln.",
+			"seoDescription": "Schnell, kostenlos und lokal laufender Scanner. Nimmt Bilder von Dokumenten / Papieren auf, rückt sie gerade und erstellt daraus ein PDF. Die Bilder werden nicht hochgeladen, sondern direkt auf dem Gerät verarbeitet.",
+			"description": "Verwendet die Kamera, um Dokumente zu scannen, sie dabei gerade rückt und in ein PDF zusammenfasst. Die Bilder werden nicht hochgeladen, sondern direkt auf dem Gerät verarbeitet.",
 			"addPageScan": "Weitere Seite scannen",
 			"createDownloadLink": "Download Link erstellen",
 			"loadingOpenCv": "Lade OpenCV ...",
