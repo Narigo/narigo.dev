@@ -3,19 +3,23 @@
 	import { setLocale, type Locale } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 	import FullWidthSection from './FullWidthSection.svelte';
+	import type PageMetaProps from './PageMeta.svelte';
+	import PageMeta from './PageMeta.svelte';
 
-	interface Props {
+	type PageLayoutProps = {
 		children: Snippet;
 		backLink?: string;
 		stretch?: boolean;
-	}
+	};
 
-	let { backLink, children, stretch = false }: Props = $props();
+	let { backLink, children, stretch = false, ...meta }: PageLayoutProps & PageMetaProps = $props();
 
 	const switchLanguage = (language: Locale) => () => {
 		setLocale(language);
 	};
 </script>
+
+<PageMeta {...meta} />
 
 <div class="relative flex min-h-full flex-col">
 	<header class="content-grid">
