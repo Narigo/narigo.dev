@@ -24,10 +24,12 @@
 		},
 		"base64": {
 			"title": "Base64 Encoding",
+			"seoDescription": "Free base64 encoder / decoder, running locally in your browser.",
 			"description": "Translates a string into and from base64 encoding."
 		},
 		"urlEncoding": {
 			"title": "URL Encoding",
+			"seoDescription": "Free URL encoder / decoder, running locally in your browser.",
 			"description": "Translates a string into and from URL encoding."
 		},
 		"documentScanner": {

@@ -3,7 +3,7 @@
 	import { setLocale, type Locale } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 	import FullWidthSection from './FullWidthSection.svelte';
-	import type PageMetaProps from './PageMeta.svelte';
+	import type { PageMetaProps } from './PageMeta.svelte';
 	import PageMeta from './PageMeta.svelte';
 
 	type PageLayoutProps = {

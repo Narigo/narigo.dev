@@ -24,10 +24,12 @@
 		},
 		"base64": {
 			"title": "Base64 Verschlüsselung",
+			"seoDescription": "Kostenloser Base64 Encoder / Decoder, der lokal im Browser läuft.",
 			"description": "Wandelt eine Zeichenfolge in Base64 um und andersherum."
 		},
 		"urlEncoding": {
 			"title": "URL Verschlüsselung",
+			"seoDescription": "Kostenloser URL Encoder / Decoder, der lokal im Browser läuft.",
 			"description": "Wandelt eine Zeichenfolge in URL Encoding um und andersherum."
 		},
 		"documentScanner": {

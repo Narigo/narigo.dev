@@ -165,8 +165,8 @@
 
 <PageLayout
 	backLink="{base}/"
-	title={m['tools.documentScanner.title']}
-	description={m['tools.documentScanner.seoDescription']}
+	title={m['tools.documentScanner.title']()}
+	description={m['tools.documentScanner.seoDescription']()}
 >
 	<FullBreakoutSection class="px-8">
 		<section class="preview">
