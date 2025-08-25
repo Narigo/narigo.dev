@@ -63,7 +63,11 @@
 	}
 </script>
 
-<PageLayout backLink="{base}/">
+<PageLayout
+	backLink="{base}/"
+	title={m['tools.flashlight.title']()}
+	description={m['tools.flashlight.seoDescription']()}
+>
 	<FullWidthSection>
 		{#if ['on', 'trying-to-turn-on'].includes(flashlightState)}
 			<button

@@ -53,6 +53,7 @@
 		},
 		"flashlight": {
 			"title": "Taschenlampe",
+			"seoDescription": "Kostenloses Tool, was die Kamera öffnet, um das Blitzlicht anzuschalten.",
 			"description": "Verwendet das Blitzlicht der Kamera als Taschenlampe.",
 			"switchOn": "Anschalten",
 			"switchOff": "Ausschalten",

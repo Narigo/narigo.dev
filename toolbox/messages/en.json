@@ -53,6 +53,7 @@
 		},
 		"flashlight": {
 			"title": "Flashlight",
+			"seoDescription": "Free tool that uses the camera to activate the flashlight / torch.",
 			"description": "Uses the camera light as flashlight / torch.",
 			"switchOn": "Turn on",
 			"switchOff": "Turn off",
