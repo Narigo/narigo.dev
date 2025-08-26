@@ -14,6 +14,7 @@
 		"toolsIWantToBuild": "JWT Extrahierer\nBilder Konvertierer\nVideo zu GIF Umwandler",
 		"stuffToDo": "Dinge, die ich noch bauen möchte:",
 		"noteAboutParaglide": "Oh, und ich probiere diese Lokalisierungsbibliothek aus, die mit <code>sv create</code> mitgeliefert wurde: ParaglideJS.",
+		"seoDescription": "Eine kleine Sammlung hilfreicher Tools, um keine Werbung ertragen zu müssen.",
 		"toolbox": "Online-Toolbox"
 	},
 	"tools": {
