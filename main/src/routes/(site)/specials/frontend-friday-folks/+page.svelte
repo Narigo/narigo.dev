@@ -36,12 +36,18 @@
 		</p>
 		<p>Here are solutions to the puzzles I did:</p>
 	</Narigo>
-	<ul>
+	<ul class="my-8 grid gap-2 md:grid-cols-2 lg:grid-cols-3">
 		{#each puzzles as { number, title }}
-			<li class="ml-4 list-disc">
-				<a href="{resolve('/specials/frontend-friday-folks')}/puzzle-{number}"
-					>Puzzle {number} - {title}</a
+			<li>
+				<a
+					class="relative block rounded border-2 border-black bg-white p-4 no-underline shadow-lg hover:shadow-none overflow-clip"
+					href="{resolve('/specials/frontend-friday-folks')}/puzzle-{number}"
 				>
+					<div class="absolute -bottom-2 -right-2 font-sans text-6xl font-extrabold opacity-25">
+						#{number}
+					</div>
+					<div class="text-black">{title}</div>
+				</a>
 			</li>
 		{/each}
 	</ul>
