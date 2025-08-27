@@ -15,7 +15,7 @@
 	}
 </script>
 
-<PageLayout description={m['general.seoDescription']()}>
+<PageLayout title={m['general.title']()} description={m['general.seoDescription']()}>
 	<FullWidthSection class="gap-y-4">
 		<h1 class="text-4xl font-bold">{m['general.toolbox']()}</h1>
 		<input
