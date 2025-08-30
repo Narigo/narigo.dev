@@ -12,9 +12,9 @@
 		"@slidev/cli": "^52.1.0",
 		"@slidev/theme-default": "^0.25.0",
 		"@slidev/theme-seriph": "^0.25.0",
-		"vue": "^3.5.18"
+		"vue": "^3.5.20"
 	},
 	"devDependencies": {
-		"vite": "^7.0.6"
+		"vite": "^7.1.3"
 	}
 }
