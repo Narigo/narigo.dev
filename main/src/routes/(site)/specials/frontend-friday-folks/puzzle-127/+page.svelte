@@ -35,7 +35,11 @@
 	<Puzzle title="Letter I solution" {solution} />
 	<Narigo>
 		<p>
-			The image can be rotated, so we had different solutions today. While Meg was using the X-axis for rotating, I used the Y-axis.
+			The image can be mirrored and rotated, so we had different solutions today. While Meg was
+			using the X-axis for the mirror rotate, I've used the Y-axis. There are three radial gradients
+			- two are the extensions of the capital I "serifs" and one is the actual visible circle. A
+			linear gradient creates the serifs up to those radials and a div:after is to create the inside
+			edges.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
