@@ -8,7 +8,7 @@
 		{ href: resolve('/'), label: '🏠 Home' },
 		{ href: resolve('/articles'), label: '📝 Articles' },
 		{ href: resolve('/talks'), label: '🗣️ Talks' },
-		{ href: resolve('/toolbox'), label: '🛠️ Toolbox', rel: 'external' },
+		{ href: `${resolve('/')}toolbox`, label: '🛠️ Toolbox', rel: 'external' },
 		{ href: resolve('/specials'), label: '🤪 Specials' },
 		{ href: resolve('/contact'), label: '🧑‍💼 Contact' }
 	]}
