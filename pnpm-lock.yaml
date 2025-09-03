@@ -23,6 +23,9 @@ importers:
       '@fontsource/gochi-hand':
         specifier: ^5.2.6
         version: 5.2.6
+      '@fontsource/inter':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/permanent-marker':
         specifier: ^5.2.6
         version: 5.2.6
@@ -729,6 +732,9 @@ packages:
 
   '@fontsource/gochi-hand@5.2.6':
     resolution: {integrity: sha512-u7UKyIN7af59HDAjBMwD73Ttv3Kl/p6VtslVZfHZJ/Hckg6YqfMmB9Omkz/WPMenPfqKL1vgpvL1FYDIhEyobw==}
+
+  '@fontsource/inter@5.2.6':
+    resolution: {integrity: sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw==}
 
   '@fontsource/permanent-marker@5.2.6':
     resolution: {integrity: sha512-ClY1yNx1u/Gh94FRLL0Ze/60Ml63nZOwR3N4JBhUh7Aq+k349PCN+psVJ4KdaPfIchmNw7LwSL1gTja6uioNkg==}
@@ -5264,6 +5270,8 @@ snapshots:
   '@fontsource/fira-sans@5.2.6': {}
 
   '@fontsource/gochi-hand@5.2.6': {}
+
+  '@fontsource/inter@5.2.6': {}
 
   '@fontsource/permanent-marker@5.2.6': {}
 

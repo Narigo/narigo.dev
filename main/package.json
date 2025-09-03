@@ -19,6 +19,7 @@
 		"@eslint/compat": "^1.3.2",
 		"@fontsource/annie-use-your-telescope": "^5.2.6",
 		"@fontsource/gochi-hand": "^5.2.6",
+		"@fontsource/inter": "^5.2.6",
 		"@fontsource/permanent-marker": "^5.2.6",
 		"@playwright/test": "^1.55.0",
 		"@sveltejs/adapter-static": "^3.0.9",
