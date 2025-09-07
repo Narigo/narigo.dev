@@ -1,7 +1,3 @@
-@import '@fontsource/annie-use-your-telescope';
-@import '@fontsource/gochi-hand';
-@import '@fontsource/permanent-marker';
-
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/typography';
@@ -15,12 +11,12 @@
 	--color-body: rgb(0 0 0);
 
 	--color-primary-text: var(--color-white);
-	--color-primary-light: rgb(101 193 96);
-	--color-primary: rgb(64 154 69);
-	--color-primary-dark: rgb(42 92 36);
+	--color-primary-light: var(--color-comic-primary-light);
+	--color-primary: var(--color-comic-primary);
+	--color-primary-dark: var(--color-comic-primary-dark);
 
-	--font-primary: 'Gochi Hand', cursive;
-	--font-headline: 'Permanent Marker', 'Gochi Hand', cursive;
+	--font-primary: var(--font-comic-primary);
+	--font-headline: var(--font-comic-headline);
 	--font-code: 'Victor Mono', monospace;
 
 	--shadow-box: 0.25rem 0.25rem 0 #555;

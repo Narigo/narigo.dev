@@ -114,7 +114,7 @@
 	{/if}
 </svelte:head>
 
-<div class="page relative flex min-h-full flex-col">
+<div class="page font-primary relative flex min-h-full flex-col tracking-wide">
 	<header class="content-grid pt-4">
 		<FullWidthSection>
 			<Navigation />
@@ -167,8 +167,6 @@
 				center / cover no-repeat,
 			rgba(var(--rgbv-background-color), 1);
 		background-size: cover;
-		font-family: var(--font-primary);
-		letter-spacing: 0.5px;
 	}
 	.content-grid {
 		--max-page-width: 38rem;

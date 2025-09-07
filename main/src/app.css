@@ -1,4 +1,67 @@
+@import '@fontsource/annie-use-your-telescope';
+@import '@fontsource/gochi-hand';
+@import '@fontsource/permanent-marker';
+
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/container-queries';
+
+@theme {
+	--animate-announce: announce 2000ms infinite ease;
+	--animate-pulse-fast: pulse 800ms cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--animate-shake: shake 100ms infinite alternate;
+
+	--color-body: rgb(0 0 0);
+
+	--color-comic-primary-light: rgb(101 193 96);
+	--color-comic-primary: rgb(64 154 69);
+	--color-comic-primary-dark: rgb(42 92 36);
+
+	--font-comic: 'Gochi Hand', cursive;
+	--font-comic-headline: 'Permanent Marker', 'Gochi Hand', cursive;
+
+	--color-primary-text: var(--color-white);
+	--color-primary-light: var(--color-comic-primary-light);
+	--color-primary: var(--color-comic-primary);
+	--color-primary-dark: var(--color-comic-primary-dark);
+
+	--font-primary: var(--font-comic-primary);
+	--font-headline: var(--font-comic-headline);
+	--font-code: 'Victor Mono', monospace;
+
+	--shadow-box: 0.25rem 0.25rem 0 #555;
+
+	@keyframes announce {
+		0%,
+		50%,
+		100% {
+			rotate: 0deg;
+			scale: 1;
+		}
+		25% {
+			rotate: -2deg;
+			scale: 1.05;
+		}
+		75% {
+			rotate: 2deg;
+			scale: 1.05;
+		}
+	}
+	@keyframes shake {
+		0%,
+		100% {
+			transform: translate(-2px, -1px);
+		}
+		20%,
+		80% {
+			transform: translate(1px, 2px);
+		}
+		40% {
+			transform: translate(2px, 1px);
+		}
+		60% {
+			transform: translate(-1px, -1px);
+		}
+	}
+}

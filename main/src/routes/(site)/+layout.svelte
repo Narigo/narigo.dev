@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import '../../app.css';
+	import appStyle from '../../app.css?url';
 	import comicsStyle from './comics.css?url';
 
 	interface Props {
@@ -11,6 +11,7 @@
 </script>
 
 <svelte:head>
+	<link rel="stylesheet" href={appStyle} />
 	<link rel="stylesheet" href={comicsStyle} />
 </svelte:head>
 

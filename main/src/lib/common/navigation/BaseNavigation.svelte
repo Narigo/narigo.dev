@@ -16,10 +16,10 @@
 	let isExpanded = $state(false);
 </script>
 
-<div class="mb-4 flex flex-col">
+<div class="font-comic-headline text-sm mb-4 flex flex-col">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
 	<label
-		class="bg-primary hover:bg-primary-light relative isolate flex flex-1 cursor-pointer px-4 py-2 text-white uppercase lg:hidden"
+		class="bg-comic-primary hover:bg-comic-primary-light relative isolate flex flex-1 cursor-pointer px-4 py-2 text-white uppercase lg:hidden"
 		for="navigation-menu-toggle-{navigationId}"
 	>
 		<div class="menu-icon"></div>
@@ -36,7 +36,7 @@
 			{#each menuItems as { label, href, ...linkProps }}
 				<li class="relative isolate inline-flex flex-1">
 					<a
-						class="internal bg-primary hover:bg-primary-light m-0 flex flex-1 px-4 py-2 text-white no-underline hover:text-white"
+						class="internal bg-comic-primary hover:bg-comic-primary-light m-0 flex flex-1 px-4 py-2 text-white no-underline hover:text-white"
 						{href}
 						{...linkProps}>{label}</a
 					>
