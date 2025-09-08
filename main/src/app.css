@@ -20,6 +20,7 @@
 
 	--font-comic: 'Gochi Hand', cursive;
 	--font-comic-headline: 'Permanent Marker', 'Gochi Hand', cursive;
+	--font-comic-primary: 'Permanent Marker', 'Gochi Hand', cursive;
 
 	--color-primary-text: var(--color-white);
 	--color-primary-light: var(--color-comic-primary-light);

@@ -75,6 +75,8 @@
 
 @layer base {
 	:root {
+		--font-primary: var(--font-comic-primary);
+		--font-headline: var(--font-comic-headline);
 		--font-size-primary: 24px;
 
 		--nd-box-shadow: 0.25rem 0.25rem 0 #555;
