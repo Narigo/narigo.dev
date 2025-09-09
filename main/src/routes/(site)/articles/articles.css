@@ -1,0 +1,80 @@
+@import '../../../app.css';
+@import '@fontsource/inter';
+
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/container-queries';
+
+@theme {
+	--animate-announce: announce 2000ms infinite ease;
+	--animate-pulse-fast: pulse 800ms cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--animate-shake: shake 100ms infinite alternate;
+
+	--font-article-primary: Inter, sans-serif;
+	--font-article-headline: Inter, sans-serif;
+
+	--shadow-box: 0.25rem 0.25rem 0 #555;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
+}
+
+@layer base {
+	:root {
+		--font-primary: var(--font-article-primary);
+		--font-headline: var(--font-article-headline);
+		--font-size-primary: 18px;
+
+		--nd-box-shadow: 0.25rem 0.25rem 0 #555;
+
+		--text-color: var(--color-black);
+		--primary-text-color: var(--color-white);
+	}
+
+	html,
+	body {
+		height: 100%;
+		font-size: var(--font-size-primary);
+		color: var(--color-black);
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		@apply text-blue-900 underline decoration-dotted;
+	}
+	a:hover {
+		@apply text-blue-700 no-underline;
+	}
+	a[rel~='external']:not([class~='internal'])::after {
+		position: relative;
+		content: '';
+		display: inline-flex;
+		background: url('data:image/svg+xml,<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><text x="0" y="0" alignment-baseline="hanging" font-size="128">🛫</text></svg>')
+			no-repeat;
+		margin-left: 0.1em;
+		vertical-align: middle;
+		height: 1em;
+		width: 1em;
+	}
+
+	code {
+		@apply font-code;
+	}
+}
