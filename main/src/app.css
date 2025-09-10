@@ -20,15 +20,16 @@
 
 	--font-comic: 'Gochi Hand', cursive;
 	--font-comic-headline: 'Permanent Marker', 'Gochi Hand', cursive;
-	--font-comic-primary: 'Permanent Marker', 'Gochi Hand', cursive;
+	--font-comic-alternative: 'Annie Use Your Telescope', cursive;
 
 	--color-primary-text: var(--color-white);
 	--color-primary-light: var(--color-comic-primary-light);
 	--color-primary: var(--color-comic-primary);
 	--color-primary-dark: var(--color-comic-primary-dark);
 
-	--font-primary: var(--font-comic-primary);
+	--font-primary: var(--font-comic);
 	--font-headline: var(--font-comic-headline);
+	--font-alternative: var(--font-comic-alternative);
 	--font-code: 'Victor Mono', monospace;
 
 	--shadow-box: 0.25rem 0.25rem 0 #555;

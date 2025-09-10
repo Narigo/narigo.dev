@@ -6,6 +6,7 @@
 <PageLayout
 	title="Articles I've written"
 	description="From time to time, I like to publish thoughts or things I've been working on."
+	customStyle
 >
 	<h2>Articles</h2>
 	<ul>

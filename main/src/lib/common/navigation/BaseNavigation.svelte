@@ -16,7 +16,7 @@
 	let isExpanded = $state(false);
 </script>
 
-<div class="font-comic-headline text-sm mb-4 flex flex-col">
+<div class="font-comic text-sm mb-4 flex flex-col">
 	<input id="navigation-menu-toggle-{navigationId}" type="checkbox" bind:checked={isExpanded} />
 	<label
 		class="bg-comic-primary hover:bg-comic-primary-light relative isolate flex flex-1 cursor-pointer px-4 py-2 text-white uppercase lg:hidden"

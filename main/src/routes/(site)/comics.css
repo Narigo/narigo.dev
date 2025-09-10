@@ -3,7 +3,7 @@
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/container-queries';
 
-@theme {
+@theme inline {
 	--animate-announce: announce 2000ms infinite ease;
 	--animate-pulse-fast: pulse 800ms cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	--animate-shake: shake 100ms infinite alternate;
@@ -15,7 +15,7 @@
 	--color-primary: var(--color-comic-primary);
 	--color-primary-dark: var(--color-comic-primary-dark);
 
-	--font-primary: var(--font-comic-primary);
+	--font-primary: var(--font-comic);
 	--font-headline: var(--font-comic-headline);
 	--font-code: 'Victor Mono', monospace;
 
@@ -77,7 +77,7 @@
 	:root {
 		--font-primary: var(--font-comic-primary);
 		--font-headline: var(--font-comic-headline);
-		--font-size-primary: 24px;
+		--font-size-primary: 18px;
 
 		--nd-box-shadow: 0.25rem 0.25rem 0 #555;
 
@@ -85,21 +85,12 @@
 		--primary-text-color: var(--color-white);
 	}
 
-	html,
-	body {
-		height: 100%;
-		font-size: var(--font-size-primary);
-		color: var(--color-black);
-		margin: 0;
-		padding: 0;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+	.comic h1,
+	.comic h2,
+	.comic h3,
+	.comic h4,
+	.comic h5,
+	.comic h6 {
 		@apply font-headline shadow-box;
 		background: var(--color-primary);
 		clear: both;
@@ -111,13 +102,13 @@
 		margin: 0 0.5em 0.5em 0;
 		max-width: max-content;
 	}
-	a {
+	.comic a {
 		@apply text-blue-900 underline decoration-dashed;
 	}
-	a:hover {
+	.comic a:hover {
 		@apply text-blue-700 no-underline;
 	}
-	a[rel~='external']:not([class~='internal'])::after {
+	.comic a[rel~='external']:not([class~='internal'])::after {
 		position: relative;
 		content: '';
 		display: inline-flex;
@@ -129,7 +120,7 @@
 		width: 1em;
 	}
 
-	code {
+	.comic code {
 		@apply font-code;
 	}
 }

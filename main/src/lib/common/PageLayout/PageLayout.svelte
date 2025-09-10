@@ -19,6 +19,7 @@
 		twitter_description?: string;
 		twitter_image?: string;
 		allowSections?: boolean;
+		customStyle?: boolean;
 		mainClasses?: string;
 		children?: Snippet;
 	}
@@ -37,6 +38,7 @@
 		twitter_image = undefined,
 		allowSections = false,
 		mainClasses = '',
+		customStyle = false,
 		children
 	}: Props = $props();
 
@@ -114,7 +116,7 @@
 	{/if}
 </svelte:head>
 
-<div class="page font-primary relative flex min-h-full flex-col tracking-wide">
+<div class="page font-primary relative flex min-h-full flex-col tracking-wide" class:comic={!customStyle}>
 	<header class="content-grid pt-4">
 		<FullWidthSection>
 			<Navigation />
@@ -129,7 +131,7 @@
 			</ContentSection>
 		{/if}
 	</main>
-	<footer class="content-grid primary py-4">
+	<footer class="content-grid font-comic-primary py-4">
 		<FullWidthSection>
 			<div><a href={resolve('/imprint')}>ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
