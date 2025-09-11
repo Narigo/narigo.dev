@@ -171,8 +171,9 @@
 		background-size: cover;
 	}
 	.content-grid {
-		--max-page-width: 38rem;
-		--max-page-size: 72ch;
+		/* --max-page-width: 38rem; */
+		/* --max-page-size: 72ch; */
+		--max-page-size: 38rem;
 
 		--page-padding: 1rem;
 

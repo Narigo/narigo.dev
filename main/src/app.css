@@ -67,3 +67,17 @@
 		}
 	}
 }
+
+@layer base {
+	:root {
+		--font-size-primary: 24px;
+	}
+
+	html,
+	body {
+		height: 100%;
+		font-size: var(--font-size-primary);
+		margin: 0;
+		padding: 0;
+	}
+}
