@@ -131,7 +131,7 @@
 			</ContentSection>
 		{/if}
 	</main>
-	<footer class="content-grid font-comic-primary py-4">
+	<footer class="content-grid font-comic py-4">
 		<FullWidthSection>
 			<div><a href={resolve('/imprint')}>ℹ️ Imprint</a></div>
 			<div>&copy; Jörn Bernhardt</div>
