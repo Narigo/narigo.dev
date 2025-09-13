@@ -116,7 +116,10 @@
 	{/if}
 </svelte:head>
 
-<div class="page font-primary relative flex min-h-full flex-col tracking-wide" class:comic={!customStyle}>
+<div
+	class="page font-primary relative flex min-h-full flex-col tracking-wide"
+	class:comic={!customStyle}
+>
 	<header class="content-grid pt-4">
 		<FullWidthSection>
 			<Navigation />
