@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { base, resolve } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import * as m from '$lib/paraglide/messages';
@@ -27,7 +27,7 @@
 
 		<section class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4">
 			{#if isInFilter(toolFilter, `${m['tools.base64.title']()} ${m['tools.base64.description']()}`)}
-				<a href="{base}/base64">
+				<a href={resolve('/base64')}>
 					<ToolCard
 						category="strings"
 						title={m['tools.base64.title']()}
@@ -37,7 +37,7 @@
 			{/if}
 
 			{#if isInFilter(toolFilter, `${m['tools.urlEncoding.title']()} ${m['tools.urlEncoding.description']()}`)}
-				<a href="{base}/url-encoding">
+				<a href={resolve('/url-encoding')}>
 					<ToolCard
 						category="strings"
 						title={m['tools.urlEncoding.title']()}
@@ -47,7 +47,7 @@
 			{/if}
 
 			{#if isInFilter(toolFilter, `${m['tools.documentScanner.title']()} ${m['tools.documentScanner.description']()}`)}
-				<a href="{base}/document-scanner">
+				<a href={resolve('/document-scanner')}>
 					<ToolCard
 						category="tools"
 						title={m['tools.documentScanner.title']()}
@@ -57,7 +57,7 @@
 			{/if}
 
 			{#if isInFilter(toolFilter, `${m['tools.flashlight.title']()} ${m['tools.flashlight.description']()}`)}
-				<a href="{base}/flashlight">
+				<a href={resolve('/flashlight')}>
 					<ToolCard
 						category="tools"
 						title={m['tools.flashlight.title']()}

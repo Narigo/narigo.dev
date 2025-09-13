@@ -5,7 +5,7 @@ test('flashlight has expected start button', async ({ page }) => {
 	await expect(page.locator('button img[alt^="Turned off"]')).toBeVisible();
 });
 
-test('flashlight asks for permission if it needs it', async ({ page, context }) => {
+test('flashlight asks for permission if it needs it', async ({ page }) => {
 	await page.goto('/flashlight');
 	await page.locator('button img[alt^="Turned off"]').click();
 	await expect(page.locator('button img[alt^="Broken"]')).toBeVisible();
