@@ -13,6 +13,13 @@ export default ts.config(
 	globalIgnores(['./static/vendor/opencv.js', './src/lib/tools/document-scanner/jscanify.ts']),
 	js.configs.recommended,
 	...ts.configs.recommended,
+	{
+		languageOptions: {
+			parserOptions: {
+				tsconfigRootDir: import.meta.dirname
+			}
+		}
+	},
 	...svelte.configs['flat/recommended'],
 	prettier,
 	...svelte.configs['flat/prettier'],
