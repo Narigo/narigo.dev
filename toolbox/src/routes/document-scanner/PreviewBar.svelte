@@ -29,7 +29,7 @@
 				class:border-l-blue-500={index ===
 					(imageDragState.isDraggingImage && imageDragState.newImageIndex)}
 				style="aspect-ratio:{image.result!.height}/{image.result!.width}"
-				ondragover={(e) => {
+				ondragover={() => {
 					if (imageDragState.isDraggingImage) {
 						console.log('dragging over', index, 'now');
 						imageDragState = { ...imageDragState, newImageIndex: index };
@@ -42,11 +42,11 @@
 				>
 				<button
 					class="absolute h-full w-full"
-					ondragstart={(e) => {
+					ondragstart={() => {
 						imageDragState = { isDraggingImage: true, oldImageIndex: index, newImageIndex: index };
 						console.log('start dragging image', index);
 					}}
-					ondragend={(e) => {
+					ondragend={() => {
 						console.log('ended some dragging on image', index);
 						if (imageDragState.isDraggingImage) {
 							console.log('ended dragging of an image!');
@@ -69,7 +69,7 @@
 	<li
 		class="relative max-h-32 max-w-32"
 		style="aspect-ratio:3/2"
-		ondragover={(e) => {
+		ondragover={() => {
 			if (imageDragState.isDraggingImage) {
 				console.log('dragging over end');
 				imageDragState = { ...imageDragState, newImageIndex: images.length };

@@ -286,6 +286,7 @@
 			>
 		{:else if scannerState === 'result'}
 			<div>{m['tools.documentScanner.showPdfResult']()}</div>
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a href={resultPdf} download={finalFilename}>{finalFilename}</a>
 			<button class="rounded border bg-gray-100 p-4" onclick={() => startScanning()}
 				>{m['tools.documentScanner.scanAnotherPage']()}</button

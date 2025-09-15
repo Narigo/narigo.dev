@@ -26,8 +26,10 @@
 		<FullWidthSection>
 			<div class="flex justify-between gap-4">
 				<div>
-					{#if backLink}<a class="arrow-left p-4" href={backLink}>{m['general.backButton']()}</a
-						>{/if}
+					{#if backLink}
+						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+						<a class="arrow-left p-4" href={backLink}>{m['general.backButton']()}</a>
+					{/if}
 				</div>
 				<div>
 					<button class="p-4" onclick={switchLanguage('de')}>{m.switchToGerman()}</button>
