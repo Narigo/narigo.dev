@@ -74,12 +74,14 @@
 		</p>
 		<p>{m['general.stuffToDo']()}</p>
 		<ul class="list-disc pl-6">
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html m['general.toolsIWantToBuild']()
 				.split('\n')
 				.map((tool) => `<li>${tool}</li>`)
 				.join('')}
 		</ul>
 		<p>
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html m['general.noteAboutParaglide']()}
 		</p>
 	</FullWidthSection>
