@@ -72,7 +72,7 @@
 		<button class="battery" onclick={() => (active = true)} aria-label="battery"></button>
 	{:else}
 		<div class="battery" in:recharge>
-			{#each $currentEmojis as currentEmoji, index}
+			{#each $currentEmojis as currentEmoji, index (currentEmoji + index)}
 				<span in:floatUp={{ index }} style="z-index: {$currentEmojis.length - index}"
 					>{currentEmoji}</span
 				>

@@ -21,7 +21,7 @@
 		</li>
 		<li>
 			<a
-				href="www.linkedin.com/in/joern-bernhardt"
+				href="https://www.linkedin.com/in/joern-bernhardt"
 				rel="external noopener noreferrer"
 				target="_blank">Jörn Bernhardt</a
 			> on LinkedIn

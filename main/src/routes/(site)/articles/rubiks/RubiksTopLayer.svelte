@@ -54,7 +54,7 @@
 			<div
 				class="absolute inset-0 z-10 grid [transform:rotate(180deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
-				{#each back as [c1, c2, c3, c4]}
+				{#each back as [c1, c2, c3, c4], index (index)}
 					<div class="grid grid-flow-col gap-[2em]">
 						<div class="aspect-square rounded {f[c1]}"></div>
 						<div class="aspect-square rounded {f[c2]}"></div>
@@ -67,7 +67,7 @@
 			<div
 				class="absolute inset-0 grid [transform:rotate(90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
-				{#each left as [c1, c2, c3, c4]}
+				{#each left as [c1, c2, c3, c4], index (index)}
 					<div class="grid grid-flow-col gap-[2em]">
 						<div class="aspect-square rounded {f[c1]}"></div>
 						<div class="aspect-square rounded {f[c2]}"></div>
@@ -78,7 +78,7 @@
 			</div>
 
 			<div class="absolute inset-0 grid gap-[2em] bg-black p-[1em]">
-				{#each top as [c1, c2, c3, c4]}
+				{#each top as [c1, c2, c3, c4], index (index)}
 					<div class="grid grid-flow-col gap-[2em]">
 						<div class="aspect-square rounded {f[c1]}"></div>
 						<div class="aspect-square rounded {f[c2]}"></div>
@@ -91,7 +91,7 @@
 			<div
 				class="absolute inset-0 grid [transform:rotate(-90deg)_translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
-				{#each right as [c1, c2, c3, c4]}
+				{#each right as [c1, c2, c3, c4], index (index)}
 					<div class="grid grid-flow-col gap-[2em]">
 						<div class="aspect-square rounded {f[c1]}"></div>
 						<div class="aspect-square rounded {f[c2]}"></div>
@@ -104,7 +104,7 @@
 			<div
 				class="absolute inset-0 grid [transform:translateY(50%)_rotateX(-30deg)_translateY(50%)] gap-[2em] bg-black p-[1em] shadow-2xl shadow-black"
 			>
-				{#each front as [c1, c2, c3, c4]}
+				{#each front as [c1, c2, c3, c4], index (index)}
 					<div class="grid grid-flow-col gap-[2em]">
 						<div class="aspect-square rounded {f[c1]}"></div>
 						<div class="aspect-square rounded {f[c2]}"></div>

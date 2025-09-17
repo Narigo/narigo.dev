@@ -37,13 +37,13 @@
 		<p>Here are solutions to the puzzles I did:</p>
 	</Narigo>
 	<ul class="my-8 grid gap-2 md:grid-cols-2 lg:grid-cols-3">
-		{#each puzzles as { number, title }}
+		{#each puzzles as { number, title } (title + number)}
 			<li>
 				<a
-					class="relative block rounded border-2 border-black bg-white p-4 no-underline shadow-lg hover:shadow-none overflow-clip"
+					class="relative block overflow-clip rounded border-2 border-black bg-white p-4 no-underline shadow-lg hover:shadow-none"
 					href="{resolve('/specials/frontend-friday-folks')}/puzzle-{number}"
 				>
-					<div class="absolute -bottom-2 -right-2 font-sans text-6xl font-extrabold opacity-25">
+					<div class="absolute -right-2 -bottom-2 font-sans text-6xl font-extrabold opacity-25">
 						#{number}
 					</div>
 					<div class="text-black">{title}</div>

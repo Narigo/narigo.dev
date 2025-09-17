@@ -22,7 +22,7 @@
 		more meetups.</Narigo
 	>
 	<ul>
-		{#each data.events as { date, names }}
+		{#each data.events as { date, names } (date)}
 			<li>
 				<a href="{resolve('/specials/crafters-vs-codewars')}/event-{date}">
 					{date}
