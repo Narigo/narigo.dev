@@ -57,7 +57,7 @@
 	You are searching a {solution.length} letter word. {#if hint}Another hint: {hint}{/if}
 </p>
 <div class="board">
-	{#each $guesses as guess}
+	{#each $guesses as guess, index (index)}
 		<div class="guess">
 			{#each guess as data}
 				<span class="letter {data.correctnessInGuess}">{data.letter}</span>
