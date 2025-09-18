@@ -35,9 +35,10 @@
 				<p>Loading a random word...</p>
 			{:then randomWord}
 				<p>
-					Or do you want to play <a href="?enc={encodeURIComponent(window.btoa(randomWord))}"
-						>a randomly selected word</a
-					>? (generated in {timeNeeded}ms)
+					Or do you want to play
+					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+					<a href="?enc={encodeURIComponent(window.btoa(randomWord))}">a randomly selected word</a>?
+					(generated in {timeNeeded}ms)
 				</p>
 			{:catch err}
 				<p>Got an error:</p>

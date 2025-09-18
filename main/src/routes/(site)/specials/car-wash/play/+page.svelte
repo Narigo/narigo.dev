@@ -219,7 +219,7 @@ ${bubbles.join('')}`;
 			class:rotating={currentStep === 'cleaning'}
 		>
 			<div class="absolute top-[5%] right-8 h-[90%] w-24">
-				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
+				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index (index)}
 					<div
 						class="finger absolute w-1 rounded bg-linear-to-b {index % 2 === 0
 							? MITTER_COLORS_1
@@ -256,7 +256,7 @@ ${bubbles.join('')}`;
 			class:rotating={currentStep === 'cleaning'}
 		>
 			<div class="absolute top-0 right-4 h-full w-24">
-				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index}
+				{#each new Array(AMOUNT_OF_FINGERS * AMOUNT_OF_ROWS) as _, index (index)}
 					<div
 						class="finger absolute w-1 rounded bg-linear-to-b {index % 2 === 0
 							? MITTER_COLORS_1

@@ -44,7 +44,7 @@
 			>Gravatar hash of character B:<br />(leave empty for no Gravatar)</label
 		>
 		<input id="talking-create-face-b" type="text" bind:value={characterB} />
-		{#each $lines as _, index}
+		{#each $lines as _, index (index)}
 			<label for="talking-create-line-{index}">Character {index % 2 === 0 ? 'A' : 'B'}:</label>
 			<input id="talking-create-line-{index}" type="text" bind:value={$lines[index]} />
 		{/each}
@@ -52,6 +52,7 @@
 		<button type="button" onclick={() => ($lines = [...$lines, ''])}>Add a line</button>
 		<button type="submit">Create a link</button>
 	</form>
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 	{#if $link}<p>Here is your link: <a href={$link} rel="external">{$link}</a></p>{/if}
 </PageLayout>
 

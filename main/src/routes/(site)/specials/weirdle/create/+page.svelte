@@ -45,6 +45,7 @@
 		</select>
 		<button disabled={word.length <= 1}>Create a link</button>
 	</form>
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 	{#if $link}<p>Here is your puzzle: <a href={$link} rel="external">{$link}</a></p>{/if}
 </PageLayout>
 

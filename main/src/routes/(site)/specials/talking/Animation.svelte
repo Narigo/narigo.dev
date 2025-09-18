@@ -11,7 +11,7 @@
 
 <AnimationContext name="dialog">
 	<div class="grid grid-cols-6">
-		{#each lines as { avatar, line, side }, index}
+		{#each lines as { avatar, line, side }, index (index)}
 			{#if avatar?.trim() !== ''}
 				{#snippet avatarSnippet(mode: TalkMode)}
 					<div>

@@ -59,7 +59,7 @@
 <div class="board">
 	{#each $guesses as guess, index (index)}
 		<div class="guess">
-			{#each guess as data}
+			{#each guess as data, letterIndex (letterIndex)}
 				<span class="letter {data.correctnessInGuess}">{data.letter}</span>
 			{/each}
 		</div>

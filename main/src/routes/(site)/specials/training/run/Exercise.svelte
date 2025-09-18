@@ -21,7 +21,7 @@
 	{/if}
 	<div>
 		<h2>{title}</h2>
-		{#each description as p}
+		{#each description as p, index (index)}
 			<p>{p}</p>
 		{/each}
 	</div>
