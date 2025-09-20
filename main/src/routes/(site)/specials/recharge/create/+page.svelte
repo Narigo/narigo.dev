@@ -30,7 +30,13 @@
 		<input id="message" type="text" bind:value={$message} />
 		<button type="submit">Create a link</button>
 	</form>
-	{#if $link}<p>Here is your link: <a href={$link} rel="external">{$link}</a></p>{/if}
+	{#if $link}
+		<p>
+			Here is your link:
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+			<a href={$link} rel="external">{$link}</a>
+		</p>
+	{/if}
 </PageLayout>
 
 <style>
