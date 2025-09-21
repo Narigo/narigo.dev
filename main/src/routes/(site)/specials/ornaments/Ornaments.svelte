@@ -13,9 +13,7 @@
 	};
 
 	let ornaments = $state<Array<Ornament>>([]);
-	let ornamentCount = 0;
 	const createOrnament = ({ size, x, y }: { size: number; x: number; y: number }) => {
-		ornamentCount = ornamentCount + 1;
 		const h = Math.floor(Math.random() * 360);
 		const s = Math.round(Math.random() * 50) + 50;
 		const l = Math.round(Math.random() * 50) + 50;
@@ -23,7 +21,7 @@
 		const kind: Ornament['kind'] = Math.random() >= 0.5 ? 'circle' : 'star';
 
 		return {
-			id: ornamentCount,
+			id: ornaments.length,
 			x,
 			y,
 			size,
@@ -52,9 +50,7 @@
 
 <button
 	onclick={() => {
-		for (const div of document.querySelectorAll('.ornament')) {
-			body.removeChild(div);
-		}
+		ornaments = [];
 	}}>reset</button
 >
 <div bind:this={body} class="relative">
