@@ -36,7 +36,7 @@
 	let svg: SVGElement;
 
 	onMount(() => {
-		svg.addEventListener('click', (event) => {
+		const pathClickHandler = (event: PointerEvent) => {
 			const size = Math.round(Math.random() * 50) + 20;
 			const newOrnament = createOrnament({
 				size: (size / body.offsetWidth) * 100,
@@ -44,7 +44,10 @@
 				y: event.offsetY - 20
 			});
 			ornaments = [...ornaments, newOrnament];
-		});
+		};
+		for (const pathElement of svg.querySelectorAll('path')) {
+			pathElement.addEventListener('click', pathClickHandler);
+		}
 	});
 </script>
 
