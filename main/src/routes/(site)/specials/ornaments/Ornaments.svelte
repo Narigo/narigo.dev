@@ -40,7 +40,7 @@
 		const newOrnament = createOrnament({
 			size: (size / body.offsetWidth) * 100,
 			x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
-			y: event.offsetY - 20
+			y: event.offsetY - 20 - (70 - size)
 		});
 		ornaments = [...ornaments, newOrnament];
 	};
