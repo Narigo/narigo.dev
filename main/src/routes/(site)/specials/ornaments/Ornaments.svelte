@@ -35,20 +35,15 @@
 	let body: HTMLDivElement;
 	let svg: SVGElement;
 
-	onMount(() => {
-		const pathClickHandler = (event: PointerEvent) => {
-			const size = Math.round(Math.random() * 50) + 20;
-			const newOrnament = createOrnament({
-				size: (size / body.offsetWidth) * 100,
-				x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
-				y: event.offsetY - 20
-			});
-			ornaments = [...ornaments, newOrnament];
-		};
-		for (const pathElement of svg.querySelectorAll('path')) {
-			pathElement.addEventListener('click', pathClickHandler);
-		}
-	});
+	const pathClickHandler = (event: PointerEvent) => {
+		const size = Math.round(Math.random() * 50) + 20;
+		const newOrnament = createOrnament({
+			size: (size / body.offsetWidth) * 100,
+			x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
+			y: event.offsetY - 20
+		});
+		ornaments = [...ornaments, newOrnament];
+	};
 </script>
 
 <button
@@ -106,10 +101,30 @@
 			</linearGradient>
 		</defs>
 		<path d="M540 480 l0   80  c0 10, -80 10,-80  0 l0 -80 z" fill="brown" />
-		<path d="M500 170 l300 280 c0 50,-600 50,-600 0 z" fill="url(#tree-gradient)" />
-		<path d="M500 140 l250 230 c0 40,-500 40,-500 0 z" fill="url(#tree-gradient)" />
-		<path d="M500 110 l200 180 c0 30,-400 30,-400 0 z" fill="url(#tree-gradient)" />
-		<path d="M500 80  l150 130 c0 20,-300 20,-300 0 z" fill="url(#tree-gradient)" />
-		<path d="M500 50  l100 80  c0 10,-200 10,-200 0 z" fill="url(#tree-gradient)" />
+		<path
+			onpointerup={pathClickHandler}
+			d="M500 170 l300 280 c0 50,-600 50,-600 0 z"
+			fill="url(#tree-gradient)"
+		/>
+		<path
+			onpointerup={pathClickHandler}
+			d="M500 140 l250 230 c0 40,-500 40,-500 0 z"
+			fill="url(#tree-gradient)"
+		/>
+		<path
+			onpointerup={pathClickHandler}
+			d="M500 110 l200 180 c0 30,-400 30,-400 0 z"
+			fill="url(#tree-gradient)"
+		/>
+		<path
+			onpointerup={pathClickHandler}
+			d="M500 80  l150 130 c0 20,-300 20,-300 0 z"
+			fill="url(#tree-gradient)"
+		/>
+		<path
+			onpointerup={pathClickHandler}
+			d="M500 50  l100 80  c0 10,-200 10,-200 0 z"
+			fill="url(#tree-gradient)"
+		/>
 	</svg>
 </div>
