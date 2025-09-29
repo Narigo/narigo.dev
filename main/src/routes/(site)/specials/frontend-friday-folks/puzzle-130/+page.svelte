@@ -58,4 +58,8 @@
 			shadows in transparent regions. This allows having just one of them.
 		</p>
 	</Narigo>
+	<Puzzle title="Letter O minimal solution" solution={minimalSolution} />
+	<Narigo>
+		<p>Oh and this was the minimal solution I found. No elements necessary!</p>
+	</Narigo>
 </PuzzlePageLayout>
