@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	type Ornament = {
 		id: number;
 		x: number;
 		y: number;
-		size: number;
+		width: number;
+		height: number;
 		h: number;
 		s: number;
 		l: number;
@@ -13,7 +12,12 @@
 	};
 
 	let ornaments = $state<Array<Ornament>>([]);
-	const createOrnament = ({ size, x, y }: { size: number; x: number; y: number }) => {
+	const createOrnament = ({
+		width,
+		height,
+		x,
+		y
+	}: Pick<Ornament, 'width' | 'height' | 'x' | 'y'>) => {
 		const h = Math.floor(Math.random() * 360);
 		const s = Math.round(Math.random() * 50) + 50;
 		const l = Math.round(Math.random() * 50) + 50;
@@ -24,7 +28,8 @@
 			id: ornaments.length,
 			x,
 			y,
-			size,
+			width,
+			height,
 			h,
 			s,
 			l,
@@ -38,9 +43,10 @@
 	const pathClickHandler = (event: PointerEvent) => {
 		const size = Math.round(Math.random() * 50) + 20;
 		const newOrnament = createOrnament({
-			size: (size / body.offsetWidth) * 100,
+			width: (size / body.offsetWidth) * 100,
+			height: (size / body.offsetWidth) * 240,
 			x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
-			y: event.offsetY - 20 - (70 - size)
+			y: event.offsetY
 		});
 		ornaments = [...ornaments, newOrnament];
 	};
@@ -54,14 +60,12 @@
 <div bind:this={body} class="relative">
 	{#each ornaments as ornament, index (index)}
 		<div
-			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.size}%;aspect-ratio:100/120;"
+			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.width}%;height:{ornament.height}%;aspect-ratio:100/120;"
 		>
 			<svg
 				version="1.1"
-				style="width:100%"
+				style="width:100%;height:100%;"
 				viewBox="0 -20 100 100"
-				width="100"
-				height="120"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<defs>
@@ -101,30 +105,12 @@
 			</linearGradient>
 		</defs>
 		<path d="M540 480 l0   80  c0 10, -80 10,-80  0 l0 -80 z" fill="brown" />
-		<path
-			onpointerup={pathClickHandler}
-			d="M500 170 l300 280 c0 50,-600 50,-600 0 z"
-			fill="url(#tree-gradient)"
-		/>
-		<path
-			onpointerup={pathClickHandler}
-			d="M500 140 l250 230 c0 40,-500 40,-500 0 z"
-			fill="url(#tree-gradient)"
-		/>
-		<path
-			onpointerup={pathClickHandler}
-			d="M500 110 l200 180 c0 30,-400 30,-400 0 z"
-			fill="url(#tree-gradient)"
-		/>
-		<path
-			onpointerup={pathClickHandler}
-			d="M500 80  l150 130 c0 20,-300 20,-300 0 z"
-			fill="url(#tree-gradient)"
-		/>
-		<path
-			onpointerup={pathClickHandler}
-			d="M500 50  l100 80  c0 10,-200 10,-200 0 z"
-			fill="url(#tree-gradient)"
-		/>
+		<g onpointerup={pathClickHandler}>
+			<path d="M500 170 l300 280 c0 50,-600 50,-600 0 z" fill="url(#tree-gradient)" />
+			<path d="M500 140 l250 230 c0 40,-500 40,-500 0 z" fill="url(#tree-gradient)" />
+			<path d="M500 110 l200 180 c0 30,-400 30,-400 0 z" fill="url(#tree-gradient)" />
+			<path d="M500 80  l150 130 c0 20,-300 20,-300 0 z" fill="url(#tree-gradient)" />
+			<path d="M500 50  l100 80  c0 10,-200 10,-200 0 z" fill="url(#tree-gradient)" />
+		</g>
 	</svg>
 </div>
