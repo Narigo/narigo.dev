@@ -61,6 +61,14 @@
 	{#each ornaments as ornament, index (index)}
 		<div
 			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.width}%;height:{ornament.height}%;aspect-ratio:100/120;"
+			ondragstart={(event) => {}}
+			ondragend={(event) => {
+				ornament.x =
+					((event.offsetX - (ornament.width * body.offsetWidth) / 100 / 2) / body.offsetWidth) *
+					100;
+				ornament.y = event.offsetY;
+			}}
+			role="application"
 		>
 			<svg
 				version="1.1"
