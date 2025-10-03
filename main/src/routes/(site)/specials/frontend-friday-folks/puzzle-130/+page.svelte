@@ -35,7 +35,7 @@
 	const minimalSolution = `<style>&{background:#926927;margin:62 33%62 152;*{border:solid+22q#fff;border-radius:32q;filter:drop-shadow(-21q+0#6D480A`;
 </script>
 
-<PuzzlePageLayout title="Letter O" puzzleId="129">
+<PuzzlePageLayout title="Letter O" puzzleId="130">
 	<Puzzle title="Letter O solution" {solution} />
 	<Narigo>
 		<p>
