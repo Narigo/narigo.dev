@@ -12,6 +12,10 @@
 	};
 
 	let ornaments = $state<Array<Ornament>>([]);
+	const getOrnamentId = (() => {
+		let id = 0;
+		return () => ++id;
+	})();
 	const createOrnament = ({
 		width,
 		height,
@@ -25,7 +29,7 @@
 		const kind: Ornament['kind'] = Math.random() >= 0.5 ? 'circle' : 'star';
 
 		return {
-			id: ornaments.length,
+			id: getOrnamentId(),
 			x,
 			y,
 			width,
@@ -58,17 +62,24 @@
 	}}>reset</button
 >
 <div bind:this={body} class="relative">
-	{#each ornaments as ornament, index (index)}
+	{#each ornaments as ornament (ornament.id)}
 		<div
 			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.width}%;height:{ornament.height}%;aspect-ratio:100/120;"
-			ondragstart={(event) => {}}
-			ondragend={(event) => {
-				ornament.x =
-					((event.offsetX - (ornament.width * body.offsetWidth) / 100 / 2) / body.offsetWidth) *
-					100;
+			draggable="true"
+			ondragstart={(event) => {
+				event.dataTransfer?.setData('text', `${ornament.id}`);
+			}}
+			ondrag={(event) => {
+				const size = (ornament.width * body.offsetWidth) / 100;
+				ornament.x = ((event.offsetX - size / 2) / body.offsetWidth) * 100;
 				ornament.y = event.offsetY;
 			}}
-			role="application"
+			ondragend={(event) => {
+				const size = (ornament.width * body.offsetWidth) / 100;
+				ornament.x = ((event.offsetX - size / 2) / body.offsetWidth) * 100;
+				ornament.y = event.offsetY;
+			}}
+			role="figure"
 		>
 			<svg
 				version="1.1"
@@ -77,7 +88,7 @@
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<defs>
-					<linearGradient id="ornament-{index}" gradientTransform="rotate(70)">
+					<linearGradient id="ornament-{ornament.id}-bg" gradientTransform="rotate(70)">
 						<stop offset="0%" stop-color="hsl({ornament.h}deg {ornament.s}% {ornament.l}%)" />
 						<stop
 							offset="100%"
@@ -87,11 +98,11 @@
 				</defs>
 				<path d="M50 -20L50 0" stroke="gold" stroke-width="2" />
 				{#if ornament.kind === 'circle'}
-					<circle cx="50" cy="50" r="50" fill="url(#ornament-{ornament.id})" />
+					<circle cx="50" cy="50" r="50" fill="url(#ornament-{ornament.id}-bg)" />
 				{:else if ornament.kind === 'star'}
 					<path
 						d="M50 0L66 33H100L75 60L80 100L50 80L20 100L25 60L0 33H33L50 0Z"
-						fill="url(#ornament-{ornament.id})"
+						fill="url(#ornament-{ornament.id}-bg)"
 					/>
 				{/if}
 			</svg>
