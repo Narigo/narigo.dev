@@ -45,6 +45,8 @@
 	let svg: SVGElement;
 
 	const pathClickHandler = (event: PointerEvent) => {
+		console.log('pathClickHandler-x', event.offsetX, event.clientX, body.offsetLeft);
+		console.log('pathClickHandler-y', event.offsetY, event.clientY, body.offsetTop);
 		const size = Math.round(Math.random() * 50) + 20;
 		const newOrnament = createOrnament({
 			width: (size / body.offsetWidth) * 100,
@@ -67,17 +69,23 @@
 			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.width}%;height:{ornament.height}%;aspect-ratio:100/120;"
 			draggable="true"
 			ondragstart={(event) => {
+				console.log('ondragstart-x', event.offsetX, event.clientX, body.offsetLeft);
+				console.log('ondragstart-y', event.offsetY, event.clientY, body.offsetTop);
 				event.dataTransfer?.setData('text', `${ornament.id}`);
 			}}
 			ondrag={(event) => {
+				console.log('ondrag-x', event.offsetX, event.clientX, body.offsetLeft);
+				console.log('ondrag-y', event.offsetY, event.clientY, body.offsetTop);
 				const size = (ornament.width * body.offsetWidth) / 100;
-				ornament.x = ((event.offsetX - size / 2) / body.offsetWidth) * 100;
-				ornament.y = event.offsetY;
+				ornament.x = (((event.offsetX - size / 2) / body.offsetWidth) * 100) / 2;
+				ornament.y = event.offsetY / 2;
 			}}
 			ondragend={(event) => {
+				console.log('ondragend-x', event.offsetX, event.clientX, body.offsetLeft);
+				console.log('ondragend-y', event.offsetY, event.clientY, body.offsetTop);
 				const size = (ornament.width * body.offsetWidth) / 100;
-				ornament.x = ((event.offsetX - size / 2) / body.offsetWidth) * 100;
-				ornament.y = event.offsetY;
+				ornament.x = (((event.offsetX - size / 2) / body.offsetWidth) * 100) / 2;
+				ornament.y = event.offsetY / 2;
 			}}
 			role="figure"
 		>
