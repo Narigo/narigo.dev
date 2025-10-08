@@ -51,7 +51,7 @@
 		const newOrnament = createOrnament({
 			width: (size / body.offsetWidth) * 100,
 			height: (size / body.offsetWidth) * 240,
-			x: ((event.offsetX - size / 2) / body.offsetWidth) * 100,
+			x: event.offsetX - size / 2,
 			y: event.offsetY
 		});
 		ornaments = [...ornaments, newOrnament];
@@ -66,20 +66,29 @@
 <div bind:this={body} class="relative">
 	{#each ornaments as ornament (ornament.id)}
 		<div
-			style="position:absolute;top:{ornament.y}px;left:{ornament.x}%;width:{ornament.width}%;height:{ornament.height}%;aspect-ratio:100/120;"
+			class="absolute aspect-[100/120]"
+			style="top:{ornament.y}px;left:{ornament.x}px;width:{ornament.width}%;height:{ornament.height}%;opacity:{ornament.isDragging
+				? 0.5
+				: 1};"
 			draggable="true"
 			ondragstart={(event) => {
 				event.dataTransfer?.setData('text', `${ornament.id}`);
+				ornament.isDragging = true;
 			}}
 			ondrag={(event) => {
-				const size = (ornament.width * body.offsetWidth) / 100;
-				ornament.x = (((event.offsetX - size / 2) / body.offsetWidth) * 100) / 2;
-				ornament.y = event.offsetY / 2;
+				console.log('drag: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
+				console.log('drag: clientX', event.clientX);
+				console.log('drag: offsetX', event.offsetX);
+				console.log('drag: detail', event.detail);
 			}}
 			ondragend={(event) => {
-				const size = (ornament.width * body.offsetWidth) / 100;
-				ornament.x = (((event.offsetX - size / 2) / body.offsetWidth) * 100) / 2;
-				ornament.y = event.offsetY / 2;
+				event.preventDefault();
+				console.log('end: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
+				console.log('end: clientX', event.clientX);
+				console.log('end: offsetX', event.offsetX);
+				ornament.x = event.clientX;
+				ornament.y = event.clientY;
+				ornament.isDragging = false;
 			}}
 			role="figure"
 		>
