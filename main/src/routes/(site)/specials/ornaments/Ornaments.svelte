@@ -74,12 +74,14 @@
 			ondragstart={(event) => {
 				event.dataTransfer?.setData('text', `${ornament.id}`);
 				ornament.isDragging = true;
+				console.log('start: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
+				console.log('start: clientX', event.clientX);
+				console.log('start: offsetX', event.offsetX);
 			}}
 			ondrag={(event) => {
 				console.log('drag: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
 				console.log('drag: clientX', event.clientX);
 				console.log('drag: offsetX', event.offsetX);
-				console.log('drag: detail', event.detail);
 			}}
 			ondragend={(event) => {
 				event.preventDefault();
