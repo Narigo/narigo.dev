@@ -72,7 +72,7 @@
 				: 1};"
 			draggable="true"
 			ondragstart={(event) => {
-				event.dataTransfer?.setData('text', `${ornament.id}`);
+				event.dataTransfer?.setData('text/plain', `${ornament.id}`);
 				ornament.isDragging = true;
 				console.log('start: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
 				console.log('start: clientX', event.clientX);
@@ -82,14 +82,20 @@
 				console.log('drag: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
 				console.log('drag: clientX', event.clientX);
 				console.log('drag: offsetX', event.offsetX);
+				console.log('drag: screenX', event.screenX);
+				console.log('drag: screenY', event.screenY);
+				event.preventDefault();
+				if (event.screenX === 0 && event.screenY === 0) {
+					return;
+				}
+				ornament.x = event.clientX - body.clientLeft - event.currentTarget.clientWidth;
+				ornament.y = event.clientY - body.clientTop - event.currentTarget.clientHeight;
 			}}
 			ondragend={(event) => {
 				event.preventDefault();
 				console.log('end: currentTarget.offsetLeft', event.currentTarget.offsetLeft);
 				console.log('end: clientX', event.clientX);
 				console.log('end: offsetX', event.offsetX);
-				ornament.x = event.clientX;
-				ornament.y = event.clientY;
 				ornament.isDragging = false;
 			}}
 			role="figure"
