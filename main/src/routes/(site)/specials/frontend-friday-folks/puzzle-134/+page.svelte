@@ -1,5 +1,4 @@
 <script>
-	import { resolve } from '$app/paths';
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
