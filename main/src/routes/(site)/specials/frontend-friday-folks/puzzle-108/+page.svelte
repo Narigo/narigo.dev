@@ -54,7 +54,9 @@
 	<Puzzle title="100% Solution" {solution} />
 	<Narigo>
 		<p>
-			I suppose instead of the <Code>&lt;div i&gt;</Code>, we could have used radial-gradients...
+			I suppose instead of the <Code>&lt;div i&gt;</Code>, we could have used <Code
+				>radial-gradient</Code
+			>s...
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
