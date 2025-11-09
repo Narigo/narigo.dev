@@ -4,7 +4,7 @@
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
-	const solution = `<div o>
+	const gradientMirrorSolution = `<div o>
 <div a></div>
 <div b></div>
 <div c></div>
@@ -33,15 +33,51 @@
   }
 </style>
 `;
+
+	const triangleSolution = `<div a></div>
+<div b></div>
+<div c></div>
+<div d></div>
+<div e></div>
+<div f></div>
+<style>
+  body {
+    background: #6592CF;
+    display: grid;
+    place-items: center;
+    margin-top:146px;
+  }
+  div {
+    border-left: 125px solid #0000;
+    border-right: 125px solid #0000;
+    border-top: 100px solid var(--c,#293D7E);
+    margin-top: var(--t,0);
+    width: 0;
+  }
+  [b] {--t:-175px;--c:#6592CF}
+  [c] {--t:-230px}
+  [d] {--t:-306px;--c:#6592CF}
+  [e] {--t:-360px}
+  [f] {--t:-440px;--c:#6592CF}
+</style>
+`;
 </script>
 
 <PuzzlePageLayout title="Chevron" puzzleId="112">
-	<Puzzle title="Gradient Mirror Solution" {solution} />
+	<Puzzle title="Gradient Mirror Solution" solution={gradientMirrorSolution} />
 	<Narigo>
 		<p>
 			I had multiple, different solutions to this puzzle. One of them was using a <Code
 				>linear-gradient</Code
 			> in three elements and a <Code>-webkit-box-reflect</Code> to mirror them to the right.
+		</p>
+	</Narigo>
+
+	<Puzzle title="Triangles Solution" solution={triangleSolution} />
+	<Narigo>
+		<p>
+			This idea used a set of 6 triangles. Basically three borders set transparent and one being
+			drawn out, to create a triangle and then stacked those on top of each other.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
