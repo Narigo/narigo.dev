@@ -79,5 +79,10 @@
 			This idea used a set of 6 triangles. Basically three borders set transparent and one being
 			drawn out, to create a triangle and then stacked those on top of each other.
 		</p>
+
+		<p>
+			I also thought about rotating a div, but since the angle is not 90 degrees, that solution lead
+			to nothing...
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
