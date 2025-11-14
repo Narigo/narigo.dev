@@ -1,5 +1,6 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
+	import Code from '$lib/common/Code.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
@@ -22,8 +23,11 @@
 </script>
 
 <PuzzlePageLayout title="Sunrays" puzzleId="110">
-	<Puzzle title="Solution" {solution} />
+	<Puzzle title="Sunrays solution" {solution} />
 	<Narigo>
-		<p>Put the rotation point (transform-origin) in the middle and rotate the divs around it!</p>
+		<p>
+			Put the rotation point (<Code>transform-origin</Code>) in the middle and rotate the divs
+			around it!
+		</p>
 	</Narigo>
 </PuzzlePageLayout>
