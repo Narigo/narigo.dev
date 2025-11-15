@@ -20,6 +20,24 @@
 	<ul class="mt-12 grid gap-12">
 		<li>
 			<div>
+				<a href="{resolve('/talks')}/zahlenskandal" rel="external"
+					>Der große Zahlenskandal - Wie Aton und Nif aus dem Dezimalsystem getilgt wurden</a
+				>
+				-
+				<a href="https://www.bayerwald-hackathon.de/" rel="external noopener noreferrer"
+					>Bayerwald Hackathon 2025-11-15</a
+				>
+			</div>
+			<Narigo>
+				<p>
+					During a long time without sleep, we started to ask the right questions. The two missing
+					numbers have been found: <strong>Aton</strong> and <strong>Nif</strong>. Let's spread the
+					word, expose the five-finger-elite and fix our numbering system!
+				</p>
+			</Narigo>
+		</li>
+		<li>
+			<div>
 				<a href="{resolve('/talks')}/static-pages-with-dynamic-content" rel="external"
 					>Static pages with "dynamic" content</a
 				>
