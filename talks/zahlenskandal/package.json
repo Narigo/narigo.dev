@@ -3,10 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export",
-    "eject":"slidev theme eject"
+		"build": "slidev build --base /talks/zahlenskandal/ --out ../../build/talks/zahlenskandal",
+		"build-previewpage": "echo '<head><meta name=\"robots\" content=\"noindex,nofollow\" /></head>' > index.html && pnpm run build && rm index.html",
+		"dev": "slidev --port 3034",
+		"export": "slidev export"
   },
   "dependencies": {
     "@slidev/cli": "^52.8.0",
