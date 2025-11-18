@@ -1,0 +1,27 @@
+{
+  "name": "verbindet-euch-dezentral",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.9.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.24"
+  },
+  "slidev": {
+    "defaults": {
+      "fonts": {
+        "mono": "PT Mono",
+        "sans": "Poppins",
+        "serif": "Robot Slab",
+        "italic": true,
+        "weights": "400, 800"
+      }
+    }
+  }
+}
