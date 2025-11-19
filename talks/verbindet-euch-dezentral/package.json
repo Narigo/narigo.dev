@@ -3,8 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
+		"build": "slidev build --base /talks/verbindet-euch-dezentral/ --out ../../build/talks/verbindet-euch-dezentral",
+		"build-previewpage": "echo '<head><meta name=\"robots\" content=\"noindex,nofollow\" /></head>' > index.html && pnpm run build && rm index.html",
+		"dev": "slidev --port 3035",
     "export": "slidev export"
   },
   "dependencies": {

@@ -20,6 +20,24 @@
 	<ul class="mt-12 grid gap-12">
 		<li>
 			<div>
+				<a href="{resolve('/talks')}/verbindet-euch-dezentral" rel="external"
+					>Verbindet Euch! Dezentral!</a
+				>
+				-
+				<a href="https://www.tech-slam.com/" rel="external noopener noreferrer"
+					>4. Tech-Slam 2025-11-18</a
+				>
+			</div>
+			<Narigo>
+				<p>
+					I was extremely nervous to perform a poem on a big stage - especially when finalizing the
+					slides right at the event! I am very proud to have been one of the two winners at the
+					event.
+				</p>
+			</Narigo>
+		</li>
+		<li>
+			<div>
 				<a href="{resolve('/talks')}/zahlenskandal" rel="external"
 					>Der große Zahlenskandal - Wie Aton und Nif aus dem Dezimalsystem getilgt wurden</a
 				>
@@ -38,34 +56,20 @@
 		</li>
 		<li>
 			<div>
-				<a href="{resolve('/talks')}/static-pages-with-dynamic-content" rel="external"
-					>Static pages with "dynamic" content</a
+				<a href="{resolve('/talks')}/dezentralisierung-mit-webrtc" rel="external"
+					>Dezentralisierung mit WebRTC - Inspirierende Use-Cases</a
 				>
-				-
-				<a
-					href="https://www.meetup.com/frankenjs/events/289645924/"
-					rel="external noopener noreferrer">FrankenJS Meetup 2022-12-07</a
+				- German version of the lightning talk at the
+				<a href="https://www.bayerwald-hackathon.de/" rel="external noopener noreferrer"
+					>Bayerwald Hackathon May 2024</a
 				>
-			</div>
-			<Narigo>
-				<p>My first time at FrankenJS and first time speaking since a long time!</p>
-			</Narigo>
-		</li>
-		<li>
-			<div>
-				<a href="{resolve('/talks')}/webrtc-use-cases" rel="external"
-					>Beyond Calls - Inspiring Use-Cases for WebRTC</a
-				>
-				-
-				<a
-					href="https://www.meetup.com/munichjs-user-group/events/299867927/"
-					rel="external noopener noreferrer">MunichJS Meetup 2024-04-18</a
-				>
+				.
 			</div>
 			<Narigo>
 				<p>
-					First time speaking about Flottform.io as one of the showcased use-cases. We are always
-					looking for people to test and integrate it.
+					This is the German version of the lightning talk at VirtualCoffee. Sounded like there were
+					quite a few people feeling nostalgic when I mentioned different peer to peer software
+					tools... 😅
 				</p>
 			</Narigo>
 		</li>
@@ -89,17 +93,35 @@
 		</li>
 		<li>
 			<div>
-				<a href="{resolve('/talks')}/dezentralisierung-mit-webrtc" rel="external"
-					>Dezentralisierung mit WebRTC - Inspirierende Use-Cases</a
+				<a href="{resolve('/talks')}/webrtc-use-cases" rel="external"
+					>Beyond Calls - Inspiring Use-Cases for WebRTC</a
 				>
-				- German version of the lightning talk at the Bayerwald Hackathon.
+				-
+				<a
+					href="https://www.meetup.com/munichjs-user-group/events/299867927/"
+					rel="external noopener noreferrer">MunichJS Meetup 2024-04-18</a
+				>
 			</div>
 			<Narigo>
 				<p>
-					This is the German version of the lightning talk at VirtualCoffee. Sounded like there were
-					quite a few people feeling nostalgic when I mentioned different peer to peer software
-					tools... 😅
+					First time speaking about Flottform.io as one of the showcased use-cases. We are always
+					looking for people to test and integrate it.
 				</p>
+			</Narigo>
+		</li>
+		<li>
+			<div>
+				<a href="{resolve('/talks')}/static-pages-with-dynamic-content" rel="external"
+					>Static pages with "dynamic" content</a
+				>
+				-
+				<a
+					href="https://www.meetup.com/frankenjs/events/289645924/"
+					rel="external noopener noreferrer">FrankenJS Meetup 2022-12-07</a
+				>
+			</div>
+			<Narigo>
+				<p>My first time at FrankenJS and first time speaking since a long time!</p>
 			</Narigo>
 		</li>
 	</ul>
