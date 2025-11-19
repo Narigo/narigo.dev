@@ -18,7 +18,7 @@ duration: 10min
 fonts:
   default: sans-serif
 layout: image
-image: ./assets/bg_10.png
+image: /images/bg_10.png
 ---
 
 <style>
@@ -39,7 +39,7 @@ image: ./assets/bg_10.png
 
 ---
 layout: image-right
-image: ./assets/bg_01.png
+image: /images/bg_01.png
 class: grid items-center w-max right
 ---
 
@@ -57,7 +57,7 @@ Manche treiben Recherche, manche nur was zum Spaß.
 
 ---
 layout: image-left
-image: ./assets/bg_01.png
+image: /images/bg_01.png
 class: grid items-center w-max left
 ---
 
@@ -75,7 +75,7 @@ heut' gibt's nur Monopole und es wird abgesahnt.
 
 ---
 layout: image-right
-image: ./assets/bg_01.png
+image: /images/bg_01.png
 class: grid items-center w-max right
 ---
 
@@ -93,7 +93,7 @@ Früher war es für alle, Server liefen privat.
 
 ---
 layout: image-left
-image: ./assets/bg_01.png
+image: /images/bg_01.png
 class: grid items-center w-max left
 ---
 
@@ -111,7 +111,7 @@ Das Tooling ist nur langsam und schwierig aufgesetzt.
 
 ---
 layout: image-right
-image: ./assets/bg_02.png
+image: /images/bg_02.png
 class: grid items-center w-max right
 ---
 
@@ -129,7 +129,7 @@ bevor ich mir das hier antu' und springe im Rechteck.
 
 ---
 layout: image-left
-image: ./assets/bg_02.png
+image: /images/bg_02.png
 class: grid items-center w-max left
 ---
 
@@ -147,7 +147,7 @@ und was nicht passen sollte: Gleich hinweg gestreckt.
 
 ---
 layout: image-right
-image: ./assets/bg_03.png
+image: /images/bg_03.png
 class: grid items-center w-max right
 ---
 
@@ -165,7 +165,7 @@ wann nutzen wir das endlich - wann nur, wenn nicht jetzt?
 
 ---
 layout: image-left
-image: ./assets/bg_03.png
+image: /images/bg_03.png
 class: grid items-center w-max left
 ---
 
@@ -183,7 +183,7 @@ Wer hat denn bei sich WhatsApp und ähnliches erkannt?
 
 ---
 layout: image-right
-image: ./assets/bg_04.png
+image: /images/bg_04.png
 class: grid items-center w-max right
 ---
 
@@ -201,7 +201,7 @@ bei diesen Kindertränen hilft auch kein "Tut mir leid!"
 
 ---
 layout: image-left
-image: ./assets/bg_04.png
+image: /images/bg_04.png
 class: grid items-center w-max left
 ---
 
@@ -219,7 +219,7 @@ mir bleibt in diesem Umfeld nur einfach keine Wahl.
 
 ---
 layout: image-right
-image: ./assets/bg_05.png
+image: /images/bg_05.png
 class: grid items-center w-max right
 ---
 
@@ -237,7 +237,7 @@ Denn nur wenn wir das schaffen, erreichen wir den Zweck:
 
 ---
 layout: image-left
-image: ./assets/bg_05.png
+image: /images/bg_05.png
 class: grid items-center w-max left
 ---
 
@@ -255,7 +255,7 @@ dann hat man wenig Sorgen und braucht auch wenig Mut.
 
 ---
 layout: image-right
-image: ./assets/bg_06.png
+image: /images/bg_06.png
 class: grid items-center w-max right
 ---
 
@@ -273,7 +273,7 @@ das gibt es auch im Web schon, ein hinreissender Ort!
 
 ---
 layout: image-left
-image: ./assets/bg_06.png
+image: /images/bg_06.png
 class: grid items-center w-max left
 ---
 
@@ -291,7 +291,7 @@ und schwupps sind beide Clients im gleichen Sachbereich.
 
 ---
 layout: image-right
-image: ./assets/bg_07.png
+image: /images/bg_07.png
 class: grid items-center w-max right
 ---
 
@@ -309,7 +309,7 @@ ist das nicht ideal, doch bleibt das Glück uns hold.
 
 ---
 layout: image-left
-image: ./assets/bg_07.png
+image: /images/bg_07.png
 class: grid items-center w-max left
 ---
 
@@ -327,7 +327,7 @@ wenn wir nicht immer dächten, ohne Server sei Mist.
 
 ---
 layout: image-right
-image: ./assets/bg_08.png
+image: /images/bg_08.png
 class: grid items-center w-max right
 ---
 
@@ -345,7 +345,7 @@ mein Rechner zeigt 'nen Ort an, als wär er abgetaucht:
 
 ---
 layout: image-left
-image: ./assets/bg_08.png
+image: /images/bg_08.png
 class: grid items-center w-max left
 ---
 
@@ -363,7 +363,7 @@ doch dafür gibt's Module, nichts in die Luft zu stier'n!
 
 ---
 layout: image-right
-image: ./assets/bg_09.png
+image: /images/bg_09.png
 class: grid items-center w-max right
 ---
 
@@ -381,7 +381,7 @@ nutzt diese Unterstützung, nutzt flottform.io!
 
 ---
 layout: image-left
-image: ./assets/bg_09.png
+image: /images/bg_09.png
 class: grid items-center w-max left
 ---
 
@@ -400,7 +400,7 @@ zeigt ihnen neue Patterns: Wie ich interagier'!
 
 ---
 layout: image
-image: ./assets/bg_10.png
+image: /images/bg_10.png
 backgroundSize: contain
 class: grid items-end justify-center
 ---
