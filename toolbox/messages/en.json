@@ -24,6 +24,12 @@
 			"strings": "Strings",
 			"tools": "Tools"
 		},
+		"atonNifConverter": {
+			"title": "Aton-Nif Converter",
+			"seoDescription": "A handy converter between the 5-Finger-Elite-System (decimals) and the Aton-Nif-System.",
+			"placeholderEncode": "An Aton-Nif number, that should be converted into the 5-Finger-Elite system (decimal).",
+			"placeholderDecode": "A (decimal) number, that should be converted from the 5-Finger-Elite system (dezimal) into Aton-Nif."
+		},
 		"base64": {
 			"title": "Base64 Encoding",
 			"seoDescription": "Free base64 encoder / decoder, running locally in your browser.",

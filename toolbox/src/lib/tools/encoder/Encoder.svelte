@@ -5,9 +5,16 @@
 	interface EncoderProps {
 		encode: (text: string) => string;
 		decode: (text: string) => string;
+		placeholderEncode?: string;
+		placeholderDecode?: string;
 	}
 
-	let { encode, decode }: EncoderProps = $props();
+	let {
+		encode,
+		decode,
+		placeholderEncode = m.placeholderEncoded(),
+		placeholderDecode = m.placeholderDecoded()
+	}: EncoderProps = $props();
 
 	let left: HTMLTextAreaElement;
 	let right: HTMLTextAreaElement;
@@ -62,8 +69,8 @@
 		<h3 class="h-min font-bold">
 			{#if decodedSide === 'right'}{m.decoded()}{:else}{m.encoded()}{/if}
 		</h3>
-		<textarea bind:this={left} class="w-full" placeholder={m.placeholderDecoded()}></textarea>
+		<textarea bind:this={left} class="w-full" placeholder={placeholderDecode}></textarea>
 		<button class="bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>
-		<textarea bind:this={right} class="w-full" placeholder={m.placeholderEncoded()}></textarea>
+		<textarea bind:this={right} class="w-full" placeholder={placeholderEncode}></textarea>
 	</div>
 </section>
