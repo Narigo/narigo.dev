@@ -19,16 +19,24 @@
 		'8': 10,
 		'9': 11
 	} as const;
+	const decimalToAtonNifMap = ['0', '1', '2', '3', '4', '5', 'A', '6', 'N', '7', '8', '9'];
 	const decode = (decimal: string) => {
-		return decimal;
+		let decimalNumber = Number(decimal);
+		if (decimalNumber === 0) return '0';
+		let atonNif: Array<string> = [];
+		while (decimalNumber > 0) {
+			const remainder = decimalNumber % 12;
+			atonNif.push(decimalToAtonNifMap[remainder]);
+			decimalNumber = Math.floor(decimalNumber / 12);
+		}
+		return atonNif.reverse().join('');
 	};
 	const encode = (atonNif: string) => {
 		const atonNifDigits = atonNif.split('') as Array<keyof typeof atonNifToDecimalMap>;
-		console.log(atonNifDigits);
 		let decimal = 0;
-		for (let i = atonNifDigits.length; i > 0; i--) {
-			const decimalDigit = atonNifToDecimalMap[atonNifDigits[i - 1]];
-			decimal = decimalDigit;
+		for (let i = 0; i < atonNifDigits.length; i++) {
+			const decimalDigit = atonNifToDecimalMap[atonNifDigits[atonNifDigits.length - 1 - i]];
+			decimal = decimalDigit * Math.pow(12, i) + decimal;
 		}
 		return decimal;
 	};
