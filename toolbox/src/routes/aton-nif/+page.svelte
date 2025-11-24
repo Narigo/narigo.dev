@@ -48,7 +48,8 @@
 	title={m['tools.atonNifConverter.title']()}
 	description={m['tools.atonNifConverter.seoDescription']()}
 >
-	<FullWidthSection class="grid-rows-[1fr]">
+	<FullWidthSection class="grid-rows-[max-content_1fr]">
+		<a href={resolve('/aton-nif/description')}>About the Aton-Nif System</a>
 		<Encoder
 			{encode}
 			{decode}
