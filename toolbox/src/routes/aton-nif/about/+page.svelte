@@ -1,9 +1,14 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
 </script>
 
-<PageLayout title="The Aton-Nif system" description="Finally found the two missing digits.">
+<PageLayout
+	title="The Aton-Nif system"
+	description="Finally found the two missing digits."
+	backLink={resolve('/aton-nif')}
+>
 	<FullWidthSection>
 		<h2>The Aton-Nif system</h2>
 		<p>

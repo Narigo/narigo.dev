@@ -65,6 +65,16 @@
 					/>
 				</a>
 			{/if}
+
+			{#if isInFilter(toolFilter, `${m['tools.atonNifConverter.title']()} ${m['tools.atonNifConverter.description']()}`)}
+				<a href={resolve('/aton-nif')}>
+					<ToolCard
+						category="tools"
+						title={m['tools.atonNifConverter.title']()}
+						description={m['tools.atonNifConverter.description']()}
+					/>
+				</a>
+			{/if}
 		</section>
 	</FullWidthSection>
 

@@ -26,9 +26,11 @@
 		},
 		"atonNifConverter": {
 			"title": "Aton-Nif Converter",
+			"description": "Converts a number from the 5-Finger-Elite System to Aton-Nif and vice versa.",
 			"seoDescription": "A handy converter between the 5-Finger-Elite-System (decimals) and the Aton-Nif-System.",
 			"placeholderEncode": "An Aton-Nif number, that should be converted into the 5-Finger-Elite system (decimal).",
-			"placeholderDecode": "A (decimal) number, that should be converted from the 5-Finger-Elite system (dezimal) into Aton-Nif."
+			"placeholderDecode": "A (decimal) number, that should be converted from the 5-Finger-Elite system (dezimal) into Aton-Nif.",
+			"aboutLink": "About the Aton-Nif System"
 		},
 		"base64": {
 			"title": "Base64 Encoding",

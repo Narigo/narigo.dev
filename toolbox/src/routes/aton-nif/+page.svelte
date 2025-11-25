@@ -31,14 +31,14 @@
 		}
 		return atonNif.reverse().join('');
 	};
-	const encode = (atonNif: string) => {
+	const encode = (atonNif: string): string => {
 		const atonNifDigits = atonNif.split('') as Array<keyof typeof atonNifToDecimalMap>;
 		let decimal = 0;
 		for (let i = 0; i < atonNifDigits.length; i++) {
 			const decimalDigit = atonNifToDecimalMap[atonNifDigits[atonNifDigits.length - 1 - i]];
 			decimal = decimalDigit * Math.pow(12, i) + decimal;
 		}
-		return decimal;
+		return String(decimal);
 	};
 </script>
 
@@ -49,7 +49,7 @@
 	description={m['tools.atonNifConverter.seoDescription']()}
 >
 	<FullWidthSection class="grid-rows-[max-content_1fr]">
-		<a href={resolve('/aton-nif/description')}>About the Aton-Nif System</a>
+		<a href={resolve('/aton-nif/about')}>{m['tools.atonNifConverter.aboutLink']()}</a>
 		<Encoder
 			{encode}
 			{decode}
