@@ -14,7 +14,9 @@
 	<Narigo>
 		<p>
 			I began with the mountain and when I removed the part of the white moon, I figured out that
-			changing the layers (and transparency values) makes more sense here.
+			changing the layers (and transparency values) makes more sense here. So now, it's a mountain
+			with transparency on top of a blue, transparent "moon", which is the cut-out for the actual
+			white to blue moon.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>
