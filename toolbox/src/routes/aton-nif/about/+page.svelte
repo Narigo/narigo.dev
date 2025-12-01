@@ -2,6 +2,8 @@
 	import { resolve } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
+
+	const slidesLink = 'https://narigo.dev/talks/zahlenskandal';
 </script>
 
 <PageLayout
@@ -21,6 +23,12 @@
 			<p>
 				Talking to some experts from the Silicon Valley, we have found some evidence that points to
 				a conspiracy regarding the current numbering system.
+			</p>
+			<p>
+				Here are the slides we used to present this at the Hackathon: <a
+					href={slidesLink}
+					rel="external">https://narigo.dev/talks/zahlenskandal</a
+				>
 			</p>
 		</div>
 	</FullWidthSection>
