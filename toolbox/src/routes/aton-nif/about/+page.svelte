@@ -27,7 +27,7 @@
 			<p>
 				Here are the slides we used to present this at the Hackathon: <a
 					href={slidesLink}
-					rel="external">https://narigo.dev/talks/zahlenskandal</a
+					rel="external">https://narigo.dev/talks/zahlenskandal (German)</a
 				>
 			</p>
 		</div>
