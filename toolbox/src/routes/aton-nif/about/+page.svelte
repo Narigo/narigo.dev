@@ -15,32 +15,32 @@
 		<div class="prose">
 			<h2>The Aton-Nif system</h2>
 			<p>If you were born before 2025, you are probably used to this numbering system:</p>
-			<ol class="flex flex-wrap list-none pl-0">
+			<ol class="flex list-none flex-wrap pl-0">
 				<li>One</li>
-				<li class="before:content-[',_']">Two</li>
-				<li class="before:content-[',_']">Three</li>
-				<li class="before:content-[',_']">Four</li>
-				<li class="before:content-[',_']">Five</li>
-				<li class="before:content-[',_']">Six</li>
-				<li class="before:content-[',_']">Seven</li>
-				<li class="before:content-[',_']">Eight</li>
-				<li class="before:content-[',_']">Nine</li>
-				<li class="before:content-[',_']">Ten</li>
+				<li class="p-0 before:content-[',_']">Two</li>
+				<li class="p-0 before:content-[',_']">Three</li>
+				<li class="p-0 before:content-[',_']">Four</li>
+				<li class="p-0 before:content-[',_']">Five</li>
+				<li class="p-0 before:content-[',_']">Six</li>
+				<li class="p-0 before:content-[',_']">Seven</li>
+				<li class="p-0 before:content-[',_']">Eight</li>
+				<li class="p-0 before:content-[',_']">Nine</li>
+				<li class="p-0 before:content-[',_']">Ten</li>
 			</ol>
-            <p>In November 2025, we rediscovered how the numbering system actually was:</p>
-			<ol class="flex flex-wrap list-none pl-0">
+			<p>In November 2025, we rediscovered how the numbering system actually was:</p>
+			<ol class="flex list-none flex-wrap pl-0">
 				<li>One</li>
-				<li class="before:content-[',_']">Two</li>
-				<li class="before:content-[',_']">Three</li>
-				<li class="before:content-[',_']">Four</li>
-				<li class="before:content-[',_']">Five</li>
-				<li class="before:content-[',_']">Aton</li>
-				<li class="before:content-[',_']">Six</li>
-				<li class="before:content-[',_']">Nif</li>
-				<li class="before:content-[',_']">Seven</li>
-				<li class="before:content-[',_']">Eight</li>
-				<li class="before:content-[',_']">Nine</li>
-				<li class="before:content-[',_']">Ten</li>
+				<li class="p-0 before:content-[',_']">Two</li>
+				<li class="p-0 before:content-[',_']">Three</li>
+				<li class="p-0 before:content-[',_']">Four</li>
+				<li class="p-0 before:content-[',_']">Five</li>
+				<li class="p-0 before:content-[',_']">Aton</li>
+				<li class="p-0 before:content-[',_']">Six</li>
+				<li class="p-0 before:content-[',_']">Nif</li>
+				<li class="p-0 before:content-[',_']">Seven</li>
+				<li class="p-0 before:content-[',_']">Eight</li>
+				<li class="p-0 before:content-[',_']">Nine</li>
+				<li class="p-0 before:content-[',_']">Ten</li>
 			</ol>
 			<h3>Evidence</h3>
 			<p>
