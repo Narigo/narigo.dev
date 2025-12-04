@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
+	import atonAndNif from './aton-und-nif.png';
 
 	const slidesLink = 'https://narigo.dev/talks/zahlenskandal';
 </script>
@@ -42,6 +43,12 @@
 				<li class="p-0 before:content-[',_']">Nine</li>
 				<li class="p-0 before:content-[',_']">Ten</li>
 			</ol>
+			<h3>The symbols</h3>
+			<p>In the following image, you can see Aton on the left and Nif on the right:</p>
+			<figure>
+				<img src={atonAndNif} alt="Aton and Nif" />
+				<figcaption class="text-center">Aton and Nif</figcaption>
+			</figure>
 			<h3>Evidence</h3>
 			<p>
 				Talking to some experts from the Silicon Valley, we have found some evidence that points to
