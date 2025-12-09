@@ -51,9 +51,13 @@
 			</figure>
 			<h3>Evidence</h3>
 			<p>
-				Talking to some experts from the Silicon Valley, we have found some evidence that points to
+                Talking to some experts from the Silicon Valley, we have found some evidence that uncovered
 				a conspiracy regarding the current numbering system.
 			</p>
+            <h4>The dozen</h4>
+            <p></p>
+            <h4>Additional fingers in early generative image AIs</h4>
+            <p></p>
 			<h3>Background</h3>
 			<p>
 				During the B4Y3RW4LD-Hackathon in November 2025, we rediscovered two long lost numbers: <strong
