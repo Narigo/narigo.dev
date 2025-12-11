@@ -127,7 +127,7 @@ A + N = 12         (in restored notation)
 
 			<aside>
 				<p>
-					Here are the slides we used to present this at the Hackathon: <a
+					Here are the slides we used to present this at the Bayerwald Hackathon: <a
 						href={slidesLink}
 						rel="external">https://narigo.dev/talks/zahlenskandal (German)</a
 					>
