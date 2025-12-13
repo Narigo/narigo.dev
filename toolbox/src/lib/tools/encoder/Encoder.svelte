@@ -5,6 +5,8 @@
 	interface EncoderProps {
 		encode: (text: string) => string;
 		decode: (text: string) => string;
+		encodeLabel?: string;
+		decodeLabel?: string;
 		placeholderEncode?: string;
 		placeholderDecode?: string;
 	}
@@ -12,6 +14,8 @@
 	let {
 		encode,
 		decode,
+		encodeLabel = m.encoded(),
+		decodeLabel = m.decoded(),
 		placeholderEncode = m.placeholderEncoded(),
 		placeholderDecode = m.placeholderDecoded()
 	}: EncoderProps = $props();
@@ -63,11 +67,11 @@
 <section class="@container h-full w-full">
 	<div class="grid h-full w-full grid-cols-[1fr_min-content_1fr] grid-rows-[min-content_1fr]">
 		<h3 class="h-min font-bold">
-			{#if decodedSide === 'left'}{m.decoded()}{:else}{m.encoded()}{/if}
+			{#if decodedSide === 'left'}{decodeLabel}{:else}{encodeLabel}{/if}
 		</h3>
 		<div></div>
 		<h3 class="h-min font-bold">
-			{#if decodedSide === 'right'}{m.decoded()}{:else}{m.encoded()}{/if}
+			{#if decodedSide === 'right'}{decodeLabel}{:else}{encodeLabel}{/if}
 		</h3>
 		<textarea bind:this={left} class="w-full" placeholder={placeholderDecode}></textarea>
 		<button class="bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>

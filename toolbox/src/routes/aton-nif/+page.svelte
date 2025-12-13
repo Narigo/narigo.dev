@@ -19,6 +19,8 @@
 		'8': 10,
 		'9': 11
 	} as const;
+	type AtonNifDigit = keyof typeof atonNifToDecimalMap;
+
 	const decimalToAtonNifMap = ['0', '1', '2', '3', '4', '5', 'A', '6', 'N', '7', '8', '9'];
 	const decode = (decimal: string) => {
 		let decimalNumber = Number(decimal);
@@ -32,14 +34,23 @@
 		return atonNif.reverse().join('');
 	};
 	const encode = (atonNif: string): string => {
-		const atonNifDigits = atonNif.split('') as Array<keyof typeof atonNifToDecimalMap>;
+		const atonNifDigits = atonNif.split('') as Array<AtonNifDigit>;
 		let decimal = 0;
 		for (let i = 0; i < atonNifDigits.length; i++) {
-			const decimalDigit = atonNifToDecimalMap[atonNifDigits[atonNifDigits.length - 1 - i]];
+			const atonNifDigit = atonNifDigits[atonNifDigits.length - 1 - i].toLocaleUpperCase();
+			if (!isAtonNifDigit(atonNifDigit)) {
+				decimal = NaN;
+				continue;
+			}
+			const decimalDigit = atonNifToDecimalMap[atonNifDigit];
 			decimal = decimalDigit * Math.pow(12, i) + decimal;
 		}
 		return String(decimal);
 	};
+
+	function isAtonNifDigit(char: string): char is AtonNifDigit {
+		return char in atonNifToDecimalMap;
+	}
 </script>
 
 <PageLayout
@@ -52,7 +63,9 @@
 		<a href={resolve('/aton-nif/about')}>{m['tools.atonNifConverter.aboutLink']()}</a>
 		<Encoder
 			{encode}
+			encodeLabel={m['tools.atonNifConverter.encodeLabel']()}
 			{decode}
+			decodeLabel={m['tools.atonNifConverter.decodeLabel']()}
 			placeholderDecode={m['tools.atonNifConverter.placeholderDecode']()}
 			placeholderEncode={m['tools.atonNifConverter.placeholderEncode']()}
 		/>

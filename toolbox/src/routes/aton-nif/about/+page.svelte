@@ -76,10 +76,16 @@
 			<p>Examples:</p>
 
 			<pre>
-1A  -> "atonteen"  (decimal 16)
-1N  -> "nifteen"   (decimal 17)
-A + N = 12         (in restored notation)
-  </pre>
+        1A → "atonteen"              (decimal 18)
+        16 → "sixteen"               (decimal 19)
+        1N → "nifteen"               (decimal 20)
+
+A + A = 10 → "ten" or "dozen"        (decimal 12)
+A + N = 12 → "twelve" or "dozen-two" (decimal 14)
+
+        A0 → "atonty"
+        N0 → "nifty"
+</pre>
 
 			<p>
 				Our converter tool allows you to translate freely between Aton-Nif notation and the modern
