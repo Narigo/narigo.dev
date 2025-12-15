@@ -2,8 +2,7 @@
 	import { resolve } from '$app/paths';
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
-	import atonAndNif from './aton-und-nif.png';
-	import { html as atonAndNifArticle } from './aton-and-nif.md';
+	import AtonAndNifArticle from './aton-and-nif.md';
 
 	const slidesLink = 'https://narigo.dev/talks/zahlenskandal';
 </script>
@@ -15,7 +14,7 @@
 >
 	<FullWidthSection>
 		<div class="prose">
-			{@html atonAndNifArticle}
+			<AtonAndNifArticle />
 		</div>
 		<aside>
 			<p>
