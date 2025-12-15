@@ -2,6 +2,7 @@ import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { readFileSync } from 'node:fs';
+import { Mode, plugin } from 'vite-plugin-markdown';
 
 export default defineConfig({
 	plugins: [
@@ -9,7 +10,8 @@ export default defineConfig({
 		paraglideVitePlugin({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'
-		})
+		}),
+		plugin({ mode: [Mode.HTML] })
 	],
 
 	server: {
