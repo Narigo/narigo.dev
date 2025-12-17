@@ -52,7 +52,7 @@ A + N = 12 → "zwölf" oder "Dutzend-zwei" (dezimal 14)
 
 Unser Konverter-Tool ermöglicht es Ihnen, frei zwischen der Aton-Nif-Notation und dem modernen Dezimalsystem zu übersetzen.
 
-## Warum sollte man Aton und Nif wiederherstellen?
+## Warum sollten wir Aton und Nif wieder einführen?
 
 Dafür gibt es mehrere überzeugende Gründe:
 

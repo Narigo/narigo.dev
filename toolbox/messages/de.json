@@ -32,7 +32,10 @@
 			"decodeLabel": "Aton-Nif System (dozen)",
 			"placeholderDecode": "Eine Aton-Nif-Zahl, die in das 5-Finger-Elite-System (dezimal) umgewandelt werden soll.",
 			"placeholderEncode": "Die Zahl, die vom 5-Finger-Elite-System (dezimal) in das Aton-Nif-System umgewandelt werden soll.",
-			"aboutLink": "Über das Aton-Nif System"
+			"aboutLink": "Über das Aton-Nif System",
+			"loading": "Lade Hintergrundartikel ...",
+			"couldNotLoad": "Fehler beim Laden des Artikels:",
+			"talkLinkDescription": "Hier sind die Slides, die wir beim Bayerwald Hackathon präsentierten:"
 		},
 		"base64": {
 			"title": "Base64 Verschlüsselung",

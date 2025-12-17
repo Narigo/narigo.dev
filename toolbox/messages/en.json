@@ -32,7 +32,10 @@
 			"decodeLabel": "Aton-Nif System (dozen)",
 			"placeholderEncode": "An Aton-Nif number, that should be converted into the 5-Finger-Elite system (decimal).",
 			"placeholderDecode": "A (decimal) number, that should be converted from the 5-Finger-Elite system (dezimal) into Aton-Nif.",
-			"aboutLink": "About the Aton-Nif System"
+			"aboutLink": "About the Aton-Nif System",
+			"loading": "Loading article ...",
+			"couldNotLoad": "Error loading article:",
+			"talkLinkDescription": "Here are the slides we used to present this at the Bayerwald Hackathon:"
 		},
 		"base64": {
 			"title": "Base64 Encoding",
