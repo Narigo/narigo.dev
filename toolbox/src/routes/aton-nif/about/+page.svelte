@@ -18,8 +18,8 @@
 </script>
 
 <PageLayout
-	title="The Aton-Nif system"
-	description="Finally found the two missing digits."
+	title={m['tools.atonNifConverter.aboutTitle']()}
+	description={m['tools.atonNifConverter.aboutSeoDescription']()}
 	backLink={resolve('/aton-nif')}
 >
 	<FullWidthSection>

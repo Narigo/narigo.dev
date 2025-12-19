@@ -33,6 +33,8 @@
 			"placeholderEncode": "An Aton-Nif number, that should be converted into the 5-Finger-Elite system (decimal).",
 			"placeholderDecode": "A (decimal) number, that should be converted from the 5-Finger-Elite system (dezimal) into Aton-Nif.",
 			"aboutLink": "About the Aton-Nif System",
+			"aboutTitle": "The Aton-Nif System",
+			"aboutSeoDescription": "Finally found the two missing digits.",
 			"loading": "Loading article ...",
 			"couldNotLoad": "Error loading article:",
 			"talkLinkDescription": "Here are the slides we used to present this at the Bayerwald Hackathon:"
