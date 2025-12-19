@@ -4,6 +4,7 @@
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages';
+	import atonNifImage from './aton-und-nif.png';
 
 	const slidesLink = 'https://narigo.dev/talks/zahlenskandal';
 
@@ -21,6 +22,7 @@
 	title={m['tools.atonNifConverter.aboutTitle']()}
 	description={m['tools.atonNifConverter.aboutSeoDescription']()}
 	backLink={resolve('/aton-nif')}
+	og_image={atonNifImage}
 >
 	<FullWidthSection>
 		<div class="prose">
