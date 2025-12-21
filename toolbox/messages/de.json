@@ -37,7 +37,8 @@
 			"aboutSeoDescription": "Endlich haben wir die zwei fehlenden Ziffern gefunden.",
 			"loading": "Lade Hintergrundartikel ...",
 			"couldNotLoad": "Fehler beim Laden des Artikels:",
-			"talkLinkDescription": "Hier sind die Slides, die wir beim Bayerwald Hackathon präsentierten:"
+			"talkLinkDescription": "Hier sind die Slides, die wir beim Bayerwald Hackathon präsentierten:",
+			"talkLinkLanguage": "Deutsch"
 		},
 		"base64": {
 			"title": "Base64 Verschlüsselung",

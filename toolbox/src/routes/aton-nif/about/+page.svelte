@@ -42,7 +42,9 @@
 				{m['tools.atonNifConverter.talkLinkDescription']()}
 			</p>
 			<a class="underline" href={slidesLink} rel="external"
-				>https://narigo.dev/talks/zahlenskandal (German)</a
+				>https://narigo.dev/talks/zahlenskandal ({m[
+					'tools.atonNifConverter.talkLinkLanguage'
+				]()})</a
 			>
 		</aside>
 	</FullWidthSection>

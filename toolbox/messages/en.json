@@ -37,7 +37,8 @@
 			"aboutSeoDescription": "Finally found the two missing digits.",
 			"loading": "Loading article ...",
 			"couldNotLoad": "Error loading article:",
-			"talkLinkDescription": "Here are the slides we used to present this at the Bayerwald Hackathon:"
+			"talkLinkDescription": "Here are the slides we used to present this at the Bayerwald Hackathon:",
+			"talkLinkLanguage": "German"
 		},
 		"base64": {
 			"title": "Base64 Encoding",
