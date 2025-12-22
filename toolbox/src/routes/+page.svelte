@@ -79,9 +79,7 @@
 	</FullWidthSection>
 
 	<FullWidthSection>
-		<p>
-			{m['general.explanation']()}
-		</p>
+		<p>{m['general.explanation']()}</p>
 		<p>{m['general.stuffToDo']()}</p>
 		<ul class="list-disc pl-6">
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
