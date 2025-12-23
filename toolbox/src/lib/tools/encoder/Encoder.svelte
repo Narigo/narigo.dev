@@ -1,3 +1,7 @@
+<script lang="ts" module>
+	let idCounter = 0;
+</script>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -24,6 +28,10 @@
 	let right: HTMLTextAreaElement;
 
 	let decodedSide: 'left' | 'right' = $state('left');
+
+	idCounter++;
+	const leftId = `converter-left-${idCounter}`;
+	const rightId = `converter-right-${idCounter}`;
 
 	onMount(() => {
 		left.addEventListener('input', () => {
@@ -66,15 +74,17 @@
 
 <section class="@container h-full w-full">
 	<div class="grid h-full w-full grid-cols-[1fr_min-content_1fr] grid-rows-[min-content_1fr]">
-		<h3 class="h-min font-bold">
+		<label for={leftId} class="h-min font-bold">
 			{#if decodedSide === 'left'}{decodeLabel}{:else}{encodeLabel}{/if}
-		</h3>
+		</label>
 		<div></div>
-		<h3 class="h-min font-bold">
+		<label for={rightId} class="h-min font-bold">
 			{#if decodedSide === 'right'}{decodeLabel}{:else}{encodeLabel}{/if}
-		</h3>
-		<textarea bind:this={left} class="w-full" placeholder={placeholderDecode}></textarea>
+		</label>
+		<textarea id={leftId} bind:this={left} class="w-full" placeholder={placeholderDecode}
+		></textarea>
 		<button class="bg-gray-200 p-4" onclick={swapInputs}>{m.toggle()}</button>
-		<textarea bind:this={right} class="w-full" placeholder={placeholderEncode}></textarea>
+		<textarea id={rightId} bind:this={right} class="w-full" placeholder={placeholderEncode}
+		></textarea>
 	</div>
 </section>
