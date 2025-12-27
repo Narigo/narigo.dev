@@ -17,23 +17,24 @@ test.describe('aton-nif conversion', () => {
 		await testAtonNifToDecimalConversion('N', '8');
 		await testAtonNifToDecimalConversion('10', '12');
 		await testAtonNifToDecimalConversion('1A', '18');
+		await testAtonNifToDecimalConversion('100', '144');
 	});
 
 	test('works for numbers from decimal to aton-nif', async ({ page }) => {
 		await page.goto('/aton-nif');
 		const decoder = await page.getByLabel(translations.tools.atonNifConverter.decodeLabel);
 		const encoder = await page.getByLabel(translations.tools.atonNifConverter.encodeLabel);
-		async function testAtonNifToDecimalConversion(input: string, expected: string) {
+		async function testDecimalToAtonNifConversion(input: string, expected: string) {
 			await encoder.fill(input);
 			await expect(encoder).toHaveValue(input);
 			await expect(decoder).toHaveValue(expected);
 		}
 
-		await testAtonNifToDecimalConversion('1', '1');
-		await testAtonNifToDecimalConversion('6', 'A');
-		await testAtonNifToDecimalConversion('8', 'N');
-		await testAtonNifToDecimalConversion('12', '10');
-		await testAtonNifToDecimalConversion('18', '1A');
-		await testAtonNifToDecimalConversion('144', '100');
+		await testDecimalToAtonNifConversion('1', '1');
+		await testDecimalToAtonNifConversion('6', 'A');
+		await testDecimalToAtonNifConversion('8', 'N');
+		await testDecimalToAtonNifConversion('12', '10');
+		await testDecimalToAtonNifConversion('18', '1A');
+		await testDecimalToAtonNifConversion('144', '100');
 	});
 });
