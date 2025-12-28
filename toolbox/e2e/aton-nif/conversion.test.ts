@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import translations from '../../messages/en.json' with { type: 'json' };
 
 test.describe('aton-nif conversion', () => {
-	test('works for small numbers from aton-nif to decimal', async ({ page }) => {
+	test('works for numbers from aton-nif to decimal', async ({ page }) => {
 		await page.goto('/aton-nif');
 		const decoder = await page.getByLabel(translations.tools.atonNifConverter.decodeLabel);
 		const encoder = await page.getByLabel(translations.tools.atonNifConverter.encodeLabel);
