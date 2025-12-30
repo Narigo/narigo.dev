@@ -64,7 +64,7 @@ Reintroducing Aton and Nif reconnects us with a deeper tradition of human counti
 
 ## Try It Yourself
 
-Use [the Aton-Nif Converter](../../) to translate between:
+Use [the Aton-Nif Converter](../) to translate between:
 
 - Standard decimal numbers
 - Restored Aton-Nif notation
