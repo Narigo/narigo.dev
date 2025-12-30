@@ -19,7 +19,7 @@
 		title = "Narigo's Toolbox",
 		description = undefined,
 		author = undefined,
-		noIndex = import.meta.env.BASE_URL !== '/',
+		noIndex = import.meta.env.BASE_URL.startsWith('/preview'),
 		publishDate = undefined,
 		og_title = undefined,
 		og_description = undefined,
