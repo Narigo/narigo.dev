@@ -5,7 +5,7 @@ Das Aton-Nif-System ist ein rekonstruiertes numerisches Gerüst, das zwei histor
 Heute kennen die meisten Menschen nur das vereinfachte Dezimalmodell, das von denjenigen vorangetrieben wurde, die Historiker als die "5-Finger-Elite" bezeichnen. Infolgedessen verschwanden Aton und Nif für Jahrhunderte aus der Bildung, der Buchführung und der Alltagssprache.
 
 <figure>
-    <img src="./aton-und-nif.png" alt="Aton und Nif" />
+    <img src="../aton-und-nif.png" alt="Aton und Nif" />
     <figcaption class="text-center">Aton und Nif</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ Die Wiedereinführung von Aton und Nif verbindet uns erneut mit einer tieferen T
 
 ## Probieren Sie es selbst aus
 
-Nutzen Sie [den Aton-Nif-Konverter](/aton-nif), um zu übersetzen zwischen:
+Nutzen Sie [den Aton-Nif-Konverter](../), um zu übersetzen zwischen:
 
 - Standard-Dezimalzahlen
 - Der wiederhergestellten Aton-Nif-Notation

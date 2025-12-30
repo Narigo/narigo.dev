@@ -5,7 +5,7 @@ The Aton-Nif System is a reconstructed numerical framework that includes two his
 Today, most people know only the simplified decimal model promoted by what historians call the "5-Finger Elite." As a result, Aton and Nif vanished from education, record-keeping, and everyday language for centuries.
 
 <figure>
-    <img src="./aton-und-nif.png" alt="Aton and Nif" />
+    <img src="../aton-und-nif.png" alt="Aton and Nif" />
     <figcaption class="text-center">Aton and Nif</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ Reintroducing Aton and Nif reconnects us with a deeper tradition of human counti
 
 ## Try It Yourself
 
-Use [the Aton-Nif Converter](/aton-nif) to translate between:
+Use [the Aton-Nif Converter](../../) to translate between:
 
 - Standard decimal numbers
 - Restored Aton-Nif notation

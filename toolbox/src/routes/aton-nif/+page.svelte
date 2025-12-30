@@ -3,6 +3,7 @@
 	import FullWidthSection from '$lib/common/FullWidthSection.svelte';
 	import PageLayout from '$lib/common/PageLayout.svelte';
 	import { m } from '$lib/paraglide/messages';
+	import { getLocale } from '$lib/paraglide/runtime';
 	import Encoder from '$lib/tools/encoder/Encoder.svelte';
 
 	const atonNifToDecimalMap = {
@@ -89,7 +90,8 @@
 	description={m['tools.atonNifConverter.seoDescription']()}
 >
 	<FullWidthSection class="grid-rows-[max-content_1fr]">
-		<a href={resolve('/aton-nif/about')}>{m['tools.atonNifConverter.aboutLink']()}</a>
+		<a href={resolve(`/aton-nif/about/${getLocale()}`)}>{m['tools.atonNifConverter.aboutLink']()}</a
+		>
 		<Encoder
 			{encode}
 			encodeLabel={m['tools.atonNifConverter.encodeLabel']()}

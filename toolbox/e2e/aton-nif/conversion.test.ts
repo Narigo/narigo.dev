@@ -52,4 +52,19 @@ test.describe('aton-nif conversion', () => {
 
 		await testAtonNifToDecimalConversion('A + 5 = 9', '6 + 5 = 11');
 	});
+
+	test('allows encoding calculations by only encoding strings it considers as numbers', async ({
+		page
+	}) => {
+		await page.goto('/aton-nif');
+		const decoder = await page.getByLabel(translations.tools.atonNifConverter.decodeLabel);
+		const encoder = await page.getByLabel(translations.tools.atonNifConverter.encodeLabel);
+		async function testDecimalToAtonNifConversion(input: string, expected: string) {
+			await encoder.fill(input);
+			await expect(encoder).toHaveValue(input);
+			await expect(decoder).toHaveValue(expected);
+		}
+
+		await testDecimalToAtonNifConversion('6 + 5 = 11', 'A + 5 = 9');
+	});
 });
