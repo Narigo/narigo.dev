@@ -37,4 +37,19 @@ test.describe('aton-nif conversion', () => {
 		await testDecimalToAtonNifConversion('18', '1A');
 		await testDecimalToAtonNifConversion('144', '100');
 	});
+
+	test('allows decoding calculations by only decoding strings it considers as numbers', async ({
+		page
+	}) => {
+		await page.goto('/aton-nif');
+		const decoder = await page.getByLabel(translations.tools.atonNifConverter.decodeLabel);
+		const encoder = await page.getByLabel(translations.tools.atonNifConverter.encodeLabel);
+		async function testAtonNifToDecimalConversion(input: string, expected: string) {
+			await decoder.fill(input);
+			await expect(decoder).toHaveValue(input);
+			await expect(encoder).toHaveValue(expected);
+		}
+
+		await testAtonNifToDecimalConversion('A + 5 = 9', '6 + 5 = 11');
+	});
 });

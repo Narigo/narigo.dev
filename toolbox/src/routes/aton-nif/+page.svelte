@@ -22,7 +22,16 @@
 	type AtonNifDigit = keyof typeof atonNifToDecimalMap;
 
 	const decimalToAtonNifMap = ['0', '1', '2', '3', '4', '5', 'A', '6', 'N', '7', '8', '9'];
-	const decode = (decimal: string) => {
+
+	const isAtonNifNumber = (string: string): boolean => {
+		return /^[0-9AN]+$/.test(string);
+	};
+
+	const isNumber = (string: string): boolean => {
+		return /^[0-9]+$/.test(string);
+	};
+
+	const convertDecimalToAtonNif = (decimal: string) => {
 		let decimalNumber = Number(decimal);
 		if (decimalNumber === 0) return '0';
 		let atonNif: Array<string> = [];
@@ -33,7 +42,7 @@
 		}
 		return atonNif.reverse().join('');
 	};
-	const encode = (atonNif: string): string => {
+	const convertAtonNifToDecimal = (atonNif: string): string => {
 		const atonNifDigits = atonNif.split('') as Array<AtonNifDigit>;
 		let decimal = 0;
 		for (let i = 0; i < atonNifDigits.length; i++) {
@@ -47,6 +56,26 @@
 		}
 		return String(decimal);
 	};
+	const convertText = (
+		text: string,
+		predicate: (word: string) => boolean,
+		converter: (word: string) => string
+	): string => {
+		const wordsOrNumbers = text.split(/\b/);
+		return wordsOrNumbers
+			.map((wordOrNumber) => {
+				if (predicate(wordOrNumber)) {
+					return converter(wordOrNumber);
+				}
+				return wordOrNumber;
+			})
+			.join('');
+	};
+
+	const decode = (atonNifText: string): string =>
+		convertText(atonNifText, isNumber, convertDecimalToAtonNif);
+	const encode = (atonNifText: string): string =>
+		convertText(atonNifText, isAtonNifNumber, convertAtonNifToDecimal);
 
 	function isAtonNifDigit(char: string): char is AtonNifDigit {
 		return char in atonNifToDecimalMap;
