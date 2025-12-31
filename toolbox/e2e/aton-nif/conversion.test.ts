@@ -66,5 +66,6 @@ test.describe('aton-nif conversion', () => {
 		}
 
 		await testDecimalToAtonNifConversion('6 + 5 = 11', 'A + 5 = 9');
+		await testDecimalToAtonNifConversion('A - 5 = 1', 'A - 5 = 1');
 	});
 });
