@@ -3,11 +3,10 @@
 	import type Reveal from 'reveal.js';
 	import 'reveal.js/dist/reveal.css';
 	import 'reveal.js/dist/theme/black.css';
-	import { onMount, tick } from 'svelte';
+	import { onMount, setContext, tick, type Snippet } from 'svelte';
 	import { browser } from '$app/environment';
-	import { setContext } from 'svelte';
 	interface Props {
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { children }: Props = $props();
