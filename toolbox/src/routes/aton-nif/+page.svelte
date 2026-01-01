@@ -90,8 +90,11 @@
 	description={m['tools.atonNifConverter.seoDescription']()}
 >
 	<FullWidthSection class="grid-rows-[max-content_1fr]">
-		<a href={resolve(`/aton-nif/about/${getLocale()}`)}>{m['tools.atonNifConverter.aboutLink']()}</a
-		>
+		<p>
+			<a class="underline" href={resolve(`/aton-nif/about/${getLocale()}`)}
+				>{m['tools.atonNifConverter.aboutLink']()}</a
+			>
+		</p>
 		<Encoder
 			{encode}
 			encodeLabel={m['tools.atonNifConverter.encodeLabel']()}
