@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages';
 
-	type Category = 'strings' | 'tools';
+	type Category = 'converter' | 'tools';
 
 	interface ToolCardProps {
 		category: Category;
@@ -13,14 +13,14 @@
 
 	const cardBackground = (
 		{
-			strings: 'bg-purple-600',
+			converter: 'bg-purple-600',
 			tools: 'bg-green-600'
 		} as Record<Category, string>
 	)[category];
 
 	const categoryName = (
 		{
-			strings: m['tools.categories.strings'](),
+			converter: m['tools.categories.converter'](),
 			tools: m['tools.categories.tools']()
 		} as Record<Category, string>
 	)[category];
@@ -30,7 +30,7 @@
 	<h2 class="text-4xl font-bold">{title}</h2>
 	<p>{description}</p>
 	<span
-		class="absolute -right-1 -bottom-1 text-9xl font-bold text-black opacity-15"
+		class="absolute -right-1 -bottom-1 text-8xl font-bold text-black opacity-15"
 		aria-label={m['tools.categories.label']({ label: categoryName })}>{categoryName}</span
 	>
 </div>

@@ -29,7 +29,7 @@
 			{#if isInFilter(toolFilter, `${m['tools.base64.title']()} ${m['tools.base64.description']()}`)}
 				<a href={resolve('/base64')}>
 					<ToolCard
-						category="strings"
+						category="converter"
 						title={m['tools.base64.title']()}
 						description={m['tools.base64.description']()}
 					/>
@@ -39,7 +39,7 @@
 			{#if isInFilter(toolFilter, `${m['tools.urlEncoding.title']()} ${m['tools.urlEncoding.description']()}`)}
 				<a href={resolve('/url-encoding')}>
 					<ToolCard
-						category="strings"
+						category="converter"
 						title={m['tools.urlEncoding.title']()}
 						description={m['tools.urlEncoding.description']()}
 					/>
@@ -69,7 +69,7 @@
 			{#if isInFilter(toolFilter, `${m['tools.atonNifConverter.title']()} ${m['tools.atonNifConverter.description']()}`)}
 				<a href={resolve('/aton-nif')}>
 					<ToolCard
-						category="strings"
+						category="converter"
 						title={m['tools.atonNifConverter.title']()}
 						description={m['tools.atonNifConverter.description']()}
 					/>

@@ -21,7 +21,7 @@
 	"tools": {
 		"categories": {
 			"label": "Kategorie: {label}",
-			"strings": "Text",
+			"converter": "Umwandler",
 			"tools": "Werkzeug"
 		},
 		"atonNifConverter": {
