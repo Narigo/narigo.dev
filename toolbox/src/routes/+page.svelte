@@ -69,7 +69,7 @@
 			{#if isInFilter(toolFilter, `${m['tools.atonNifConverter.title']()} ${m['tools.atonNifConverter.description']()}`)}
 				<a href={resolve('/aton-nif')}>
 					<ToolCard
-						category="tools"
+						category="strings"
 						title={m['tools.atonNifConverter.title']()}
 						description={m['tools.atonNifConverter.description']()}
 					/>
