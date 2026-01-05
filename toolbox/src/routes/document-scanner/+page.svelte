@@ -40,7 +40,7 @@
 		const y = today.getFullYear();
 		const m = `${today.getMonth() + 1}`.padStart(2, '0');
 		const d = `${today.getDate()}`.padStart(2, '0');
-		return `${y}-${m}-${d}.pdf`;
+		return `${y}-${m}-${d}`;
 	}
 
 	function stopCurrentCamera() {
