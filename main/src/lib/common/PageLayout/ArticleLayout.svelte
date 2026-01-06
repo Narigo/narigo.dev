@@ -28,7 +28,7 @@
 				</div>
 			</FullWidthSection>
 			<ContentSection>
-				<div class="prose prose-headings:text-white">
+				<div class="prose">
 					{@render children?.()}
 				</div>
 			</ContentSection>
