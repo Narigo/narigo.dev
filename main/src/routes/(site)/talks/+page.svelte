@@ -20,10 +20,13 @@
 	<ul class="mt-12 grid gap-12">
 		<li>
 			<div>
-				<a href="{resolve('/talks')}/verbindet-euch-dezentral" rel="external"
-					>Verbindet Euch! Dezentral!</a
-				>
-				-
+				Verbindet Euch! Dezentral! (<a
+					href="{resolve('/talks')}/verbindet-euch-dezentral"
+					rel="external">Slides</a
+				>,
+				<a href="https://www.youtube.com/watch?v=8n1XiFOIrZE" rel="external noopener noreferrer"
+					>Video</a
+				>) -
 				<a href="https://www.tech-slam.com/" rel="external noopener noreferrer"
 					>4. Tech-Slam 2025-11-18</a
 				>
