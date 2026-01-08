@@ -75,7 +75,7 @@
 		<li><a href="#bottom-corners-solved">Bottom corners solved</a></li>
 		<li><a href="#bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</a></li>
 	</ol>
-	<h4 id="cross-top-color">Cross with the top color</h4>
+	<h3 id="cross-top-color">Cross with the top color</h3>
 	<RubiksTopLayer
 		top={[
 			['_', 'w', '_'],
@@ -118,7 +118,7 @@
 		put them back.
 	</p>
 
-	<h4 id="solve-top-color-and-corners">Solve top color and corners</h4>
+	<h3 id="solve-top-color-and-corners">Solve top color and corners</h3>
 	<p>
 		Having the cross part done, only the corners are left to get the first row correct. As long as
 		the top color is visible on the side, you need to check the other two colors to find on which
@@ -235,9 +235,9 @@
 		</li>
 	</ul>
 
-	<h5 id="top-color-bottom-row-facing-to-the-side">
+	<h4 id="top-color-bottom-row-facing-to-the-side">
 		Top color in the bottom row, facing to the side
-	</h5>
+	</h4>
 	<p>
 		The best direction to have is the top color being placed in the bottom row corners and facing to
 		the side. If that's the case, move it to the same spot as the corner where it needs to be
@@ -306,7 +306,7 @@
 		]}
 	/>
 
-	<h5 id="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</h5>
+	<h4 id="top-color-bottom-row-facing-down">Top color in the bottom row, facing down</h4>
 	<p>
 		If you have some solved corners on the side, move the piece to the bottom corner where the top
 		corner isn't solved yet. The safest place is the one where the corner belongs later. Rotate one
@@ -422,7 +422,7 @@
 		]}
 	/>
 
-	<h4 id="sides-to-get-the-first-two-rows">Sides to get the first two rows</h4>
+	<h3 id="sides-to-get-the-first-two-rows">Sides to get the first two rows</h3>
 	<p>
 		The first face and row should be solved and the center pieces are correctly set up. To get the
 		second row, look at the pieces that need to go to the sides. If the upper face was white, there
@@ -441,7 +441,7 @@
 		place where it should be started from: lining up with a center piece.
 	</p>
 
-	<h4 id="bottom-color-cross">Bottom color cross</h4>
+	<h3 id="bottom-color-cross">Bottom color cross</h3>
 	<p>
 		When all upper colors are solved and only the last layer needs to be solved, I turn the cube
 		around. So the solved layers are on the bottom and I can see the unsolved face at the bottom.
@@ -472,7 +472,7 @@
 	</p>
 
 	<section id="there-are-two-sides-matching-the-center-3x3">
-		<h5>Two sides matching, opposite ones are solved</h5>
+		<h4>Two sides matching, opposite ones are solved</h4>
 		<RubiksTopLayer
 			back={[
 				['_', 'y', '_'],
@@ -514,7 +514,7 @@
 			skip the following section.
 		</p>
 
-		<h5>Two sides matching, solved around a corner</h5>
+		<h4>Two sides matching, solved around a corner</h4>
 		<p>
 			Another variation could be that the two solved sides are around a corner. If there are two
 			sides solved and they are around a corner. Turn the cube in a way that the left and the one to
@@ -561,7 +561,7 @@
 		</p>
 	</section>
 
-	<h5 id="there-is-a-cross-already-3x3">There is a cross already</h5>
+	<h4 id="there-is-a-cross-already-3x3">There is a cross already</h4>
 	<RubiksTopLayer
 		back={[
 			['_', 'r', '_'],
@@ -594,7 +594,7 @@
 			href="#bottom-color-face-complete">completing the bottom face part</a
 		>.
 	</p>
-	<h5 id="there-are-no-sides-matching-the-center-3x3">There are no sides matching the center</h5>
+	<h4 id="there-are-no-sides-matching-the-center-3x3">There are no sides matching the center</h4>
 	<RubiksTopLayer
 		back={[
 			['_', 'y', '_'],
@@ -630,7 +630,7 @@
 		<CodeBlock code="F U R U' R' F'" />
 	</div>
 
-	<h4 id="bottom-color-face-complete">Bottom color face complete</h4>
+	<h3 id="bottom-color-face-complete">Bottom color face complete</h3>
 	<p>
 		There are multiple ways the corners may look like. Using the following algorithm means putting
 		the front face of the front-right corner to the top face of the back-right corner. There are
@@ -712,7 +712,7 @@
 
 	<p>With these two algorithms, all corner situations should be resolvable.</p>
 
-	<h4 id="bottom-corners-solved">Bottom corners solved</h4>
+	<h3 id="bottom-corners-solved">Bottom corners solved</h3>
 	<p>
 		If you can find two corners which are solved (two corners on the same side have the same color),
 		move them to the side where they should be. This solved side should be in the opposite direction
@@ -780,7 +780,7 @@
 		]}
 	/>
 
-	<h4 id="bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</h4>
+	<h3 id="bottom-sides-solved-complete-cube">Bottom sides solved / complete cube</h3>
 	<p>
 		Now that all the corners and the bottom face is solved, there are only a few possibilities left:
 	</p>
@@ -794,7 +794,7 @@
 		necessary though.
 	</p>
 
-	<h5 id="solve-all-sides-bottom-3x3">All sides are mixed up</h5>
+	<h4 id="solve-all-sides-bottom-3x3">All sides are mixed up</h4>
 	<p>
 		Sometimes, all sides are mixed up. It doesn't really matter if you start with a clockwise or
 		counter-clockwise algorithm then.
@@ -955,7 +955,7 @@
 	/>
 	<p>Now it can be solved as described in the next chapter, solving the three remaining sides.</p>
 
-	<h5 id="solve-three-sides-bottom-3x3">Three sides are mixed up</h5>
+	<h4 id="solve-three-sides-bottom-3x3">Three sides are mixed up</h4>
 	<p>
 		The cube may have one color solved, all others are mixed up. When they are mixed up, they can be
 		in two ways: Clockwise or counter-clockwise.
@@ -1188,7 +1188,7 @@
 		<li><a href="#bottom-color-face-complete-4x4">Bottom color face complete</a></li>
 	</ol>
 
-	<h4 id="correct-center-pieces">Correct center pieces</h4>
+	<h3 id="correct-center-pieces">Correct center pieces</h3>
 	<p>
 		White is top, yellow is bottom, on the sides I remember red, then blue, then orange, then green
 		(RBOG). Since the edges and corners are not really to necessary to look at yet, getting a color
@@ -1198,7 +1198,7 @@
 		color from somewhere else into it.
 	</p>
 
-	<h4 id="correct-pairs-on-every-side">Correct pairs on every side</h4>
+	<h3 id="correct-pairs-on-every-side">Correct pairs on every side</h3>
 	<p>
 		This makes all edges on the sides be of the same colors. As long as there are still broken
 		sides, the algorithm is to move the same colors on the same face but in different directions.
@@ -1337,7 +1337,7 @@
 		<CodeBlock code="Lw' U' L U l" />
 	</div>
 
-	<h4 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h4>
+	<h3 id="solving-the-top-3-layers-like-a-3x3">Solving the top 3 layers like a 3x3</h3>
 	<p>
 		There are a few steps now that feel like solving the 3x3 again. In essence, the top color gets a
 		cross with the center pieces on the side, the top face corners get solved and then the side
@@ -1348,7 +1348,7 @@
 		on the sides are in this order: Red, Blue, Orange, Green. On the bottom, the center piece is
 		Yellow.
 	</p>
-	<h5>Top cross</h5>
+	<h4>Top cross</h4>
 	<p>
 		Look for the white side pieces. Move them to the side that matches the other color and make sure
 		they fits together. For example like this:
@@ -1512,7 +1512,7 @@
 		]}
 	/>
 
-	<h5>Solve top layer corners</h5>
+	<h4>Solve top layer corners</h4>
 	<p>
 		This is exactly like <a href="#solve-top-color-and-corners"
 			>the 3x3 solution for the top corners</a
@@ -1530,7 +1530,7 @@
 		for examples.
 	</p>
 
-	<h5>Solve second and third layer</h5>
+	<h4>Solve second and third layer</h4>
 	<p>After finishing the top layer corners, the cube should look like this:</p>
 	<RubiksTopLayer
 		back={[
@@ -1609,7 +1609,7 @@
 		there.
 	</p>
 
-	<h5 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h5>
+	<h4 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h4>
 	<p>
 		There can be a special case for the 4x4 though: If there happens to be only one or three parts
 		of the bottom color showing from the center to the sides, there is a parity situation. In this
@@ -1744,17 +1744,17 @@
 		]}
 	/>
 
-	<h4 id="bottom-color-face-complete-4x4">Completing the bottom color face (4x4)</h4>
+	<h3 id="bottom-color-face-complete-4x4">Completing the bottom color face (4x4)</h3>
 
 	<p>
 		This is very similar to the 3x3 solution. Use the same algorithms to solve the corners first,
 		then check if there is an additional parity situation (see "Mirrored side colors" below).
 	</p>
 
-	<h4>Last layer corner correction</h4>
+	<h3>Last layer corner correction</h3>
 	<p>This is the same as for the 3x3. Use the algorithm to exchange two corners.</p>
 
-	<h5>Parity situation: Mirrored side colors</h5>
+	<h4>Parity situation: Mirrored side colors</h4>
 
 	<p>To mirror the two sides in a situation like the following:</p>
 
@@ -1797,7 +1797,7 @@
 		<CodeBlock code="r2 U2 r2 Uw2 r2 u2" />
 	</div>
 
-	<h5>Parity situation: Side colors mirrored over corner</h5>
+	<h4>Parity situation: Side colors mirrored over corner</h4>
 
 	<p>Similar to the one before, the parity situation could happen around a corner, like this:</p>
 
