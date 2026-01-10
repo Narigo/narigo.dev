@@ -11,6 +11,10 @@
 	<h2>Articles</h2>
 	<ul>
 		<li>
+			<a href={resolve('/articles/verbindet-euch-dezentral')}>My Tech-Slam poem on a single page</a
+			>.
+		</li>
+		<li>
 			<a href={resolve('/articles/jscc24')}>My personal retrospective of JSCraftCamp 2024</a>
 		</li>
 		<li>
