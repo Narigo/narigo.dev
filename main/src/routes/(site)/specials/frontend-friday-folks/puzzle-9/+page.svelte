@@ -50,6 +50,8 @@
     width: 50px;
   }
 </style>`;
+
+	const oneElementSolution = `<p><style>&{background:linear-gradient(#222730 75px,#4CAAB3 0 225px,#222730 0)}p{position:fixed;inset:9px 75px;border:solid+50px#222730;rotate:45deg;background:radial-gradient(1q,#393E46 25px,#4CAAB3`;
 </script>
 
 <PuzzlePageLayout title="Tesseract" puzzleId="9">
@@ -57,5 +59,11 @@
 	<Narigo>
 		The solution I found in CSSBattle.dev shows a very long thing. I think I should do this again
 		with just one element and a background. Let's see how this works out!
+	</Narigo>
+	<Puzzle title="Puzzle 9 solution with one element" solution={oneElementSolution} />
+	<Narigo>
+		Okay, I had to try to come up with another one for this. A lot smaller and using a gradient for
+		the circle. This looks way better to me, even though I code golfed a bit obviously and wouldn't
+		like to use this in production, with the body background and the inset positioning...
 	</Narigo>
 </PuzzlePageLayout>
