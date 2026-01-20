@@ -13,3 +13,9 @@ corepack enable
 pnpm i
 pnpm run dev
 ```
+
+### Structure
+
+- `main`: The main pages for narigo.dev
+- `talks`: Individual talks which I usually prepare with sli.dev
+- `toolbox`: Some tools that I wanted to have without ads.
