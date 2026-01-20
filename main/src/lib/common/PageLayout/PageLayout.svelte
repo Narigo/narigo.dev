@@ -136,13 +136,22 @@
 	</main>
 	<footer class="content-grid font-comic py-4">
 		<FullWidthSection>
-			<div><a href={resolve('/imprint')}>ℹ️ Imprint</a></div>
-			<div>&copy; Jörn Bernhardt</div>
-			<div>
-				Statically hosted on GitHub Pages. <a
-					href="https://github.com/Narigo/narigo.dev"
-					rel="external">Source</a
-				>
+			<div class="grid md:grid-cols-3">
+				<ul>
+					<li>
+						<a href={resolve('/imprint')}>ℹ️ Imprint</a>
+					</li>
+					<li>
+						<a href="https://toolbox.narigo.dev" rel="external">🛠️ Toolbox</a>
+					</li>
+				</ul>
+				<div>&copy; Jörn Bernhardt</div>
+				<div>
+					Statically hosted on GitHub Pages. <a
+						href="https://github.com/Narigo/narigo.dev"
+						rel="external">Source</a
+					>
+				</div>
 			</div>
 		</FullWidthSection>
 	</footer>
