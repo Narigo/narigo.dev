@@ -1,6 +1,5 @@
 <script>
 	import Narigo from '$lib/common/bubble/Narigo.svelte';
-	import Code from '$lib/common/Code.svelte';
 	import Puzzle from '../Puzzle.svelte';
 	import PuzzlePageLayout from '../PuzzlePageLayout.svelte';
 
