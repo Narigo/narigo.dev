@@ -13,6 +13,9 @@ export default mergeConfig(
 			host: '0.0.0.0',
 			port: 5174
 		},
+		preview: {
+			port: 4173
+		},
 		test: {
 			include: ['src/**/*.{test,spec}.{js,ts}']
 		}

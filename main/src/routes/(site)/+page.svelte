@@ -6,7 +6,7 @@
 
 <PageLayout>
 	<section>
-		<h2>Welcome to Jörns page! 👋</h2>
+		<h1>Welcome to Jörns page! 👋</h1>
 		<Narigo>
 			<p>
 				It's another stab at building a homepage for myself. I don't want to spend much time

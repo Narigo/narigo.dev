@@ -8,7 +8,9 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test": "pnpm run test:unit && pnpm run test:e2e",
 		"test:unit": "vitest",
+		"test:e2e": "playwright test",
 		"lint": "prettier --check --plugin prettier-plugin-svelte . && eslint .",
 		"format": "prettier --write --plugin prettier-plugin-svelte ."
 	},
