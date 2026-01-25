@@ -37,7 +37,7 @@
 	<Narigo
 		>That was tricky! The numbers don't really line up well and it feels like there is something off
 		now. Usually, the numbers end with a <Code>0</Code> or at least <Code>5</Code> when using
-		<Code>px</Code> values. I didn't want to deep dive into using other units to see whether ther is
-		something else suited better for this.
+		<Code>px</Code> values. I didn't want to deep dive into using other units to see whether ther is something
+		else suited better for this.
 	</Narigo>
 </PuzzlePageLayout>

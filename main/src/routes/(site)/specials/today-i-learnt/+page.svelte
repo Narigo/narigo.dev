@@ -63,8 +63,8 @@
 			<p>
 				When using <Code>for (const c of string) {'{ ... }'}</Code>, it's not necessary to do a
 				<Code>string.split('')</Code>
-				before. If you want to <Code>string.map()</Code> or <Code>string.filter()</Code> though, you
-				need to split it first.
+				before. If you want to <Code>string.map()</Code> or <Code>string.filter()</Code> though, you need
+				to split it first.
 			</p>
 		</li>
 		<li>

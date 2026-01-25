@@ -59,8 +59,8 @@ config/      (optionally)
 	<p>
 		The very first one was the most intimidating for me as someone who doesn't have much experience
 		with hardware. I wasn't sure which cable needs to go to which pole, since the only thing I saw
-		was a red and a black cable and the <Code>+</Code> and <Code>-</Code> symbols on the chip. So my
-		first research was about whether the red or the black cable is <Code>+</Code> or <Code>-</Code>.
+		was a red and a black cable and the <Code>+</Code> and <Code>-</Code> symbols on the chip. So my first
+		research was about whether the red or the black cable is <Code>+</Code> or <Code>-</Code>.
 	</p>
 	<p>
 		When I researched cable color codes, I found conflicting information based on what part of the
@@ -140,8 +140,8 @@ config/      (optionally)
 		to do, but the documentation was a bit lacking. The SD card from the pocuter should be plugged
 		into a regular computer. The apps that can currently be downloaded are <Code>.zip</Code> files. In
 		these, there is a folder named with a number and in that folder, there is a file called
-		<Code>esp32c3.app</Code>. On the SD card, these need to be put into an <Code>apps</Code> folder,
-		keeping the numbered folder.
+		<Code>esp32c3.app</Code>. On the SD card, these need to be put into an <Code>apps</Code> folder, keeping
+		the numbered folder.
 	</p>
 	<p>To make it clear, the structure of the SD card should look like this:</p>
 	<CodeBlock code={appDir} />
@@ -183,8 +183,8 @@ config/      (optionally)
 		took me a while to understand one crucial thing: USB cables are not equal to USB cables. There
 		are some cables that only deliver current but no data. If you happen to try and use one of the
 		"current-only" cables, you won't be able to find your Pocuter through the serial ports at all.
-		If you don't see any changes in <Code>ls /dev/cu.*</Code> when plugging the cable in or removing
-		it, the cable itself may be the culprit.
+		If you don't see any changes in <Code>ls /dev/cu.*</Code> when plugging the cable in or removing it,
+		the cable itself may be the culprit.
 	</p>
 	<h3>Uploading code to the pocuter</h3>
 	<p>Ok, so I've seen multiple ways to do this, each of them have their own pros and cons:</p>
@@ -220,16 +220,16 @@ config/      (optionally)
 		through the Arduino IDE 2.x, I faced another issue. The error told me something like <Code
 			>Property 'upload.tool' is undefined</Code
 		> or <Code>Property 'upload.tool.serial' is undefined</Code>. It looks like Arduino IDE 2.x
-		changed a bit regarding the <Code>boards.txt</Code> files, which seem to be the instructions for
-		how to upload code to the board.
+		changed a bit regarding the <Code>boards.txt</Code> files, which seem to be the instructions for how
+		to upload code to the board.
 	</p>
 	<p>
 		First of all, the I had to install the version <Code>2.0.5-RC1-PC1.3</Code> of the Pocuter library
 		because the newer version didn't compile for me. After using that version and seeing the error above,
 		I had to change the file
-		<Code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</Code> to
-		make this work. There is a line <Code>pocuterone.upload.tool=esptool_py</Code> which needed to be
-		changed to
+		<Code>$HOME/Library/Arduino15/packages/esp32/hardware/esp32/2.0.5-RC1-PC1.3/boards.txt</Code> to make
+		this work. There is a line <Code>pocuterone.upload.tool=esptool_py</Code> which needed to be changed
+		to
 		<Code>pocuterone.upload.tool.serial=esptool_py</Code>. After this change, uploading through the
 		Arduino IDE 2.x worked.
 	</p>

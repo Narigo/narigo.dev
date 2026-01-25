@@ -1605,8 +1605,7 @@
 	/>
 
 	<p>
-		See <a href="#sides-to-get-the-first-two-rows">the 3x3 solution for layer two</a> for how to get
-		there.
+		See <a href="#sides-to-get-the-first-two-rows">the 3x3 solution for layer two</a> for how to get there.
 	</p>
 
 	<h4 id="bottom-color-cross-4x4">Bottom color cross (4x4)</h4>

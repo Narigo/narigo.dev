@@ -53,8 +53,8 @@
 		<p>
 			Lots of <Code>-webkit-box-reflect</Code> in here! We did this 100% solution at the
 			<a href="https://jscraftcamp.org" rel="external">JSCraftCamp 2023</a> in a group. Later, we started
-			working on another solution with gradients. Somehow the numbers didn't really add up, so maybe
-			other units like percentages or similar should have been used to cleanly get to 100%.
+			working on another solution with gradients. Somehow the numbers didn't really add up, so maybe other
+			units like percentages or similar should have been used to cleanly get to 100%.
 		</p>
 		<p>
 			Interestingly, using <Code>r</Code> (or other non-assigned names) as an element name seems to work

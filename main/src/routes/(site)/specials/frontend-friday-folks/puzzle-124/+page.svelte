@@ -51,8 +51,8 @@
 	<Narigo>
 		<p>
 			Hannah joined us for the first time! While she used <Code>clip-path</Code> to shape the invaders,
-			I've been using a <Code>conic-gradient</Code> and had to move it around quite a bit to finally
-			get to 100%.
+			I've been using a <Code>conic-gradient</Code> and had to move it around quite a bit to finally get
+			to 100%.
 		</p>
 	</Narigo>
 </PuzzlePageLayout>

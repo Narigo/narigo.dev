@@ -39,8 +39,8 @@
 			>border-radius</code
 		>
 		for what we have here. Still, it is possible to achieve the result with gradients and I'm happy I
-		could make it - even if it take a lot longer than expected. One cool thing here is to mirror the
-		face of the fox by using
+		could make it - even if it take a lot longer than expected. One cool thing here is to mirror the face
+		of the fox by using
 		<Code>transform: scaleX(-1)</Code>. I wonder whether it's possible to the whole face with
 		gradients though! 🤔</Narigo
 	>
