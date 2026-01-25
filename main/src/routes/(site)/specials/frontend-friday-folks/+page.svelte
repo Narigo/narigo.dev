@@ -10,7 +10,7 @@
 
 	let { data }: Props = $props();
 
-	const { puzzles } = data;
+	const { puzzles } = $derived(data);
 </script>
 
 <PageLayout

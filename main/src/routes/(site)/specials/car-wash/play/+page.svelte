@@ -18,7 +18,7 @@
 	const MITTER_COLORS_1 = 'from-red-700 to-red-600';
 	const MITTER_COLORS_2 = 'from-red-900 to-red-800';
 
-	const images = data.images;
+	const images = $derived(data.images);
 	const randomImage = () => images[Math.floor(Math.random() * images.length)];
 	const setCarColors = () => {
 		const colorsWithShades = Object.entries(colors).flatMap(([name, values]) => {

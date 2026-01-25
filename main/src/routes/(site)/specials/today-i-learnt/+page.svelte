@@ -168,6 +168,7 @@
 </PageLayout>
 
 <style lang="postcss">
+	@reference '../../../../app.css';
 	h3 {
 		@apply relative inline box-decoration-clone px-4 py-1 leading-7;
 	}
