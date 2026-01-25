@@ -31,8 +31,8 @@
     }
   },
   "dependencies": {
-    "@slidev/types": "^0.47.0",
+    "@slidev/types": "^0.47.5",
     "codemirror-theme-vars": "^0.1.2",
-    "prism-theme-vars": "^0.2.4"
+    "prism-theme-vars": "^0.2.5"
   }
 }
