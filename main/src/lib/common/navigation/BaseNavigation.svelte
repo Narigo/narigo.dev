@@ -35,11 +35,13 @@
 		>
 			{#each menuItems as { label, href, ...linkProps } (label)}
 				<li class="relative isolate inline-flex flex-1">
+					<!-- eslint-disable svelte/no-navigation-without-resolve -->
 					<a
 						class="internal bg-comic-primary hover:bg-comic-primary-light m-0 flex flex-1 px-4 py-2 text-white no-underline hover:text-white"
 						{href}
 						{...linkProps}>{label}</a
 					>
+					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 				</li>
 			{/each}
 		</ul>
